@@ -1,0 +1,25 @@
+{
+  "vscode-edge-devtools.mirrorEdits": true,
+  "vscode-edge-devtools.defaultUrl": "http://localhost:3000/spaces",
+  "vscode-edge-devtools.headless": false,
+  "vscode-edge-devtools.useHttps": false,
+  "vscode-edge-devtools.userDataDir": false,
+  "vscode-edge-devtools.runtimeExecutable": "",
+  "vscode-edge-devtools.runtimeArgs": [
+    "--disable-web-security",
+    "--disable-features=VizDisplayCompositor",
+    "--remote-debugging-port=9222"
+  ],
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.suggest.autoImports": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+  "files.associations": {
+    "*.tsx": "typescriptreact",
+    "*.ts": "typescript"
+  },
+  "emmet.includeLanguages": {
+    "typescriptreact": "html"
+  }
+}

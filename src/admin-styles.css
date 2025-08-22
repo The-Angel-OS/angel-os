@@ -1,0 +1,309 @@
+/* Payload Admin Custom Styles - Enhanced Column Layout */
+
+/* Improve collection list view to show 3-4 columns on desktop */
+.collection-list .table-wrapper {
+  overflow-x: auto;
+}
+
+.collection-list .table {
+  min-width: 100%;
+}
+
+/* Enhanced grid layout for better desktop utilization */
+@media (min-width: 1400px) {
+  .collection-list .table {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  
+  .collection-list .table thead {
+    display: contents;
+  }
+  
+  .collection-list .table tbody {
+    display: contents;
+  }
+  
+  .collection-list .table tr {
+    display: contents;
+  }
+  
+  .collection-list .table th,
+  .collection-list .table td {
+    padding: 0.75rem;
+    border: 1px solid var(--theme-elevation-200);
+    background: white;
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .collection-list .table {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .collection-list .table thead {
+    display: contents;
+  }
+  
+  .collection-list .table tbody {
+    display: contents;
+  }
+  
+  .collection-list .table tr {
+    display: contents;
+  }
+  
+  .collection-list .table th,
+  .collection-list .table td {
+    padding: 0.75rem;
+    border: 1px solid var(--theme-elevation-200);
+    background: white;
+    display: flex;
+    align-items: center;
+    min-height: 3rem;
+  }
+}
+
+/* Improve dashboard cards layout */
+.dashboard .dashboard-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 1400px) {
+  .dashboard .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+  .dashboard .dashboard-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 900px) and (max-width: 1199px) {
+  .dashboard .dashboard-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 600px) and (max-width: 899px) {
+  .dashboard .dashboard-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Enhanced form layouts for better space utilization */
+.form-field-group {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .form-field-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .form-field-group .field-type-text,
+  .form-field-group .field-type-email,
+  .form-field-group .field-type-select {
+    grid-column: span 1;
+  }
+  
+  .form-field-group .field-type-textarea,
+  .form-field-group .field-type-richText {
+    grid-column: span 3;
+  }
+  
+  .form-field-group .field-type-group {
+    grid-column: span 3;
+  }
+}
+
+/* Venue-specific enhancements for bay management */
+.field-type-group[data-field-name="bayManagement"] .array-field {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .field-type-group[data-field-name="bayManagement"] .array-field {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Staff array field improvements */
+.field-type-array[data-field-name="staff"] .array-row {
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--theme-elevation-50);
+}
+
+.field-type-array[data-field-name="staff"] .array-fields {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 900px) {
+  .field-type-array[data-field-name="staff"] .array-fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Services array improvements */
+.field-type-array[data-field-name="services"] .array-row {
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: var(--theme-elevation-50);
+}
+
+/* Contacts collection specific improvements */
+.collection-contacts .form-field-group {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .collection-contacts .form-field-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .collection-contacts .field-type-email,
+  .collection-contacts .field-type-text[data-field-name="firstName"],
+  .collection-contacts .field-type-text[data-field-name="lastName"] {
+    grid-column: span 1;
+  }
+  
+  .collection-contacts .field-type-text[data-field-name="phone"],
+  .collection-contacts .field-type-text[data-field-name="company"] {
+    grid-column: span 1;
+  }
+  
+  .collection-contacts .field-type-group {
+    grid-column: span 3;
+  }
+}
+
+/* Appointments collection improvements */
+.collection-appointments .form-field-group {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .collection-appointments .form-field-group {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .collection-appointments .field-type-text[data-field-name="title"] {
+    grid-column: span 2;
+  }
+  
+  .collection-appointments .field-type-select[data-field-name="appointmentType"] {
+    grid-column: span 1;
+  }
+  
+  .collection-appointments .field-type-date {
+    grid-column: span 1;
+  }
+  
+  .collection-appointments .field-type-group[data-field-name="bayAssignment"] {
+    grid-column: span 3;
+    background: var(--theme-elevation-50);
+    padding: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--theme-elevation-200);
+  }
+}
+
+/* General improvements for better visual hierarchy */
+.field-type-group {
+  background: var(--theme-elevation-25);
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.field-type-group .field-label {
+  font-weight: 600;
+  color: var(--theme-elevation-800);
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Dark mode support */
+[data-theme="dark"] .field-type-group {
+  background: var(--theme-elevation-100);
+  border-color: var(--theme-elevation-300);
+}
+
+[data-theme="dark"] .field-type-array .array-row {
+  background: var(--theme-elevation-150);
+  border-color: var(--theme-elevation-300);
+}
+
+/* Responsive table improvements */
+@media (max-width: 768px) {
+  .collection-list .table {
+    display: block;
+  }
+  
+  .collection-list .table thead {
+    display: none;
+  }
+  
+  .collection-list .table tbody {
+    display: block;
+  }
+  
+  .collection-list .table tr {
+    display: block;
+    border: 1px solid var(--theme-elevation-200);
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+  }
+  
+  .collection-list .table td {
+    display: block;
+    border: none;
+    padding: 0.25rem 0;
+  }
+  
+  .collection-list .table td:before {
+    content: attr(data-label) ": ";
+    font-weight: 600;
+    color: var(--theme-elevation-600);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

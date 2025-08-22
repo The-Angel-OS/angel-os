@@ -1,0 +1,323 @@
+Transcript
+
+
+Search in video
+0:01
+hey there I want to take a second to
+0:03
+talk about the multi-tenant plugin that
+0:05
+we just released for payload if you
+0:06
+don't know what multitenant is it's when
+0:08
+you have in most cases clients you're
+0:12
+spitting out websites and you want your
+0:14
+clients to log into the same admin panel
+0:16
+but you don't want them to see each
+0:17
+other's content or maybe you work in a
+0:20
+business and you have different
+0:21
+organizations and you don't want the
+0:22
+organizations to see each other's you
+0:25
+know they want you want them to stay
+0:26
+focused on the thing that they are set
+0:29
+out to do so that's kind of what multi-
+0:31
+tendency does it allows you to separate
+0:33
+um users and this plugin helps do that
+0:37
+in a fairly easy way so we have a
+0:40
+tenants collection a users collection
+0:42
+food items collection and a food menu
+0:45
+collection tenants collection you have
+0:46
+to add a tenants
+0:48
+collection and I've already done this
+0:51
+here my example is restaurants so I have
+0:53
+two clients and they are in the
+0:55
+restaurant business so steelcat blue dog
+0:58
+they're two restaurants
+1:00
+I can assign users to a restaurant so if
+1:02
+I go to users I have hu and Jane hu is
+1:05
+assigned to steelcat and Jane is
+1:08
+assigned to Blue Dog and when Jane logs
+1:12
+in Jane will only be able to see blue
+1:14
+dog related content and when H logs in
+1:16
+you will only be able to see steelcat
+1:18
+related content I'm logged in as a super
+1:20
+admin so if I look at my account here I
+1:23
+just have a rule as
+1:25
+admin we the plugin allows you to Define
+1:28
+exactly how you determine who what users
+1:30
+are super admin so this is not like
+1:32
+strict to you need to use this field um
+1:34
+but in my example this is just what I'm
+1:36
+doing and as a super admin I can go to a
+1:39
+collection and I can see all items for
+1:42
+every tenant or I can filter down by
+1:44
+like blue dog and only see the blue dog
+1:47
+items and then same for
+1:49
+steelcat um two more things two quick
+1:52
+things it also allows you
+1:54
+to kind of come up with like a global
+1:57
+pattern so with tenant you can't have a
+2:00
+global um config because collect because
+2:04
+you need to have multiple documents and
+2:06
+they just need to be one per tenant
+2:08
+instead of a global which is like one
+2:11
+document that the whole that everybody
+2:13
+shares that doesn't really work for
+2:15
+tenancy so you have there's a way to
+2:18
+Mark collections as globals and when you
+2:20
+do that you get and you click on this
+2:22
+one this one's marked as Global there's
+2:24
+no list view it goes right to the
+2:26
+document and then if I switch to blue
+2:28
+dog goes right to the blue dog
+2:30
+which is pretty cool and then when Jane
+2:32
+logs in she will only be able to go to
+2:34
+the blue dog he will only be able to go
+2:36
+to the steel capat the last thing here
+2:38
+is uh relationship filter options so
+2:41
+this is built into baked into the
+2:44
+plugin so this is a I'm on the blue dog
+2:48
+tenant and this is a relationship field
+2:50
+to food items which has a tenant field
+2:53
+on it and so it filters all the items
+2:56
+based on the tenant that I currently
+2:58
+have selected so if if I change this to
+3:00
+Steel cat you'll see that the items are
+3:03
+different these are the steelcat items
+3:06
+which is just like a boiler plate that
+3:07
+you don't need to worry about when you
+3:09
+use this plugin but you would need to
+3:10
+worry about if you were rolling your own
+3:11
+multi-tenancy
+3:13
+solution um that's really all I have the
+3:17
+only thing I could probably show you is
+3:19
+when I log in as let's say Jane there's
+3:22
+no selector because she only has one
+3:24
+tenant she can only see her tenant she
+3:27
+can't see steelcat tenant she can only
+3:28
+see users that are in the same tency as
+3:32
+she is food items there's no way to
+3:35
+filter and then the menu same kind of
+3:38
+thing but yeah that's really it that's
+3:40
+all I have I hope you learned something
+3:42
+I hope you check out the new plugin um
+3:44
+if you have any feedback feedback hit me
+3:46
+up on Discord or Twitter yeah catch you
+3:49
+in the next one peace
+
+https://github.com/payloadcms/payload/tree/main/examples/multi-tenant 
+
+payload/examples
+/multi-tenant/
+jessrynkar
+jessrynkar
+fix(examples): only allow super admins to create users with super adm…
+6e5ddc8
+ · 
+last month
+payload/examples
+/multi-tenant/
+Name	Last commit message	Last commit date
+..
+src
+fix(examples): only allow super admins to create users with super adm…
+last month
+.env.example
+fix(examples): ensure working multi-tenant example with pg (#11501)
+6 months ago
+.eslintrc.cjs
+chore: fix all eslint configs to work with esm
+last year
+.gitignore
+feat: builds multi-tenant example (#2689)
+2 years ago
+.swcrc
+chore(examples): adds optional tenant-based cookie handling by domain…
+10 months ago
+README.md
+fix(examples): ensure working multi-tenant example with pg (#11501)
+6 months ago
+next-env.d.ts
+fix(examples): ensure working multi-tenant example with pg (#11501)
+6 months ago
+next.config.mjs
+feat: adds multi-tenant plugin (#10447)
+7 months ago
+package.json
+feat!: bump minimum next version to 15.2.3 (#11823)
+5 months ago
+pnpm-lock.yaml
+chore(plugin-multi-tenant): remove SELECT_ALL constant (#11660)
+5 months ago
+tsconfig.json
+feat: adds multi-tenant plugin (#10447)
+7 months ago
+README.md
+Payload Multi-Tenant Example
+This example demonstrates how to achieve a multi-tenancy in Payload. Tenants are separated by a Tenants collection.
+
+Quick Start
+To spin up this example locally, follow these steps:
+
+Run the following command to create a project from the example:
+npx create-payload-app --example multi-tenant
+cp .env.example .env to copy the example environment variables
+
+pnpm dev, yarn dev or npm run dev to start the server
+
+Press y when prompted to seed the database
+open http://localhost:3000 to access the home page
+
+open http://localhost:3000/admin to access the admin panel
+
+Default users
+The seed script seeds 3 tenants. Login with email demo@payloadcms.com and password demo
+
+How it works
+A multi-tenant Payload application is a single server that hosts multiple "tenants". Examples of tenants may be your agency's clients, your business conglomerate's organizations, or your SaaS customers.
+
+Each tenant has its own set of users, pages, and other data that is scoped to that tenant. This means that your application will be shared across tenants but the data will be scoped to each tenant.
+
+Collections
+See the Collections docs for details on how to extend any of this functionality.
+
+Users
+The users collection is auth-enabled and encompasses both app-wide and tenant-scoped users based on the value of their roles and tenants fields. Users with the role super-admin can manage your entire application, while users with the tenant role of admin have limited access to the platform and can manage only the tenant(s) they are assigned to, see Tenants for more details.
+
+For additional help with authentication, see the official Auth Example or the Authentication docs.
+
+Tenants
+A tenants collection is used to achieve tenant-based access control. Each user is assigned an array of tenants which includes a relationship to a tenant and their roles within that tenant. You can then scope any document within your application to any of your tenants using a simple relationship field on the users or pages collections, or any other collection that your application needs. The value of this field is used to filter documents in the admin panel and API to ensure that users can only access documents that belong to their tenant and are within their role. See Access Control for more details.
+
+For more details on how to extend this functionality, see the Payload Access Control docs.
+
+Domain-based Tenant Setting:
+
+This example also supports domain-based tenant selection, where tenants can be associated with a specific domain. If a tenant is associated with a domain (e.g., gold.localhost:3000), when a user logs in from that domain, they will be automatically scoped to the matching tenant. This is accomplished through an optional afterLogin hook that sets a payload-tenant cookie based on the domain.
+
+For the domain portion of the example to function properly, you will need to add the following entries to your system's /etc/hosts file:
+
+127.0.0.1 gold.localhost silver.localhost bronze.localhost
+Pages
+Each page is assigned a tenant, which is used to control access and scope API requests. Only users with the super-admin role can create pages, and pages are assigned to specific tenants. Other users can view only the pages assigned to the tenant they are associated with.
+
+Access control
+Basic role-based access control is set up to determine what users can and cannot do based on their roles, which are:
+
+super-admin: They can access the Payload admin panel to manage your multi-tenant application. They can see all tenants and make all operations.
+user: They can only access the Payload admin panel if they are a tenant-admin, in which case they have a limited access to operations based on their tenant (see below).
+This applies to each collection in the following ways:
+
+users: Only super-admins, tenant-admins, and the user themselves can access their profile. Anyone can create a user, but only these admins can delete users. See Users for more details.
+tenants: Only super-admins and tenant-admins can read, create, update, or delete tenants. See Tenants for more details.
+pages: Everyone can access pages, but only super-admins and tenant-admins can create, update, or delete them.
+If you have versions and drafts enabled on your pages, you will need to add additional read access control condition to check the user's tenants that prevents them from accessing draft documents of other tenants.
+
+For more details on how to extend this functionality, see the Payload Access Control docs.
+
+CORS
+This multi-tenant setup requires an open CORS policy. Since each tenant contains a dynamic list of domains, there's no way to know specifically which domains to whitelist at runtime without significant performance implications. This also means that the serverURL is not set, as this scopes all requests to a single domain.
+
+Alternatively, if you know the domains of your tenants ahead of time and these values won't change often, you could simply remove the domains field altogether and instead use static values.
+
+For more details on this, see the CORS docs.
+
+Front-end
+The frontend is scaffolded out in this example directory. You can view the code for rendering pages at /src/app/(app)/[tenant]/[...slug]/page.tsx. This is a starter template, you may need to adjust the app to better fit your needs.
+
+Questions
+If you have any issues or questions, reach out to us on Discord or start a GitHub discussion.

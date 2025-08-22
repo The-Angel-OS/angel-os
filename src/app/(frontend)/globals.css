@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Shadcn UI Variables - Now managed by Theme Provider */
+
+@layer base {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: unset;
+    font-weight: unset;
+  }
+
+  :root {
+    /* Default CSS variables - Theme Provider will override these */
+    --radius: 0.5rem;
+
+    /* Dashboard Sidebar Variables - Theme aware */
+    --sidebar: var(--background);
+    --sidebar-foreground: var(--foreground);
+    --sidebar-primary: var(--primary);
+    --sidebar-primary-foreground: var(--primary-foreground);
+    --sidebar-accent: var(--accent);
+    --sidebar-accent-foreground: var(--accent-foreground);
+    --sidebar-border: var(--border);
+    --sidebar-ring: var(--ring);
+
+    /* Chart Colors */
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+
+    /* Andrew Martin Control Panel Variables */
+    --andrew-primary: #1e40af;      /* Professional blue */
+    --andrew-secondary: #64748b;    /* Sophisticated gray */
+    --andrew-accent: #10b981;       /* Success green */
+    --andrew-background: #f8fafc;   /* Clean background */
+    --andrew-surface: #ffffff;      /* Card surfaces */
+    --andrew-text: #1e293b;         /* Primary text */
+    --andrew-text-muted: #64748b;   /* Secondary text */
+    --andrew-border: #e2e8f0;       /* Light border for cards/dividers */
+    --andrew-error: #ef4444;        /* Red for errors */
+    --andrew-warning: #f97316;      /* Orange for warnings */
+    --andrew-success: #22c55e;      /* Green for success (distinct from accent) */
+    --andrew-info: #3b82f6;         /* Blue for informational messages */
+
+    /* Typography Scale */
+    --font-display: 2.5rem;  /* 40px */
+    --font-h1: 2rem;         /* 32px */
+    --font-h2: 1.5rem;       /* 24px */
+    --font-h3: 1.25rem;      /* 20px */
+    --font-body: 1rem;       /* 16px */
+    --font-small: 0.875rem;  /* 14px */
+    --font-caption: 0.75rem; /* 12px */
+
+    /* Spacing */
+    --space-section-gap: 2rem;  /* 32px */
+    --space-card-gap: 1.5rem;   /* 24px */
+    --space-element-gap: 1rem;  /* 16px */
+    --space-tight-gap: 0.5rem;  /* 8px */
+  }
+
+  [data-theme='dark'] {
+    /* Dark mode specific overrides */
+    --andrew-primary: #3b82f6;
+    --andrew-secondary: #94a3b8;
+    --andrew-accent: #10b981;
+    --andrew-background: #0f172a;
+    --andrew-surface: #1e293b;
+    --andrew-text: #f1f5f9;
+    --andrew-text-muted: #94a3b8;
+    --andrew-border: #334155;
+
+    /* Chart Colors Dark */
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground min-h-[100vh] flex flex-col;
+  }
+}
+
+/* Prevent flash by hiding until theme is set */
+html:not([data-theme]) {
+  visibility: hidden;
+}
+
+/* Critical dark mode styles to prevent white flash */
+html[data-theme='dark'] {
+  background-color: hsl(222.2 84% 4.9%);
+  color: hsl(210 40% 98%);
+}
+
+html[data-theme='light'] {
+  background-color: hsl(0 0% 100%);
+  color: hsl(222.2 84% 4.9%);
+}
+
+/* Ensure body inherits proper theme colors */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  transition: background-color 0.3s ease;
+}
+
+/* Fix for Radix UI Select and other portals */
+[data-radix-popper-content-wrapper] {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+}

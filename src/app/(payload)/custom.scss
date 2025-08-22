@@ -1,0 +1,391 @@
+/* Modern Light Professional Theme for Payload CMS */
+
+:root {
+  /* Base Colors - Light and Professional */
+  --color-base-0: #ffffff;
+  --color-base-50: #f8fafc;
+  --color-base-100: #f1f5f9;
+  --color-base-150: #e2e8f0;
+  --color-base-200: #cbd5e1;
+  --color-base-250: #94a3b8;
+  --color-base-300: #64748b;
+  --color-base-350: #475569;
+  --color-base-400: #334155;
+  --color-base-450: #1e293b;
+  --color-base-500: #0f172a;
+  --color-base-550: #0c1420;
+  --color-base-600: #0a111c;
+  --color-base-650: #080e18;
+  --color-base-700: #060b14;
+  --color-base-750: #040810;
+  --color-base-800: #02050c;
+  --color-base-850: #010408;
+  --color-base-900: #000204;
+  --color-base-950: #000000;
+
+  /* Success Colors - Fresh Green */
+  --color-success-0: #ffffff;
+  --color-success-50: #f0fdf4;
+  --color-success-100: #dcfce7;
+  --color-success-150: #bbf7d0;
+  --color-success-200: #86efac;
+  --color-success-250: #4ade80;
+  --color-success-300: #22c55e;
+  --color-success-350: #16a34a;
+  --color-success-400: #15803d;
+  --color-success-450: #166534;
+  --color-success-500: #15803d;
+  --color-success-550: #16a34a;
+  --color-success-600: #22c55e;
+  --color-success-650: #4ade80;
+  --color-success-700: #86efac;
+  --color-success-750: #bbf7d0;
+  --color-success-800: #dcfce7;
+  --color-success-850: #f0fdf4;
+  --color-success-900: #f7fee7;
+  --color-success-950: #ffffff;
+
+  /* Warning Colors - Warm Orange */
+  --color-warning-0: #ffffff;
+  --color-warning-50: #fffbeb;
+  --color-warning-100: #fef3c7;
+  --color-warning-150: #fde68a;
+  --color-warning-200: #fcd34d;
+  --color-warning-250: #fbbf24;
+  --color-warning-300: #f59e0b;
+  --color-warning-350: #d97706;
+  --color-warning-400: #b45309;
+  --color-warning-450: #92400e;
+  --color-warning-500: #f59e0b;
+  --color-warning-550: #fbbf24;
+  --color-warning-600: #fcd34d;
+  --color-warning-650: #fde68a;
+  --color-warning-700: #fef3c7;
+  --color-warning-750: #fffbeb;
+  --color-warning-800: #fefcf3;
+  --color-warning-850: #fffffe;
+  --color-warning-900: #ffffff;
+  --color-warning-950: #ffffff;
+
+  /* Error Colors - Clean Red */
+  --color-error-0: #ffffff;
+  --color-error-50: #fef2f2;
+  --color-error-100: #fee2e2;
+  --color-error-150: #fecaca;
+  --color-error-200: #fca5a5;
+  --color-error-250: #f87171;
+  --color-error-300: #ef4444;
+  --color-error-350: #dc2626;
+  --color-error-400: #b91c1c;
+  --color-error-450: #991b1b;
+  --color-error-500: #ef4444;
+  --color-error-550: #f87171;
+  --color-error-600: #fca5a5;
+  --color-error-650: #fecaca;
+  --color-error-700: #fee2e2;
+  --color-error-750: #fef2f2;
+  --color-error-800: #fefafa;
+  --color-error-850: #ffffff;
+  --color-error-900: #ffffff;
+  --color-error-950: #ffffff;
+
+  /* Accent Colors - Professional Blue */
+  --color-accent-0: #ffffff;
+  --color-accent-50: #eff6ff;
+  --color-accent-100: #dbeafe;
+  --color-accent-150: #bfdbfe;
+  --color-accent-200: #93c5fd;
+  --color-accent-250: #60a5fa;
+  --color-accent-300: #3b82f6;
+  --color-accent-350: #2563eb;
+  --color-accent-400: #1d4ed8;
+  --color-accent-450: #1e40af;
+  --color-accent-500: #3b82f6;
+  --color-accent-550: #60a5fa;
+  --color-accent-600: #93c5fd;
+  --color-accent-650: #bfdbfe;
+  --color-accent-700: #dbeafe;
+  --color-accent-750: #eff6ff;
+  --color-accent-800: #f8fafc;
+  --color-accent-850: #ffffff;
+  --color-accent-900: #ffffff;
+  --color-accent-950: #ffffff;
+
+  /* Theme Variables */
+  --theme-bg: var(--color-base-0);
+  --theme-input-bg: var(--color-base-0);
+  --theme-text: var(--color-base-800);
+  --theme-overlay: rgba(15, 23, 42, 0.5);
+
+  /* Typography */
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+  --font-serif: 'Merriweather', Georgia, serif;
+
+  /* Layout */
+  --style-radius-s: 6px;
+  --style-radius-m: 10px;
+  --style-radius-l: 16px;
+  --nav-width: 280px;
+
+  /* Theme Elevation Colors (Light Mode) */
+  --theme-elevation-0: var(--color-base-0);    /* Pure white */
+  --theme-elevation-50: var(--color-base-50);  /* Lightest gray */
+  --theme-elevation-100: var(--color-base-100); /* Light gray */
+  --theme-elevation-150: var(--color-base-150);
+  --theme-elevation-200: var(--color-base-200);
+  --theme-elevation-250: var(--color-base-250);
+  --theme-elevation-300: var(--color-base-300);
+  --theme-elevation-350: var(--color-base-350);
+  --theme-elevation-400: var(--color-base-400);
+  --theme-elevation-450: var(--color-base-450);
+  --theme-elevation-500: var(--color-base-500);
+  --theme-elevation-550: var(--color-base-550);
+  --theme-elevation-600: var(--color-base-600);
+  --theme-elevation-650: var(--color-base-650);
+  --theme-elevation-700: var(--color-base-700);
+  --theme-elevation-750: var(--color-base-750);
+  --theme-elevation-800: var(--color-base-800);
+  --theme-elevation-850: var(--color-base-850);
+  --theme-elevation-900: var(--color-base-900);
+  --theme-elevation-950: var(--color-base-950);
+
+  /* Theme Accent Colors */
+  --theme-accent-0: var(--color-accent-0);
+  --theme-accent-50: var(--color-accent-50);
+  --theme-accent-100: var(--color-accent-100);
+  --theme-accent-150: var(--color-accent-150);
+  --theme-accent-200: var(--color-accent-200);
+  --theme-accent-250: var(--color-accent-250);
+  --theme-accent-300: var(--color-accent-300);
+  --theme-accent-350: var(--color-accent-350);
+  --theme-accent-400: var(--color-accent-400);
+  --theme-accent-450: var(--color-accent-450);
+  --theme-accent-500: var(--color-accent-500);
+  --theme-accent-550: var(--color-accent-550);
+  --theme-accent-600: var(--color-accent-600);
+  --theme-accent-650: var(--color-accent-650);
+  --theme-accent-700: var(--color-accent-700);
+  --theme-accent-750: var(--color-accent-750);
+  --theme-accent-800: var(--color-accent-800);
+  --theme-accent-850: var(--color-accent-850);
+  --theme-accent-900: var(--color-accent-900);
+  --theme-accent-950: var(--color-accent-950);
+}
+
+/* Navigation Styling */
+.nav {
+  background-color: var(--theme-elevation-50);
+  border-right: 1px solid var(--theme-elevation-150);
+}
+
+.hamburger__wrapper {
+  background-color: var(--theme-elevation-100);
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: var(--style-radius-s);
+}
+
+.hamburger:before,
+.hamburger:after {
+  background-color: var(--theme-elevation-100);
+  border: 1px solid var(--theme-elevation-200);
+}
+
+/* Nav Group Styling */
+.nav-group__label {
+  color: var(--theme-elevation-600);
+  font-weight: 500;
+}
+
+.nav-group__indicator svg .stroke {
+  stroke: var(--theme-elevation-500);
+}
+
+/* Improved buttons */
+.btn {
+  border-radius: var(--style-radius-s);
+  font-weight: 500;
+  transition: all 0.2s ease;
+
+  &--style-primary {
+    background: linear-gradient(135deg, var(--theme-accent-500), var(--theme-accent-600));
+    border: none;
+
+    &:hover {
+      background: linear-gradient(135deg, var(--theme-accent-600), var(--theme-accent-700));
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+  }
+
+  &--style-secondary {
+    background: var(--theme-elevation-100);
+    border: 1px solid var(--theme-elevation-200);
+    color: var(--theme-elevation-700);
+
+    &:hover {
+      background: var(--theme-elevation-150);
+      border-color: var(--theme-elevation-300);
+    }
+  }
+}
+
+/* Cards and Panels */
+.card, .collapsible {
+  background: var(--theme-elevation-0);
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: var(--style-radius-m);
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.1);
+
+  &:hover {
+    border-color: var(--theme-elevation-200);
+    box-shadow: 0 4px 6px rgba(15, 23, 42, 0.05);
+  }
+}
+
+/* Form Inputs */
+.input, .textarea, .select {
+  background: var(--theme-elevation-0);
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: var(--style-radius-s);
+  color: var(--theme-elevation-800);
+
+  &:focus {
+    border-color: var(--theme-accent-400);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Table Styling */
+.table {
+  background: var(--theme-elevation-0);
+  border: 1px solid var(--theme-elevation-150);
+  border-radius: var(--style-radius-m);
+
+  th {
+    background: var(--theme-elevation-50);
+    border-bottom: 1px solid var(--theme-elevation-150);
+    color: var(--theme-elevation-700);
+    font-weight: 600;
+  }
+
+  td {
+    border-bottom: 1px solid var(--theme-elevation-100);
+  }
+
+  tr:hover {
+    background: var(--theme-elevation-25);
+  }
+}
+
+/* Success Messages */
+.toast--success, .banner--type-success {
+  background: var(--color-success-50);
+  border: 1px solid var(--color-success-200);
+  color: var(--color-success-800);
+
+  .icon {
+    color: var(--color-success-600);
+  }
+}
+
+/* Warning Messages */
+.toast--warning, .banner--type-warning {
+  background: var(--color-warning-50);
+  border: 1px solid var(--color-warning-200);
+  color: var(--color-warning-800);
+
+  .icon {
+    color: var(--color-warning-600);
+  }
+}
+
+/* Error Messages */
+.toast--error, .banner--type-error {
+  background: var(--color-error-50);
+  border: 1px solid var(--color-error-200);
+  color: var(--color-error-800);
+
+  .icon {
+    color: var(--color-error-600);
+  }
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] {
+  --theme-bg: var(--color-base-900);
+  --theme-input-bg: var(--color-base-800);
+  --theme-text: var(--color-base-100);
+
+  /* Invert elevation colors for dark mode */
+  --theme-elevation-0: var(--color-base-900);
+  --theme-elevation-50: var(--color-base-850);
+  --theme-elevation-100: var(--color-base-800);
+  --theme-elevation-150: var(--color-base-750);
+  --theme-elevation-200: var(--color-base-700);
+  --theme-elevation-250: var(--color-base-650);
+  --theme-elevation-300: var(--color-base-600);
+  --theme-elevation-400: var(--color-base-500);
+  --theme-elevation-500: var(--color-base-400);
+  --theme-elevation-600: var(--color-base-350);
+  --theme-elevation-700: var(--color-base-300);
+  --theme-elevation-800: var(--color-base-200);
+  --theme-elevation-900: var(--color-base-100);
+
+  .nav {
+    background-color: var(--theme-elevation-100);
+    border-right-color: var(--theme-elevation-200);
+  }
+}
+
+/* Logo and Branding */
+.logo svg, .icon svg {
+  fill: var(--theme-accent-500);
+}
+
+/* Enhanced Visual Hierarchy */
+.dashboard h1 {
+  color: var(--theme-elevation-900);
+  font-weight: 700;
+}
+
+.dashboard h2 {
+  color: var(--theme-elevation-800);
+  font-weight: 600;
+}
+
+.dashboard p {
+  color: var(--theme-elevation-600);
+}
+
+/* Improved Spacing and Typography */
+body {
+  font-family: var(--font-body);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--theme-elevation-50);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--theme-elevation-300);
+  border-radius: 4px;
+
+  &:hover {
+    background: var(--theme-elevation-400);
+  }
+}
+
+/* Smooth transitions for theme switching */
+* {
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}

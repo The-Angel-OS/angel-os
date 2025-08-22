@@ -1,0 +1,913 @@
+
+
+
+Skip navigation
+Search
+
+
+
+Create
+
+9+
+
+Avatar image
+Transcript
+
+
+Search in video
+Start
+0:00
+hey guys Google just released Gemini CLI which is their direct competitor to
+0:05
+Claude Code and the craziest part is not only is the new Gemini CLI tool insanely
+0:11
+powerful Google is basically giving it away to all of us completely for free and in today's video I'm going to break
+0:17
+down everything you need to know about Gemini CLI so we're going to cover what makes it so special how to set it up and
+0:24
+then finally we're going to put it to the test on a few different code examples so that you can see firsthand
+0:30
+should you use this tool should you not so without further ado let's go ahead and dive in and cover this new amazing
+0:35
+tool all right so let's break down the major news that Google just released when they were announcing Gemini CLI
+Gemini CLI Announcement
+0:42
+which is their open-source AI agent for your terminal so first things first Gemini CLI is a command line interface
+0:50
+tool which means you're going to be using it strictly inside of your terminal and if you have seen it
+0:55
+announced so far 99% of the time when people are showcasing this tool they are showcasing the interactive version of
+1:02
+using Gemini where you just run Gemini and then you get this amazing little terminal output right here so you can
+1:08
+start chatting with your AI agents but there is another option which is to actually use Gemini to make single
+1:14
+requests where you say "Hey here is a prompt and I just want you to answer this question really fast." So you can
+1:20
+actually use Gemini CLI in multiple ways not just interactive mode you can also do singleshot request so pretty cool now
+1:27
+one thing I thought was super interesting when I first saw this announcement was huh well I already have cursor now there's this thing called
+1:33
+Gemini CLI to actually allow me to like chat with an agent in my terminal but does Google have their own like cursor
+1:39
+and I just found out today the answer is yes gemini has the code assist tool so
+1:44
+if you actually hop over here you can see right here that Google has their direct competitor to cursor to where you
+1:51
+can like chat just like you would in cursor it'll make changes in your IDE you can add in files you want to look at
+1:58
+so Google has tools on tools on tools if you want to see a video where I cover this you know Gemini code assist as a
+2:04
+competitor to cursor happy to do it but back to the main article there is AI in
+2:09
+everywhere in your terminal in your editor so they are just in any point you as a developer are interacting with code
+2:15
+Gemini is trying to be there to help you out so let's dive into I think the most important piece of news when it comes to
+2:22
+using this new tool which is basically it is completely free to you as an individual developer you're going to get
+2:28
+access to Google's most advanced model Gemini 2.5 Pro completely for free
+2:34
+you're going to get up to 60 model requests a minute which is insane that's like you know per minute so that means a
+2:40
+request per second is what you're getting and you're going to get to a,000 requests per day completely for free so
+2:46
+if you kind of break down the math on this Gemini 2.5 Pro has a 1 million token context window which if you were
+2:52
+to use this just normally out in the wild that would charge you $3 for that one request right there and you can make
+2:59
+dozens of those requests so if you want to just ingest insane amounts of information and then get summaries you
+3:06
+could do that so you're easily getting up to like if you ran 60 of those massive requests you know you're getting
+3:11
+easily $180 worth of tokens from Gemini 2.5 Pro completely for free so they're
+3:18
+uh you know holding back no expense when allowing developers to try out this new tool and I've been loving it so far
+3:24
+you're going to see this more in a minute but I just want to let you guys know it is wild how much free tokens
+3:29
+they're giving away for you to use their most advanced model so so pumped all right so let's dive into some of the
+3:34
+most important features of using Gemini CLI and you're going to see these in action throughout the rest of the video
+3:40
+first things first Gemini CLI allows you to actually run Google search which is a trippy concept at first that from your
+3:46
+browser you can actually search using terminal which is insane the other thing that was really powerful is that you can
+3:53
+use you know MCP servers directly in your terminal so they have a nice little demo down here please make me a video of
+4:00
+a cat that takes 30 seconds so they're using MCP tools to first create an image
+4:06
+and then they're using VO to convert that image into an actual video and saving it all locally so that's only
+4:12
+available by using MCP servers so this is really cool that you're able to do this once again directly from your
+4:18
+terminal then there's a few other important pieces of information to know like you can update some customized
+4:24
+prompts so you can make sure the Gemini CLI tool works exactly how you want it that's going to be done using a
+4:30
+something called a Gemini.mmarkdown file don't worry we're going to cover that later and then finally you can actually automate task and integrate with
+4:36
+existing workflows you basically calling it through your scripts so don't worry you're going to see most of this later
+4:41
+throughout the rest of the video but I just want to quick before we dive into actually coding I want to show you some of these coolest examples that they're
+4:48
+advertising completely for free and let's go ahead and hop over to terminal fast so you can see these in action and
+4:53
+don't worry we're going to help you set up everything on your own in just a second so let's hop over to the terminal okay so I just turned on Gemini CLI and
+4:59
+I just want to show you three of the most common ways you're going to be using this tool so you can see in action so first things first like I said it
+Gemini CLI Major Features
+5:05
+comes built in with Google search so you can say things such as "Hey please get
+5:10
+me the weather today in San Francisco." You can actually run it and what it's going to do is it's going to go off
+5:16
+actually search the internet so you can see right now it's actually calling the Google search tool it's actually putting
+5:22
+in the input for the tool call and then it's going to spit back a really nice result for us so we can actually like
+5:28
+right from our terminal start interacting with the world thanks to the power of AI agents so you can see hey
+5:33
+the current weather is this it has a west wind and it gets you know pretty chilly tonight what's also pretty cool
+5:39
+is Gemini CLI also allows you to hook up MCP servers so I just put one in real
+5:44
+quick you can hit control +t to actually see all of your MCP servers so you can
+5:50
+see right now I have one set up called context 7 which allows me to look up any library doc for most software packages
+5:57
+so I can say please use context 7 to see how to create a Nex.js project now
+6:06
+obviously this is a pretty straightforward example where we're just looking up documentation but what's pretty cool is as you saw in the initial
+6:13
+demo you can use it to hook up to Gemini's different image creation tools their video creation tools basically if
+6:19
+you can think of a MCP server like connecting to your notion your Gmail you can control it right here from your
+6:25
+terminal which is insanely powerful that you're allowing your agents to take action on your behalf right here from
+6:31
+your terminal and you can see it came back with the right answer so in our case if we want to create a new Nex.js
+6:36
+project we just run this command right here great and the final thing that you guys are 99% of the time most likely
+6:41
+going to use Gemini for is to make changes to your code so you can easily
+6:46
+come in here and you can actually type in just by using at you can see at to file path you can see at and I can do
+6:54
+read me and perfect you can see what does it say and boom right then and
+6:59
+there you're going to be using Gemini CLI to analyze your docs you can use it to make changes don't worry we're going
+7:04
+to put this bad boy to the test here in just a second yeah you can see from one terminal using this tool we can now
+7:10
+interact call agent to do MCP lookups Google searches and to start editing our
+7:15
+code so super powerful now what I want to do is walk you through real quick how to set it up and then we're going to
+7:21
+dive into some code tests so you can see hey how powerful is this thing and to answer the question should you be using
+7:27
+it all right so now it's time to set up Gemini CLI on your computer and this is insanely simple to follow you just first
+Gemini CLI Setup
+7:33
+need to head over to GitHub i'll have a link to this down the description below but all you need to do is run these two
+7:39
+commands here so first things first you need to have node installed on your computer and then second you need to
+7:45
+actually have this package installed so what I like to do is run this command right here which is going to install the
+7:52
+Google Gemini CLI globally on your computer so we're just going to copy that we're going to head over to our
+7:57
+terminal we're going to paste it in and this is going to just set everything up and things are going to be good once
+8:04
+it's done installing you should be able to run the Gemini command just like this and it will open up a new interactive
+8:12
+shell just like this to where you can see everything that's going on now mine's in a weird state cuz I've already
+8:18
+done this like seven times but most likely when you log in you're going to see a screen that looks just like this
+8:23
+which is going to say "Hey how do you want to log in?" Now to get access to all of those free credits that Google's
+8:29
+giving away you want to do login with Google whenever you do that you're going to see a window that looks just like
+8:36
+this and you want to pick your personal account not like a workspace account you want to do personal so you're going to
+8:42
+click your personal account say yes I would like to sign in and then you are good to go you are authorized to start
+8:48
+working and fantastic you're off to the races you could start coding now for those of you who are out there just
+8:53
+turning away code like there's no tomorrow you will eventually hit the limits so if you do hit the limit of
+9:00
+using Gemini CLI all you have to do is swap over to using a different key so
+9:07
+I'm not going to show the key but basically what you do is you have av
+9:13
+file and all it has in there is just Gemini API_key and you paste in your Gemini API
+9:20
+key and then you can use this tool as much as you want without limits it is just going to charge your account so you
+9:26
+can see now if I do off again I can now say hey I'd like to use my Gemini API
+9:31
+key and it's like cool everything's cruising now i can make request and everything is looking good now that's
+9:36
+everything you have to do at this point you could go ahead and start using it i do just want to show you real fast that
+9:42
+this tool gives you a ton of different options just by using forward slash so with forward slash you can check out
+9:48
+which version you're using you can also check out you know hey I would actually like to change the different theme that
+9:55
+I'm using so I can change to use you know GitHub light i can pick to use yeah so I can change themes however I want
+10:02
+you can hit forward slash again you can also change the editor so anytime
+10:07
+there's like a bug fix that you want to edit that the agent produces you can say "Oh here's the editor I'd like to use."
+10:13
+So in my case I'm using cursor so I want to say "Great I want to use cursor and I
+10:18
+want to apply this globally." Fantastic so now anytime I want to make a change it's going to be done inside a cursor so
+10:25
+you can really I recommend playing around just hit forward slash and start playing with all the different commands and options that they give you and then
+10:33
+finally you can say tools and this will list out all the different tools that Gemini gives you access to and there's a
+10:39
+ton you can basically search the web read folders search files and do Google search so yeah there's a ton that comes
+10:45
+right out of the box and don't worry you can always add more MCP servers show you how to do that later on at the end all right so now that we have all the basics
+10:53
+covered that we have it set up running on our computer let's hop over to the code portion so pumped to show you this
+10:58
+in action we're going to first do a simple code fix then we're going to do a more of a medium like big task and then
+11:05
+finally we're going to try and spin up a new project completely for scratch just to see how Gemini can handle it all and
+11:10
+so you can see for yourself is this something you want to start adding to your developer workflow or not so that's exactly what we're going to test now so
+11:17
+let's hop over to making our first code change with Gemini CLI okay so it's time to dive into our first code example
+Case 1: Simple Code Fix Test
+11:23
+using Gemini CLI to see if it can handle real world coding tasks and this is going to be the simple example just so
+11:29
+we can see how powerful this tool is so the problem we're trying to solve is I'm working on a application here and you
+11:37
+can see when I try and scroll for whatever reason it's cutting off the bottom and not allowing me to scroll so
+11:43
+what we can do is start to use Gemini CLI to see if it can handle it so what we can say is say hey my profile page so
+11:52
+we can scroll through all of our components right here i can say it looks like it looks like something is wrong
+11:59
+with scrolling and it won't let me see the bottom of the page so this is as you
+12:07
+can see probably one of the most straightforward simple requests this is probably some sort of styling issue but
+12:13
+we're going to see if Gemini 2.5 Pro can handle these types of issues inside of Gemini CLI so you can see right out the
+12:19
+gate it's going to investigate the issue to see if something's going wrong then you can see it's starting to ask hm I
+12:26
+think I have found the issue now how would you like me to incorporate this change so there's allow once allow
+12:33
+always and modify with an external editor i want to show you the modify with an external editor real fast just
+12:39
+so you can see it in action so I'm going to show it right here and now you can see right out the gate we're going to make this a little bit bigger so you can
+12:46
+see oh so here is my current code for this and you can see here is my updated
+12:52
+code for this and you can see it's just a simple change right here to allow for
+12:58
+overflow so basically hey or can it go outside of the bounds vertically so we
+13:03
+can go hm that looks pretty interesting i think that's right if I open this back up you can see it's going to now allow
+13:09
+me to say yep I want this change i could have edited it but I left it exactly how it was just so we can run it so we're
+13:16
+going to go yep go ahead and make that change now we're going to give it a second it's going to apply it and
+13:22
+instantly it's going to try and run the code now in this case I'm going to say
+13:28
+no so you can just hit escape and then what we can do is say just for future reference only run npm lint never run
+13:38
+npm run i think we say update memory and then what this will do is it should
+13:44
+start to update our memory yeah prioritize yeah so you can now see I have updated our Gemini we'll scroll up
+13:50
+so you can see it basically we've updated our Gemini.mmarkdown file and we've refreshed memory so we can say yep
+13:57
+you can always run lint to see if there's any issues there shouldn't be and you can see great things look great
+14:04
+and I just want to show you too cuz this is pretty cool so we can go ahead and hit escape well I can now type in memory
+14:10
+and I can do memory show and what this should do is it'll show us all of the
+14:15
+rules for this code and you can also see hey there's a new piece of memory now to
+14:21
+only run npm run lint so it's kind of cool you could actually train the CLI tool to behave exactly how you would
+14:27
+want it to so just say update memory and it will know what to do really freaking cool if you ask me so now when I come
+14:32
+back over here refresh the page you can see I can now scroll so we're going to give it a check it was able to solve
+14:37
+simple problems and now what we're going to do is go over to a bigger task so we can see if Gemini CLI can handle bigger
+14:45
+task in my preferred way for working with these AIdriven workflows so let's hop over to code example number two okay
+14:51
+so now it's time to work on task number two which is going to be honestly a medium-sized task inside of our project
+Case 2: Medium Code Fix Test
+14:58
+and just to get a little bit more context let's quickly go through what the app does and then cover how we can actually use Gemini CLI to do it for us
+15:05
+so long story short this is a template that I'm working on for a project for you guys called Shipkit to where you can
+15:11
+easily crank out AI projects so there's just a bunch of templates of like real world AI applications so this is one of
+15:17
+the templates that I was working on for you guys so you can see it's basically a chat application to where you can swap
+15:23
+between all the common models try them out and actually have like full-blown conversation so I was you know trying to
+15:29
+let's see like I was going to go on a diving trip to St john's so you can see like hey it's chatting with chatgbt
+15:35
+except we can use every model here and swap between all of them so that's what the project is now here's what I'd like
+15:40
+to do i want to in our case create a brand new tab and this brand new tab
+15:46
+should be called memory and what memory should do is allow us to just like we can over here in Gemini CLI to where we
+15:53
+can add memory that's exactly what it should do over here we should be able to create new memories that will
+16:00
+automatically be included in all of our chats just to give it more context so here's how we can do this so first
+16:06
+things first I'm going to take a screenshot from there I'm going to paste this in our images folder and now what's
+16:14
+pretty cool is I can actually start using the Gemini CLI tool i can start to interact with it so let's actually run
+16:21
+clear really fast so we'll run clear cool things are ready for us to start working and here's what I'd like to do
+16:28
+in the age of AI i like to do AIdriven task development so as you can see as
+16:34
+I've been working on this project I for every single major feature I pretty much just come in here and create a brand new
+16:41
+task so you can see for every major task I don't do the coding i let AI do the
+16:46
+coding for me and in order to get like really high resolution task just like this there are templates so you can see
+16:53
+I have a task template to where basically it gives really good instructions on how to create projects
+16:59
+what's the goal text stack so forth and so forth but we can take this a step further because when you're working with
+17:05
+Gemini CLI you'll create a Gemini markdown file which will basically just be like one master source of truth which
+17:14
+can talks about everything inside of your project to help give Gemini more context about what it's working on so
+17:20
+that when it's making changes it knows what to do so this is where you'll continually add in more and more information about your project every
+17:26
+time it makes a mistake you'll come down here and just add like you know important and then basically add new
+17:33
+rules of like you know hey don't do this do this keep this in mind yeah so we basically this is where you're going to
+17:39
+keep up with everything inside of your project so let's see how we can use all of these together so what we're going to
+17:45
+do is say please let's do this we're going to say let's click down here please use and now what we can do is
+17:52
+start to add in documents so you can see we added in a new screenshot so that's our screenshot that we just took of this
+17:58
+section over here and now what I can say and we're also going to use task template great and then now this is
+18:05
+where we can actually start coding and telling it exactly what we want so what we're going to do is this can you please help me add a new piece of functionality
+18:13
+to my project specifically what I want to do is add in a new memory tab and
+18:20
+what this memory tab should do is it should be a CRUD table where I can add
+18:27
+in new text memories these text memories need to get included as context for all
+18:34
+messages with the AI so inside of the AI
+18:39
+sorry API/ chat we need to update so that every request pulls all context
+18:47
+meaning all memories adds it to context to each message so that when the AI is generating a response it knows more
+18:54
+about me what I want and will generate better results please let me know if you have any questions before implementing
+19:00
+this feature because ideally we're going to update the sidebar to include memory we're going to have a new memory page
+19:06
+and that memory page is going to have a table to where I can click new and add a text memory i should also be able to
+19:11
+edit and delete previous memories please let me review the plan before you start implementing the code all right cool so
+19:18
+we're going to let this one run for a minute because as you can see we just gave it a ton of information but this is
+19:24
+how in the age of AI this is exactly how you start to you know work at scale and
+19:30
+implement features at lightning speed so you can see what it has done so far is it's come up with a multi-stage phased
+19:37
+approach to actually implement this and you can see it's actually like yeah we'll make a memories table from there
+19:43
+we'll make a memories page and then we'll update the chat API the only thing I think it missed is the fact that it needs to update our actual schema let's
+19:50
+close this out real fast so you can see I just want to show you guys this in action so you know cuz I think this is insanely powerful but you can see we do
+19:57
+have a schema over here so for each model type in our database so everything
+20:02
+for messages we have a new table for it so we can actually just come back in here and say that looks great the only
+20:08
+thing that you're missing is a phase zero which is where you will update our
+20:13
+schema to include a new memory table but that's the only thing that's missing i
+20:18
+love everything else that you're doing so please update the phases and then go off and generate that task document all
+20:24
+right so it's it should have done it i'm going to go ahead hit enter and then fantastic it took in my advice now it's
+20:30
+going to take in basically that piece of feedback it's going to say "Yep I need to update your schema i'm now going to
+20:36
+update the phases." Once it has updated the phases it should create a new document for us to proceed so you can
+20:43
+see now it's going to look at the task template to fully understand like okay cool i know what to do i'm going to
+20:48
+create the memories and now it's just going to take a second to generate everything so we're going to let it run
+20:53
+and then once it's ready I will let you guys know and we'll go from there so it's actually running real fast and I just want to show you how you can
+20:59
+interrupt it so you can press escape at any moment and it will actually cancel the request and we can come back in here
+21:05
+and adjust our terminal tool using and basically give it feedback along the way so we can say hey you didn't follow the
+21:13
+proper instructions you were supposed to create a document first in the AI docs
+21:18
+folder using the uh task template so please create that plan first so I can
+21:25
+fully review it and then we're going to implement it phase by phase okay so now you can actually see in real time it's
+21:31
+going to hopefully generate a new document for us right here cuz it accidentally went off and started
+21:37
+creating new files like it did not let me review it so it kind of jumped the gun but hey it's trying to crank out
+21:43
+code so that's uh you know go it for trying to be super proactive on us so we're going to let it run and ideally it
+21:49
+should create a super long task document just like this which is contains a ton
+21:54
+of context but it's going to be our source of truth as we have the model generate everything for us so we're
+22:00
+going to give it a few more seconds so that it can generate the plan then we're going to let it run the plan and I'm going to show you guys the results so
+22:06
+stay tuned and I will show you in just a second okay so the AI just finished updating our documents so now what you
+22:11
+can see is I have this nice purple color document right here you can commandclick it and it will show you the final
+22:18
+results so you can see hey here's the entire plan we're going to implement an AI memory feature here's the exact text
+22:24
+stack that it pulled from our general task template so right here it pulled
+22:29
+some of the general information it was told to look up and it filled it in because we listed it all out here in our
+22:34
+Gemini file so everything's included right here and then you can see it went through and listed out i'll go down to
+22:40
+the functional part but you can see like this is the power of using AI to help you work faster but you can see it says
+22:46
+all right so here are the API changes we need to make everything related to memory from there you can see the new
+22:52
+front-end components and pages it needs to make and then it gives you a step-by-step phase approach of how it's
+22:57
+going to implement it so this is where you can start to see the power of AI because now you can see I can go in here
+23:03
+and say great please implement phase one and let me review the results once you implement it and then we'll move on
+23:09
+phase by phase so hopefully this is super helpful for you guys to see that a this tool is insanely powerful i'm just
+23:16
+talking to my computer and Gemini CLI is doing all the heavy lifting for us so you can see it's reviewing the code you
+23:23
+can see it's doing all sorts of amazing work for us so what I'm going to do is I'm just going to rinse and repeat this
+23:28
+because at this point I'm not coding anymore ai is doing all the coding for me and I'm going to let it run all the
+23:34
+way through just not giving any more feedback and letting it generate the entire update for this feature and the
+23:40
+second it's working I'll show you the final results over in our application so we'll be right back all right guys it
+23:45
+just wrapped up and this thing is a beast so I just want to show you exactly what it did real fast so you can see
+23:52
+what it did is main things is it made all the changes as it was making changes
+23:57
+it was running lint to make sure that there weren't errors when there were errors it fixed them but what you can
+24:03
+see it did it just consistently cranked out code basically like what you would expect inside a cursor it read files it
+24:09
+updated files to make sure when we're chatting with AI it gets memories first it injects the memories as context into
+24:16
+the system prompt and that way every time we you know we're talking to the AI going forward it's going to actually add
+24:21
+a memory so let me show you that it worked and I also want to show you real fast that it added everything we needed
+24:26
+so it added a memories table it applied the database migration to my database it
+24:32
+created functions to get my memories so that I every time I chat I can easily get memories and it also updated a ton
+24:39
+of information so like in my chat function you can now see all this green right here this is new code so you can
+24:46
+see we're going to do some memories so you can see right here memories sorry I
+24:51
+got to spell but you can see in memories what it did is it added some context to where it shows all the content from each
+24:58
+memory so enough talking about the code let me just show you the final result so we're over here it made the brand new memories in the sidebar it has a new add
+25:05
+memory button so I can actually come in here i can paste in a memory so you can see hey make sure every response starts
+25:11
+with Gemini CLI reporting for duty now I can hit save it's going to save the new memory to the table this is crazy i
+25:18
+never wrote a single line of code and now whenever I chat where I can say hey
+25:24
+exclamation mark please tell me in one sentence who is Elon Musk then what's
+25:31
+going to happen is it's going to inst Sorry I hit a button my bad what it's going to do is instantly respond back
+25:37
+and it's going to include our memory so that in every chat going forward it actually includes it so you can see I
+25:42
+didn't write a single line of code i added in a whole new feature database change UI change and updated API calls
+25:49
+and it worked in under like 2 minutes for all the changes that's insane so I'm going to give Gemini CLI a huge check
+25:56
+when it comes to working on I mean this is like a medium large fix this would normally take developers a few hours to
+26:01
+implement and it took minutes which is insane so now what we're going to do next is we're going to move over to the final code test where we're going to
+26:08
+actually have it generate a brand new project from scratch to see just how well it can do so let's hop over to test
+26:14
+number three okay so now it's time to run our third test where we're going to see if Gemini CLI can do a great job of
+Case 3: Hard Code Test
+26:21
+creating a brand new project from scratch and just see how well it does so that you can know if you can trust this
+26:27
+tool when you're creating your own projects so let's go ahead and dive in so first things first I've created a
+26:33
+brand new empty folder the only thing I have in here is an environment variable folder with my Gemini API keys the
+26:39
+reason why is I've blown through all of my free credits because I've been testing this like a madman for you guys
+26:44
+and at this point I am paying for it however using everything that you've seen for the previous task and a bunch
+26:50
+of things you'd have not seen when I was testing I'm currently paying three pennies so this is insanely affordable
+26:56
+to use so I just want to give you a heads up if you do run out of tokens it's not going to break the bank so
+27:01
+let's go ahead and run it and what I want to do I'm just going to go ahead and paste in a huge prompt for you guys so let me just give you a uh paste so
+27:08
+yeah what you can see is I was like "Hey please create a brand new landing page for me i want to use Nex.js and I want
+27:14
+this website to be beautiful and modern." And most importantly what I need you to do is look up the YouTube
+27:21
+creator AI with Brandon obviously that's who you're watching right now like and subscribe if you haven't but research
+27:26
+him find everything you can about what he does and basically create a landing page so what we're going to do is we are
+27:31
+going to run this and what this should do is it should kick everything off so it's so far it's you know clarifying the
+27:38
+approach it's going to hopefully here in just a second yep there it goes it's going to research AI with Brandon it's
+27:44
+going to look up my YouTube channel analyze everything about what I do the content I create who I'm trying to help
+27:50
+which is AI developers just like you to help you build real world AI applications so it's going to analyze
+27:56
+everything about that then what it's hopefully going to do next is it's going to start planning out some content so
+28:01
+like hm I now understand who Brandon is who he serves so let's start creating some copy for the landing page so
+28:08
+fingers crossed it should start doing this in just a second oh my gosh it is crushing it it's doing a great job so
+28:16
+yeah this is all around looking fantastic so what I want to do is say proceed and this should start to create
+28:22
+the Nex.js XJS project with everything that you see right here which is a a nice hero section about section what
+28:28
+you'll learn some feature videos so all around it does a great job so we're just going to say proceed now it should start
+28:34
+creating the project um it's going to start planning it all out i'm going to create an next.js project so here's one
+28:41
+thing that is important i have noticed that when you run commands like this create next.js JS application where it
+28:48
+opens up a wizard to where it's like you run the command and then it asks you six questions of like do you want to do A or
+28:54
+B C or D it doesn't do well so what I'm going to do is I'm just going to copy this command i'm going to press escape
+29:01
+i'm going to you can actually run it so you can do you can hit the exclamation mark and then you can paste in your own
+29:07
+code so that's exactly what I'm going to do then it should actually run it what we're going to do real fast instead cuz
+29:12
+it is struggling i'm just going to run the command manually so we're going to paste it we're going to run it now this
+29:18
+should create an Nex.js project for us and I'm just going to hit no or I'm just going to hit all the defaults and it
+29:24
+should create the project fantastic so now we can get out of this the second it's done so we're having to help the AI
+29:31
+just a little bit but I feel like that's fair cuz it's going to build everything else for us so we're going to let it run
+29:36
+and then the second this is done installing all the dependencies we're going to tell this AI over here yep all
+29:42
+right great we're done so now we can kill this one and now we can say I actually ran the command for you so you
+29:48
+have the proper Nex.js project created so please look at the project and then proceed with the plan fantastic so then
+29:54
+now Gemini CLI should go off and actually update this entire project for
+30:00
+us and start to create the landing page it should hopefully clear out all the blank boilerplate code that we normally
+30:06
+have so you can see it understands the project structure and now it's just going to go off to the races to make all
+30:12
+the changes so I'm just going to allow it to make every change that it wants and in real time you can see as it's
+30:18
+making changes to files it's going for it so it's updating the color scheme right now and it's going to keep on cruising so I'm going to hop back once
+30:25
+it's done running cuz it usually takes about 2 to 3 minutes for big changes like this and then I'll show you guys the final result so it just wrapped up
+30:31
+and I'm not going to lie the results are pretty underwhelming for creating a new project right out the gate so I'm
+30:37
+curious if it just needs another round so what I like to do we'll give it one extra round of help so we'll take a
+30:43
+screenshot then what we can do is pass it in over here and we can say and
+30:49
+basically just give it feedback so we can say at screenshot we'll paste it in and then now we'll give it more
+30:55
+instructions to say this website was supposed to be beautiful and modern and
+31:00
+be really visually appealing so you need to be a professional UI and UX developer
+31:08
+and completely redo the landing page so it's absolutely beautiful and look at
+31:13
+the screenshot I just gave you so you can see the application in its current state do not stop until the website is
+31:19
+absolutely beautiful so now we're going to give it another shot and hopefully
+31:25
+this time it will just go off and do exactly what it was supposed to do the first time cuz this is not what it was
+31:31
+supposed to do so we're hopefully going to let it do it and what's so nice is like it is multimodal so like it can
+31:38
+take in images just like that you can see it's like yeah this kind of this was a very polite way to say like yeah that
+31:44
+was bad so it's going to update it to have more colors better typography
+31:49
+better component redesign and some animations and transitions so we're going to give it a second cuz now it's
+31:54
+actually updating the global CSS to have like more colors be much more visually appealing so we're just going to give it
+32:00
+one more attempt so we can hopefully see that it can actually create beautiful websites and hey this is just the hard
+32:06
+part about working with AI is it's having to assume things and build at the same time so it probably was just trying
+32:12
+to do too much at the same time so we're going to give it a break and we'll come right back okay so it just finished building everything not going to lie
+32:18
+pretty disappointed so if we hop over to the website even though we told it multiple times like "Hey make this
+32:24
+visually appealing." It did do a bunch of nice cool animations but however it's
+32:30
+just really like this is not like I was expecting like the lovable version of like a beautiful landing page and for
+32:36
+whatever reason it's just kind of you know doing a bunch of animations but not following like you know making it look
+32:42
+super super nice in a UI so hey maybe just the issue is I'm not giving it enough prompting of like hey here's a
+32:49
+example UI that you should go off of however when working with like a lovable or you know a Firebase studio this
+32:56
+feature always dominates so I was I had super high hopes for creating brand new
+33:02
+Nex.js projects that were super visually appealing but for whatever reason it seems like it just can't do it and maybe
+33:08
+I just should have given a better you know better version of like a Gemini MD file but I know a lot of you are just
+33:14
+going to want to come in here and say make a new project and just expect it to just crush it like I did and it wasn't
+33:20
+doing it so all around a little disappointed with hard test number three where we create a brand new project from
+33:26
+scratch so I'm going to give this one a fail however as you did see in the previous project where we had a ton of
+33:32
+existing code where it could look through and understand uh what it needed to do basically what the main takeaway
+33:39
+I'm trying to say is Gemini CLI thrives with context and I feel like without
+33:44
+context it's struggling so I think if my recommendation to you guys when you're working on this on your own it would be
+33:50
+to use Gemini CLI on your existing projects to add in new features and to
+33:56
+add small changes this is an amazing tool for that i would not recommend it right now for creating brand new
+34:02
+projects and hey if you have any ideas or suggestions on what I did wrong in this example I'd love to hear it and try
+34:07
+it again but for right now it's just not doing what I thought it would but yeah so yeah but that's a wrap for this video
+34:13
+guys i hope you enjoyed seeing Gemini CLI in action you were able to set up in
+34:18
+this tutorial learn how to set up your project and you were able to see just how powerful this tool is and you were
+34:23
+able to see that hey you could do pretty much all this completely for free and if you have to go over the limit it cost a
+34:29
+few pennies to implement some amazing features so all around I had a ton of fun using this i can't wait to hear what
+34:35
+you guys think of using this project as well and I can't wait to see you guys in the next video i have a ton of other AI
+34:41
+related content right here on this channel everything from agent development kit lang chain crew AI
+34:46
+Nex.js i have it all right here and I definitely recommend checking out those videos and whichever video is popping up right now on the screen but until the
+34:53
+next time can't wait to see you guys hope you have a great night talk to you soon bye
+Google Gemini CLI Is FREE & Crazy Powerful: Real World Coding Test & First Impressions
+
+aiwithbrandon
+68.1K subscribers
+
+Subscribe
+
+2.7K
+
+
+Share
+
+Ask
+
+115,281 views  Jun 27, 2025
+🤖 Download +30 AI Projects for Free (ADK, LangChain, CrewAI, and more)
+https://brandonhancock.io/
+
+Don’t forget to Like & Subscribe for more AI tutorials, interviews, and free resources! 🎉
+
+📕 Resources
+Gemini CLI Docs: https://github.com/google-gemini/gemi...
+
+📆 Need Help with AI? Join my FREE Skool Community for AI developers (+8K Members):
+https://www.skool.com/ai-developer-ac...
+
+🧑‍💻 Want me to help you bring your AI projects to life? Hire me:
+brandon@brandonhancock.io
+
+📰 Stay Updated with My Latest Projects:
+📍 LinkedIn:   / brandon-hancock-ai
+🐦 Twitter/X:   / bhancock_ai
+
+⏰ Timestamps
+00:00 - Start
+00:36 - Gemini CLI Announcement
+05:00 - Gemini CLI Major Features
+07:30 - Gemini CLI Setup
+11:23 - Case 1: Simple Code Fix Test
+14:54 - Case 2: Medium Code Fix Test
+26:18 - Case 3: Hard Code Test
+How this content was made
+Auto-dubbed
+Audio tracks for some languages were automatically generated. Learn more
+Chapters
+
+View all
+Transcript
+Follow along using the transcript.
+
+
+Show transcript
+
+aiwithbrandon
+68.1K subscribers
+Videos
+About
+
+Twitter
+
+LinkedIn
+
+All
+
+From aiwithbrandon
+
+For you
+
+Watched
+
+22:46
+Now playing
+Scrape Any Website for FREE Using DeepSeek & Crawl4AI
+aiwithbrandon
+•
+252K views 4 months ago
+
+Shorts
+NEW 1-Click Google AI Agents are INSANE! 🤯
+312K views
+
+It's only a matter of time
+23M views
+
+Google Stitch: Build Apps in 1 Click (FREE)! 🤯
+52K views
+
+Blohm & Voss: When A Ship Company Builds Planes
+2.9M views
+
+The ingenious structure helping fish swim upstream
+11M views
+
+Linus Torvalds on the early "hate" for Git's interface
+77K views
+
+
+
+14:15
+Now playing
+Introducing Gemini CLI
+Sam Witteveen
+•
+108K views 5 days ago
+New
+
+Ockam - Customizing your first AI app/agent
+Ockam
+•
+4 views 2 hours ago
+New
+
+Gemini CLI vs Claude Code: Which is the Best AI Coding Tool Ever?
+Alex Finn
+•
+12K views 2 days ago
+New
+
+Elon Musk’s NEW Grok 4 is COMING (FREE!) 🤯
+Julian Goldie SEO
+49K views 1 day ago
+New
+
+Detailed overview of Gemini CLI and Claude Code - for digital strategists and developers
+The Modern Web Architect
+•
+926 views 3 days ago
+New
+
+Fall Into Deep SLEEP With Ultra LOW [3.2 Hz] Delta Waves, SLEEPING Music, Overcome Tension & Worries
+3AM Relaxation
+•
+1.5K views 7 hours ago
+New
+
+OpenAI’s NEW GPT-5 is COMING (FREE!) 🤯
+Julian Goldie SEO
+47K views 2 days ago
+New
+
+President Trump signs executive order boosting nuclear industry
+Fox News
+641K views Streamed 1 month ago
+
+Gemini CLI in 6 Minutes: Google's Free and Open-Source Coding Assistant
+Developers Digest
+•
+41K views 5 days ago
+New
+
+AI Agents, Clearly Explained
+Jeff Su
+1.9M views 2 months ago
+
+The Heart-Brain Coherence - Real Power of Feeling and Imagination!
+The Power Of You
+•
+1.9M views 2 years ago
+
+Gemini-CLI 🚀: How to Setup and Add MCPs | Full Walkthrough
+Prompt Engineer
+•
+8.7K views 2 days ago
+New
+
+99% of ChatGPT Users Are Missing Out on Claude
+Goda Go
+•
+6.5K views 22 hours ago
+New
+
+Rife Frequency Dark Screen 12 Hours, Healing, Relaxation, Sleep, Yoga, Meditation, Calming
+Zen Cult
+•
+33K views 4 years ago
+
+Gemini CLI + ANY MCP Server — Step‑by‑Step Tutorial
+Prompt Engineering
+•
+14K views 3 days ago
+New
+
+Mind-blowing Moments from Neuralink's Summer Update 2025
+Neura Pod – Neuralink
+•
+37K views 3 days ago
+New
+
+Google’s New AI Agent is FREE & More AI Use Cases
+The AI Advantage
+45K views 3 days ago
+New
+
+🚨HOLY MACKEREL! RFK Jr. Just SHOOK the WORLD!
+Professor Nez
+133K views 6 hours ago
+New
+
+Gemini CLI: Google's New AI Coding Agent Is FREE! (Beats Claude Code?)
+Astro K Joseph
+•
+15K views 5 days ago
+New
+
+
+Show more
+

@@ -1,0 +1,980 @@
+https://www.youtube.com/watch?v=MRqPeuR6xxo&t=7s
+
+Generate Veo 3 Viral Videos Automated With N8N! (No Code Beginner AI Agent Tutorial)
+
+
+Generate Veo 3 Viral Videos Automated With N8N! (No Code Beginner AI Agent Tutorial)
+
+Adrian Viral AI Marketing 
+7.58K subscribers
+
+Subscribed
+
+949
+
+
+Share
+
+30,535 views  Jun 6, 2025
+Newsletter Sign Up! 
+https://www.adrian.co/subscribe
+
+This video details how to generate viral ai videos in an automated fashion using the no code platform N8N and replicate's veo3 API.
+
+Cheaper way to generate using Veo3
+   • Create Viral Monetizable Short Form AI Vid...  
+
+All the prompts and .JSON template file on this Google Doc
+https://docs.google.com/document/d/1o...
+
+Follow me on X!
+https://x.com/Mentor
+
+Follow me on Telegram!
+https://t.me/+DF8kcALbkvhiN2Fh
+
+Replicate
+https://replicate.com/
+
+N8N
+https://n8n.io/
+
+N8N Self Host for cheaper
+   • Self Host N8N with Digital Ocean For $6 Pe...  
+
+N8N Google Auth 
+   • INSANE N8N Agent Creates Viral UGC Avatar ...  
+
+Timestamps 
+00:00 Intro 
+00:46 Why its better than ChatGPT 
+00:22 Gaining 100k+ followers with VEO3
+1:51 Using Veo3 with Flow
+3:15 N8N Automation Overview
+4:17 Step by Step N8N Automation 
+15:00 Results
+15:18 Outro
+Chapters
+
+View all
+Transcript
+Follow along using the transcript.
+
+
+Show transcript
+
+Adrian Viral AI Marketing
+7.58K subscribers
+
+Transcript
+
+
+Search in video
+Intro
+0:00
+up Today I have a very exciting video
+0:02
+and that is connecting Google's V3 which
+0:05
+is the best texttovideo model that looks
+0:07
+super realistic with the best no code
+0:10
+platform NAD to automate these viral
+0:14
+videos using an automation in an AI
+0:16
+agent I highlighted this Instagram page
+0:19
+called Holy Vlogs which at the time just
+0:22
+four or five days ago had 30,000
+0:24
+followers Well if you look here they're
+0:26
+up a 100,000 followers since I filmed
+0:29
+that last video Uh for example we have
+0:31
+this one here 350,000 likes
+0:35
+here So Mhm The king signed a law
+0:38
+banning prayer for 30 days Obviously I
+0:40
+prayed Let's see how that goes All right
+0:42
+guys It's official They're throwing me
+0:44
+into the lion's den I'll film what I can
+Why its better than ChatGPT
+0:47
+Dry And if I survive this is going to
+0:49
+blow up All right Welcome to my crib
+0:51
+That one's asleep That one's just
+0:53
+staring at me Honestly they're kind of
+0:55
+chill but I'm whispering cuz I really
+0:57
+don't want to wake the angry one Morning
+0:58
+folks Still here And they are too That
+1:01
+one's been staring at me since
+1:03
+sunset Starting to think they like me
+1:06
+All right made it out Thank God
+1:08
+Literally if you watch till the end
+1:10
+comment what you think And hey maybe I
+1:12
+come back if y'all want part two So
+1:14
+that's a great example of the type of
+1:16
+content that's possible with V3 However
+1:19
+that was a lot of different clips
+1:21
+stitched together and it would cost a
+1:22
+lot more to generate Next I'm going to
+1:25
+show you this Yeti vlog page on Tik Tok
+1:28
+that's already at 240,000 followers
+1:31
+Similar to the last page Google VO only
+1:34
+came out like two weeks ago So they only
+1:37
+had this amount of posts to get there
+1:39
+And as you can see just a character
+1:41
+talking in a very specific vlog like way
+1:45
+that makes it look real that makes it
+1:47
+look realistic and does well on social
+1:49
+media platform
+Using Veo3 with Flow
+1:51
+So quick plug if you want some great
+1:53
+ideas of viral niches to start and some
+1:56
+documentation of other people that have
+1:58
+gotten hundreds of thousands of
+1:59
+followers using V3 Join my newsletter I
+2:02
+just started it and my first article is
+2:04
+going to go over all of that So normally
+2:06
+to use V3 you'll go to Google's Flow
+2:08
+product And as you can see right here I
+2:11
+just generated one This was the caption
+2:13
+that I used And I actually posted this
+2:15
+on YouTube shorts I think this was a bad
+2:17
+idea I should have kept it
+2:22
+closed So you can see how good this
+2:25
+looks And all you have to do is type a
+2:27
+prompt in this box right here And then
+2:30
+you would have to have a subscription to
+2:31
+be available I think you can do it now
+2:33
+on the $20 plan but you don't get a lot
+2:35
+of credits As you can see we have V3
+2:37
+selected here uses 100 credits and we
+2:40
+look at the credit purchase it comes out
+2:42
+to about $1 worth of credits And that's
+2:44
+super important because the API model is
+2:47
+going to be on a different cost system
+2:48
+and it is going to cost significantly
+2:50
+more So that's one thing to
+2:52
+note So one other factor I wanted to go
+2:55
+over and I covered this in my last video
+2:58
+but it was creating these VO3 shorts on
+3:00
+YouTube They're actually monetizable And
+3:03
+as you can see it made a little bit of
+3:05
+money on this one I made a few dollars
+3:06
+here and there on my other post but I
+3:08
+just wanted to share that So here's the
+3:11
+NAND layout And what we're doing is
+3:13
+instead of using the interface of
+N8N Automation Overview
+3:15
+Google's flow we are in the back end
+3:18
+generating these videos using the same
+3:20
+technology So some of the advantages for
+3:23
+this are you can have it you can for
+3:25
+example put a schedule trigger and have
+3:28
+it generate a video in the morning every
+3:30
+day and then you could also link it up
+3:33
+to your socials to auto post Now it's a
+3:36
+little bit dangerous doing that cuz you
+3:38
+probably want to review the actual
+3:39
+content before you post it uh for a
+3:41
+obvious reasons but there are a lot of
+3:44
+more complicated routes you can go This
+3:46
+automation is extremely simple and it's
+3:48
+just showing how to call the API to get
+3:51
+you the video and to put it onto a
+3:52
+Google sheet Uh but the whole point is
+3:55
+to do things that are a lot more complex
+3:56
+to this So I will be expanding it
+3:59
+However I only ran it one time because
+4:01
+of the costs and I'll go into the cost
+4:03
+structure when we get there Uh but this
+4:05
+is definitely one of those things that's
+4:07
+more of a proof of concept and once
+4:09
+either the cost goes down or some better
+4:11
+models come out which could easily
+4:13
+happen in the next few weeks things will
+4:15
+look a lot more promising Okay so I'm
+Step by Step N8N Automation
+4:17
+going to break down this automation for
+4:19
+you You can do one of two things You can
+4:21
+either recreate it on your own which I
+4:23
+highly recommend because learning NADN
+4:25
+skills are extremely valuable right now
+4:27
+or two you can just hit these three dots
+4:29
+and do import from file and I will be
+4:32
+giving you the template file which will
+4:34
+have everything and I will point out the
+4:36
+steps in which you will need to replace
+4:38
+with your own credentials So the first
+4:40
+thing we have is a trigger and that's
+4:42
+just so you can click this uh to start
+4:44
+the process Now one thing I'm going to
+4:46
+note is um block right here and this
+4:49
+create video block I actually
+4:50
+rightcicked and I clicked pin So what
+4:53
+pinning does is it takes the initial
+4:55
+output that is currently loaded in and
+4:57
+it keeps that the same every single time
+5:00
+And that's specifically important
+5:01
+because you don't want to run up a bill
+5:04
+testing the automation or whatnot You
+5:06
+only want to run it when you have an
+5:08
+output that you actually want So if
+5:09
+you're new to NAN I highly recommend you
+5:11
+watch some my other videos I'll have the
+5:13
+top recommendation down in the
+5:15
+description If not I'll try to make this
+5:17
+as simple as possible Basically what we
+5:19
+have right here is just this noode
+5:21
+diagram where it just goes node to node
+5:23
+and does your automation It follows
+5:25
+these little wires in which you can
+5:27
+unwire and you can wire and then when
+5:29
+you click on one you have the left side
+5:31
+which is your input which is everything
+5:33
+that the out that has been outputed by
+5:35
+the previous nodes And then you have
+5:37
+their own output here and what you're
+5:40
+going to need to do is you're going to
+5:41
+need to have an open AI account You're
+5:43
+going to need a replicate account You're
+5:44
+going to need a Google Sheets account
+5:46
+and you're basically going to need to
+5:48
+connect all of those So I'll go really
+5:50
+quickly um through the nodes and I'll be
+5:53
+explaining what you need to do if you
+5:54
+import versus if you're trying to make
+5:56
+it for the first time So first we have a
+5:59
+test workflow trigger uh which is the
+6:02
+easiest one to test on Like I said you
+6:04
+could replace that with schedule or
+6:05
+something in the future And then you
+6:07
+just hit this plus and then you look up
+6:08
+AI agent and you create this AI agent
+6:11
+right here And it's pretty simple We
+6:13
+have the prompt which is just Bible
+6:14
+character So this is going to make a VO
+6:17
+prompt based on a Bible character And
+6:19
+then we have uh we hit this little plus
+6:22
+right here and then added this open AI
+6:24
+chat model Once we do that we have um a
+6:28
+system message which you might have to
+6:30
+play around a little bit with the
+6:31
+settings but you're going to want to get
+6:32
+a system message to appear here And
+6:36
+you're just going to paste the one I
+6:37
+have You can create your own too Uh like
+6:39
+I said this will be included if you if
+6:41
+you import the template but it's pretty
+6:43
+simple It's just a paragraph explaining
+6:45
+the type of video we want It's giving an
+6:48
+example of one that I did that works
+6:50
+pretty well And then it's um giving some
+6:53
+more guidance So then here we have the
+6:55
+output that it created and that is you
+6:57
+can zoom in and read it but it's a
+6:59
+description of a person and what they're
+7:01
+doing and what they're saying And this
+7:03
+is a good VO prompt that we're going to
+7:04
+feed into uh the AI after this So now
+7:08
+that we have this agent we're going to
+7:10
+do an add to sheet um a Google Sheets uh
+7:14
+module And then that is simply going to
+7:16
+be adding it to a Google sheet so that
+7:19
+we can track it And then here I have the
+7:21
+Google sheet So you're going to want to
+7:23
+recreate this I'll have this linked You
+7:25
+can just duplicate it but essentially
+7:26
+it's just a column that says prompt one
+7:28
+that says status and one that says URL
+7:30
+Super simple So to add that to the sheet
+7:34
+you're going to have to connect your
+7:35
+Google Sheets account You can do that
+7:37
+with OOTH If you're self-hosted it's
+7:39
+going to be a little bit more
+7:40
+complicated but I'll have a link in the
+7:41
+description if you get stuck here You're
+7:43
+going to need to do this if you import
+7:44
+obviously because it's going to be
+7:46
+modifying your sheet So you're going to
+7:48
+do appended row which just means add one
+7:50
+more row And then you're going to have
+7:52
+to find the sheet and then or the
+7:55
+document and then the sheet I just left
+7:57
+it as sheet one And then all we're doing
+7:59
+is dragging this output from the agent
+8:02
+into here And then for status we're just
+8:05
+saying to-do and then the URL doesn't
+8:07
+matter So all this is doing is is once
+8:10
+we run it it's adding this line here
+8:12
+which will say your prompt and then the
+8:15
+status which will be a to-do until it
+8:18
+finishes then it switches to done Um and
+8:21
+then the next one is just pulling from
+8:23
+the sheet So the reason why I did this
+8:25
+is you could essentially
+8:27
+un connect um all these modules by just
+8:31
+hitting this um to the wire And you
+8:33
+could just run this over and over again
+8:35
+create a bunch of prompts and then once
+8:38
+you have the prompts you like you can
+8:40
+just delete the other ones And then it
+8:42
+will one by one when you reconnect it go
+8:45
+through and build out your the videos in
+8:49
+the order that you created them or have
+8:50
+them on the sheet So all this one is
+8:52
+doing is it's the same thing It's a
+8:54
+module for getting the idea You're going
+8:56
+to be doing a get row this time Make
+8:59
+sure you're connected to the right
+9:00
+account Same document And then your
+9:02
+filters are going to be you're going to
+9:04
+look for the status of to-do So it's
+9:06
+going to get the first one which status
+9:08
+is to-do And that's important because if
+9:09
+you run this a bunch you don't want it
+9:11
+to recreate the same video you
+9:13
+previously did cuz that'll waste a lot
+9:14
+of money And then we just did one more
+9:16
+thing where you mess around with the
+9:18
+settings and you do a return only first
+9:20
+matching row because you only wanted to
+9:22
+generate one at a time um obviously
+9:24
+because it's super expensive And then
+9:26
+once we have that these two steps are
+9:28
+not required but I just added them in
+9:30
+for easy management We get to the create
+9:33
+video step and this is where majority of
+9:36
+the content is So we're going to be
+9:39
+using the replicate.com API You can also
+9:42
+do this on Felai and a bunch of other
+9:44
+ones And as you can see right here the
+9:46
+cost is 75 cents per second So this is
+9:49
+going to cost you $6 for every video
+9:52
+which is 600% more than going directly
+9:55
+through Google So that's why I don't
+9:56
+really recommend you do this I recommend
+9:58
+you just manually do it through Google
+10:00
+But because this is a tutorial on
+10:02
+showing you how to do it through NADN uh
+10:05
+that's what we're going to need So for
+10:06
+replicate you're going to need your API
+10:08
+key That's super important even if
+10:10
+you're importing it because you're going
+10:11
+to need to run it through your account
+10:13
+You're also going to need to connect a
+10:14
+credit card and I'll show you how to do
+10:16
+that in a second Um but I'll show you
+10:19
+how the how the node is set up So this
+10:21
+is the create video node which is just a
+10:24
+HTTP request node So that's what you
+10:27
+would add when you hit the plus Just htt
+10:29
+HTTP
+10:31
+request And then you're going to do
+10:33
+method post You're going to do this URL
+10:35
+It'll be linked in the document And then
+10:38
+you're going to need generic credential
+10:40
+type header off And you're going to need
+10:42
+to give it authorization as the name And
+10:46
+you could rename this to replicate here
+10:48
+cuz you're going to use it in the future
+10:50
+And then the value is just going to
+10:52
+bearer space your API key And you're
+10:56
+going to need to get your API key uh
+10:58
+through your account on replicate So
+11:01
+that's important that you put this in
+11:03
+here cuz if you don't it's just going to
+11:04
+error out and you need it to be
+11:06
+connected to your actual account And
+11:08
+then we're going to be doing sending
+11:10
+body JSON and then using fields below
+11:14
+And then the name is
+11:16
+input.prompt Uh we're all we're doing is
+11:18
+sending it the prompt And then all I did
+11:20
+was drag this variable which you can
+11:23
+just drag into here And that's just
+11:26
+going to send it this specific prompt
+11:28
+And it's going to be dynamic based on uh
+11:30
+each time what it grabs As you can see I
+11:33
+pinned this So it's not actually going
+11:34
+to run it again It's just going to
+11:36
+default to this output And that's
+11:38
+because obviously each time you run this
+11:41
+node it will cost you $6 So you really
+11:43
+don't want to mess this up And I was
+11:45
+able to do this on one try because I
+11:47
+pinned it And then we've created the
+11:50
+video which is pretty much the hard part
+11:52
+The next thing is we're going to want to
+11:54
+send it to a wait You don't have to do
+11:56
+the loop if you don't want but I put it
+11:58
+on 1 second You're probably going to
+12:00
+want to put it to something like 30
+12:01
+seconds and it'll probably take a couple
+12:04
+minutes I think it took 2 and 1/2
+12:06
+minutes for this example video Um but
+12:09
+we're going to just loop through over
+12:10
+and over again and check it every 30
+12:12
+seconds until it does finish And once it
+12:15
+does finish you'll just put it onto your
+12:17
+sheet and be done So we're going to need
+12:20
+one more HTTP request module Just going
+12:23
+to hit the plus there And that's going
+12:25
+to be get video And what we're going to
+12:28
+do is on the create video you will have
+12:31
+a git You're just going to drag that URL
+12:34
+into here for the URL Then you're going
+12:36
+to just make sure that you have your
+12:38
+replicate account And then um it should
+12:42
+be able to output the video if it's
+12:44
+outputed It will say s uh status
+12:46
+succeeded if it did And if it didn't it
+12:49
+will say something like it's working on
+12:50
+it So then we have this if loop right
+12:53
+here And this if loop just has the
+12:57
+status So we just dragged in the status
+12:59
+from the last module And then if it's
+13:01
+equal to succeeded then it moves on If
+13:04
+not for the false you just loop it back
+13:07
+to the weight And then for the true we
+13:09
+loop it back to the final Google sheet
+13:11
+node The final Google sheet node you
+13:13
+have to set up the same It's just an
+13:15
+update row this time Same sheet And then
+13:18
+what we're doing is we're taking the
+13:19
+output which is this video file right
+13:21
+here Just dragging it in to
+13:27
+um Oh sorry One
+13:30
+sec So we're just going to be dragging
+13:32
+that output into the URL section We're
+13:36
+going to be changing the says to done So
+13:37
+we're just typing done here And then for
+13:39
+row number we're just scrolling down to
+13:41
+the be to the node where we got um the
+13:44
+thing to generate We're just dragging
+13:45
+that in here So all that's doing is
+13:47
+overwriting this row It's now going from
+13:50
+todo to done And then it's putting the
+13:52
+video link right there as it shows here
+13:55
+And then that's the entire automation
+13:58
+When you run it the agent will come up
+14:00
+with an idea It'll add it to the sheet
+14:02
+It will then pull it from the sheet
+14:03
+These two are not necessary You can just
+14:05
+cut them out but it is helpful if you
+14:07
+want to test um your things beforehand
+14:10
+Then it creates the video and then it
+14:12
+loops through until it's done and then
+14:13
+adds it to the sheet So that's the
+14:15
+entire automation and then I'll show you
+14:18
+what my sheet looks like So I can just
+14:20
+open this
+14:22
+and so I have my Google sheet here and I
+14:26
+ran it three times One thing to note on
+14:28
+replicate is it will only last for a
+14:30
+little while So you're going to need to
+14:31
+download that quickly I highly recommend
+14:34
+you do something like a um download for
+14:37
+that file and then send it through
+14:38
+Telegram so you have it But this is just
+14:40
+a basic proof of concept really for
+14:42
+anyone uh that wants to change it I
+14:44
+don't really think many people are going
+14:46
+to be using the automation in the way
+14:47
+that I set it up Um but once you click
+14:51
+on this link um before it dies it will
+14:54
+load this And this is the output that my
+14:56
+bot generated using the prompt that the
+14:59
+agent came up with I'm calling down fire
+Results
+15:02
+from heaven to light up the sacrifice
+15:09
+So you can see that output was pretty
+15:11
+cool and you could probably string it
+15:13
+with a few more to create one of those
+15:14
+Bible uh contents that goes viral So if
+Outro
+15:18
+you made it to this part of the tutorial
+15:20
+you're definitely going to go far when
+15:21
+it comes to AI automation However I
+15:24
+highly recommend that if you want to try
+15:26
+this strategy and grow a social media
+15:28
+page that you do it directly through
+15:30
+Flow because those generations are going
+15:32
+to cost you significantly less I'm going
+15:35
+to link the video below where I talk
+15:37
+about structuring a good prompt where
+15:39
+you get a good narration and everything
+15:40
+you need to go viral And I highly
+15:43
+recommend you do that And then again the
+15:46
+most important thing of all is coming up
+15:48
+with a creative idea and theme and
+15:50
+letting the agent make some cool stuff
+15:52
+So I'm going to give you some great
+15:54
+themes that are getting currently tens
+15:56
+of thousands if not hundreds of
+15:57
+thousands of followers per week that you
+15:59
+can copy and try to do better and that
+16:02
+will all be in my email list which will
+16:04
+be linked below So please uh make sure
+16:06
+to subscribe to that That'll be the
+16:08
+first email that I send out And then
+16:10
+second of all if you like this video
+16:12
+please follow me on
+16:14
+x.com/mentor I got a few hundred more
+16:16
+followers over the last week so I'm
+16:18
+super supportive of all you guys And
+16:20
+then obviously my number one resource is
+16:22
+my Breaking AI tools update Telegram
+16:25
+page I posted all the templates to my
+16:28
+last contents or the ones that I didn't
+16:30
+include So I highly recommend that you
+16:32
+join that there if you have a telegram
+16:34
+Anyways thank you so much for watching
+16:36
+Make sure to subscribe because there
+16:38
+will be a lot of more useful automations
+16:40
+coming very soon These technologies are
+16:42
+updating every single week We have so
+16:44
+many other models and I'll see you guys
+16:47
+later
+

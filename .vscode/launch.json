@@ -1,0 +1,47 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch Angel OS Spaces with Edge DevTools",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000/spaces",
+      "webRoot": "${workspaceFolder}/src",
+      "userDataDir": false,
+      "runtimeArgs": [
+        "--disable-web-security",
+        "--disable-features=VizDisplayCompositor"
+      ],
+      "sourceMaps": true,
+      "trace": true
+    },
+    {
+      "name": "Attach to Angel OS Spaces",
+      "type": "msedge",
+      "request": "attach",
+      "port": 9222,
+      "webRoot": "${workspaceFolder}/src",
+      "sourceMaps": true
+    },
+    {
+      "name": "Test Switchboard Pattern",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000/spaces/test-space/dashboard",
+      "webRoot": "${workspaceFolder}/src",
+      "userDataDir": false,
+      "sourceMaps": true,
+      "breakOnLoad": true
+    },
+    {
+      "name": "Debug Widget System",
+      "type": "msedge",
+      "request": "launch",
+      "url": "http://localhost:3000/spaces/test-space/crm",
+      "webRoot": "${workspaceFolder}/src",
+      "userDataDir": false,
+      "sourceMaps": true,
+      "trace": "verbose"
+    }
+  ]
+}

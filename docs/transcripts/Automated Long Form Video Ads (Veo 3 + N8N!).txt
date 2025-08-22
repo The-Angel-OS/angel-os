@@ -1,0 +1,650 @@
+Automated Long Form Video Ads (Veo 3 + N8N!)
+
+
+https://www.youtube.com/watch?v=U4XZBQ64cuk
+
+2,925 views  Jun 16, 2025
+Want to get more customers, make more profit & save 100s of hours with AI? https://go.juliangoldie.com/ai-profit...
+
+🎥 Credit & Inspiration:
+
+Big shoutout to Adrian Viral AI Marketing for the original inspiration behind this automation setup. Check out his awesome breakdown of Veo 3 automation here:
+
+   • Automate Veo3 Full Video Ads Using N8N (30...  
+
+Go subscribe. The guy’s a beast in the AI game.
+
+Free AI Community here 👉 https://www.skool.com/ai-seo-with-jul...
+
+🚀 Get a FREE SEO strategy Session + Discount Now: https://go.juliangoldie.com/strategy-...
+
+🤯  Want more money, traffic and sales from SEO? Join the SEO Elite Circle👇
+https://go.juliangoldie.com/register
+
+🤖 Need AI Automation Services? Book an AI Discovery Session Here: https://juliangoldieaiautomation.com/
+
+Click below for FREE access to  ✅ 50 FREE AI SEO TOOLS 🔥 200+ AI SEO Prompts! 📈 FREE AI SEO COMMUNITY with 2,000 SEOs ! 🚀 Free AI SEO Course 🏆 Plus TODAY's Video NOTES...
+https://go.juliangoldie.com/chat-gpt-...
+
+Want a Custom GPT built? Order here: https://kwnyzkju.manus.space/
+Join our FREE AI SEO Accelerator here:   / aiseomastermind  
+Need consulting? Book a call with us here: https://link.juliangoldie.com/widget/...
+
+Automate Your Ads with n8n & Veo3: Step-by-Step Workflow Tutorial
+
+In this tutorial, you'll discover how to automate ad creation scene by scene using the new n8n workflow with Veo3. The video provides a detailed walkthrough on setting up automation for generating ads, creating characters, locations, and scripts. It elaborates on the cost-effectiveness of using Google Flow compared to alternatives like Fal AI. 
+
+Inspired by Adrian from Viral AI Marketing, this process shows you how to simplify generating high-converting ads for various business types. Join the AI Profit Boardroom for access to automations, workflows, and community support.
+
+00:00 Introduction to N8N Workflow with Veo Three
+00:29 Creating an Automated Ad
+02:02 Using Google Flow for Cost-Effective Video Generation
+03:28 Generating Characters and Locations with Chat GPT
+08:17 Automating Ads with HeyGen and Avatar Creation
+09:08 Accessing AI Profit Boardroom and Additional Resources
+10:55 Conclusion and Contact Information
+
+Transcript
+
+
+Introduction to N8N Workflow with Veo Three
+0:00
+today what I'm going to show you is a
+0:02
+new NA10 workflow with VO3 that can
+0:05
+literally help you automate your ads
+0:08
+scene by scene So what you can see here
+0:10
+for example is an automation that we
+0:12
+created If I go in here for example and
+0:14
+I tell it the ads I want to create So
+0:16
+for example SEO agency
+0:20
+free SEO strategy session We'll hit send
+0:24
+in that Basically that's generated the
+0:26
+result now as you can see And then if we
+Creating an Automated Ad
+0:29
+go over to our scene here we've actually
+0:32
+generated a workflow with A3 using this
+0:35
+exact process So for example let's play
+0:37
+this back leads and sales from Google
+0:41
+I'm here to help you with a free SEO
+0:43
+strategy session And then for example if
+0:45
+we play the end as well the link on this
+0:47
+ad and book your SEO strategy session
+0:49
+today Let's boost your online presence
+0:52
+together
+0:54
+So the way that this was generated is
+0:56
+using this workflow right here And
+0:59
+essentially step by step you can easily
+1:01
+generate a character location and script
+1:03
+using NA10 that you can then plug into
+1:06
+for example V3 or in this case I
+1:08
+actually used flow to generate a few
+1:11
+different ads like you can see using
+1:13
+this process right now This is actually
+1:16
+something that was inspired by another
+1:18
+video from Adrian viral AI marketing
+1:21
+I'll actually link to his video
+1:25
+awesome workflow that inspired this
+1:27
+right here And essentially what you can
+1:30
+do is you can go inside the chat and
+1:33
+you're going to say "Okay here's what I
+1:35
+do and then here's what I sell." So for
+1:39
+example for me SEO agency free SEO
+1:42
+strategy session is what I'm giving away
+1:45
+So if you want to use this step by step
+1:47
+essentially what you can do is you plug
+1:49
+in what you want and then it's going to
+1:51
+generate the scenes and the character
+1:53
+Okay So let's pull this up and I'll show
+1:55
+you how the prompts work So essentially
+1:57
+this is the ads copy generator You could
+2:00
+use this with something like foul as
+Using Google Flow for Cost-Effective Video Generation
+2:02
+well What you can do with foul is you
+2:04
+can actually for example take your ideas
+2:06
+and then send them over to an API
+2:08
+request on foul.ai But the biggest issue
+2:10
+with that is it's going to cost you
+2:11
+quite a lot of money Whereas for example
+2:12
+you can actually do it a lot cheaper
+2:14
+just by taking the prompts and then
+2:16
+plugging them into something called
+2:18
+Google Flow Now Flow takes about $200
+2:21
+per month but if you're generating a lot
+2:25
+of videos at once then this is going to
+2:27
+be way cheaper per video right and you
+2:29
+can actually use something called Veo 3
+2:32
+fast to generate the prompts right this
+2:35
+is way cheaper So you select in your
+2:37
+settings here when you're using Google
+2:39
+flow on ultra ve 3 fast text video and
+2:43
+then you can generate the video that way
+2:44
+The other way that you can do this is
+2:46
+you can use foul that's typically $3 to
+2:49
+$6 per video which is cheaper than $200
+2:51
+per month but it depends how many videos
+2:53
+you generate it And then if we play this
+2:55
+back for example we've taken the example
+2:59
+prompt from NA10 and if we open this up
+3:03
+we'll go full screen on this get more
+3:05
+leads and sales from Google I'm here to
+3:08
+help you with a free SEO strategy
+3:10
+session So this is completely AI
+3:12
+generated with AO3 Want to get more the
+3:14
+audio the person everything else is
+3:17
+synced as well perfectly And then you
+3:19
+can actually download that and then plug
+3:20
+it into a video editor and just click
+3:22
+them all together Pretty simple and easy
+3:25
+So let's have a look at exactly how this
+Generating Characters and Locations with Chat GPT
+3:28
+works So basically we plug in a chat
+3:30
+message So you just open up the chat You
+3:32
+tell it what you want Then from there
+3:34
+you're going to generate the character
+3:36
+prompt Right so you can see for all of
+3:38
+these generations we're using chat GBT
+3:41
+40 mini And inside the AI agent for the
+3:44
+character prompt we got this connected
+3:46
+to the chat trigger So for example I've
+3:48
+typed in SEO agency free SEO strategy
+3:50
+session over here And then inside the
+3:54
+settings for the system message Let me
+3:56
+pull this up and I'll show you some
+3:58
+examples
+3:59
+So you see here I've said you are a
+4:02
+worldclass Facebook ad strategist
+4:05
+trained to generate scroll stopping
+4:07
+characters specifically designed for
+4:09
+high converting ads right your job is to
+4:11
+do this example John 30 years old blah
+4:14
+blah blah make sure the character is
+4:15
+unique and different based on the
+4:18
+business now each time I run this will
+4:19
+actually generate different outputs
+4:21
+right so for example if I say okay pet
+4:24
+food business
+4:26
+selling dog food for example example
+4:30
+it's actually going to come up with
+4:32
+different responses based on that Right
+4:34
+so let's just refresh
+4:36
+the chat here And then you can get
+4:39
+different characters each time Right now
+4:42
+in terms of the location
+4:45
+you can see the prompts right here So
+4:47
+for example the prompt we say take the
+4:50
+company offer take the character in the
+4:51
+advert and then come up with a relevant
+4:54
+location for this process And then
+4:57
+finally for the script what we're doing
+4:59
+here is we're saying right in the first
+5:01
+line include a clickable link to labs
+5:03
+Google flow right so we can just quickly
+5:05
+copy and paste our prompts in and then
+5:08
+add the information below generate five
+5:10
+scenes take the information from the
+5:12
+chat the company etc and then just
+5:14
+generate the ad using that process
+5:16
+really simple and easy and then you know
+5:19
+you can easily generate whatever you
+5:20
+want right using this so let's test this
+5:23
+out again just going to in all the data
+5:26
+And now you can see for example it's
+5:28
+come up with Lola Hispanic blah blah
+5:30
+blah And what we can actually do is take
+5:32
+that scene So let's grab that We'll go
+5:34
+over to flow We'll generate a new video
+5:38
+We're going to use veo fast Make sure
+5:40
+you change your settings You actually
+5:41
+get audio from there And then you can
+5:43
+hit enter Right now if you actually want
+5:45
+to just use foul actually got an
+5:47
+automation for that But essentially you
+5:49
+would set up a HTTP request wait and
+5:52
+then grab the video from there Right is
+5:54
+you can add a HTTP request inside this
+5:56
+directly So as an example of that let me
+6:01
+take this and then what we can actually
+6:04
+do is we can take the prompt from the AI
+6:07
+agent and send that over to foul So let
+6:09
+me copy this for example Then we're
+6:11
+going to go over to automation If you
+6:14
+wanted to just automate this directly
+6:17
+you can grab that And then you can take
+6:20
+the output from the previous module and
+6:23
+plug this into the value section over
+6:25
+here And that will be the prompt Bear in
+6:28
+mind as well that you only want to
+6:30
+generate one prompt at a time So what
+6:32
+you can do with the script is you can
+6:33
+just say okay only generate one line
+6:36
+right only generate one scene for
+6:38
+example And that will give you like just
+6:39
+one scene to generate with the HTTP
+6:42
+request And then you would just wait a
+6:45
+minute get the information the URL back
+6:48
+from foul and then plug that in wherever
+6:50
+you want But pretty simple and easy to
+6:52
+automate using this process I like it
+6:54
+because it's a lot cheaper than using
+6:56
+foul which is way more expensive if you
+6:58
+don't have access to the bayast
+7:00
+automation And then also if we go to
+7:04
+float now we've got the new generation
+7:06
+So this is the new example of the prompt
+7:08
+we automated for our dog food example
+7:11
+Let's open this up full screen and see
+7:12
+what it's like Could be terrible because
+7:14
+I've just generated it live but let's
+7:15
+see what it's like Do you worry about
+7:18
+what's in your dog's food let's talk
+7:20
+about healthy options for your furry
+7:22
+friend That actually worked out
+7:24
+perfectly I can't believe it That was
+7:27
+live So yeah you can see exactly how it
+7:29
+works step by step Literally all we did
+7:31
+was we grab the scenes
+7:35
+inside the chat and then you can just
+7:37
+generate them step by step right if you
+7:39
+want to generate the second scene we can
+7:41
+just take that and then we can plug this
+7:43
+in One thing that I'm going to say and
+7:45
+just warn you about is the character
+7:47
+congruency is not great right so you
+7:50
+might find that like the character
+7:51
+congruency overall is not amazing but it
+7:54
+does the job So you know it's up to you
+7:56
+And I think some people worry about
+7:59
+what's in your dogs Why is that playing
+8:01
+yeah So let's play another one So we'll
+8:03
+grab scene two now And that will
+8:05
+generate the second scene as you can see
+8:07
+right here So for example this character
+8:10
+is not perfectly congruent
+8:13
+but it could work on an ad if you had
+8:15
+like B-roll and that sort of thing right
+Automating Ads with HeyGen and Avatar Creation
+8:17
+the other option that you have for
+8:18
+automating ads is that you could take
+8:20
+exactly the same prompt and then you can
+8:22
+go over to Hey Gen as well So hey genen
+8:24
+is another one where you could create
+8:26
+avatar ads with this too So for example
+8:28
+if we take that then we could for
+8:31
+example go to home try Avatar 4 type in
+8:35
+your script and plug in the image of the
+8:38
+person that you want to use If you don't
+8:40
+have any images you can just use a
+8:42
+sample like you can see right here of
+8:44
+one of the other avatars that they've
+8:46
+got like this for example
+8:49
+You would remove the character
+8:51
+information and just insert the script
+8:53
+Right so you can take that delete this
+8:56
+everything else plug that in You can add
+8:59
+motion as well And then you can just
+9:01
+generate the avatar video But either way
+9:03
+you can easily automate ads using this
+9:06
+flow Super simple So if you want to get
+Accessing AI Profit Boardroom and Additional Resources
+9:09
+access to this stuff feel free to get it
+9:11
+inside the AI profit boardroom Link in
+9:13
+the comments description Shout out to
+9:16
+Adrian Viral Marketing who came up with
+9:18
+the idea for this Definitely check out
+9:20
+his video on this stuff Great I'll link
+9:22
+it inside the organic video I've also
+9:24
+added a link inside the air profit
+9:25
+boardroom as well channel and you can
+9:28
+also just download this blueprint So
+9:30
+click on download and then we'll go into
+9:33
+a new NA10 workflow and you can just
+9:36
+import the workflow Right so if you
+9:37
+click on import from file get that file
+9:40
+you just generated and that's
+9:42
+automatically uploaded into the workflow
+9:45
+Right really nice and simple So link in
+9:48
+the comments and description to that in
+9:49
+the AI profit boardroom if you want to
+9:52
+get access you can connect with me
+9:54
+directly too also comes with three
+9:56
+weekly coaching calls you can ask me any
+9:58
+questions that you have as well inside
+10:00
+the community and additionally what we
+10:02
+do is like we say each week we say what
+10:04
+automations do you want us to create and
+10:07
+then based on your answers we actually
+10:10
+create all the automations you want to
+10:11
+see right so you get massive value out
+10:13
+of this because normally you would pay
+10:14
+an agency thousands of dollars you can
+10:17
+Just go inside the AR profit boardroom
+10:19
+ask us to build whatever automations you
+10:20
+want within reason of course and then
+10:22
+within a week we actually just get back
+10:25
+to you record a personalized video for
+10:26
+you with a time stamp and then create
+10:28
+the links to the videos and everything
+10:31
+else right so link in the comments
+10:32
+description to that It's also where you
+10:34
+can connect with me personally and a
+10:36
+community of awesome entrepreneurs like
+10:37
+you can see Also it comes with all my
+10:39
+best automations workflows and NA10 AI
+10:42
+agents right so for example if you click
+10:44
+on NA10 templates inside the classroom
+10:46
+you get all of these different NA10
+10:48
+automations and we're pretty much
+10:50
+updating it like almost every single day
+10:52
+at this point So feel free to get that
+10:53
+link in the comments in description If
+Conclusion and Contact Information
+10:55
+you're like okay I just want your AI
+10:58
+automation agency to implement it for us
+11:00
+Feel free to book in an AI strategy
+11:02
+session link in the comments description
+11:04
+What we can do on that call is audit
+11:06
+your time and figure out exactly what
+11:08
+you need to automate Then from there we
+11:10
+can just go off and automate it for you
+11:11
+right and we just each month we automate
+11:14
+different processes based on what's
+11:15
+going to save you the most amount of
+11:16
+time Link in the comments description to
+11:18
+that and appreciate you watching
+
+https://www.youtube.com/watch?v=U4XZBQ64cuk

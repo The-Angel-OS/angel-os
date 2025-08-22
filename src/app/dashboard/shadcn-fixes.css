@@ -1,0 +1,154 @@
+/* ShadCN UI Component Fixes for Dark Mode */
+
+/* Chat Panel Specific Fixes */
+.chat-panel-container {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  opacity: 1 !important;
+}
+
+.chat-panel-container .chat-header,
+.chat-panel-container .chat-messages,
+.chat-panel-container .chat-input {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  opacity: 1 !important;
+}
+
+.chat-panel-container input {
+  background-color: hsl(var(--muted)) !important;
+  color: hsl(var(--foreground)) !important;
+  border-color: hsl(var(--border)) !important;
+  opacity: 1 !important;
+}
+
+.chat-panel-container button {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+  opacity: 1 !important;
+}
+
+/* Message bubble fixes */
+.chat-panel-container .message-bubble {
+  opacity: 1 !important;
+}
+
+.chat-panel-container .message-bubble.user-message {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+.chat-panel-container .message-bubble.ai-message {
+  background-color: hsl(var(--muted)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Select component fixes */
+[data-radix-select-viewport] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+[data-radix-select-content] {
+  background-color: hsl(var(--background)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+[data-radix-select-item] {
+  color: hsl(var(--foreground)) !important;
+}
+
+[data-radix-select-item][data-highlighted] {
+  background-color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+/* Dropdown menu fixes */
+[data-radix-dropdown-menu-content] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+[data-radix-dropdown-menu-item] {
+  color: hsl(var(--foreground)) !important;
+}
+
+[data-radix-dropdown-menu-item][data-highlighted] {
+  background-color: hsl(var(--accent)) !important;
+  color: hsl(var(--accent-foreground)) !important;
+}
+
+/* Popover fixes */
+[data-radix-popover-content] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+/* Dialog fixes */
+[data-radix-dialog-content] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+}
+
+/* Tooltip fixes */
+[data-radix-tooltip-content] {
+  background-color: hsl(var(--background)) !important;
+  color: hsl(var(--foreground)) !important;
+  border: 1px solid hsl(var(--border)) !important;
+}
+
+/* Dark mode specific overrides */
+[data-theme="dark"] {
+  /* Calendar dialog specific fix */
+  [role="dialog"] {
+    background-color: hsl(222.2 84% 4.9%) !important;
+    color: hsl(210 40% 98%) !important;
+  }
+  
+  /* Chat panel fixes */
+  .chat-panel-container {
+    background-color: hsl(222.2 84% 4.9%) !important;
+    color: hsl(210 40% 98%) !important;
+  }
+  
+  .chat-panel-container * {
+    background-color: inherit;
+    color: inherit;
+  }
+  
+  .chat-panel-container input {
+    background-color: hsl(217.2 32.6% 17.5%) !important;
+    color: hsl(210 40% 98%) !important;
+    border-color: hsl(217.2 32.6% 25%) !important;
+  }
+  
+  /* Input fields in dialogs */
+  [role="dialog"] input,
+  [role="dialog"] textarea,
+  [role="dialog"] select {
+    background-color: hsl(217.2 32.6% 17.5%) !important;
+    color: hsl(210 40% 98%) !important;
+    border-color: hsl(217.2 32.6% 25%) !important;
+  }
+  
+  /* Buttons in dialogs */
+  [role="dialog"] button {
+    color: hsl(210 40% 98%) !important;
+  }
+}
+
+/* Fix for theme toggle dropdown */
+[data-theme="dark"] [role="menu"] {
+  background-color: hsl(222.2 84% 4.9%) !important;
+  border-color: hsl(217.2 32.6% 17.5%) !important;
+}
+
+[data-theme="dark"] [role="menuitem"] {
+  color: hsl(210 40% 98%) !important;
+}
+
+[data-theme="dark"] [role="menuitem"]:hover {
+  background-color: hsl(217.2 32.6% 17.5%) !important;
+}

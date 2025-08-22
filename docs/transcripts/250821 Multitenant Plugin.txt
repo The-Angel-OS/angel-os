@@ -1,0 +1,238 @@
+Exploring Payload's Multi-Tenant Plugin
+https://www.youtube.com/watch?v=pCfO7eXLReo
+Payload
+12.3K subscribers
+
+Subscribe
+
+217
+
+
+Share
+
+Ask
+
+9,609 views  Jan 27, 2025
+We recently shipped a plugin for Payload to help you manage multiple tenants from within your admin panel. In this video, Jarrod walks through a high-level of multi-tenancy in Payload, and how this plugin makes life a bit easier.
+
+Installation: pnpm add @payloadcms/plugin-multi-tenant
+
+Repo: https://github.com/payloadcms/payload...
+Example: https://github.com/payloadcms/payload...
+
+Questions? Reach out on Discord (discord.gg/payload) or slide into Jarrod's DMs on Twitter. He'll love it. https://x.com/jarrodmflesch
+
+What is Payload: Payload is the open-source Next.js backend. It closes the gap between headless CMS and application framework, powering everything from enterprise websites to internal applications.
+
+Get started with one line: npx create-payload-app@latest
+Or visit https://payloadcms.com
+
+Write a Payload Config and instantly get:
+— A full Admin Panel using React server / client components, matching the shape of your data and completely extensible with your own React components
+— Automatic database schema, including direct DB access and ownership, with migrations, transactions, proper indexing, and more
+— Instant REST, GraphQL, and straight-to-DB Node.js APIs
+— Authentication which can be used in your own apps
+— A deeply customizable access control pattern
+— File storage and image management tools like cropping / focal point selection
+— Live preview - see your frontend render content changes in realtime as you update
+
+Transcript
+
+
+Search in video
+0:01
+hey there I want to take a second to
+0:03
+talk about the multi-tenant plugin that
+0:05
+we just released for payload if you
+0:06
+don't know what multitenant is it's when
+0:08
+you have in most cases clients you're
+0:12
+spitting out websites and you want your
+0:14
+clients to log into the same admin panel
+0:16
+but you don't want them to see each
+0:17
+other's content or maybe you work in a
+0:20
+business and you have different
+0:21
+organizations and you don't want the
+0:22
+organizations to see each other's you
+0:25
+know they want you want them to stay
+0:26
+focused on the thing that they are set
+0:29
+out to do so that's kind of what multi-
+0:31
+tendency does it allows you to separate
+0:33
+um users and this plugin helps do that
+0:37
+in a fairly easy way so we have a
+0:40
+tenants collection a users collection
+0:42
+food items collection and a food menu
+0:45
+collection tenants collection you have
+0:46
+to add a tenants
+0:48
+collection and I've already done this
+0:51
+here my example is restaurants so I have
+0:53
+two clients and they are in the
+0:55
+restaurant business so steelcat blue dog
+0:58
+they're two restaurants
+1:00
+I can assign users to a restaurant so if
+1:02
+I go to users I have hu and Jane hu is
+1:05
+assigned to steelcat and Jane is
+1:08
+assigned to Blue Dog and when Jane logs
+1:12
+in Jane will only be able to see blue
+1:14
+dog related content and when H logs in
+1:16
+you will only be able to see steelcat
+1:18
+related content I'm logged in as a super
+1:20
+admin so if I look at my account here I
+1:23
+just have a rule as
+1:25
+admin we the plugin allows you to Define
+1:28
+exactly how you determine who what users
+1:30
+are super admin so this is not like
+1:32
+strict to you need to use this field um
+1:34
+but in my example this is just what I'm
+1:36
+doing and as a super admin I can go to a
+1:39
+collection and I can see all items for
+1:42
+every tenant or I can filter down by
+1:44
+like blue dog and only see the blue dog
+1:47
+items and then same for
+1:49
+steelcat um two more things two quick
+1:52
+things it also allows you
+1:54
+to kind of come up with like a global
+1:57
+pattern so with tenant you can't have a
+2:00
+global um config because collect because
+2:04
+you need to have multiple documents and
+2:06
+they just need to be one per tenant
+2:08
+instead of a global which is like one
+2:11
+document that the whole that everybody
+2:13
+shares that doesn't really work for
+2:15
+tenancy so you have there's a way to
+2:18
+Mark collections as globals and when you
+2:20
+do that you get and you click on this
+2:22
+one this one's marked as Global there's
+2:24
+no list view it goes right to the
+2:26
+document and then if I switch to blue
+2:28
+dog goes right to the blue dog
+2:30
+which is pretty cool and then when Jane
+2:32
+logs in she will only be able to go to
+2:34
+the blue dog he will only be able to go
+2:36
+to the steel capat the last thing here
+2:38
+is uh relationship filter options so
+2:41
+this is built into baked into the
+2:44
+plugin so this is a I'm on the blue dog
+2:48
+tenant and this is a relationship field
+2:50
+to food items which has a tenant field
+2:53
+on it and so it filters all the items
+2:56
+based on the tenant that I currently
+2:58
+have selected so if if I change this to
+3:00
+Steel cat you'll see that the items are
+3:03
+different these are the steelcat items
+3:06
+which is just like a boiler plate that
+3:07
+you don't need to worry about when you
+3:09
+use this plugin but you would need to
+3:10
+worry about if you were rolling your own
+3:11
+multi-tenancy
+3:13
+solution um that's really all I have the
+3:17
+only thing I could probably show you is
+3:19
+when I log in as let's say Jane there's
+3:22
+no selector because she only has one
+3:24
+tenant she can only see her tenant she
+3:27
+can't see steelcat tenant she can only
+3:28
+see users that are in the same tency as
+3:32
+she is food items there's no way to
+3:35
+filter and then the menu same kind of
+3:38
+thing but yeah that's really it that's
+3:40
+all I have I hope you learned something
+3:42
+I hope you check out the new plugin um
+3:44
+if you have any feedback feedback hit me
+3:46
+up on Discord or Twitter yeah catch you
+3:49
+in the next one peace

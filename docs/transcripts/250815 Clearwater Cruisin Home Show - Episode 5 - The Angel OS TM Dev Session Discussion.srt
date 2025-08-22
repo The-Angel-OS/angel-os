@@ -1,0 +1,2503 @@
+1
+00:00:01,760 --> 00:00:04,400
+Good evening, everyone who happens to be
+
+2
+00:00:04,400 --> 00:00:06,480
+watching right now, which is probably
+
+3
+00:00:06,480 --> 00:00:08,720
+nobody because nobody watches this. Come
+
+4
+00:00:08,720 --> 00:00:10,800
+on now. I'm boring as all get out, baby.
+
+5
+00:00:11,120 --> 00:00:12,720
+Who knows?It is
+
+6
+00:00:12,720 --> 00:00:15,160
+633 on the
+
+7
+00:00:15,280 --> 00:00:17,200
+15th Friday.
+
+8
+00:00:19,480 --> 00:00:22,360
+I'm broke. That's a story for another
+
+9
+00:00:22,360 --> 00:00:25,320
+day. But I have good news. I decided to
+
+10
+00:00:25,360 --> 00:00:27,680
+pick up on development of. The
+
+11
+00:00:27,680 --> 00:00:30,560
+Angel OS and
+
+12
+00:00:31,120 --> 00:00:32,920
+I made a little progress and you might
+
+13
+00:00:32,920 --> 00:00:34,720
+think it's a little hokey, but here,
+
+14
+00:00:34,720 --> 00:00:36,560
+let's take a look at what we've got so
+
+15
+00:00:36,560 --> 00:00:37,040
+far.
+
+16
+00:00:51,041 --> 00:00:54,001
+My development instance right here and
+
+17
+00:00:54,001 --> 00:00:54,641
+this is
+
+18
+00:00:57,121 --> 00:00:57,681
+not it.
+
+19
+00:01:28,481 --> 00:01:30,561
+OK, so I just enhanced the products
+
+20
+00:01:30,561 --> 00:01:33,441
+collection inside of the payload
+
+21
+00:01:33,441 --> 00:01:36,321
+CMS website and
+
+22
+00:01:36,321 --> 00:01:38,441
+we've got some migrations that we have to
+
+23
+00:01:38,441 --> 00:01:41,321
+do. So right now what I do
+
+24
+00:01:41,321 --> 00:01:43,841
+is I go in here and I press the enter
+
+25
+00:01:43,841 --> 00:01:46,641
+key. You can see all the
+
+26
+00:01:46,641 --> 00:01:49,601
+column and tables have been resolved.
+
+27
+00:01:49,601 --> 00:01:52,401
+So here's our payload CMS
+
+28
+00:01:52,401 --> 00:01:53,521
+website now.
+
+29
+00:01:58,081 --> 00:02:00,161
+We'll make this a little bigger
+
+30
+00:02:01,121 --> 00:02:02,401
+so you can see it.
+
+31
+00:02:04,361 --> 00:02:06,081
+And we'll throw this up here.
+
+32
+00:02:18,562 --> 00:02:20,322
+I don't have those things anymore. Oh, I
+
+33
+00:02:20,322 --> 00:02:22,162
+guess that's a Windows Power Toy feature.
+
+34
+00:02:23,682 --> 00:02:25,762
+All right, so Windows Power Toys has this
+
+35
+00:02:25,762 --> 00:02:26,562
+cool thing.
+
+36
+00:02:29,122 --> 00:02:32,002
+Where where you can like. There it
+
+37
+00:02:32,002 --> 00:02:34,322
+is. Well There.
+
+38
+00:02:34,722 --> 00:02:37,522
+Alright. So now we
+
+39
+00:02:37,522 --> 00:02:38,082
+have our
+
+40
+00:02:40,162 --> 00:02:42,482
+cursor window open. We don't need our
+
+41
+00:02:42,482 --> 00:02:45,202
+file list here. See all the
+
+42
+00:02:45,202 --> 00:02:46,802
+files that we're working on. We'll make
+
+43
+00:02:46,802 --> 00:02:49,042
+this a little bigger so you can see it.
+
+44
+00:02:49,042 --> 00:02:51,962
+We'll close the file list out. Don't
+
+45
+00:02:51,962 --> 00:02:54,002
+really need the code window so much, but
+
+46
+00:02:54,002 --> 00:02:55,602
+you can't really get rid of it. Don't
+
+47
+00:02:55,602 --> 00:02:57,202
+even really look at it so much these
+
+48
+00:02:57,202 --> 00:02:58,682
+days. And you're like, Karen, why don't
+
+49
+00:02:58,682 --> 00:03:01,362
+you look at the code window?Well, because
+
+50
+00:03:01,442 --> 00:03:04,242
+it just got so smart. You don't need to
+
+51
+00:03:04,242 --> 00:03:07,202
+anyway. But you do need to know, pay
+
+52
+00:03:07,202 --> 00:03:08,642
+attention to what you're doing. And right
+
+53
+00:03:08,642 --> 00:03:09,762
+now we've got our
+
+54
+00:03:11,762 --> 00:03:14,642
+default Angel OS, which is still named
+
+55
+00:03:14,642 --> 00:03:16,962
+Spaces because that's where it came from,
+
+56
+00:03:16,962 --> 00:03:18,082
+is my spaces.
+
+57
+00:03:23,842 --> 00:03:26,322
+And this is the cool little snappy
+
+58
+00:03:26,322 --> 00:03:29,282
+control panel for it that I just whipped
+
+59
+00:03:29,282 --> 00:03:32,002
+up. But I didn't really whip it up. So I
+
+60
+00:03:32,002 --> 00:03:33,842
+have this other decent thing that I've
+
+61
+00:03:33,842 --> 00:03:35,922
+been using for a while, which I used to
+
+62
+00:03:35,922 --> 00:03:38,723
+mix and put put together all my
+
+63
+00:03:41,123 --> 00:03:42,643
+dashcam videos.
+
+64
+00:03:44,403 --> 00:03:47,123
+So anywho, and then here I'm going to try
+
+65
+00:03:47,123 --> 00:03:49,123
+to say hello to Leo and see if he even
+
+66
+00:03:49,123 --> 00:03:51,603
+works. Hi Leo R.
+
+67
+00:03:53,123 --> 00:03:54,803
+Uh, where?Oh
+
+68
+00:03:56,243 --> 00:03:57,363
+Ah, uh, uh, oh
+
+69
+00:04:00,563 --> 00:04:03,403
+Leo just talked back to me. All right.
+
+70
+00:04:04,923 --> 00:04:07,723
+Um, uh,
+
+71
+00:04:08,563 --> 00:04:10,643
+intent detection, let's--
+
+72
+00:04:14,243 --> 00:04:15,363
+oh, we were, um--
+
+73
+00:04:22,883 --> 00:04:24,243
+shrink that down a little bit
+
+74
+00:04:29,203 --> 00:04:32,163
+anyhow um
+
+75
+00:04:47,663 --> 00:04:50,463
+so now we see Leo talking back to me but
+
+76
+00:04:50,463 --> 00:04:53,023
+it's not really smart so we got to fix
+
+77
+00:04:53,023 --> 00:04:55,843
+thatSo I'm going to go
+
+78
+00:04:55,843 --> 00:04:58,563
+ahead and talk to Cloud 4.1 Opus
+
+79
+00:04:58,563 --> 00:05:00,483
+Max right now. And I just did a
+
+80
+00:05:00,483 --> 00:05:02,643
+screenshot, and I'm going to fire that
+
+81
+00:05:02,643 --> 00:05:04,323
+off to the big guy himself.
+
+82
+00:05:18,644 --> 00:05:19,844
+This is pretty, though.
+
+83
+00:05:30,244 --> 00:05:32,164
+Oh. It's so
+
+84
+00:05:32,164 --> 00:05:33,764
+pretty.
+
+85
+00:05:43,004 --> 00:05:43,484
+Oh.
+
+86
+00:07:35,245 --> 00:07:35,365
+OK,
+
+87
+00:07:52,245 --> 00:07:54,285
+let me read around what I just posted. I
+
+88
+00:07:54,285 --> 00:07:56,405
+just said note. Also, ideally we'd have a
+
+89
+00:07:56,405 --> 00:07:58,406
+system console on the bottom which gives
+
+90
+00:07:58,406 --> 00:07:59,926
+us any heartbeats or other service
+
+91
+00:07:59,926 --> 00:08:02,726
+statuses for troubleshooting. Ideally,
+
+92
+00:08:02,726 --> 00:08:04,966
+we'd also be able to conveniently copy
+
+93
+00:08:04,966 --> 00:08:07,006
+formatted errors for submittal back to
+
+94
+00:08:07,006 --> 00:08:09,246
+you for analysis and resolution :).
+
+95
+00:08:10,566 --> 00:08:12,806
+Note that the responses weren't that
+
+96
+00:08:12,806 --> 00:08:15,526
+smart yet, just analyzing. We need to be
+
+97
+00:08:15,526 --> 00:08:17,286
+pumping messages through our business
+
+98
+00:08:17,286 --> 00:08:18,726
+pumps, so to speak. We need to be
+
+99
+00:08:18,726 --> 00:08:20,406
+dogfooding from round one.
+
+100
+00:08:21,526 --> 00:08:24,006
+OK, and we're paying maximum for this
+
+101
+00:08:24,246 --> 00:08:26,566
+Opus 4.1
+
+102
+00:08:26,566 --> 00:08:29,126
+Max, but it's
+
+103
+00:08:29,126 --> 00:08:31,926
+totally like it literally just. That
+
+104
+00:08:31,926 --> 00:08:34,566
+just puts magical code into
+
+105
+00:08:34,566 --> 00:08:37,366
+existence and it is it is and you're like
+
+106
+00:08:37,366 --> 00:08:39,126
+and so right now what we have is an
+
+107
+00:08:39,126 --> 00:08:41,886
+unprovisioned multi tenant payload
+
+108
+00:08:41,886 --> 00:08:44,566
+CMS website 2.03.0
+
+109
+00:08:45,366 --> 00:08:48,246
+template website template which
+
+110
+00:08:48,246 --> 00:08:50,966
+has this awesome forms collection and all
+
+111
+00:08:50,966 --> 00:08:53,646
+sorts of awesome capabilities. And then
+
+112
+00:08:53,646 --> 00:08:55,726
+what we did was we took the seed script
+
+113
+00:08:55,726 --> 00:08:58,006
+and converted that into our provisioning
+
+114
+00:08:58,006 --> 00:09:00,966
+engine. And So what we can do is
+
+115
+00:09:00,966 --> 00:09:03,766
+dynamically modify that seed script. All
+
+116
+00:09:03,766 --> 00:09:05,646
+of those seed things are all just things
+
+117
+00:09:05,646 --> 00:09:07,646
+that we can change and it
+
+118
+00:09:08,486 --> 00:09:11,406
+can change it at runtime. So it can just
+
+119
+00:09:11,406 --> 00:09:13,766
+take this thing, read the seed script in,
+
+120
+00:09:14,086 --> 00:09:16,086
+and then replace it for whatever site
+
+121
+00:09:16,086 --> 00:09:18,166
+we're provisioning. So if you're
+
+122
+00:09:19,206 --> 00:09:21,766
+Hayes Cactus Farm, it'll plop in Hayes
+
+123
+00:09:21,766 --> 00:09:24,366
+Cactus Farm's products right then and
+
+124
+00:09:24,366 --> 00:09:26,887
+there, including bookable events so.
+
+125
+00:09:27,207 --> 00:09:29,727
+You can do consultations or who knows
+
+126
+00:09:29,727 --> 00:09:32,567
+what, or maybe do Hayes Cactus Farm
+
+127
+00:09:32,807 --> 00:09:35,287
+plantings and landscapings or who knows.
+
+128
+00:09:35,607 --> 00:09:37,727
+But I'm just saying that it would handle
+
+129
+00:09:37,727 --> 00:09:38,967
+that and it would handle
+
+130
+00:09:39,687 --> 00:09:42,647
+radioactive car radios
+
+131
+00:09:42,967 --> 00:09:44,967
+business and be able to book each one of
+
+132
+00:09:44,967 --> 00:09:47,367
+their bays independently and each one of
+
+133
+00:09:47,367 --> 00:09:48,887
+their guys would be able to have their
+
+134
+00:09:48,887 --> 00:09:50,807
+own separate site, but would still be
+
+135
+00:09:50,807 --> 00:09:52,967
+listed on Radioactive for Radioactive's
+
+136
+00:09:52,967 --> 00:09:55,127
+purposes. It's just.
+
+137
+00:09:56,567 --> 00:09:58,567
+Awesome. So let's see.
+
+138
+00:10:08,537 --> 00:10:10,417
+So right now it thought for seven seconds
+
+139
+00:10:10,457 --> 00:10:12,377
+and let's see what it thought. Heartbeats
+
+140
+00:10:12,777 --> 00:10:14,777
+and server services, ability to copy,
+
+141
+00:10:14,777 --> 00:10:16,697
+format into errors for submission, real
+
+142
+00:10:16,697 --> 00:10:19,687
+time system messages. Start dog
+
+143
+00:10:19,687 --> 00:10:21,447
+feeding using their from the beginning.
+
+144
+00:10:21,447 --> 00:10:23,127
+They also mentioned the responses aren't
+
+145
+00:10:23,127 --> 00:10:25,727
+smart. They want to see actual pumping
+
+146
+00:10:25,727 --> 00:10:26,967
+through the system. I should create a
+
+147
+00:10:26,967 --> 00:10:29,047
+classical system console at the bottom of
+
+148
+00:10:29,047 --> 00:10:31,367
+the Angel OS that shows real time logs,
+
+149
+00:10:31,367 --> 00:10:33,207
+system heartbeats, error message with
+
+150
+00:10:33,207 --> 00:10:35,007
+copying, server status indicated,
+
+151
+00:10:35,367 --> 00:10:37,207
+collapsible design. This would be similar
+
+152
+00:10:37,207 --> 00:10:39,087
+to a developer console but styled with
+
+153
+00:10:39,087 --> 00:10:41,847
+the Angel OS old cars theme. I'll add a
+
+154
+00:10:41,847 --> 00:10:43,807
+system console at the bottom of the Angel
+
+155
+00:10:43,807 --> 00:10:45,167
+OS command Center for monitoring
+
+156
+00:10:45,167 --> 00:10:46,727
+heartbeat, service status, and capturing
+
+157
+00:10:46,727 --> 00:10:48,207
+errors for analysis. This will help with
+
+158
+00:10:48,207 --> 00:10:50,487
+troubleshooting. Doctored in system. Red
+
+159
+00:10:50,487 --> 00:10:52,968
+index dot TSX. Stop for six more
+
+160
+00:10:52,968 --> 00:10:55,288
+seconds. This should
+
+161
+00:10:56,088 --> 00:10:57,928
+OK, now I need to add a system console
+
+162
+00:10:57,928 --> 00:10:59,248
+component at the bottom of the interface.
+
+163
+00:10:59,248 --> 00:11:00,728
+This should be collapsible, expandable,
+
+164
+00:11:00,728 --> 00:11:02,208
+show system locks, heartbeats and errors.
+
+165
+00:11:02,208 --> 00:11:03,568
+I have a copy button for formatted
+
+166
+00:11:03,568 --> 00:11:05,608
+errors. Show real-time messages, be
+
+167
+00:11:05,608 --> 00:11:07,448
+styled with Elkar's theme. I'll create a
+
+168
+00:11:07,448 --> 00:11:09,288
+new system console component. And
+
+169
+00:11:09,288 --> 00:11:11,128
+integrated into the Angel OS command
+
+170
+00:11:11,128 --> 00:11:12,888
+center. This console should be at the
+
+171
+00:11:12,888 --> 00:11:14,008
+bottom of the screen. It should not
+
+172
+00:11:14,008 --> 00:11:15,288
+interfere with the floating action
+
+173
+00:11:15,288 --> 00:11:18,168
+buttons. I'll also need to create a
+
+174
+00:11:18,168 --> 00:11:20,088
+system for capturing and displaying logs
+
+175
+00:11:20,088 --> 00:11:21,528
+errors throughout the application. I'll
+
+176
+00:11:21,528 --> 00:11:22,808
+add a system console at the bottom of the
+
+177
+00:11:22,808 --> 00:11:24,328
+Angel OS command center for monitoring
+
+178
+00:11:24,328 --> 00:11:26,368
+system heartbeats, errors and real time
+
+179
+00:11:26,368 --> 00:11:27,888
+messages. This will help with
+
+180
+00:11:27,888 --> 00:11:30,648
+troubleshooting and dogfooding. I'll
+
+181
+00:11:30,648 --> 00:11:32,488
+also need to create a system for
+
+182
+00:11:32,488 --> 00:11:34,288
+capturing displaying logs errors
+
+183
+00:11:34,288 --> 00:11:35,568
+throughout the application. I'll add
+
+184
+00:11:35,568 --> 00:11:38,088
+system console at the. HLS command center
+
+185
+00:11:38,088 --> 00:11:40,088
+for monitoring system heartbeats, errors,
+
+186
+00:11:40,248 --> 00:11:41,688
+real-time messages, will help
+
+187
+00:11:41,688 --> 00:11:42,528
+troubleshooting. That
+
+188
+00:12:01,778 --> 00:12:04,098
+is so sexy. Look at this.
+
+189
+00:12:04,818 --> 00:12:07,218
+Oh, that is so sexy.
+
+190
+00:12:08,018 --> 00:12:10,978
+Ah And look how it bounces.
+
+191
+00:12:12,098 --> 00:12:14,418
+Oh, I love it.
+
+192
+00:12:17,218 --> 00:12:17,298
+Ooh
+
+193
+00:14:05,660 --> 00:14:07,460
+OK, OK, don't stop or start dev server. I
+
+194
+00:14:07,460 --> 00:14:09,260
+will manage the dev server is what I
+
+195
+00:14:09,260 --> 00:14:11,100
+said. You can't see that window over
+
+196
+00:14:11,100 --> 00:14:13,740
+there. And so I'm typing away. I'll move
+
+197
+00:14:13,740 --> 00:14:16,460
+over here and you can. And then I can't
+
+198
+00:14:16,460 --> 00:14:17,980
+really make that any bigger here. I'll
+
+199
+00:14:18,100 --> 00:14:20,140
+try to make it bigger. Oh, OK,
+
+200
+00:14:21,420 --> 00:14:22,780
+we'll take this.
+
+201
+00:14:27,660 --> 00:14:30,140
+What here?Oh, it's sexy as me.
+
+202
+00:14:30,570 --> 00:14:31,770
+It really is sexy.
+
+203
+00:14:35,810 --> 00:14:36,810
+Uh, well, I thought you would want to
+
+204
+00:14:36,810 --> 00:14:39,690
+nibble on it here and there. OK, so right
+
+205
+00:14:39,690 --> 00:14:42,330
+now what I'm doing is, uh, please. Oh,
+
+206
+00:14:42,330 --> 00:14:44,650
+great mind. So right now I'm going to go
+
+207
+00:14:44,650 --> 00:14:45,810
+down into
+
+208
+00:14:47,370 --> 00:14:49,690
+this and I'm going to say, now
+
+209
+00:14:51,130 --> 00:14:51,250
+the
+
+210
+00:14:57,090 --> 00:14:59,410
+control is a wonderful
+
+211
+00:14:59,970 --> 00:15:02,810
+program. for
+
+212
+00:15:02,810 --> 00:15:03,970
+these spaces
+
+213
+00:15:05,930 --> 00:15:06,730
+over
+
+214
+00:15:08,330 --> 00:15:10,650
+UX which you've
+
+215
+00:15:10,970 --> 00:15:12,170
+pretty much
+
+216
+00:15:15,051 --> 00:15:17,371
+already nailed in
+
+217
+00:15:18,651 --> 00:15:21,091
+the current control panel.
+
+218
+00:15:22,411 --> 00:15:23,131
+This way move
+
+219
+00:15:28,251 --> 00:15:30,771
+this control panel to
+
+220
+00:15:31,691 --> 00:15:33,851
+automatically configure
+
+221
+00:15:35,211 --> 00:15:37,211
+the self-recording
+
+222
+00:15:38,651 --> 00:15:41,371
+combination of users.
+
+223
+00:15:42,651 --> 00:15:43,291
+Meaning,
+
+224
+00:15:54,331 --> 00:15:56,931
+we're performing all the
+
+225
+00:18:41,213 --> 00:18:43,493
+This is so sexy. Oh,
+
+226
+00:18:45,013 --> 00:18:47,213
+and this is so fast, we're paying for it.
+
+227
+00:18:47,213 --> 00:18:49,933
+But this, yeah, this
+
+228
+00:18:49,933 --> 00:18:50,413
+will.
+
+229
+00:18:54,173 --> 00:18:56,133
+So right now what we're doing, transform
+
+230
+00:18:56,133 --> 00:18:57,773
+the existing tenant control panel in
+
+231
+00:18:57,773 --> 00:18:59,933
+universal permission-aware control system
+
+232
+00:19:00,253 --> 00:19:02,413
+that dynamically configures itself based
+
+233
+00:19:02,413 --> 00:19:03,893
+on user roles and permission. This
+
+234
+00:19:03,893 --> 00:19:05,613
+creates a single scalable interface for
+
+235
+00:19:05,613 --> 00:19:08,013
+managing all Angel OS entities.
+
+236
+00:19:08,333 --> 00:19:10,333
+Tenants, faces, roducts, users, etc.
+
+237
+00:19:10,573 --> 00:19:12,653
+While maintaining the beautiful L cars UX
+
+238
+00:19:12,653 --> 00:19:15,613
+already implemented mostly. Hi
+
+239
+00:19:15,733 --> 00:19:16,253
+there buddy.
+
+240
+00:20:46,654 --> 00:20:49,094
+And this is so elegant too. Like the
+
+241
+00:20:49,134 --> 00:20:51,854
+animations are like boom,
+
+242
+00:20:51,934 --> 00:20:54,334
+like just sexy.
+
+243
+00:20:55,574 --> 00:20:57,694
+And The thing is, is nobody will be ever
+
+244
+00:20:57,774 --> 00:21:00,414
+ever be using the admin control
+
+245
+00:21:00,414 --> 00:21:03,055
+panel in like like they will not be at
+
+246
+00:21:03,055 --> 00:21:05,295
+all because it's all conversationally
+
+247
+00:21:06,015 --> 00:21:08,215
+driven and you're like, OK, but no, the
+
+248
+00:21:08,255 --> 00:21:10,495
+architecture's there and I've done this a
+
+249
+00:21:10,575 --> 00:21:11,855
+bunch of times and
+
+250
+00:21:14,495 --> 00:21:17,295
+andCloud 4.1 Opus is way
+
+251
+00:21:17,295 --> 00:21:20,015
+better than I am. And every time I did
+
+252
+00:21:20,015 --> 00:21:22,815
+it, I I hand coded it. I did one in Bisk
+
+253
+00:21:22,815 --> 00:21:25,375
+Education and these are
+
+254
+00:21:25,375 --> 00:21:27,575
+business processor systems and this is a
+
+255
+00:21:27,575 --> 00:21:29,895
+message processing system and all it does
+
+256
+00:21:29,895 --> 00:21:32,655
+is every single thing and this is a
+
+257
+00:21:32,655 --> 00:21:35,535
+message and it gets processed and every
+
+258
+00:21:35,535 --> 00:21:38,175
+single thing has a conversational
+
+259
+00:21:38,175 --> 00:21:40,855
+endpoint so that and an intent
+
+260
+00:21:41,215 --> 00:21:43,535
+analysis that's all built in with the
+
+261
+00:21:43,535 --> 00:21:45,855
+very best AI. So right now
+
+262
+00:21:47,455 --> 00:21:50,415
+I'm waiting for this to load. I'm
+
+263
+00:21:50,415 --> 00:21:53,295
+just going to take that control C
+
+264
+00:21:53,375 --> 00:21:55,775
+and I'm going to kill that and I'm going
+
+265
+00:21:55,975 --> 00:21:58,895
+to um pop open a new
+
+266
+00:21:58,895 --> 00:22:01,655
+one. I don't know why. It's
+
+267
+00:22:01,655 --> 00:22:02,335
+sometimes...
+
+268
+00:22:05,855 --> 00:22:08,495
+So I'll kill this and restart it.
+
+269
+00:22:08,975 --> 00:22:10,295
+And then I'll go back in here.
+
+270
+00:22:23,855 --> 00:22:25,935
+Oh, it's so sexy. It's just so,
+
+271
+00:22:27,215 --> 00:22:30,176
+oh, it's so sexy. It really is.
+
+272
+00:22:32,056 --> 00:22:34,256
+And this thing right here, look at that.
+
+273
+00:22:34,336 --> 00:22:35,456
+I mean, oh,
+
+274
+00:22:38,176 --> 00:22:39,696
+oh, it's so nice.
+
+275
+00:22:56,216 --> 00:22:58,976
+And so we have some new migrations to
+
+276
+00:22:59,136 --> 00:23:00,336
+handle right here.
+
+277
+00:23:19,306 --> 00:23:21,066
+And I got more migrations.
+
+278
+00:23:22,826 --> 00:23:25,066
+I go control and then enter, enter,
+
+279
+00:23:25,146 --> 00:23:27,866
+enter, enter, enter, enter, enter.
+
+280
+00:23:28,426 --> 00:23:31,226
+Oh, and it just worked. I love it.
+
+281
+00:23:31,666 --> 00:23:33,226
+I love it. I love it. I love it. I love
+
+282
+00:23:33,226 --> 00:23:35,866
+it. OK, so then
+
+283
+00:23:37,706 --> 00:23:39,066
+let's go back and say hello.
+
+284
+00:23:41,936 --> 00:23:44,096
+Oh, where yet?Um..
+
+285
+00:23:47,856 --> 00:23:48,016
+Um..
+
+286
+00:23:55,687 --> 00:23:57,647
+I just refreshed...
+
+287
+00:24:01,687 --> 00:24:04,527
+Uh.. Yeah, I haven't. I'm gonna do it.
+
+288
+00:24:06,727 --> 00:24:08,727
+close that. Go in here.
+
+289
+00:24:57,417 --> 00:24:58,417
+This
+
+290
+00:25:02,977 --> 00:25:04,897
+frame under
+
+291
+00:25:06,817 --> 00:25:06,937
+the.
+
+292
+00:31:52,822 --> 00:31:55,462
+Oh, good, babe. Sunsets
+
+293
+00:31:55,462 --> 00:31:57,422
+at 8:10 PMI was hoping to leave
+
+294
+00:31:57,422 --> 00:31:58,622
+about 7:30.
+
+295
+00:32:40,503 --> 00:32:42,183
+OK, so it just marked the task as
+
+296
+00:32:42,183 --> 00:32:44,183
+complete to fix these panels. I'm just
+
+297
+00:32:44,183 --> 00:32:46,023
+going to assume it is because I've
+
+298
+00:32:46,023 --> 00:32:48,343
+stopped my dev server because it goes so
+
+299
+00:32:48,343 --> 00:32:50,823
+fast and sometimes it'll be working on
+
+300
+00:32:50,823 --> 00:32:52,903
+multiple files in the background which
+
+301
+00:32:52,903 --> 00:32:55,783
+then cause it to just shoot a brick. So
+
+302
+00:32:55,783 --> 00:32:57,343
+the only way to fix it is just to stop
+
+303
+00:32:57,343 --> 00:32:59,623
+and start the dev server which rebuilds
+
+304
+00:32:59,623 --> 00:33:01,543
+all of the net dot next cache.
+
+305
+00:33:07,703 --> 00:33:09,783
+But this is really, really, really
+
+306
+00:33:10,663 --> 00:33:13,383
+bad to the bone. Like, I can't
+
+307
+00:33:13,943 --> 00:33:16,823
+stress enough how powerful Cloud
+
+308
+00:33:16,823 --> 00:33:19,703
+4.1 Opus is compared to all the others.
+
+309
+00:33:21,303 --> 00:33:23,543
+Like, it's still hands down the best as
+
+310
+00:33:23,543 --> 00:33:25,943
+far as I'm concerned. And GPT-5,
+
+311
+00:33:26,983 --> 00:33:29,863
+I think is dumber than 4 Omni. No
+
+312
+00:33:29,863 --> 00:33:30,983
+offense GPT-5.
+
+313
+00:33:34,583 --> 00:33:36,263
+I got GPT-5 right here.
+
+314
+00:33:37,383 --> 00:33:37,863
+Update.
+
+315
+00:33:50,963 --> 00:33:53,683
+I love Copilot. It's really
+
+316
+00:33:53,683 --> 00:33:56,403
+excellent actually. And it's GPT
+
+317
+00:33:56,403 --> 00:33:58,723
+51 and it's fast as all get out
+
+318
+00:33:59,603 --> 00:34:01,203
+like super fast.
+
+319
+00:34:44,664 --> 00:34:46,584
+So for example,
+
+320
+00:34:48,504 --> 00:34:50,264
+I realize you know that.
+
+321
+00:35:33,385 --> 00:35:34,745
+That's right, you're recording.
+
+322
+00:35:36,385 --> 00:35:38,545
+You'll be able to take the
+
+323
+00:35:38,825 --> 00:35:39,385
+default
+
+324
+00:35:42,385 --> 00:35:44,105
+and real time.
+
+325
+00:35:45,545 --> 00:35:46,425
+Modify
+
+326
+00:35:51,305 --> 00:35:51,385
+it.
+
+327
+00:36:08,745 --> 00:36:11,625
+What?Just a bud?Yeah. That's crazy. I
+
+328
+00:36:11,625 --> 00:36:13,025
+just never knew they could do the bud.
+
+329
+00:36:14,265 --> 00:36:16,025
+Absolutely funny. Ohh
+
+330
+00:36:17,145 --> 00:36:18,785
+But I really would appreciate it if you
+
+331
+00:36:18,785 --> 00:36:20,865
+would go along with us to the park and
+
+332
+00:36:20,865 --> 00:36:23,385
+walk around with this. Please.
+
+333
+00:36:24,985 --> 00:36:25,705
+Pretty please.
+
+334
+00:36:42,985 --> 00:36:45,945
+Look at all this beautiful code. It's
+
+335
+00:36:45,945 --> 00:36:48,585
+all perfect. Every time. I mean, it's
+
+336
+00:36:48,585 --> 00:36:51,385
+like amazing. It is.
+
+337
+00:36:51,385 --> 00:36:54,265
+Like, it's always perfect. Like, product
+
+338
+00:36:54,265 --> 00:36:54,785
+catalog.
+
+339
+00:36:59,226 --> 00:37:02,026
+But it's our friend, it's not our enemy.
+
+340
+00:37:02,026 --> 00:37:04,986
+AI is building the Angel OS for
+
+341
+00:37:04,986 --> 00:37:05,386
+us.
+
+342
+00:37:12,186 --> 00:37:14,146
+So anyway, while that's building that, a
+
+343
+00:37:14,266 --> 00:37:16,106
+little bit about today. What happened
+
+344
+00:37:16,106 --> 00:37:16,586
+today?
+
+345
+00:37:27,526 --> 00:37:30,406
+Good morning. Oh, why
+
+346
+00:37:30,406 --> 00:37:31,966
+did I pause that?I didn't pause that. No,
+
+347
+00:37:33,286 --> 00:37:35,206
+I did the sound, so you can record the
+
+348
+00:37:35,326 --> 00:37:37,286
+sound I did. But you can go ahead. Oh,
+
+349
+00:37:37,286 --> 00:37:39,206
+it's not connected. What the heck?Anyhow.
+
+350
+00:37:40,166 --> 00:37:43,146
+So good morning. I was here and I
+
+351
+00:37:43,146 --> 00:37:45,106
+had all the little doggies here. I'm
+
+352
+00:37:45,106 --> 00:37:47,706
+missing Mika and I'm missing Diesel, but
+
+353
+00:37:47,706 --> 00:37:49,786
+I got Maxima. She's
+
+354
+00:37:51,386 --> 00:37:54,266
+off. Here you go, little
+
+355
+00:37:54,266 --> 00:37:54,826
+buddy. Here
+
+356
+00:37:57,706 --> 00:38:00,506
+you go, Daisy. There you go.
+
+357
+00:38:05,706 --> 00:38:07,466
+We give out little pieces.
+
+358
+00:38:08,506 --> 00:38:10,626
+Cause this stuff is six dollars a bag and
+
+359
+00:38:10,626 --> 00:38:12,186
+we got five dogs and I know.
+
+360
+00:38:15,306 --> 00:38:18,266
+And Max somehow gets like a lot more than
+
+361
+00:38:18,266 --> 00:38:21,026
+the rest and he's smaller so he actually
+
+362
+00:38:21,026 --> 00:38:23,866
+gets like a king size. Mila.
+
+363
+00:38:24,586 --> 00:38:25,027
+Mila.
+
+364
+00:38:29,947 --> 00:38:32,307
+Alright, so there you have it.
+
+365
+00:38:33,107 --> 00:38:35,467
+And we're watching Leon Lush channel.
+
+366
+00:38:37,347 --> 00:38:40,267
+And... What was her name again?She
+
+367
+00:38:40,267 --> 00:38:43,227
+is, um.. in Wisconsin.
+
+368
+00:38:44,227 --> 00:38:46,347
+Yeah. She needs help. Anyhow.
+
+369
+00:38:47,787 --> 00:38:48,667
+Good morning.
+
+370
+00:38:55,187 --> 00:38:58,027
+Hi, Meeker. Hi, Meeker.
+
+371
+00:39:04,907 --> 00:39:05,787
+Yeah, buddy.
+
+372
+00:39:09,387 --> 00:39:11,867
+Okay, you want more?Here, we'll get you
+
+373
+00:39:11,867 --> 00:39:12,027
+more.
+
+374
+00:39:23,867 --> 00:39:25,787
+I always say that to them. Merry
+
+375
+00:39:25,787 --> 00:39:27,957
+Christmas. Christmas, bad .
+
+376
+00:39:29,147 --> 00:39:31,787
+I love my hairy buddy. I love you,
+
+377
+00:39:31,987 --> 00:39:34,427
+buddy. Merry Christmas
+
+378
+00:39:34,827 --> 00:39:37,707
+from Merry Christmas, Beth and Harry.
+
+379
+00:39:37,947 --> 00:39:40,667
+Merry Christmas. Merry
+
+380
+00:39:40,667 --> 00:39:43,547
+Christmas. Merry Christmas,
+
+381
+00:39:43,547 --> 00:39:45,067
+Beth and Harry. They used to always say
+
+382
+00:39:45,067 --> 00:39:46,827
+that, so I always say that to them. So
+
+383
+00:39:46,827 --> 00:39:49,707
+they remember who's Daisy is Beth
+
+384
+00:39:49,707 --> 00:39:52,308
+and Max is definitely
+
+385
+00:39:52,308 --> 00:39:54,828
+Granddaddy. Harry. Harry,
+
+386
+00:39:55,308 --> 00:39:56,988
+be messy. There's no water.
+
+387
+00:39:58,988 --> 00:40:01,948
+The grandest Shih Tzu. Yes, love. They
+
+388
+00:40:01,948 --> 00:40:03,788
+fin. There's actually water still there.
+
+389
+00:40:05,308 --> 00:40:06,748
+Well, that's the third one. I've had to
+
+390
+00:40:06,748 --> 00:40:08,668
+refill them last night and today. Thank
+
+391
+00:40:08,668 --> 00:40:10,428
+you. Again, I'm just telling you, I know
+
+392
+00:40:10,428 --> 00:40:13,308
+you're hungry. Yes, I see you. Yeah.
+
+393
+00:40:13,388 --> 00:40:13,548
+What
+
+394
+00:40:16,868 --> 00:40:18,308
+do you want?You want me to itch you or
+
+395
+00:40:18,308 --> 00:40:21,228
+are you hungry?He's getting good
+
+396
+00:40:21,228 --> 00:40:23,628
+service from his loyal attendant. Royal
+
+397
+00:40:23,628 --> 00:40:25,868
+attendant here. Whatever I am.
+
+398
+00:40:33,788 --> 00:40:36,588
+Anyhow, good morning. Have a nice day.
+
+399
+00:40:36,668 --> 00:40:37,548
+We'll see you in a bit.
+
+400
+00:40:39,468 --> 00:40:42,348
+Good morning. Oh, why
+
+401
+00:40:42,348 --> 00:40:43,908
+did I pause that?I didn't pause that. No,
+
+402
+00:40:45,148 --> 00:40:47,468
+I did the sound, so you record the sound
+
+403
+00:40:47,548 --> 00:40:50,268
+I did. Oh, it's not connected. What the
+
+404
+00:40:50,268 --> 00:40:52,508
+heck?Anyhow, so good
+
+405
+00:40:52,508 --> 00:40:55,468
+morning. I was here and I have all
+
+406
+00:40:55,468 --> 00:40:58,068
+the little doggies here. I'm missing Mika
+
+407
+00:40:58,068 --> 00:41:00,108
+and I'm missing Diesel, but I got
+
+408
+00:41:00,108 --> 00:41:01,788
+Maxima. She's
+
+409
+00:41:03,388 --> 00:41:06,268
+off. Here you go, little
+
+410
+00:41:06,268 --> 00:41:08,668
+buddy. Here you go.
+
+411
+00:41:09,668 --> 00:41:12,428
+Here you go, Daisy. Here you go.
+
+412
+00:41:17,708 --> 00:41:18,188
+We give up.
+
+413
+00:42:12,829 --> 00:42:13,869
+It's a small world
+
+414
+00:42:15,909 --> 00:42:16,589
+after all. Mother
+
+415
+00:42:19,909 --> 00:42:22,549
+Earth unites us in heart
+
+416
+00:42:22,789 --> 00:42:25,429
+and mind, and the love we give
+
+417
+00:42:25,429 --> 00:42:28,269
+makes us humankind through our past.
+
+418
+00:42:28,509 --> 00:42:30,789
+But this way, when we stand in heaven,
+
+419
+00:42:30,829 --> 00:42:32,749
+it's a small world after
+
+420
+00:42:34,349 --> 00:42:37,149
+all. It's a small world after
+
+421
+00:42:37,309 --> 00:42:37,389
+all.
+
+422
+00:43:49,310 --> 00:43:49,550
+Mother
+
+423
+00:43:55,670 --> 00:43:58,310
+Earth unites us in heart
+
+424
+00:43:58,550 --> 00:44:01,190
+and mind, and the love we give
+
+425
+00:44:01,190 --> 00:44:03,750
+makes us humankind through our
+
+426
+00:44:04,110 --> 00:44:06,350
+past. But this way, when we stand in
+
+427
+00:44:06,350 --> 00:44:08,190
+heaven, it's a small world,
+
+428
+00:44:19,871 --> 00:44:20,191
+And this
+
+429
+00:44:24,351 --> 00:44:26,751
+is the death session. I was just putting
+
+430
+00:44:26,791 --> 00:44:28,431
+this up for the day in here.
+
+431
+00:44:40,541 --> 00:44:42,621
+I just had a really bad attack.
+
+432
+00:44:44,541 --> 00:44:45,501
+No more sugar.
+
+433
+00:44:47,861 --> 00:44:50,031
+I just had... The worst
+
+434
+00:44:50,031 --> 00:44:52,751
+attack. I'm like soaking
+
+435
+00:44:52,751 --> 00:44:53,311
+sweat.
+
+436
+00:44:58,191 --> 00:45:00,031
+It's horrible. Anyway,
+
+437
+00:45:01,791 --> 00:45:02,271
+I'm like...
+
+438
+00:45:10,911 --> 00:45:11,791
+Nausea.
+
+439
+00:45:21,791 --> 00:45:24,631
+I'm gonna pass. It
+
+440
+00:45:25,791 --> 00:45:28,351
+was pretty intense.
+
+441
+00:45:29,631 --> 00:45:31,551
+I figured it out. And then that was
+
+442
+00:45:31,551 --> 00:45:32,831
+Bianca at the thing.
+
+443
+00:45:35,071 --> 00:45:37,031
+Just to go back there while we wait for
+
+444
+00:45:37,031 --> 00:45:37,831
+that to load.
+
+445
+00:45:41,192 --> 00:45:41,592
+Why is that?
+
+446
+00:45:44,512 --> 00:45:46,752
+I only, I wish I got the.
+
+447
+00:45:48,672 --> 00:45:51,552
+strange clouds again let's see
+
+448
+00:45:51,992 --> 00:45:54,832
+what happened at strange clouds we took
+
+449
+00:45:55,232 --> 00:45:57,632
+a brief detour to my favorite little
+
+450
+00:45:58,432 --> 00:46:01,392
+alchemical potions elixir shop and
+
+451
+00:46:01,392 --> 00:46:04,232
+we call it they call it strange clouds
+
+452
+00:46:04,232 --> 00:46:06,752
+and I'll just say I love strange clouds I
+
+453
+00:46:06,752 --> 00:46:09,712
+wish I got to spend more time here I
+
+454
+00:46:09,712 --> 00:46:11,552
+think they have a really awesome setup
+
+455
+00:46:12,472 --> 00:46:14,912
+anyway hi guys
+
+456
+00:46:15,352 --> 00:46:18,112
+and galThank you. I put it on my
+
+457
+00:46:18,112 --> 00:46:19,912
+channel, by the way. I actually have a
+
+458
+00:46:19,912 --> 00:46:22,752
+channel now. And this is
+
+459
+00:46:22,752 --> 00:46:25,072
+my favorite shop, and I always advertise.
+
+460
+00:46:25,552 --> 00:46:28,392
+Oh, when you have show. Bianca. Bianca.
+
+461
+00:46:28,392 --> 00:46:31,312
+Okay. Just throw
+
+462
+00:46:31,352 --> 00:46:31,912
+a shout out.
+
+463
+00:46:40,612 --> 00:46:43,532
+Waiting for that to load. Okay. Um, it
+
+464
+00:46:43,572 --> 00:46:45,492
+did load. Uh, when testing the new
+
+465
+00:46:45,492 --> 00:46:46,612
+implementation.
+
+466
+00:46:51,732 --> 00:46:54,472
+Ah Popping. Out the
+
+467
+00:46:54,472 --> 00:46:55,672
+Leo window
+
+468
+00:46:56,792 --> 00:46:59,392
+causes the whole page
+
+469
+00:46:59,392 --> 00:47:01,872
+to scroll down
+
+470
+00:47:02,032 --> 00:47:02,552
+and
+
+471
+00:47:05,712 --> 00:47:08,433
+there's still a phantom
+
+472
+00:47:09,833 --> 00:47:11,833
+padding issue causing the
+
+473
+00:47:12,753 --> 00:47:15,073
+break and no satisfy.
+
+474
+00:47:25,313 --> 00:47:27,513
+File Explorer should
+
+475
+00:47:28,113 --> 00:47:30,753
+be renamed to whatever
+
+476
+00:47:31,313 --> 00:47:32,753
+you want appropriate.
+
+477
+00:47:37,313 --> 00:47:39,473
+It's about 2x
+
+478
+00:47:40,033 --> 00:47:42,673
+wider and it should be.
+
+479
+00:47:45,313 --> 00:47:48,233
+It should be useful and
+
+480
+00:47:48,233 --> 00:47:50,593
+validate. Uh
+
+481
+00:48:00,593 --> 00:48:03,353
+I don't know what it's good
+
+482
+00:48:03,473 --> 00:48:06,193
+for, but it's really cool
+
+483
+00:48:07,873 --> 00:48:08,353
+and.
+
+484
+00:48:38,194 --> 00:48:41,074
+Oh, wow. OK. Will that work
+
+485
+00:48:41,074 --> 00:48:42,034
+at least?
+
+486
+00:49:14,994 --> 00:49:17,714
+Channel page is not getting
+
+487
+00:49:19,794 --> 00:49:20,354
+basically
+
+488
+00:49:22,754 --> 00:49:22,854
+which
+
+489
+00:49:27,434 --> 00:49:30,314
+is in the center of
+
+490
+00:49:30,394 --> 00:49:33,274
+work and
+
+491
+00:49:34,954 --> 00:49:37,834
+is black which should
+
+492
+00:49:37,834 --> 00:49:38,234
+be
+
+493
+00:51:06,755 --> 00:51:08,475
+Ben, pretty please.
+
+494
+00:51:11,635 --> 00:51:13,315
+So I just got told that I would hit the
+
+495
+00:51:13,315 --> 00:51:16,075
+limits on Opus real
+
+496
+00:51:16,075 --> 00:51:18,755
+soon. So I
+
+497
+00:51:18,755 --> 00:51:21,315
+also set my limit down to $50.00 from
+
+498
+00:51:21,315 --> 00:51:22,995
+200 last month.
+
+499
+00:53:35,557 --> 00:53:37,557
+Babe, pretty please.
+
+500
+00:55:16,358 --> 00:55:17,398
+I'll fix it.
+
+501
+00:56:04,349 --> 00:56:06,149
+It's good. It's working.
+
+502
+00:57:09,559 --> 00:57:10,079
+All right.
+
+503
+00:57:12,919 --> 00:57:13,319
+So
+
+504
+00:57:16,120 --> 00:57:19,080
+just to recap a little bit, today was a
+
+505
+00:57:19,080 --> 00:57:21,960
+little Angel OS dev session. Oh,
+
+506
+00:57:21,960 --> 00:57:24,920
+wait. Just to see what it
+
+507
+00:57:24,920 --> 00:57:27,800
+kind of looks like. Again, um
+
+508
+00:57:30,600 --> 00:57:31,1000
+it's kind of what it would look like.
+
+509
+00:57:33,120 --> 00:57:35,080
+When it was running or when it is running
+
+510
+00:57:35,080 --> 00:57:36,920
+and this is something that I have
+
+511
+00:57:36,920 --> 00:57:39,680
+developed which actually has oh
+
+512
+00:57:39,880 --> 00:57:42,360
+every response working much like the
+
+513
+00:57:42,360 --> 00:57:44,240
+Angel OS is. The difference with the
+
+514
+00:57:44,240 --> 00:57:47,160
+Angel OS is that it's using the Blue Sky
+
+515
+00:57:47,280 --> 00:57:50,040
+AT protocol and talks to
+
+516
+00:57:50,040 --> 00:57:52,920
+itself. And honestly I haven't seen
+
+517
+00:57:52,920 --> 00:57:54,1000
+it talk to itself yet, but I know it can.
+
+518
+00:57:56,120 --> 00:57:58,680
+I know it can and I understand vaguely.
+
+519
+00:57:58,960 --> 00:58:01,800
+How the Blue Sky network operates, right?
+
+520
+00:58:02,400 --> 00:58:04,520
+And sorry for updating that and changing
+
+521
+00:58:04,560 --> 00:58:07,200
+that. And then so we have the
+
+522
+00:58:07,560 --> 00:58:10,040
+discordant and then separately
+
+523
+00:58:11,240 --> 00:58:13,640
+and this is my DSIM intelligence. Oh,
+
+524
+00:58:14,120 --> 00:58:16,880
+here, let's see this real quick. My
+
+525
+00:58:16,880 --> 00:58:18,760
+DSIM intelligence manager, which the
+
+526
+00:58:18,760 --> 00:58:20,520
+server isn't running right now, so I
+
+527
+00:58:20,520 --> 00:58:22,680
+can't, but this is essentially what.
+
+528
+00:58:23,880 --> 00:58:26,040
+Angel OS would look like when everything
+
+529
+00:58:26,040 --> 00:58:28,120
+was said and done or at least the control
+
+530
+00:58:28,120 --> 00:58:30,840
+panel for it and you're like, OK, but
+
+531
+00:58:30,920 --> 00:58:33,000
+it it does things very quickly and it is
+
+532
+00:58:33,000 --> 00:58:34,640
+expensive, but it's totally worth it.
+
+533
+00:58:34,640 --> 00:58:36,760
+When I say it's expensive, it's like it's
+
+534
+00:58:36,760 --> 00:58:38,760
+a whole team of IT professionals
+
+535
+00:58:39,640 --> 00:58:41,560
+giving you six months of output for every
+
+536
+00:58:41,560 --> 00:58:44,521
+Rev and maybe not six months, but it's
+
+537
+00:58:45,081 --> 00:58:47,961
+it's incredibly productive. And
+
+538
+00:58:47,961 --> 00:58:50,681
+so right now we looked at that and then
+
+539
+00:58:50,681 --> 00:58:52,681
+let's look at spaces real quick and then
+
+540
+00:58:52,681 --> 00:58:55,481
+this is my. And it's kind of ugly. I
+
+541
+00:58:55,641 --> 00:58:58,121
+I went hog tilt with these A I generated
+
+542
+00:58:58,521 --> 00:59:00,841
+pictures and
+
+543
+00:59:06,361 --> 00:59:08,441
+and this was the prototype and I mean
+
+544
+00:59:08,441 --> 00:59:10,881
+it's it's it it's cool and it sort of
+
+545
+00:59:10,881 --> 00:59:12,841
+works and it really, I mean it has
+
+546
+00:59:13,801 --> 00:59:14,401
+all of the
+
+547
+00:59:17,161 --> 00:59:19,321
+main pieces and parts in it and it has
+
+548
+00:59:19,321 --> 00:59:21,161
+this cool spaces page here.
+
+549
+00:59:27,081 --> 00:59:29,321
+And this it actually does work OK
+
+550
+00:59:30,361 --> 00:59:33,161
+and but I I wanted to build
+
+551
+00:59:33,481 --> 00:59:35,521
+like the Angel OS with
+
+552
+00:59:36,121 --> 00:59:38,441
+completely new code because
+
+553
+00:59:40,441 --> 00:59:43,161
+this honestly sucks and it doesn't
+
+554
+00:59:43,161 --> 00:59:45,121
+suck. I mean it's just that it it comes
+
+555
+00:59:45,161 --> 00:59:47,841
+from mostly kind of hodgepodge
+
+556
+00:59:47,841 --> 00:59:50,561
+together tutorial code and what I wanted
+
+557
+00:59:50,561 --> 00:59:53,081
+to do was build completely within the
+
+558
+00:59:53,401 --> 00:59:56,281
+payload CMS guidelines. And and have
+
+559
+00:59:56,281 --> 00:59:57,881
+just something that was really awesome
+
+560
+00:59:58,601 --> 01:00:00,281
+and put together. So
+
+561
+01:00:03,401 --> 01:00:06,041
+right now we have our Leo
+
+562
+01:00:10,202 --> 01:00:12,442
+OK and Leo
+
+563
+01:00:12,602 --> 01:00:15,242
+and all chat for that
+
+564
+01:00:15,722 --> 01:00:18,362
+matter all post through the
+
+565
+01:00:18,362 --> 01:00:18,922
+message.
+
+566
+01:00:25,242 --> 01:00:27,082
+posts to ohh
+
+567
+01:00:38,932 --> 01:00:41,372
+and etc. and
+
+568
+01:00:41,372 --> 01:00:42,812
+using intent
+
+569
+01:00:43,252 --> 01:00:46,132
+analysis. Just making
+
+570
+01:00:46,292 --> 01:00:48,852
+sure we're on the
+
+571
+01:00:48,852 --> 01:00:51,652
+same page. And we
+
+572
+01:00:51,652 --> 01:00:53,132
+want to check our
+
+573
+01:00:55,332 --> 01:00:56,292
+docs.
+
+574
+01:01:53,363 --> 01:01:54,243
+And let's see.
+
+575
+01:03:59,644 --> 01:03:59,884
+All right.
+
+576
+01:04:08,274 --> 01:04:10,594
+So anyhow, that was a dev session.
+
+577
+01:04:11,474 --> 01:04:14,074
+I'm going to keep on going and just post
+
+578
+01:04:14,074 --> 01:04:15,954
+this. If anybody wants to watch it, they
+
+579
+01:04:15,954 --> 01:04:18,914
+can. If they don't, ain't. But
+
+580
+01:04:20,594 --> 01:04:22,034
+the Angel OS is real.
+
+581
+01:04:24,994 --> 01:04:27,234
+Everybody will get an Angel. Mainly I
+
+582
+01:04:27,234 --> 01:04:29,234
+just need an Angel and I need one for
+
+583
+01:04:29,234 --> 01:04:31,955
+Hayes Cactus Farm and Radioactive Car
+
+584
+01:04:31,955 --> 01:04:34,365
+Stereo and. A few other local
+
+585
+01:04:34,365 --> 01:04:37,005
+businesses and once I got them
+
+586
+01:04:37,005 --> 01:04:37,405
+going,
+
+587
+01:04:40,045 --> 01:04:42,685
+then then
+
+588
+01:04:43,085 --> 01:04:45,325
+we work on getting everybody an Angel.
+
+589
+01:04:45,965 --> 01:04:47,885
+But mainly it's built the platform out,
+
+590
+01:04:48,605 --> 01:04:49,805
+get fees coming in,
+
+591
+01:04:51,885 --> 01:04:54,725
+get people making money. That's
+
+592
+01:04:54,725 --> 01:04:56,445
+what it's all about. Getting a payment
+
+593
+01:04:56,445 --> 01:04:58,765
+form in front of people, whether that's
+
+594
+01:04:58,765 --> 01:05:01,245
+booking rent a friend
+
+595
+01:05:01,245 --> 01:05:04,045
+or a tour. Or
+
+596
+01:05:04,045 --> 01:05:06,125
+pressure washing services. Or garbage
+
+597
+01:05:06,125 --> 01:05:08,085
+removal. Or uh
+
+598
+01:05:08,605 --> 01:05:11,125
+asphalt line painting or number painting.
+
+599
+01:05:11,965 --> 01:05:12,885
+Anything like that. Uh.. Uh,
+
+600
+01:05:42,515 --> 01:05:43,075
+okay.
+
+601
+01:05:48,035 --> 01:05:49,795
+Uh, we are...
+
+602
+01:06:02,606 --> 01:06:04,966
+You must get the dialogue
+
+603
+01:06:05,446 --> 01:06:05,726
+going.
+
+604
+01:07:24,447 --> 01:07:24,847
+Babe.
+
+605
+01:08:53,928 --> 01:08:55,848
+Yeah, if
+
+606
+01:08:56,768 --> 01:08:57,168
+I
+
+607
+01:09:04,288 --> 01:09:04,688
+don't,
+
+608
+01:09:07,248 --> 01:09:07,648
+yes.
+
+609
+01:09:32,048 --> 01:09:32,208
+These
+
+610
+01:09:39,218 --> 01:09:41,778
+prison shows are so funny and fake.
+
+611
+01:09:58,648 --> 01:10:00,648
+This system's overcrowded. You'll need
+
+612
+01:10:02,888 --> 01:10:03,528
+to stay here.
+
+613
+01:10:20,249 --> 01:10:21,569
+That's crazy bullshit
+
+614
+01:10:58,329 --> 01:11:00,129
+Weird start with GLP1 weight loss
+
+615
+01:11:00,209 --> 01:11:02,769
+medication. 95% of Life MD
+
+616
+01:11:02,809 --> 01:11:04,449
+patients said starting their weight loss
+
+617
+01:11:04,489 --> 01:11:06,409
+journey was a simple, straightforward
+
+618
+01:11:06,409 --> 01:11:09,009
+process. See the lowest prices available
+
+619
+01:11:09,169 --> 01:11:11,569
+with or without insurance for Rigobi,
+
+620
+01:11:11,569 --> 01:11:14,369
+Zetbound and more. All
+
+621
+01:11:14,369 --> 01:11:17,089
+right. So anyway, that was just a
+
+622
+01:11:17,089 --> 01:11:20,009
+general generic Angel OS dev session
+
+623
+01:11:20,009 --> 01:11:22,689
+and a little bit of discussion if anybody
+
+624
+01:11:22,689 --> 01:11:24,449
+wants to see it. The main reason why I'm
+
+625
+01:11:24,449 --> 01:11:27,249
+putting it up. It's a real thing.
+
+626
+01:11:27,649 --> 01:11:29,769
+We're building it. Thanks for watching.

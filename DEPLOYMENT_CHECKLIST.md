@@ -11,6 +11,8 @@
 - [x] **Documentation** - Updated README.md and GETTING_STARTED.md with live URLs
 - [x] **Vercel Config** - Created `vercel.json` with proper aliases and settings
 - [x] **Vercel Analytics** - Added `@vercel/analytics` to both frontend and dashboard layouts
+- [x] **Multi-Tenant URL Resolution** - Updated URL utilities to handle tenant-specific domains
+- [x] **Middleware Enhancement** - Enhanced middleware for proper domain/subdomain routing
 
 ### Vercel Environment Variables Required
 
@@ -82,6 +84,12 @@ SYSTEM_USER_EMAIL=guardian@angel-os.kendev.co
 
 **DNS Configuration (if managing DNS):**
 - CNAME: `angel-os.kendev.co` → `cname.vercel-dns.com`
+
+**Multi-Tenant Domain Support:**
+- **Main Platform**: `angel-os.kendev.co` (default tenant)
+- **Subdomain Pattern**: `{tenant}.kendev.co` (e.g., `hays.kendev.co`)
+- **Custom Domains**: Any domain configured in tenant settings
+- **Local Development**: `localhost:3000` (defaults to kendevco tenant)
 
 ### Troubleshooting
 

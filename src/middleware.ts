@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-// Import tenant resolution only on server-side
-// import { resolveTenantFromDomain } from '@/utilities/tenant-resolution'
 
 export async function middleware(request: NextRequest) {
   const hostname = request.nextUrl.hostname
@@ -11,42 +9,61 @@ export async function middleware(request: NextRequest) {
     pathname.startsWith('/_next') ||
     pathname.startsWith('/api/debug') ||
     pathname.startsWith('/api/seed') ||
-    pathname.includes('.')
+    pathname.includes('.') ||
+    pathname.startsWith('/favicon')
   ) {
     return NextResponse.next()
   }
 
   try {
-    // Simplified tenant resolution for now to avoid payload imports in middleware
     const response = NextResponse.next()
     
-    // For localhost development, default to tenant ID 1
-    if (hostname === 'localhost') {
+    // Add hostname to headers for tenant-aware URL resolution
+    response.headers.set('x-forwarded-host', hostname)
+    response.headers.set('x-original-host', hostname)
+    
+    // Multi-tenant domain resolution
+    if (hostname.includes('localhost') || hostname.includes('127.0.0.1')) {
+      // Local development - default tenant
       response.headers.set('x-tenant-id', '1')
       response.headers.set('x-tenant-slug', 'kendevco')
       response.headers.set('x-domain-match-type', 'development')
+    } else if (hostname === 'angel-os.kendev.co') {
+      // Main platform domain - default tenant
+      response.headers.set('x-tenant-id', '1')
+      response.headers.set('x-tenant-slug', 'kendevco')
+      response.headers.set('x-domain-match-type', 'primary')
     } else {
-      // For custom domains, extract subdomain and use as tenant slug
+      // Custom domain or subdomain - extract tenant info
       const parts = hostname.split('.')
-      if (parts.length >= 2) {
+      
+      if (parts.length >= 3 && parts[1] === 'kendev' && parts[2] === 'co') {
+        // Subdomain pattern: {tenant}.kendev.co
         const subdomain = parts[0]
-        response.headers.set('x-tenant-slug', subdomain || 'default')
+        response.headers.set('x-tenant-slug', subdomain)
         response.headers.set('x-domain-match-type', 'subdomain')
-        // TODO: Implement proper tenant lookup via API endpoint
+      } else if (parts.length >= 2) {
+        // Custom domain - will need database lookup
+        response.headers.set('x-custom-domain', hostname)
+        response.headers.set('x-domain-match-type', 'custom')
       }
     }
+    
+    // Add protocol information
+    const protocol = request.nextUrl.protocol
+    response.headers.set('x-forwarded-proto', protocol.slice(0, -1)) // Remove trailing ':'
     
     return response
     
   } catch (error) {
-    console.error('Tenant resolution middleware error:', error)
+    console.error('Multi-tenant middleware error:', error)
     return NextResponse.next()
   }
 }
 
 export const config = {
   matcher: [
-    // Temporarily disabled to fix webpack node:child_process error
-    // '/((?!api|_next/static|_next/image|favicon.ico|public).*)',
+    // Enable middleware for all routes except static files and specific API routes
+    '/((?!api|_next/static|_next/image|favicon.ico|public|.*\\.).*)',
   ],
 }

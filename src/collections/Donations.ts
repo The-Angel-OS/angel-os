@@ -5,6 +5,7 @@ export const Donations: CollectionConfig = {
   admin: {
     useAsTitle: 'donationId',
     defaultColumns: ['donationId', 'donorName', 'amount', 'campaign', 'donatedAt'],
+    group: 'Commerce',
   },
   access: {
     read: () => true,

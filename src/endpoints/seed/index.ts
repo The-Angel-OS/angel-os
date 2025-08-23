@@ -166,7 +166,7 @@ const TENANT_TEMPLATES: Record<string, TenantTemplate> = {
   kendevco: {
     name: "KenDev.Co",
     slug: "kendevco",
-    domain: "kendev.co",
+    domain: "angel-os.kendev.co",
     subdomain: "spaces",
     businessType: "service",
     industry: "AI Automation & Web Development",
@@ -556,24 +556,125 @@ export const seed = async ({
 
     // Seed roadmap features (these are global, not tenant-specific)
     const existingRoadmapFeature = await checkExists('roadmap-features', {
-      title: { equals: 'Enhanced Dashboard Analytics' }
+      title: { equals: 'Universal DataTable Component' }
     })
 
     if (!existingRoadmapFeature) {
-      payload.logger.info('— Creating sample roadmap features...')
+      payload.logger.info('— Creating Angel OS roadmap features...')
+      
+      // COMPLETED FEATURES
       await payload.create({
         collection: 'roadmap-features',
         data: {
-          title: 'Enhanced Dashboard Analytics',
+          title: 'Universal DataTable Component',
           description: createLexicalContent([
-            createLexicalParagraph('Advanced analytics dashboard with real-time metrics, custom reports, and data visualization.'),
-            createLexicalParagraph('Includes revenue tracking, user engagement metrics, and performance insights.'),
+            createLexicalParagraph('Reusable DataTable component with sorting, filtering, pagination, and custom actions.'),
+            createLexicalParagraph('Built with @tanstack/react-table and ShadCN UI for consistency across all dashboards.'),
           ]),
-          category: 'dashboard',
+          category: 'ui-ux',
+          status: 'completed',
+          priority: 'high',
+          timeline: {
+            estimatedCompletion: new Date('2025-01-15').toISOString(),
+            actualCompletion: new Date().toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'small',
+          },
+          voting: {
+            votes: 34,
+            allowVoting: false,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 100,
+            milestones: [{
+              title: 'Component architecture',
+              description: 'Design reusable table component interface',
+              completed: true,
+              completedDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString(),
+            }, {
+              title: 'Implementation & testing',
+              description: 'Build component with Products and File Manager integration',
+              completed: true,
+              completedDate: new Date().toISOString(),
+            }],
+          },
+          tags: ['new-feature', 'enhancement', 'quick-win'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Payload Folders Integration',
+          description: createLexicalContent([
+            createLexicalParagraph('Integration of Payload\'s new Folders feature for organized media management.'),
+            createLexicalParagraph('Provides digital asset management (DAM) capabilities with folder organization, permissions, and drag-and-drop functionality.'),
+          ]),
+          category: 'system',
+          status: 'completed',
+          priority: 'medium',
+          timeline: {
+            estimatedCompletion: new Date('2025-01-15').toISOString(),
+            actualCompletion: new Date().toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'small',
+          },
+          voting: {
+            votes: 28,
+            allowVoting: false,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 100,
+          },
+          tags: ['new-feature', 'enhancement'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Multi-Tenant Architecture',
+          description: createLexicalContent([
+            createLexicalParagraph('Complete data isolation and tenant management system with role-based access controls.'),
+            createLexicalParagraph('Includes tenant provisioning, deprovisioning, and hierarchical permission system based on DNN architecture.'),
+          ]),
+          category: 'system',
+          status: 'completed',
+          priority: 'critical',
+          timeline: {
+            estimatedCompletion: new Date('2025-01-10').toISOString(),
+            actualCompletion: new Date(Date.now() - 5 * 24 * 60 * 60 * 1000).toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'large',
+          },
+          voting: {
+            votes: 89,
+            allowVoting: false,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 100,
+          },
+          tags: ['new-feature', 'security'],
+        },
+      } as any)
+
+      // IN PROGRESS FEATURES
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'LEO Navigation & Data Entry',
+          description: createLexicalContent([
+            createLexicalParagraph('Enable LEO AI assistant to navigate users to any page and fill form controls conversationally.'),
+            createLexicalParagraph('Voice and text interface for complete hands-free operation of the Angel OS platform.'),
+          ]),
+          category: 'integrations',
           status: 'in-progress',
           priority: 'high',
           timeline: {
-            estimatedCompletion: new Date(Date.now() + 60 * 24 * 60 * 60 * 1000).toISOString(),
+            estimatedCompletion: new Date('2025-01-26').toISOString(),
             quarterTarget: '2025-q1',
             estimatedEffort: 'medium',
           },
@@ -583,15 +684,19 @@ export const seed = async ({
             voteWeight: 1,
           },
           progress: {
-            completionPercentage: 35,
+            completionPercentage: 75,
             milestones: [{
-              title: 'Design wireframes',
-              description: 'Create dashboard layout and component designs',
+              title: 'Command palette foundation',
+              description: 'Build event-driven command system',
               completed: true,
-              completedDate: new Date(Date.now() - 14 * 24 * 60 * 60 * 1000).toISOString(),
+              completedDate: new Date(Date.now() - 10 * 24 * 60 * 60 * 1000).toISOString(),
             }, {
-              title: 'Backend API development',
-              description: 'Build analytics data aggregation APIs',
+              title: 'Voice integration',
+              description: 'Integrate VAPI for voice commands',
+              completed: false,
+            }, {
+              title: 'Form auto-fill',
+              description: 'AI-powered form completion',
               completed: false,
             }],
           },
@@ -602,20 +707,211 @@ export const seed = async ({
       await payload.create({
         collection: 'roadmap-features',
         data: {
-          title: 'Mobile App',
+          title: 'CRM Dashboard Suite',
           description: createLexicalContent([
-            createLexicalParagraph('Native mobile application for iOS and Android with core Angel OS functionality.'),
-            createLexicalParagraph('Includes dashboard access, notifications, and basic CRM features on mobile.'),
+            createLexicalParagraph('Complete CRM dashboards for Contacts, Leads, and Opportunities with pipeline views.'),
+            createLexicalParagraph('Includes filtering, relationship management, and sales process automation.'),
+          ]),
+          category: 'crm',
+          status: 'in-progress',
+          priority: 'high',
+          timeline: {
+            estimatedCompletion: new Date('2025-02-01').toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'medium',
+          },
+          voting: {
+            votes: 62,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 25,
+            milestones: [{
+              title: 'Contacts dashboard',
+              description: 'Build contacts management interface',
+              completed: false,
+            }, {
+              title: 'Leads pipeline',
+              description: 'Create leads tracking and conversion system',
+              completed: false,
+            }, {
+              title: 'Opportunities management',
+              description: 'Sales opportunity tracking and forecasting',
+              completed: false,
+            }],
+          },
+          tags: ['community-requested', 'new-feature'],
+        },
+      } as any)
+
+      // PLANNED FEATURES
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Fully Conversational Interface',
+          description: createLexicalContent([
+            createLexicalParagraph('Make entire web interface optional - everything accessible via voice/text commands.'),
+            createLexicalParagraph('Complete hands-free operation with natural language processing for all platform functions.'),
+          ]),
+          category: 'ui-ux',
+          status: 'planned',
+          priority: 'high',
+          timeline: {
+            estimatedCompletion: new Date('2025-02-15').toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'large',
+          },
+          voting: {
+            votes: 134,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 10,
+          },
+          tags: ['community-requested', 'new-feature', 'accessibility'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Parent-Child Tenant Architecture',
+          description: createLexicalContent([
+            createLexicalParagraph('Hierarchical tenant system (e.g., BJC.org → BJCHospice.org) with directory controls.'),
+            createLexicalParagraph('Enables enterprise organizations to manage multiple sub-organizations with inherited permissions and shared resources.'),
+          ]),
+          category: 'system',
+          status: 'planned',
+          priority: 'medium',
+          timeline: {
+            estimatedCompletion: new Date('2025-03-01').toISOString(),
+            quarterTarget: '2025-q1',
+            estimatedEffort: 'large',
+          },
+          voting: {
+            votes: 28,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 5,
+          },
+          tags: ['enhancement', 'security'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Angel OS Network Federation',
+          description: createLexicalContent([
+            createLexicalParagraph('Distributed network of Angel OS nodes with cross-node communication and tenant migration.'),
+            createLexicalParagraph('Conway\'s Game of Life inspired architecture with Angel Token economy for human-worth consensus.'),
+          ]),
+          category: 'system',
+          status: 'planned',
+          priority: 'medium',
+          timeline: {
+            estimatedCompletion: new Date('2025-04-01').toISOString(),
+            quarterTarget: '2025-q2',
+            estimatedEffort: 'epic',
+          },
+          voting: {
+            votes: 156,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 15,
+            milestones: [{
+              title: 'Network foundation',
+              description: 'Basic node-to-node communication',
+              completed: true,
+              completedDate: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000).toISOString(),
+            }, {
+              title: 'Token economy',
+              description: 'Angel Token blockchain integration',
+              completed: false,
+            }],
+          },
+          tags: ['new-feature', 'performance'],
+        },
+      } as any)
+
+      // FUTURE VISION
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Dynamic Container Types',
+          description: createLexicalContent([
+            createLexicalParagraph('User-voted container types for different use cases (Hospice, Medical, Legal, etc.).'),
+            createLexicalParagraph('Community-driven specialization of Angel OS for specific industries and workflows.'),
+          ]),
+          category: 'system',
+          status: 'consideration',
+          priority: 'medium',
+          timeline: {
+            quarterTarget: '2025-q2',
+            estimatedEffort: 'large',
+          },
+          voting: {
+            votes: 19,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 0,
+          },
+          tags: ['community-requested', 'new-feature'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'Oqtane Frontend (Phase A2D)',
+          description: createLexicalContent([
+            createLexicalParagraph('Enterprise .NET frontend for regulated environments and Microsoft shops.'),
+            createLexicalParagraph('Blazor-based interface maintaining full Angel OS functionality for enterprise compliance requirements.'),
+          ]),
+          category: 'integrations',
+          status: 'consideration',
+          priority: 'low',
+          timeline: {
+            quarterTarget: '2025-q2',
+            estimatedEffort: 'epic',
+          },
+          voting: {
+            votes: 15,
+            allowVoting: true,
+            voteWeight: 1,
+          },
+          progress: {
+            completionPercentage: 5,
+          },
+          tags: ['new-feature'],
+        },
+      } as any)
+
+      await payload.create({
+        collection: 'roadmap-features',
+        data: {
+          title: 'SoulFleet Mobile Integration',
+          description: createLexicalContent([
+            createLexicalParagraph('Mobile app for outreach vehicles and field operations.'),
+            createLexicalParagraph('GPS tracking, offline capabilities, and real-time communication for mobile service delivery.'),
           ]),
           category: 'mobile',
-          status: 'planned',
+          status: 'consideration',
           priority: 'medium',
           timeline: {
             quarterTarget: '2025-q3',
             estimatedEffort: 'epic',
           },
           voting: {
-            votes: 128,
+            votes: 42,
             allowVoting: true,
             voteWeight: 1,
           },
@@ -765,7 +1061,7 @@ export const seed = async ({
         firstName: 'Kenneth',
         lastName: 'Courtney',
         email: 'kenneth.courtney@gmail.com',
-        password: 'K3nD3v!host',
+        password: 'angelos',
         globalRole: 'super_admin', // Super admin role
         // tenant will be assigned after tenant creation
       } as any,

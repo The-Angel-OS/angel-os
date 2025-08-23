@@ -77,14 +77,42 @@ export const PayloadChatBubble: React.FC<PayloadChatBubbleProps> = ({
   const [isLoading, setIsLoading] = useState(false)
   const [isSpeaking, setIsSpeaking] = useState(false)
   const [systemChannel, setSystemChannel] = useState<any>(null)
+  const [isAtBottom, setIsAtBottom] = useState(true)
+  const [hasInitiallyScrolled, setHasInitiallyScrolled] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
   const speechSynthRef = useRef<SpeechSynthesisUtterance | null>(null)
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
+  const scrollToBottom = (force = false) => {
+    if (force || isAtBottom || !hasInitiallyScrolled) {
+      messagesEndRef.current?.scrollIntoView({ behavior: hasInitiallyScrolled ? 'smooth' : 'auto' })
+      if (!hasInitiallyScrolled) {
+        setHasInitiallyScrolled(true)
+      }
+    }
   }
 
-  useEffect(scrollToBottom, [messages])
+  // Handle scroll detection to know if user is at bottom
+  const handleScroll = () => {
+    if (messagesContainerRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = messagesContainerRef.current
+      const threshold = 50 // pixels from bottom
+      const atBottom = scrollHeight - scrollTop - clientHeight < threshold
+      setIsAtBottom(atBottom)
+    }
+  }
+
+  // Auto-scroll on new messages only if at bottom or initial load
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
+
+  // Force scroll to bottom on initial open
+  useEffect(() => {
+    if (isOpen && !isMinimized) {
+      setTimeout(() => scrollToBottom(true), 100)
+    }
+  }, [isOpen, isMinimized])
 
   // Initialize system channel and load chat history when opened
   useEffect(() => {
@@ -538,7 +566,11 @@ export const PayloadChatBubble: React.FC<PayloadChatBubbleProps> = ({
             {!isMinimized && (
               <>
                 {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 h-80">
+                <div 
+                  ref={messagesContainerRef}
+                  onScroll={handleScroll}
+                  className="flex-1 overflow-y-auto p-4 space-y-4 h-80"
+                >
                   {messages.map((message) => (
                     <div
                       key={message.id}

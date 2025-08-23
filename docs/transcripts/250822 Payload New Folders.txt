@@ -1,0 +1,1357 @@
+FYI : Product update: Folders demo, compile time improvements, and a lot more 
+
+Product update: Folders demo, compile time improvements, and a lot more
+
+Payload
+12.3K subscribers
+
+Subscribed
+
+191
+
+
+Share
+
+Ask
+
+Download
+
+4,777 views  May 23, 2025
+Folders have arrived! In our recent community call, we demoed Payload Folders, which allows you to organize your media and documents into folders and gives Payload the bones of a full digital asset management (DAM) system.
+
+A breakdown of the benefits:
+→ Supports any type of Collection
+→ Browse by media, or browse by anything
+→ Set permissions on folders
+→ Drag n' drop files into folders
+→ Multi-select with CMD + Click & Shift + Click
+
+We also talk through:
+→ Compile time improvements
+→ RichText diffing & overall version view improvements
+→ Top bar re-design
+→ Modular dashboard (in RFC)
+→ Schedule publish
+→ A rapid fire of 30+ new features
+→ The roadmap
+
+In total, we deployed over 200 new features since the end of last year, while fixing bugs!
+
+Help us get from beta to stable for Folders, and npx create-payload-app
+Leave us a star: https://github.com/payloadcms/payload
+Join the Payload community:   / discord  
+Follow us:   / payloadcms  
+
+What is Payload?
+Payload is the open-source Next.js backend used in production by the most innovative companies on earth. From Fortune 500 companies to indie devs, Payload is the answer to "build vs. buy."
+Learn more: https://payloadcms.com
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+
+
+Product update: Folders demo, compile time improvements, and a lot more
+
+Payload
+12.3K subscribers
+
+Subscribed
+
+191
+
+
+Share
+
+Ask
+
+Download
+
+4,777 views  May 23, 2025
+Folders have arrived! In our recent community call, we demoed Payload Folders, which allows you to organize your media and documents into folders and gives Payload the bones of a full digital asset management (DAM) system.
+
+A breakdown of the benefits:
+→ Supports any type of Collection
+→ Browse by media, or browse by anything
+→ Set permissions on folders
+→ Drag n' drop files into folders
+→ Multi-select with CMD + Click & Shift + Click
+
+We also talk through:
+→ Compile time improvements
+→ RichText diffing & overall version view improvements
+→ Top bar re-design
+→ Modular dashboard (in RFC)
+→ Schedule publish
+→ A rapid fire of 30+ new features
+→ The roadmap
+
+In total, we deployed over 200 new features since the end of last year, while fixing bugs!
+
+Help us get from beta to stable for Folders, and npx create-payload-app
+Leave us a star: https://github.com/payloadcms/payload
+Join the Payload community:   / discord  
+Follow us:   / payloadcms  
+
+What is Payload?
+Payload is the open-source Next.js backend used in production by the most innovative companies on earth. From Fortune 500 companies to indie devs, Payload is the answer to "build vs. buy."
+Learn more: https://payloadcms.com
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+Ask questions
+Transcript
+Follow along using the transcript.
+
+
+Show transcript
+
+Payload
+12.3K subscribers
+Videos
+About
+
+Discord
+
+Twitter
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+Ask questions
+33 Comments
+Clearwater Cruisin' Ministries
+Add a comment...
+
+@kashnigahbaruda
+2 months ago
+Scheduled publish is something I planned on hacking together myself two days ago. What a timing!
+
+7
+
+
+Reply
+
+
+@studiomonty
+2 months ago
+What an amazing update! Thanks Payload
+
+4
+
+
+Reply
+
+
+@abass_
+2 months ago
+Awesome updates! Great work!
+
+1
+
+
+Reply
+
+
+@nicolaec7983
+2 months ago
+Superb! I was looking for the folder solutions for AWS S3 this is amazing :)
+
+
+
+Reply
+
+
+@DeividasM-b5r
+2 months ago
+So much improvements Great job
+
+
+
+Reply
+
+
+@eltyo340
+2 months ago
+You guys are legendary
+
+2
+
+
+Reply
+
+
+@SacDePollo
+2 months ago
+This is incredible! 
+
+
+
+Reply
+
+
+@Teckstudio
+2 months ago
+FOLDERS! 
+
+2
+
+
+Reply
+
+
+@nicolaslair42
+2 months ago
+Awesome updates!!! Love the outro of the video as well ;)
+
+
+
+Reply
+
+
+@刘皇叔-m6w
+2 months ago
+Awesome updates!!!
+
+
+
+Reply
+
+
+@thehoracle
+2 months ago
+Everyone on the team is a 100X Engineer... KUDOS to you guys
+
+
+
+Reply
+
+
+@JustAJok3r
+2 months ago
+Love the work you guys are doing!
+
+
+
+Reply
+
+
+@localconf
+2 months ago
+What you're doing is truly great, and it's clear that a lot of effort is being put in. However, I have one well-meaning suggestion.
+
+Since Next.js is, by its nature, a rapidly evolving framework with frequent updates and changes, I believe it would be more beneficial to focus more on the stability of what's already built. Instead of constantly introducing new features that might be rarely used and even less frequently maintained, it might be wiser in the long run to strengthen and refine the existing core.
+
+Users value a stable and reliable foundation much more than a constant stream of new, potentially untested additions. Quality should come before quantity.
+
+8
+
+
+Reply
+
+
+@haikelareff
+1 month ago
+look awesome! please show more of api route example that incorporate LLM/python into the CMS and use for data manipulation, calculation & stats.
+
+
+
+Reply
+
+
+@Joenagelkirk
+2 months ago
+Hilarious that the ending where James leaves made the cut for the youtubezz 
+
+1
+
+
+Reply
+
+
+1 reply
+
+@LuisFelipe-yr1hl
+2 months ago
+that was awesome ...
+
+1
+
+
+Reply
+
+
+@pavanchalla3787
+2 months ago
+damn 
+
+1
+
+
+Reply
+
+
+@Stevfler
+2 months ago
+Thank you so much
+
+
+
+Reply
+
+
+@chillerMillerlol
+2 months ago
+This stuff is only on beta right?
+
+1
+
+
+Reply
+
+
+@storegga
+2 months ago
+PAYLOAD BABY GROW LFFGG!
+
+
+
+Reply
+
+    
+Transcript
+
+
+Search in video
+0:01
+Cool. All right. Um, yeah. So, we have a lot to talk about today. And Sean, you
+0:08
+don't even skate. That's true, actually. Um, not anymore. I'm too old. Got two kids now. Yeah. So, just personally, I
+0:16
+moved and had my second child this past month. And also, we've been building all
+0:21
+kinds of crazy features and everybody's all crazy around here, but things are very good. and we um we have a lot to
+0:29
+show today. Thank you. Yeah, his name is Johnny and he will skateboard more than
+0:34
+me. But all right, um quick agenda. We're just going to talk about some
+0:40
+things that maybe you have missed and we're going to demo some different things and then we're going to show
+0:46
+folders in detail of course and then we're going to talk about the road map. And I think
+0:51
+first, let's start with our golden child who has a beautiful new background. Look at that, Allesio. That's the first time
+0:58
+I've seen that. You mean the lack of a view? Yeah, it's amazing. The lack of a
+1:03
+view. The lack of a view. Yeah, it's a in a courtyard. Well, I mean, from my
+1:08
+perspective, it looks pretty nice. So, kickflip Johnny. Yeah. I'm going to call
+1:14
+him Jay Racket, actually, because he keeps me up all night making Racket. So,
+1:20
+Um, all right, Allesio, do you want to kick us off with some cool stuff? Sure. Yeah. Yeah, let's
+1:27
+do that. So, let's start with something that everyone hates. Um, I guess you're
+1:32
+a psychopath, which is uh compilation speeds. Let me just share my screen. Hope that works before I continue.
+1:41
+[Music] Um,
+1:46
+there. All right. Can you see? Oh, not that. Okay, there we go. Can you see my
+1:53
+screen? Yeah. Okay, I can see the chat. So, if there's any questions, just just
+1:58
+someone interrupt me. All right. Well, um yeah, one of the worst parts of PO
+2:04
+would be waiting for PO to compile, right? Um and uh when we released PL 3.0, compile times weren't great. And in
+2:12
+the past months, we've made a lot of um improvements here. Um, so I got three
+2:18
+projects uh open right here and um all of them are the blank template because
+2:23
+we want to demo the compilation speed improvements for this payload and demo
+2:28
+has blank has the least amount of user code, right? We don't want to demo uh Paul's front code. So um yeah, so let's
+2:39
+just start up blank payload. So, it's using Webpack. No Turbo pack. Just payload. And
+2:46
+um yeah, let's wait. Allesia, you have a super computer, so
+2:51
+it's still not going to be too bad, but All right. It's not going to be too bad, but it's still for just a blank tempo,
+2:58
+it's still 6.4 seconds. Um on a normal computer, it's probably going to be around 10 seconds. It was worse in the
+3:04
+past. So we mainly improved this by getting rid of dependencies and uh just
+3:10
+making payloads smaller. Um there's a lot of loads in the node ecosystem. It's it's really insane what you can find. Um
+3:17
+but yeah uh it's better now but the main improvement will come from enabling
+3:23
+turbo pack. And it was just like few months ago that we were like yeah don't use turbo pack cuz it's glitchy and
+3:29
+buggy. Um, but the next chess team has put a lot of effort into improving it
+3:34
+and at this point our entire test suit actually now finally passes on Turopac. So now we can finally start recommending
+3:41
+it and probably in the next few days we can start shipping pale by default with
+3:47
+uh Turopac enabled and this alone will give you like a 2x speed
+3:53
+improvement. Let's test that out. And done. So, uh, admin compilation speed is
+3:58
+more than twice as fast. Went from 6.4 to 2.2 2.7
+4:04
+[Music] seconds. Did we lose him?
+4:11
+Too much bundling. He didn't even get to the cool part yet. Broke the stream.
+4:18
+Turbo Pack just crashed his entire computer.
+4:23
+Um, yeah. He didn't even show the cool part yet. So, we'll have to wait for him
+4:29
+to get back and show that. By default, next bundles both. Yeah. You you cut out
+4:35
+for a minute, but you're back now. All right. All right. Yeah. So, I don't know where to stop, but yeah, the easiest way
+4:42
+to improve compilation speed is to not do it. So, by default, um NextJS bundles client and server code, right? So,
+4:50
+client 2.7 seconds, server 1.4 4 seconds. And um we found out that we can
+4:56
+simply not bundle certain ser uh server dependencies uh during development like
+5:02
+we ship JS files. Just input them. You don't need to bundle them. Um so we introduce this new flag in your next.js
+5:09
+config called dev bundle packages. Um I recommend everyone to just set that to
+5:14
+false. That's how you enable this optimization. And um this will essentially skip
+5:20
+bundling a lot of stuff that really doesn't need to be bundled during development and it's going to give a
+5:25
+nice speed improvement. Test it
+5:31
+out. There we go. It's already done. So admin went from 2.7 to 1.6 seconds from
+5:38
+tour pack. So I was twice as fast. And the main improvement will be uh server completion speed went from 1.4 seconds
+5:45
+to uh around 400 milliseconds. So about a more than
+5:51
+three times the 3x improvement. And um yeah, so essentially using these optimizations which you can
+5:59
+which we recommend you to use in your project right now, you can improve compilation speed, make it five times
+6:05
+faster, even more during for the server bundle. And uh yeah, this should be a
+6:12
+lot of a better developer experience hopefully for anyone using Payload.
+6:17
+Yeah. Yeah. It's um a lot of you might know about this already, but even our um
+6:22
+enterprise customers didn't know you if you're building a project with Payload and you have been for a couple months,
+6:29
+you have to opt in to this new flag that Allesio just showed in the top right corner there, you have to turn that on.
+6:37
+But this is available in payload right now and it comes like this out of the box from this point on. It's already
+6:43
+available. Everything is already completely out. But you have to turn it on if you're using an old project. So
+6:52
+keep that in mind. We just wanted to put some special emphasis on this because it's a huge developer experience
+6:57
+improvement. Uh it came out in I don't know like 10 minor versions ago. A long time ago. So, you'll be able to um use
+7:07
+this. Yeah. Oh, wow. Thank you, S. Thank you. All right. Um Alasio has some more
+7:15
+stuff to show. Yeah. Let's uh let's keep going. Go go go for itio. Sure. Yeah.
+7:22
+So, um another area of pill that has needed
+7:28
+a lot of love, hasn't been getting it, is the version view. So, um, using using the version view
+7:35
+right now is not a great experience. I mean, every time I open it, I get insanely confused. And I've been in the
+7:41
+code, like I understand how it works, but still, I go to a list view, I click on something, and I'm like, what the
+7:46
+hell am I looking at? I Were those my words, Allesia, or was that your
+7:52
+thought? I have no idea. We both We share that thought. I also get confused.
+7:58
+Yeah. Like what what is on the left side? What is on the right side? I it's so confusing to me and
+8:05
+um that's the first problem and then also look at the rich text field uh diffing it diffs the rich text JSON
+8:12
+which is I mean it might be okay for a developer but if a marketer goes into this and looks at that they're going to
+8:18
+be like what what am I looking at especially for a long rich text fields like you don't want to div just adj
+8:28
+um we essentially uh um decided to improve the versions view essentially a
+8:34
+complete overhaul in multiple steps. First step was allowing you to customize each component here. So now and that's
+8:42
+that's already live. You can actually go ahead and if you want to um provide your
+8:48
+own field uh div component for everything here all this is now customizable. We had to move all that to
+8:54
+RSC's to support components. So that was the first step. Second step was which text
+9:02
+Um, this is just diffing the JSON with React DI viewer and we had to
+9:08
+essentially mostly write our own diff um component to diff the rendered
+9:15
+HTML and this is what it looks like. So, it actually renders this JSON here um
+9:23
+into what you would see in your actual front end or in your editor and inserts these uh div highlights in there. And
+9:32
+yeah, pretty much um way better for anyone, especially non-developers. This
+9:37
+should be um yeah a a much better experience comparing versions of rich
+9:45
+text data and um let me let me let me talk a
+9:50
+little bit about what you had to do to get this to happen. Um, so diffing is, you know, typically
+9:59
+reserved for code and simple content where it's basically plain text. And
+10:07
+there's multi-line and, you know, you might want to swap out one word with a different word. And there's a lot of
+10:13
+packages out there to diff text, but surprisingly very little to diff HTML
+10:21
+output. So what this is is this is HTML output, right? We're generating the HTML
+10:28
+representation of the JSON and we had to diff the HTML and Allesio pretty much
+10:35
+went full Mad Man mode and wrote his own HTML differ here. Um he hated me for it
+10:43
+because I was pushing him on it for like a week and I'm like look man, I know you hate this. I know it's stupid, but I
+10:50
+really need you to do it and I think we can do it. And then like two hours later one day he's like, "Oh, I figured it
+10:56
+out." I'm like, "Oh, sweet. How'd you do it?" Maybe. I don't know. I don't know how I did it, but it was basically
+11:01
+something that didn't exist to this level of fidelity. Uh, Adrian, yeah, we are going to record, but yeah, so it
+11:09
+diffs the HTML, and there's just a ton of additional improvements to the
+11:14
+version diff view that will be coming out shortly. Um, but yeah, I think
+11:19
+Allesia, let's let Tylen um talk through some more of that version diff view
+11:25
+design stuff and let's jump over to
+11:31
+Paul. Paul, are you ready to share a little bit about a new feature?
+11:37
+Yes, but apparently I can't share my screen. Oh, um, well, I guess we can we
+11:45
+can just mention it quickly. Um. Oh yeah. Can
+11:50
+can you describe it? Uh sh screen. Okay. Can
+11:58
+you see? I think we work. So um a while ago we've added schedule
+12:06
+publish. Um and the way to enable it is just under versions drafts
+12:12
+um schedule publish true or you can provide some config to it. Um this is
+12:17
+then going to use the job skew. Yeah, sorry Nate I figured out to share. Um
+12:23
+and then so here's an example of my basic um draft enabled document. You can
+12:28
+apply this to globals as well not just collections. Um, but then next to this button, you just go here, schedule and
+12:34
+publish. And you can pick a date like say tomorrow. And I do recommend you pick a
+12:41
+time zone so that it's accurate because your browser is going to put in the time
+12:46
+that the browser is in. So if you want it like 9:00 a.m. in London, the time that you put in here, if you're in a
+12:52
+different time zone, it's going to end up a different UTC value. Um, but you can even pick which local to publish.
+13:00
+And this is going to create a task in your job skew. So it's kind of like a chron task system. I don't know if we've
+13:06
+covered it before in one of these. Yeah, a little bit. Maybe not on a community call, but yeah. Okay. Yeah. So this kind
+13:13
+of just ties into that same system and then um tomorrow it's going to publish
+13:18
+and then I can also queue up different things. So say on Monday I can then
+13:24
+unpublish it. So, this content over the weekend is going to publish itself and then unpublish itself.
+13:30
+Um, but yeah, I mean, that's pretty much it. Well, you also added the the time zone picker itself, and I don't think
+13:37
+we've talked about that at all. So, all date fields now have the ability to specify a time zone. I think you have to
+13:43
+opt into that, right? On a date field by date field. Yes. On any date field, you can now just say time zone true. Um, I
+13:50
+can show that in code right here. Right. Can you hit command plus a few
+13:57
+times? Oh, sorry. I guess
+14:03
+um just zoom in. Yeah. And you Yeah, there you go. Okay. So, yeah, you just
+14:10
+say time zone true. Um and now you're going to have a date field with the uh time zone added in and
+14:19
+you can modify which time zones are available out of the box. We've tried to provide um all of them but in this
+14:27
+terrible thing uh where is it on the under admin?
+14:36
+Oh yeah, there you go. You can customize the available time zone list. So if there's some obscure time zone we don't
+14:41
+know then yeah that's a bag that's my sister's um side bag off of my side bag side.
+14:52
+Um Tom, so catching up a little bit, Tom. Um I think you're going to like
+14:58
+what we're going to show next because like changed, draft, published, all that stuff, that entire top bar. Um we're
+15:04
+going to talk about that next actually. Um yeah,
+15:09
+so yeah, we we should be zooming in by the way um the next couple presenters.
+15:15
+But with that, I think let's go to Thailand. Would you like to share your
+15:20
+screen? [Applause] Yeah. One second. Let me mute my
+15:27
+AirPods. See, so I'm not the only one with the uh
+15:35
+headphone issues. I don't have issues. Tylen, it's still a black
+15:41
+screen, I think. Oh, there we go. Now we can see it. Okay, you can see it. All
+15:47
+right. So, like I was saying, uh, with the addition of folder view, there's going
+15:52
+to be some new components in this meta bar. And one of the challenges we have right now is there's a a ton of text,
+16:00
+um, showing like updated at, created at, and so we are working on changing that.
+16:06
+And I'll make an RFC for this, uh, either today or tomorrow, and we can get some feedback on the design intent, but
+16:12
+I'll just show you where we're at with it right now. Um, so first this is the new component. This is going to be how
+16:19
+you see what folder you're in and also change that. Um, for autosave, we're
+16:24
+going to have that be the only thing here. So, as it's saving, you'll get this little loading indicator and then
+16:30
+once it's updated, a little check mark that says updated with that time stamp,
+16:35
+and that'll be if you have autosave or not, that'll show up there. Um, another thing we're adding is this new um,
+16:44
+status indicator. So, this would either say published draft or if you've made
+16:50
+new changes to a draft but you have an older published version, it will say change since published. Um, and then if
+16:58
+you have scheduled publish enabled like Paul was just showing, you'll get this
+17:03
+little indicator here to show that you've got things queued up. And then if you hit this dropown you can see what is
+17:11
+the up next event and also unpublish. Uh this would also have like revert to
+17:17
+published version if you are changed since publish and things like that. Um we'll also be adding some of that meta
+17:25
+data that was normally here into the kebab menu to save space. So you'll get
+17:31
+your created at thing and your updated timestamps in this little
+17:37
+dropdown. Um, and one of the reasons we did this is because we are currently out
+17:42
+of space once we add this folder component. And so this has been changed
+17:47
+so that as we hit these break points, we can kind of save a little bit of space, turn this into just an icon with a tool
+17:55
+tip that will let you know that it's saving and still provide all the information you need to see that yes, it's updated. You can still see this
+18:03
+preview at this tiny break point before we switch to like mobile and tablet
+18:08
+would end up in this dropdown. So that is some of the changes
+18:14
+coming to the metabar. Like I said, we'll open an RFC so you guys can leave some comments on what you think about
+18:21
+it. And then if there's no questions, I can move on
+18:28
+to the modular dashboards. So, this one already has an
+18:33
+RFC. If you go to our discussions, it should be pinned at the top. If not, just search for RFC modular dashboards.
+18:40
+And this is something we're going to probably start development on pretty soon. But we've got a nice little video
+18:47
+here. Can you still see the video? Yeah. Okay. Um, this kind of walks through a new
+18:54
+idea we have where you'll be able to not only bring in components like right now
+19:00
+you can do before dashboard, but this provides a way to completely like change
+19:07
+your dashboard, save different layouts depending on who is using it, and this
+19:13
+would be saved to your preferences. So, if you're somebody who wants to bring in some of these custom components and
+19:19
+maybe your other teammates don't want to, they don't have to see it. This is all uh personal to you. And kind of the
+19:26
+way we're thinking about it is introducing just a array of components that you can pass to like components
+19:33
+dashboard and that will open up the ability to have a bunch of different
+19:39
+kinds of components. And then we also want to provide like the ability to
+19:44
+rearrange them, provide different sizing and yeah, just a nice way to be able
+19:52
+to create more usable dashboards because right now just these little tiles for
+19:57
+collections and globals is not super useful and we want to make the dashboard
+20:02
+as useful as we can. Um, like I said, RFC is public. There's already been some
+20:08
+great uh conversation in there, but if you haven't seen this yet, please do feel free to chime in with any thoughts
+20:15
+you have on this. Uh what's
+20:25
+next? And then diff view. Here's some more stuff coming soon. these things
+20:30
+haven't been built yet and I apologize that's a it's a little bit unorganized right now but uh some of the other
+20:37
+changes is um relationships. So if you've got for
+20:43
+example uploads those will show you an actual image um and we'll have nice
+20:49
+components to diff those things. if you've got a has many or polymorphic,
+20:54
+you can see like the kind of uh collection type that you've got
+20:59
+there. Um, yeah, there's a couple different ideas going on here. Um, and
+21:05
+then another one is for blocks and arrays. So, right now we have some very weird strange nesting going on when
+21:13
+you're looking at arrays. And what we're going to do is add these like nice little dots in a
+21:22
+list to kind of show, you know, kind of group these together much better. Save a
+21:27
+lot of the horizontal space cuz if you've got a lot of nested fields, it gets unwieldy very
+21:34
+quickly. And then also bringing in a way to see, you know, if it's a a block and
+21:39
+not an array, what that block type is as well.
+21:45
+And I think that's all I've got. I will also open an RFC for this once I clean
+21:51
+it up and and get it a little prettier. That way you guys can leave your feedback on that as well. And we'll also
+21:56
+have some updates on how these controls up top look because those are pretty
+22:04
+difficult to parse through exactly what you're comparing, which version you're on, all those things. and we want to
+22:10
+improve that and make it as as good for the end user as
+22:15
+possible. All right, I think that's all for me. Good work. Good work. Yeah, there's a
+22:22
+lot of design stuff. We um the reason that we're showing some of the RFC stuff is that we want you all to help us weigh
+22:29
+in on these new approaches because the weird thing about building on payload is
+22:36
+that we're building a system and the system has to flex and fit to everything
+22:42
+that all of you are doing. And we have to think about the millions of different
+22:48
+use cases and combinations and what do people want to put in that top bar? What
+22:54
+do they want to put in the diff view to show their custom component before and
+22:59
+after, right? Like how do we don't even we can't foresee that. And that's where
+23:04
+the value of open source really comes in and also the value of our community is because you guys can help us um keep an
+23:12
+eye out for how we should be thinking when we go to design some of this stuff. But all
+23:18
+right, before we get into folder view, I just want to quickly bust through something on my own screen. So let's see
+23:24
+if I can do this better than Tylen. Let's
+23:30
+see this window. this. All right. Tell me when you can
+23:36
+see it. All right. So, I'm going to rapid fire just like I did in the 3.0
+23:43
+announcement video of 35 plus features that we've released, which you might not
+23:49
+have seen yet. So, first and foremost, the group field can now be unnamed. Just
+23:55
+like an unnamed tab or a named tab, you can now unname group fields, which means that they won't be nested inside of the
+24:01
+config or inside of the JSON. They'll all be top level. So, really easy. You
+24:07
+probably already all know what this is. It's very a good feature. Ask for a lot.
+24:12
+So, the other thing outside of compilation improvements, we've significantly improved performance. And
+24:18
+there is a darkhorse performance improvement which we didn't really
+24:23
+announce too much. This is going to become the default in 4.0, but you can now register your blocks all at the top
+24:31
+level to dduplicate them through the config. What we saw was that a lot of our big customers
+24:37
+were like reusing their blocks in like 50 different places. So if you have 30
+24:43
+blocks and then you use them in 30 places, that's 900 blocks. But rather
+24:49
+than that, you can just flatten and register them all at the top level so that your config only has 30 blocks
+24:54
+instead of 900. And that turns out to make a pretty big improvement for
+25:00
+performance. We've been working on this a lot. Payload is getting faster, faster, faster, faster. It's pretty
+25:05
+incredible how much the team has been able to take the performance forward, but we're not done yet. Uh form state
+25:11
+has been heavily optimized. less rerenders, less payload size from the server to the client, no pun intended.
+25:18
+Um, 206 features since 3.0. Um, username and email login, so you can use your
+25:24
+gamer tag now if you want, nerds. Um, you can there's a brand new feature that
+25:30
+Hermon has built at Payload, which uses faceted indexing, which is crazy. I
+25:36
+don't even know if I said that right, but very beautiful solution. You can now drag and fractional. Yeah, thank you.
+25:41
+Fractional. Um, yes, but you can drag and drop not only joins but also
+25:48
+collections. So, right on the collection list view, you can drag and drop documents and they'll they'll have a
+25:54
+specified order now, which is very, very cool. Um, we didn't even really announce this one too much, but if you didn't
+26:01
+know, this is a huge huge feature. You can now drag and drop order inside of your list view. Uh, virtual relationship
+26:08
+fields. This is so imagine you have like an order that is related to a user and
+26:15
+you want to put the user's email directly on top of the document. You can now surface fields from a relationship
+26:23
+on the top level document with a virtual field and you can also query sort everything with those fields from those
+26:30
+relationships. So basically you're like lifting up data from a relationship and putting it on the top level document.
+26:36
+Very cool, very um important feature. It was built by Sasha Ritsu as though as
+26:42
+all of you know him. You can now export to CSV or JSON with the import export
+26:48
+plugin. We have a ton of new component slots like before the document buttons.
+26:53
+A lot of different like the version diff component is a new slot. There's just a ton of new component slots. Um the
+26:59
+relationship, this was a community PR, the relationship now has alternate appearance. So rather than clicking into
+27:06
+a relationship dropdown and seeing 3,000 different things that you need to search
+27:11
+through to find the right relation, you can open up a drawer and select your documents from the drawer using the full
+27:19
+power of the filters and everything in the that comes with the list view. So that's pretty cool. That was a community
+27:24
+PR. Jake took that across the finish line. Um am is my is it stuck? I'm on off
+27:31
+server functions right now. Okay. Um, okay. So, Nex.js server
+27:38
+functions. Um, we found out that it was kind of difficult where if you wanted to
+27:44
+go from a server function only approach in the next.js app and use the payload local API, our documentation was lacking
+27:51
+and we didn't have good examples for some things like a server function is great. The local API works great there.
+27:58
+But if you want to do login or refresh token or log out, those were a little
+28:04
+bit more difficult. So now we have full um server functions for all of those
+28:09
+operations. You can now query on join fields. You can schedule publish. Talked
+28:14
+about that one. Rich text diffing job Q. You can set the processing order. Now
+28:20
+you have more control over which order the jobs are processed. Query presets. We were going to demo. We're going to
+28:25
+have to get back to this, but query presets is a new feature built right into payload. No plug-in necessary that
+28:31
+allows you to save predefined filters and views. So, if you think about like,
+28:37
+oh, job visualization is coming. Actually, Sean, that's coming soon. Um, but if you wanted to say like, show me
+28:43
+all orders that had a this t-shirt, then you can save that filter and then quickly apply it and you can even share
+28:51
+that filter with other users. So, this is huge. It's basically like the ability to build reports in the list view. The
+28:58
+conditional tabs that have been merged and released compilation performance lexical
+29:04
+converters have been fully overhauled. So you can completely refactor and simplify the way
+29:11
+that you go from lexical JSON to HTML or markdown both from markdown to lexical
+29:17
+and lexical to markdown etc. Those have been completely re overhauled. Compound indexes. You can now define
+29:23
+compound indexes. Field conditions have given we've given more arguments to the field conditions like the path like the
+29:30
+operation um etc. Field validation error messages have been improved. Multi-tenant plug-in
+29:37
+has been released which is now a fully supported firstparty platform to build multi-tenant applications. Large file
+29:45
+uploads on versell bigger than 4.5 megabytes. Polymorphic joins. So now you can have a join that goes to orders and
+29:51
+to requests or something. You can have a join field that goes to more than one type of collection. Route transitions.
+29:58
+You can see a loading bar if your admin UI takes longer than like 150 milliseconds or something. Auto run jobs
+30:06
+if you're deploying. These are all part these are all already released kiza. These are all currently available. auto
+30:14
+run. Um, if you're running with a container and you want to automatically have one of your containers pick up jobs
+30:21
+and serve requests, you can do that now. Time zones, collapsible fields in
+30:26
+the diff view, customizable diff components. We have a new toggle in the
+30:32
+diff view which allows you to show only fields that are modified. Validation functions have
+30:38
+become much more powerful. They now take an event argument and it will either be onchange or submit I believe and that is
+30:46
+going to be a way where you can perform complex validation logic that might be expensive. You might want to query the
+30:52
+database. You might want to do other things but um you don't want to have that slow down the onchange. Validate
+30:58
+functions run every single time the form state hits. So you can see what event was causing the validate function and
+31:04
+then only run the expensive stuff when the form submits which is cool. We've
+31:09
+also completely decoupled our REST API from Nex.js route handlers. Now they are
+31:15
+literally route handlers that stand on their own from any framework and you can use them with other frameworks. So
+31:22
+that's pretty cool. Um rec.p payload.create create has been significantly improved
+31:28
+performance-wise to um reduce the impact on compilation time. So that should be
+31:33
+improved. Make sure that you watch the first part of this video where we talked about the compilation improvements to make sure that you do all of those
+31:39
+things. Um generated types now have JS doc support which uses admin.escription for fields. You can now generate drizzle
+31:47
+schemas and have fully typed drizzle APIs inside of payload with a single
+31:52
+command. You can copy local to local. There's a new feature that we just
+31:57
+merged yesterday which is um I think it was a community PR wasn't it? No, Herman built this right Allesia. Yeah. Yeah. So
+32:05
+you there's a text state feature now in Lexico which is really cool. You can create um very easy text styles
+32:13
+um pre-signed URLs for files and that's it. Well that's not it.
+32:19
+There's 200 other ones but I'm not going to go through all those today. So, um, let's talk about folders, shall we? I am
+32:28
+I think that's what you all came here for. So, um, let's do it. And Jared, let
+32:34
+me pass it over. Let's see if I can do this.
+32:41
+And while you do that, I'm going to set the the pace here for a little bit. Um, this
+32:46
+feature is probably the biggest feature we've ever added to payload besides
+32:52
+database adapters and it touches everything across payload and we wanted
+32:58
+to build it right and folders are tricky. I mean before we even talk about
+33:04
+the architecture are we going to build tags or are we going to build folders? Tags
+33:10
+and folders are different. If you want to go on a tag based approach, you can have a file exist in more than one
+33:17
+place. But if you want to go a true folder approach like your OS on your computer or Google Drive, then a given
+33:26
+document only has one folder. And those two approaches are significantly
+33:31
+different in architecture. And we really really thought through this and we
+33:36
+decided that well we already have tags. Tags is just a component. It's just a
+33:42
+field. It's a relationship field. But folders are a new primitive that we need
+33:49
+to build and provide so that people can organize folders which would then allow you to um generate prefixes for S3. So
+33:58
+if you wanted to store things in prefixes, you can put them into separate folders. And if you want to do that,
+34:05
+then we need to know, okay, there's only one prefix for this media file,
+34:11
+right? Um, also breadcrumbs. If you want to get rid of the nested docs plugin and
+34:16
+you want to use breadcrumbs instead based on folders, then we need to have
+34:22
+only one parent folder location. So this is a new primitive for payload. It has
+34:29
+effects on the database architecture. it it doesn't require any breaking changes. Um, but it also affects the admin panel
+34:37
+deeply. So, what we heard from our users is that they wanted a media library. A
+34:44
+lot of CMS's have folders, but they're really just for media, right? And we hate that. We think that's insane, but
+34:51
+we didn't want to compromise on the ability to go to media and see folders,
+34:57
+right? So, we need to do that. So, what Jared, you want to take over, Jared, and
+35:03
+um go through this a bit? Yeah, sure. Um I'm zoomed in, so it looks a little
+35:08
+weird to me. I've been looking at this screen for a very long time. Um but a
+35:15
+lot of people I think there's two kinds of use cases. James maybe touched on these. Like people that want to group
+35:22
+media, like that's a really like heavy use case. A lot of people ask for that. Um, but then like what if you want to
+35:29
+group things that are relative related to each other? So like you might group
+35:34
+images with posts or pages or whatever. Um, so this feature allows you to be
+35:40
+able to do both of those. So I can just kind of walk through. I have like a very simple example. There's not a lot of
+35:45
+data in any of these collections. Um, I have a seed script. It loaded up some
+35:51
+images just so we can kind of go through this. Um, it created two folders. Um you
+35:57
+can so like if I click into this one it shows this kind of view. Um you can like
+36:02
+you know folders drinking. Yeah we drinking. You like my image choices
+36:08
+there. Good ones actually in here. You can add more folders um things like that. So like nested folders and then I
+36:16
+have another one. So this is the empty state that you would see this um when you boot this up for the first time because you won't have any folders.
+36:23
+Um, and if I go I just want to show you guys some cool stuff first because I
+36:29
+think these are silly. Sarah made these and I think they're great. Hey Jared, can you click on the one grave many
+36:35
+flowers? We need to we need to explain that this one. Yeah, I got to go to the new All right, so this is something that
+36:41
+the payload team does it. Like everybody says rip or like oh that sucks. Um, but
+36:48
+we have a strict rule. Whoever gets the gravestone, there can only ever be one
+36:53
+grave, but there has to be many flowers on the grave. So, this is one grave, many flowers. Kind of an inside joke.
+36:59
+Um, oh, these are Yeah, Hermon, now you're up to speed. Welcome. You've been at payload for what? Four months, five
+37:04
+months, six months. Oh, get them, boys. Let's see.
+37:09
+Yep, there we go. Yep. Oh my god.
+37:15
+So, this is like I don't know. All right, Jared, keep going. Wow, that's a lot. Yeah, one
+37:22
+year. Holy cow. Um, that's crazy. So,
+37:27
+this is like a very basic example, but I could see people definitely using this. Um, you can like traverse breadcrumbs at
+37:34
+the top kind of thing. You get all these fun things. You can move folders around, files and folders. Wait, do that again.
+37:41
+You just dragged a file to the breadcrumbs. Look at that. Yeah. And now
+37:46
+it's back in here. and I can drag it wherever. It's pretty cool. There's a lot of like little things like that.
+37:52
+There's different views. So, this is the grid view. This is the default view. Um, which is nice for images as you can see
+37:58
+here. It's nice to be able to see them all. Um, but if you do like the list view, it'll show kind of like this. Um,
+38:05
+then click in t-shirts, this kind of thing. I got to get preview images to show up here, but I haven't yet. Lots of
+38:13
+things going on. Um, same kind of thing applies here. Like you can do this kind of thing. drag wherever. Um or like
+38:20
+t-shirts and pins, t-shirts back out. Uh you can do like command select and shift
+38:27
+select uh deselect with command. Lots of like little things, but they're nice to
+38:33
+have. We don't have drag yet, which I do want to build, but I I haven't. Um it's kind of like not
+38:42
+everything, but that's a lot of like the little things. Um, you could do like bulk edit, so you can like still do this
+38:49
+kind of stuff and you can like move them all to a new folder um, if you would like to.
+38:55
+Um, yeah. Yeah, there's like I don't know. Oh, and this is the new tab structure. So, this is if you want to
+39:01
+get back to the list view, this is how you would do that. And then the other tab is if you want to view by folder in this
+39:07
+collection. Um, yeah, I'm trying to think. So, let me I guess I can go to one of these documents. So, we have this
+39:13
+like Tylen showed, we have this new pill. Um, this is like a a way to like move from a document to another folder
+39:20
+or add more folders nested kind of thing. And then you can like select and move it. I don't really want to move my
+39:26
+grave to pins, so I'm not going to. Yeah, I think that's a lot of like
+39:32
+the functionality. Um, oh, and the pills are here, too. So, if you're looking at the this is the
+39:38
+list view, so not the folder view. You can do the same kind of thing. If you want to just like quickly move one, you
+39:44
+can do that. Same kind of like select select folder and move.
+39:49
+Um, yeah. Uh, Jared, let me jump in. There's a lot of questions about the API and how this works.
+39:57
+I can't see the the chat. Okay, I'll uh I'll catch up. So the beautiful thing
+40:02
+about payload is that we have all of these like patterns already like access
+40:08
+control and localization and hooks and validate and payload folders are just a
+40:16
+new collection. They're just a new payload collection that's hidden from the sidebar. But that means that you can
+40:24
+add hooks and access control and logic and everything exactly how you can do
+40:29
+throughout the rest of payload. So if you want to have all posts with this tag
+40:35
+automatically be assigned to this folder, you can do that as you already
+40:41
+know how to just by writing a hook that says, "Hey, if this post has this tag,
+40:46
+put it in this folder." And you can automate and you can create validation functions to say this folder should only
+40:54
+store MP4s and this folder should only be
+40:59
+accessible to those that have this role. All of this stuff that has like
+41:06
+payloadwide application also applies to folders. It is literally just a
+41:12
+collection and then there's a field on each document that says which folder am
+41:18
+I in. It's a relationship field just like the relationship fields that you can write. It's all collections. Yes. So
+41:26
+like when I built this or this demo um can you Yeah. Yeah. programmatically create
+41:34
+folders. Yes. Yeah. Right. I'm going to show that because it's kind of interesting. So when I built this demo
+41:40
+like five times more more there you go. Yep. Okay. So when I built this demo, I
+41:45
+didn't want to like have to click and add all these folders and then like it go away or whatever. So um literally
+41:53
+this is how you can Okay, so I have a helper function, but I'm I created a folder. I can go to the function. It's
+41:59
+just payload.create. The collection name is payload folders. You can change that
+42:04
+in the config um if you wanted to. And then yeah, you just pass the data. So like a folder has a name and then it can
+42:11
+have like a folder which would be like a parent folder. So if you want it to be nested inside of a folder, you just add
+42:16
+folder and the ID of the folder and then a name for the folder. And that's really it. It is just payload in that sense. Um
+42:25
+I don't need to go any further there, but I figured it might be nice to see. Um and then maybe if we could go to
+42:32
+browse by folder quickly. Yep. Let me let me prime that conversation too real quick, Jared, before you show that. Um,
+42:38
+yeah. So, so far we just went to media. Can you go back to media quickly? Like,
+42:43
+if you go to media and you go to by folder, bam, you're going to be browsing media
+42:48
+by folder. But one thing that we did not want to compromise on is that like
+42:55
+Google Drive, you can go to Google Docs and see only your documents in a given
+43:00
+folder structure. But you should also be able to put other document types in the same folder. So we
+43:08
+have not only the collection specific folders but we also have a way to globally navigate your folders and see
+43:15
+all documents of many types across any given folder and they are the same
+43:21
+folder. So the UX was pretty tricky here to get right and we want your feedback on this but you can put yes. Yes, you
+43:28
+can list all folders like before but also get the structure. Yes, folders can have
+43:34
+permissions. And um the thing that we wanted to do is imagine that you have like a a CMS that's usable
+43:41
+for different things. Like you might have a knowledge base and then you might have a website and you have a bunch of
+43:47
+images that are according to the knowledge base, but then you have a bunch of images that go for your
+43:52
+website. And you might want to put the images and the pages and the posts and everything in the website folder next to
+43:58
+each other, but you might want to put a bunch of other knowledgebased related things in the knowledgebased folder. So
+44:04
+basically folders in payload are not only collection specific. They are global and there's two ways to browse
+44:12
+folders. You can number one, you can go straight to a collection like Jared's showing right now. Click on by folder.
+44:18
+Number two, you can click on this new button in the top left, browse by folder. And this is global folders. You
+44:24
+can query by folder name. Yes, you can do that. And right here, what we're doing is we're browsing all documents at
+44:31
+the top level folder. So if I go Yeah, if he goes into t-shirts, that right there is a blog post that exists
+44:38
+alongside of all of those assets in the same folder. Um, and so there's basically two
+44:46
+concepts with folder view that are built on the same principles. Folders are only one thing in payload, but you can get to
+44:53
+them via two different ways. You can go directly to the collection or you can go to the global browse by folder and then
+44:59
+check it out. Yeah. And so Dix, if you want to use folders just for media, you can do that. You can completely shut off
+45:06
+the global view and just use folders for media. But for those that want to use
+45:11
+them for more than just media, you can put any type of document inside of there. It works outside of upload collections. It works for anything. Um,
+45:19
+and you can opt in. Yeah, it could replace the nested docs plugin. Yes. So, you can opt in which collections you
+45:26
+want to be enabled for folders just by what Jared is showing here. You just put folders true on the collection. And then
+45:35
+you'll see that both of those collections have the ability to use folders. If you use it for media and a
+45:43
+collection, can you separate where you see the folders? Yes, you can. So, the API impact, you just have a new folder property. Jerry, can you revisit that
+45:49
+real quick? Can you go to one of these and just show that? I'm here. Yep. Yep.
+45:54
+Um, Mr. Fluffykins, great username. Kind of makes me feel a little strange, but I
+46:00
+like it still. Um, can you go to the API tab? Yeah. So, the API, it's just going
+46:06
+to have um a folder and it's going to be a relationship ID. That's it. And
+46:12
+that'll be a relationship to a folder. So, if he does depth one maybe. Yeah.
+46:19
+Then you're going to see the folder detail. Looks like it. And there you go. It'll show its parent folder. Orderable
+46:26
+folders. We do have sortable folders. Um but I think for orderable we're going
+46:32
+to need to we're going to need to think about that. But we should talk about that in further depth. Um updating. Let's show how to turn this on, Jared.
+46:38
+Let's show the steps in order to enable folders. Oh yeah, we showed that. It's just it's
+46:44
+literally just this. Yeah, but don't you have to put it on the payload config at the top level as well? No, not anymore.
+46:50
+Oh, nice. Yeah. So, that's all you have to do right there. It's an opt-in um pattern.
+46:55
+You can. Yeah, definitely. I think that this could completely replace nested docs and Nex.js routing. You can also
+47:03
+add properties to folders. So, Jacob asked, can you add properties to
+47:08
+folders? Well, yes, because it's a payload collection. Jared, I don't know if you can show that right now, but um
+47:13
+collection overrides. You want to add fields into it. There you go. You can push your own fields into the folders
+47:19
+collection. I don't even remember exactly what this looks like, but yeah, you get the idea.
+47:24
+Oh, it's an object. Really, what I want all of you to understand is that folders are literally
+47:30
+just a payload collection that you have full control over. Um you can limit folders. You can create validations on
+47:37
+folders to say like, hey, I want this folder only to have media. You can create validations just like you can
+47:42
+everywhere else. You can also affect the prefix
+47:48
+with folder structure like um re resarch is asking. Rzaran, yes, folders can have
+47:56
+fields. Um this is released now. This is beta. I want to make that clear is that
+48:01
+this is currently a beta feature. Like I can tell you right now, we're going to change one thing pretty much immediately. Jared, can you go back to
+48:08
+um your config? Can you go to a collection admin folders? It's going to
+48:13
+be just top level folders. So, that is going to be something that's going to change soon. This is in beta. We're
+48:19
+we're thinking that there's not going to be many changes here, but we want all of your feedback while this is in beta so
+48:25
+that we can make sure that it's concrete, that the user experience is dialed in, that everybody's happy with
+48:32
+the functionality, and um then we can ship it as stable. But we want to get
+48:37
+this into your hands. I mean, we're open source. You're all going to help us build this. So um the the groundwork is there. It's definitely beta, but it will
+48:44
+be functional and usable. So it's available now. right now. Um, yeah.
+48:52
+Yep. Glacial penguin. That's an interesting question. Can we have multiple folder collections, separate
+48:58
+folder structures for posts and media? I think yes, but let us we're going to open up a
+49:07
+a discord or a GitHub discussion and that needs to go on there. That question that's the type of feedback we're
+49:13
+looking for. Yeah. Yes. When uploading via the API, you can indeed specify the folder as a target.
+49:23
+Yep. All right. What did we miss? Um I don't I mean we didn't get to
+49:30
+really talk about query presets. Um which sucks or Jake? Yeah. Um TLDDR is
+49:37
+that folders are available. We released like 35 big features, 200 other features, 786 or something. Nate, you
+49:44
+might be able to correct me on that. Um, lots of bug fixes since 3.0. We've been a little quiet. Um, we've been very busy
+49:51
+and uh, yeah. So, yeah, it's it's basically like we
+49:56
+designed it after an OS like Google Drive or like on your own computer folder view. Um, but
+50:03
+yeah, so it's it's it's available now. All this is available now. Um, let's
+50:08
+talk about what's coming next and then we can all let you get back to your day. Um, so Jared, I can share my screen and
+50:15
+take over for a minute. Let's see. All right. This is not a comprehensive road
+50:20
+map. This is just some of the big stuff,
+50:26
+but let me know when you can see. Oh, real time. Yeah, that's on this
+50:32
+list. Real time's coming soon. So, the first thing that's almost done actually is the improvements to the diff view for
+50:39
+versions. Um, Paul has the e-commerce plug-in very close to being finished,
+50:45
+which is exiting because it now supports more than one payment method. It is much
+50:50
+more robust and it's centralized into a plug-in rather than just payload having a separate template. Like, it's actually
+50:57
+an encapsulated plugin that's very customizable. So much better. Um, the
+51:03
+plugin is almost done. in LB. Are you asking about a REST API SDK that um yes so Sasha Ritzu has that
+51:14
+pretty much done and we just we want to make sure that it's going to be um applicable for the real-time API as
+51:21
+well. So as Zephere is asking real time API is high up on our list and that is
+51:28
+going to have SDK ramifications. So we don't want to rush to the SDK. Um but
+51:33
+the typed rest API real-time true absolutely that is on this road map right here. Um oh emotions can you is that on
+51:42
+GitHub anywhere or maybe my team we can just keep an eye on that. Unpublishing a specific local that is something that we
+51:49
+should definitely be able to add quickly. Um okay modular dashboard talked about that. We do export right
+51:55
+now. We're going to import website template is going to continue to be optimized and overhauled. Got another video coming out. I hope I can film that
+52:02
+maybe tomorrow. Probably not. Maybe next week. Um, documentation is going to be a huge focus of ours. Sean is gonna pretty
+52:08
+much go heads down on docs, guides, tutorials, etc. for the foreseeable
+52:14
+future. And we will protect him and cherish him. Um, caching, going to need
+52:19
+that key value store, KV store for multiplayer, for real time. We need a KV store. And that is going to be an opt-in
+52:28
+pattern to support an additional database that's faster um made for KV
+52:33
+type things. We want to copy and paste blocks and array rows from field to
+52:38
+field. Cascade publish. So when you do a publish you can publish all relations. Um real time API we talked
+52:45
+about the UI component library. Soft delete. Soft delete is actually going to come pretty quick actually. Um but yeah,
+52:51
+yeah, this is all kind of on the table and you can also look at our uh GitHub discussions because these are all the
+52:57
+big ones. So this is just a quick look at the big features. If you'd like,
+53:05
+please jump into our GitHub discussions to help us shape the road map from here.
+53:11
+Um, Max, ideally we're going to give an a variety of different caching approaches because a lot of people use
+53:17
+payload the local API completely outside of Nex.js in separate applications. So,
+53:24
+we do want to have some type of caching layer that works just with the local API on a fundamental payload basis. Soft
+53:30
+delete is basically like the trash. So, oh, Cloudflare. Yeah. Um, some of the Cloudflare maintainers
+53:37
+actually have helped us get very close to Cloudflare support. Um, ask Sasha
+53:42
+about that. Ritzu, he has more information there. Yeah, there were there's some PRs
+53:49
+um recently. Uh, soft delete. Yeah, sorry Zephrey. Um, soft delete is basically
+53:56
+like instead of like hardcore just deleting a document, you can delete it,
+54:02
+but it will actually go to a trash, like an archive, and then you can clear the trash. So, it's kind of like a two-step
+54:08
+deletion. Um, and that's coming quick. We need that for a couple things. We need that for e-commerce, actually. But,
+54:15
+um, yeah. So, we can prevent empty trash.
+54:21
+Yes, that is part of it. Actually, crowd in sync is
+54:27
+actually something that's been asked for a couple times, so we'll want to get to
+54:33
+that. All right. Any questions? I mean, you guys are asking a bunch of
+54:38
+questions, so yeah.
+54:43
+Um, I don't know. I think that might be it. God, I really want to do what I do
+54:50
+on Slack and just No. He does this thing where he just leaves the call without saying anything and
+54:57
+then everyone's just there and then Yeah, like this. All right. Well, it was
+55:03
+fun. I think that's rude, but it's fine. Good man. I'm still here. Yeah. Say your
+55:12
+peace and then let's leave. Okay. Bye. Bye.

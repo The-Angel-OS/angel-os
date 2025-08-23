@@ -35,6 +35,29 @@ export const Events: CollectionConfig = {
       },
     },
     {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      admin: {
+        position: 'sidebar',
+        description: 'URL-friendly version of the event title',
+      },
+      hooks: {
+        beforeValidate: [
+          ({ data, operation }) => {
+            if (data?.title && !data?.slug) {
+              return data.title
+                .toLowerCase()
+                .replace(/ /g, '-')
+                .replace(/[^\w-]+/g, '')
+            }
+            return data?.slug
+          },
+        ],
+      },
+    },
+    {
       name: 'description',
       type: 'richText',
       admin: {

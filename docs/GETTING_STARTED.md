@@ -3,6 +3,13 @@
 > **"From zero to automated business in 24 hours"**  
 > *Complete onboarding guide for new businesses*
 
+## 🌐 **Live Platform Access**
+
+**🚀 Production Platform:** [https://angel-os.kendev.co](https://angel-os.kendev.co)  
+**🔑 Demo Credentials:** `kenneth.courtney@gmail.com` / `angelos`  
+**📊 Dashboard:** [https://angel-os.kendev.co/dashboard](https://angel-os.kendev.co/dashboard)  
+**⚙️ Admin Panel:** [https://angel-os.kendev.co/admin](https://angel-os.kendev.co/admin)
+
 ## 🚀 **Quick Start Overview**
 
 Angel OS transforms any business into a sophisticated AI-powered operation within 24 hours. Whether you're a service provider, content creator, or traditional business, our platform provides everything needed for modern automated operations.

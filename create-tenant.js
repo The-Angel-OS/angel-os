@@ -2,7 +2,7 @@ const fetch = require('node-fetch');
 
 const baseUrl = 'http://localhost:3000';
 const adminEmail = 'kenneth.courtney@gmail.com';
-const adminPassword = 'K3nD3v!host';
+const adminPassword = 'angelos';
 
 async function createKenDevTenant() {
   console.log('🚀 Creating KenDev.Co tenant...');

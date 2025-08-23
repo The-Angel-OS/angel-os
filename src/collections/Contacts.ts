@@ -2,6 +2,18 @@ import type { CollectionConfig } from 'payload'
 
 export const Contacts: CollectionConfig = {
   slug: 'contacts',
+  defaultPopulate: {
+    displayName: true,
+    email: true,
+    phone: true,
+    company: true,
+    type: true,
+    crm: {
+      status: true,
+      source: true,
+    },
+    tenant: true,
+  },
   admin: {
     useAsTitle: 'displayName',
     defaultColumns: ['displayName', 'email', 'phone', 'company', 'type', 'crm.status'],

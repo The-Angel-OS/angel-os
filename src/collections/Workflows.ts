@@ -5,6 +5,7 @@ export const Workflows: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'status', 'triggerCollection', 'tenant', 'createdAt'],
+    group: 'System',
   },
   fields: [
     // Workflow Identification

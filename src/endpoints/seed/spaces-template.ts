@@ -539,6 +539,205 @@ export const businessTemplates: Record<string, SpaceTemplate> = {
       industry: "ecommerce",
       features: ["ecommerce", "customer_service", "reviews", "shipping", "invoicing", "bulk_pricing"]
     }
+  },
+
+  // Agriculture/Nursery Template - Perfect for Hays Cactus Farm
+  agriculture: {
+    name: "{BUSINESS_NAME}",
+    slug: "main",
+    description: "Quality plants and gardening supplies at {BUSINESS_NAME}",
+    channels: [
+      {
+        name: "welcome",
+        description: "Welcome to our plant community",
+        type: "announcements",
+        isDefault: true,
+        initialMessages: [
+          "🌵 Welcome to {BUSINESS_NAME}! Your premier destination for rare and exotic plants.",
+          "🌱 We specialize in cacti, succulents, and desert plants with expert care guidance.",
+          "📚 Check out our plant-care channel for growing tips and seasonal advice!"
+        ]
+      },
+      {
+        name: "plant-care",
+        description: "Plant care tips and growing advice",
+        type: "general",
+        isDefault: true,
+        initialMessages: [
+          "🌿 Welcome to our plant care community! Share tips, ask questions, and learn from fellow plant enthusiasts.",
+          "💡 Pro tip: Different seasons require different care - we'll keep you updated with seasonal guides.",
+          "🔍 Having plant problems? Post photos and our experts will help diagnose and treat issues."
+        ]
+      },
+      {
+        name: "new-arrivals",
+        description: "Latest plants and rare finds",
+        type: "general",
+        isDefault: true,
+        initialMessages: [
+          "🆕 New arrivals and rare plant finds will be showcased here first!",
+          "🌟 Members get early access to rare specimens and special collections.",
+          "📸 We'll post photos and care information for each new arrival."
+        ]
+      },
+      {
+        name: "orders-shipping",
+        description: "Order status and shipping updates",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "📦 Order confirmations and shipping updates for your plant purchases.",
+          "🚚 We use specialized plant shipping to ensure your plants arrive healthy and happy.",
+          "📋 Tracking information and delivery care instructions provided for every order."
+        ]
+      }
+    ],
+    defaultMessages: [],
+    businessSettings: {
+      type: "retail",
+      industry: "agriculture",
+      features: ["inventory", "seasonal_products", "care_guides", "expert_advice", "shipping"]
+    }
+  },
+
+  // Pet Services Template - Perfect for Oldsmar Exotic Birds
+  pet_services: {
+    name: "{BUSINESS_NAME}",
+    slug: "main", 
+    description: "Professional exotic pet care services at {BUSINESS_NAME}",
+    channels: [
+      {
+        name: "welcome",
+        description: "Welcome to our pet care community",
+        type: "announcements",
+        isDefault: true,
+        initialMessages: [
+          "🦜 Welcome to {BUSINESS_NAME}! Your trusted partner in exotic bird care and breeding.",
+          "🏥 We offer comprehensive veterinary care, boarding services, and expert breeding programs.",
+          "📞 Emergency services available 24/7 for urgent pet care needs."
+        ]
+      },
+      {
+        name: "appointments",
+        description: "Booking and scheduling services",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "📅 Schedule your appointments for veterinary care, grooming, or boarding services.",
+          "⏰ We offer flexible scheduling including emergency and after-hours appointments.",
+          "📋 Please provide your pet's information and service needs when booking."
+        ]
+      },
+      {
+        name: "bird-health",
+        description: "Health tips and veterinary advice",
+        type: "general",
+        isDefault: true,
+        initialMessages: [
+          "🩺 Expert health advice and tips for keeping your exotic birds healthy and happy.",
+          "💊 Preventive care, nutrition guidance, and early warning signs to watch for.",
+          "👨‍⚕️ Our certified avian veterinarians share insights and answer your questions."
+        ]
+      },
+      {
+        name: "boarding-updates",
+        description: "Pet boarding and care updates",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "🏠 Daily updates and photos of your pets during boarding stays.",
+          "📸 We provide regular check-ins so you can see how your feathered friends are doing.",
+          "🍽️ Feeding schedules, playtime, and special care notes documented daily."
+        ]
+      },
+      {
+        name: "emergency",
+        description: "Emergency pet care and urgent situations",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "🚨 24/7 emergency care for urgent pet health situations.",
+          "📞 Emergency contact: Call immediately for urgent care.",
+          "🏥 After-hours emergency protocols and when to seek immediate veterinary attention."
+        ]
+      }
+    ],
+    defaultMessages: [],
+    businessSettings: {
+      type: "service",
+      industry: "pet-care",
+      features: ["appointments", "emergency_contact", "health_records", "boarding", "breeding"]
+    }
+  },
+
+  // Automotive Services Template - Perfect for Radioactive Car Audio
+  automotive: {
+    name: "{BUSINESS_NAME}",
+    slug: "main",
+    description: "Professional automotive audio services at {BUSINESS_NAME}",
+    channels: [
+      {
+        name: "welcome",
+        description: "Welcome to our automotive audio community",
+        type: "announcements", 
+        isDefault: true,
+        initialMessages: [
+          "🔊 Welcome to {BUSINESS_NAME}! Your premier destination for high-performance car audio systems.",
+          "🎵 We specialize in custom installations, premium equipment, and professional sound system design.",
+          "🏆 Award-winning installations with industry-leading warranties and customer service."
+        ]
+      },
+      {
+        name: "installations",
+        description: "Installation appointments and project updates",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "🔧 Schedule your custom audio installation appointments here.",
+          "📋 Installation updates, progress photos, and completion notifications.",
+          "⏱️ Typical installation times: Basic systems 2-4 hours, Custom builds 1-3 days."
+        ]
+      },
+      {
+        name: "products-showcase",
+        description: "Latest audio equipment and deals",
+        type: "general",
+        isDefault: true,
+        initialMessages: [
+          "🎛️ Featured products: Premium speakers, amplifiers, subwoofers, and accessories.",
+          "💰 Member exclusive deals and seasonal promotions on top audio brands.",
+          "🆕 New product arrivals and technology updates in car audio equipment."
+        ]
+      },
+      {
+        name: "custom-builds",
+        description: "Custom system design discussions",
+        type: "general",
+        isDefault: true,
+        initialMessages: [
+          "🎨 Custom audio system design and consultation services.",
+          "📐 We create personalized sound systems tailored to your vehicle and preferences.",
+          "💡 Share your vision and budget - we'll design the perfect audio experience."
+        ]
+      },
+      {
+        name: "technical-support",
+        description: "Technical support and troubleshooting",
+        type: "support",
+        isDefault: true,
+        initialMessages: [
+          "🛠️ Technical support for installed systems and equipment troubleshooting.",
+          "📞 Remote diagnostics and on-site service calls available.",
+          "📚 User manuals, setup guides, and maintenance tips for your audio system."
+        ]
+      }
+    ],
+    defaultMessages: [],
+    businessSettings: {
+      type: "service", 
+      industry: "automotive",
+      features: ["appointments", "custom_quotes", "warranty_tracking", "technical_support", "installations"]
+    }
   }
 }
 

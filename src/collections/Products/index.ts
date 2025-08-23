@@ -34,7 +34,19 @@ export const Products: CollectionConfig<'products'> = {
     update: authenticated,
   },
   // This config controls what's populated by default when a product is referenced
-  // defaultPopulate removed - pricing.basePrice not available in select type
+  defaultPopulate: {
+    title: true,
+    sku: true,
+    status: true,
+    pricing: {
+      basePrice: true,
+      currency: true,
+    },
+    inventory: {
+      quantity: true,
+    },
+    tenant: true,
+  },
   admin: {
     defaultColumns: ['title', 'slug', 'pricing.basePrice', 'status', 'tenant', 'updatedAt'],
     group: 'Commerce',

@@ -74,6 +74,8 @@ const navigation: NavigationSection[] = [
     title: "Overview",
     items: [
       { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+      { name: "Home", href: "/", icon: Building2 },
+      { name: "Payload Admin", href: "/admin", icon: Settings },
       { name: "Angel OS", href: "/dashboard/angel-os", icon: Sparkles, badge: "Core" },
       { name: "LEO Assistant", href: "/dashboard/leo", icon: Bot, badge: "Active" },
     ],
@@ -91,7 +93,7 @@ const navigation: NavigationSection[] = [
     title: "Customer Management",
     items: [
       { name: "CRM Dashboard", href: "/dashboard/crm", icon: Users },
-      { name: "Contacts", href: "/dashboard/crm/contacts", icon: UserCheck },
+      { name: "Contacts", href: "/dashboard/contacts", icon: UserCheck },
       { name: "Leads", href: "/dashboard/leads", icon: UserPlus, badge: "New" },
       { name: "Opportunities", href: "/dashboard/opportunities", icon: Target, badge: "New" },
     ],
@@ -116,9 +118,9 @@ const navigation: NavigationSection[] = [
     items: [
       { name: "Projects", href: "/dashboard/projects", icon: FolderOpen, badge: "New" },
       { name: "Tasks", href: "/dashboard/tasks", icon: CheckSquare, badge: "New" },
-      { name: "Calendar", href: "/dashboard/calendar", icon: Calendar },
+      { name: "Appointments", href: "/dashboard/appointments", icon: Calendar, badge: "New" },
+      { name: "Events", href: "/dashboard/events", icon: CalendarDays, badge: "New" },
       { name: "Todos", href: "/dashboard/todos", icon: ListTodo },
-      { name: "Events", href: "/dashboard/events", icon: CalendarDays },
     ],
   },
   {

@@ -14,12 +14,13 @@ export interface RichTextProps {
 }
 
 /**
- * Rich Text component following the working POC pattern from spaces.kendev.co
- * Uses defaultConverters to ensure all built-in node types work properly
+ * Rich Text component with basic converters
+ * Simplified to avoid block converter issues during build
  */
 const jsxConverters: JSXConvertersFunction = ({ defaultConverters }) => ({
   ...defaultConverters,
-  // All default converters are included, so lists work automatically
+  // Use only default converters for now
+  // TODO: Add proper block converters when Lexical integration is stable
 })
 
 const RichText: React.FC<RichTextProps> = ({

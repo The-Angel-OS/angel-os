@@ -1,276 +1,313 @@
 "use client"
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useEffect, useState } from "react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Progress } from "@/components/ui/progress"
-import { 
-  CheckCircle, 
-  Circle, 
-  Clock, 
-  Users, 
-  MessageSquare, 
-  Zap,
-  Globe,
-  Code,
-  Lightbulb,
-  Vote,
-  Plus
-} from "lucide-react"
+import { DataTable, createColumn } from "@/components/ui/data-table"
+import { UniversalModal, FormField } from "@/components/ui/universal-modal"
+import { usePayloadCollection } from "@/hooks/usePayloadCollection"
+import { TrendingUp, Eye, Edit, Trash2, Star, ThumbsUp, Target, Zap, CheckCircle, Plus } from "lucide-react"
 import { motion } from "framer-motion"
+import Link from "next/link"
 
-export default function ProductRoadmapPage() {
-  const roadmapItems = [
+// Roadmap Feature type interface
+interface RoadmapFeature {
+  id: string
+  title: string
+  description?: string
+  category: string
+  status: string
+  priority: string
+  timeline: {
+    estimatedCompletion?: string
+    quarterTarget?: string
+    estimatedEffort?: number
+  }
+  voting: {
+    votes: number
+    allowVoting: boolean
+  }
+  progress: {
+    completionPercentage: number
+  }
+  tags?: Array<{ tag: string }>
+  createdAt: string
+  updatedAt: string
+}
+
+// Hook for roadmap features
+const useRoadmapFeatures = (options?: any) => {
+  return usePayloadCollection<RoadmapFeature>({
+    collection: 'roadmap-features',
+    limit: 20,
+    sort: '-voting.votes',
+    ...options,
+  })
+}
+
+export default function RoadmapPage() {
+  const [showCreateModal, setShowCreateModal] = useState(false)
+
+  useEffect(() => {
+    document.title = "Angel OS: Roadmap"
+  }, [])
+
+  const { data: features, loading, error, refresh } = useRoadmapFeatures()
+
+  const roadmapModalFields: FormField[] = [
     {
-      id: "leo-navigation",
-      title: "LEO Navigation & Data Entry",
-      description: "Enable LEO to navigate users to any page and fill form controls conversationally",
-      status: "in-progress",
-      phase: "MVP",
-      votes: 47,
-      priority: "High",
-      progress: 75,
-      assignee: "Kenneth Courtney",
-      dueDate: "Jan 26, 2025"
+      name: 'title',
+      label: 'Feature Title',
+      type: 'text',
+      required: true,
+      placeholder: 'e.g., Dark Mode Support, API Rate Limiting'
     },
     {
-      id: "conversational-interface",
-      title: "Fully Conversational Interface",
-      description: "Make entire web interface optional - everything accessible via voice/text",
-      status: "planned",
-      phase: "A1.1",
-      votes: 34,
-      priority: "High", 
-      progress: 25,
-      assignee: "LEO AI",
-      dueDate: "Feb 15, 2025"
+      name: 'description',
+      label: 'Description',
+      type: 'textarea',
+      required: true,
+      placeholder: 'Describe the feature and its benefits...'
     },
     {
-      id: "parent-child-tenants",
-      title: "Parent-Child Tenant Architecture",
-      description: "Hierarchical tenants (BJC.org → BJCHospice.org) with directory controls",
-      status: "planned",
-      phase: "A1.2",
-      votes: 28,
-      priority: "Medium",
-      progress: 10,
-      assignee: "System Architecture",
-      dueDate: "Mar 1, 2025"
+      name: 'category',
+      label: 'Category',
+      type: 'select',
+      required: true,
+      options: [
+        { label: 'User Interface', value: 'ui' },
+        { label: 'API & Integration', value: 'api' },
+        { label: 'Performance', value: 'performance' },
+        { label: 'Security', value: 'security' },
+        { label: 'Analytics', value: 'analytics' },
+        { label: 'Mobile', value: 'mobile' },
+        { label: 'Other', value: 'other' }
+      ]
     },
     {
-      id: "dynamic-containers",
-      title: "Dynamic Container Types",
-      description: "User-voted container types for different use cases (Hospice, Medical, etc.)",
-      status: "backlog",
-      phase: "A2",
-      votes: 19,
-      priority: "Medium",
-      progress: 0,
-      assignee: "Community",
-      dueDate: "TBD"
+      name: 'priority',
+      label: 'Priority',
+      type: 'select',
+      required: true,
+      defaultValue: 'medium',
+      options: [
+        { label: 'Low', value: 'low' },
+        { label: 'Medium', value: 'medium' },
+        { label: 'High', value: 'high' },
+        { label: 'Critical', value: 'critical' }
+      ]
     },
     {
-      id: "oqtane-integration",
-      title: "Oqtane Frontend (Phase A2D)",
-      description: "Enterprise .NET frontend for regulated environments and Microsoft shops",
-      status: "research",
-      phase: "A2D",
-      votes: 15,
-      priority: "Low",
-      progress: 5,
-      assignee: "Kenneth Courtney",
-      dueDate: "Q2 2025"
+      name: 'estimatedEffort',
+      label: 'Estimated Effort (hours)',
+      type: 'number',
+      min: 1,
+      max: 1000,
+      placeholder: 'How many hours will this take?'
     },
     {
-      id: "soulfleet-integration",
-      title: "SoulFleet Mobile Integration",
-      description: "Mobile app for outreach vehicles and field operations",
-      status: "vision",
-      phase: "A3",
-      votes: 42,
-      priority: "Future",
-      progress: 0,
-      assignee: "Clearwater Cruisin'",
-      dueDate: "Q3 2025"
+      name: 'targetQuarter',
+      label: 'Target Quarter',
+      type: 'select',
+      options: [
+        { label: 'Q1 2024', value: 'Q1 2024' },
+        { label: 'Q2 2024', value: 'Q2 2024' },
+        { label: 'Q3 2024', value: 'Q3 2024' },
+        { label: 'Q4 2024', value: 'Q4 2024' },
+        { label: 'Q1 2025', value: 'Q1 2025' },
+        { label: 'Q2 2025', value: 'Q2 2025' }
+      ]
     }
   ]
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'completed': return 'text-green-600 bg-green-100'
-      case 'in-progress': return 'text-blue-600 bg-blue-100'
-      case 'planned': return 'text-purple-600 bg-purple-100'
-      case 'backlog': return 'text-gray-600 bg-gray-100'
-      case 'research': return 'text-orange-600 bg-orange-100'
-      case 'vision': return 'text-indigo-600 bg-indigo-100'
-      default: return 'text-gray-600 bg-gray-100'
-    }
+  const handleCreateFeature = async (data: any) => {
+    console.log('Creating roadmap feature:', data)
+    // TODO: Submit to API
+    // await createRoadmapFeature(data)
+    refresh()
   }
 
-  const getPriorityColor = (priority: string) => {
-    switch (priority) {
-      case 'High': return 'text-red-600 bg-red-100'
-      case 'Medium': return 'text-yellow-600 bg-yellow-100'
-      case 'Low': return 'text-green-600 bg-green-100'
-      case 'Future': return 'text-gray-600 bg-gray-100'
-      default: return 'text-gray-600 bg-gray-100'
-    }
-  }
+  const columns = [
+    {
+      accessorKey: 'title',
+      header: 'Feature',
+      cell: (value: string, row: RoadmapFeature) => (
+        <div className="flex items-center space-x-3">
+          <div className="flex-shrink-0">
+            <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-purple-500 to-pink-600 flex items-center justify-center">
+              <Target className="h-5 w-5 text-white" />
+            </div>
+          </div>
+          <div>
+            <Link href={`/dashboard/roadmap/${row.id}`} className="font-medium hover:underline">
+              {value}
+            </Link>
+            <p className="text-sm text-muted-foreground capitalize">
+              {row.category.replace('-', ' ')}
+            </p>
+          </div>
+        </div>
+      ),
+    },
+    createColumn.badge('status', 'Status'),
+    createColumn.badge('priority', 'Priority'),
+    createColumn.badge('category', 'Category'),
+    {
+      accessorKey: 'voting.votes',
+      header: 'Votes',
+      cell: (value: number, row: RoadmapFeature) => (
+        <div className="flex items-center space-x-2">
+          <ThumbsUp className="h-4 w-4 text-blue-600" />
+          <span className="font-medium">{value}</span>
+        </div>
+      ),
+    },
+    {
+      accessorKey: 'progress.completionPercentage',
+      header: 'Progress',
+      cell: (value: number) => (
+        <div className="flex items-center space-x-2">
+          <div className="w-16 bg-muted rounded-full h-2">
+            <div
+              className="h-2 rounded-full bg-blue-500"
+              style={{ width: `${Math.min(value, 100)}%` }}
+            />
+          </div>
+          <span className="text-sm font-medium">{value}%</span>
+        </div>
+      ),
+    },
+  ]
 
-  const getStatusIcon = (status: string) => {
-    switch (status) {
-      case 'completed': return <CheckCircle className="w-4 h-4 text-green-600" />
-      case 'in-progress': return <Clock className="w-4 h-4 text-blue-600" />
-      default: return <Circle className="w-4 h-4 text-gray-400" />
-    }
-  }
+  const actions = [
+    {
+      label: 'View Details',
+      icon: <Eye className="h-4 w-4" />,
+      onClick: (feature: RoadmapFeature) => {
+        window.location.href = `/dashboard/roadmap/${feature.id}`
+      },
+    },
+    {
+      label: 'Edit Feature',
+      icon: <Edit className="h-4 w-4" />,
+      onClick: (feature: RoadmapFeature) => {
+        window.location.href = `/dashboard/roadmap/${feature.id}/edit`
+      },
+    },
+  ]
+
+  const totalFeatures = features.length
+  const inProgressFeatures = features.filter(f => f.status === 'in-progress').length
+  const completedFeatures = features.filter(f => f.status === 'completed').length
+  const totalVotes = features.reduce((sum, feature) => sum + feature.voting.votes, 0)
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
+    <div className="flex-1 space-y-6 p-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold">Angel OS Product Roadmap</h1>
-          <p className="text-muted-foreground mt-2">
-            Community-driven development roadmap for the soul-aligned operating system
+          <h2 className="text-3xl font-bold tracking-tight">Product Roadmap</h2>
+          <p className="text-muted-foreground">
+            Track feature development and community feedback
           </p>
         </div>
-        <Button className="flex items-center gap-2">
-          <Plus className="w-4 h-4" />
-          Suggest Feature
+        <Button onClick={() => setShowCreateModal(true)}>
+          <Plus className="mr-2 h-4 w-4" />
+          New Feature Request
         </Button>
       </div>
 
-      {/* Roadmap Stats */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              <CheckCircle className="w-4 h-4 text-green-600" />
-              <span className="text-sm font-medium">Completed</span>
-            </div>
-            <p className="text-2xl font-bold mt-2">12</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              <Clock className="w-4 h-4 text-blue-600" />
-              <span className="text-sm font-medium">In Progress</span>
-            </div>
-            <p className="text-2xl font-bold mt-2">3</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              <Vote className="w-4 h-4 text-purple-600" />
-              <span className="text-sm font-medium">Total Votes</span>
-            </div>
-            <p className="text-2xl font-bold mt-2">185</p>
-          </CardContent>
-        </Card>
-        <Card>
-          <CardContent className="p-4">
-            <div className="flex items-center gap-2">
-              <Users className="w-4 h-4 text-orange-600" />
-              <span className="text-sm font-medium">Contributors</span>
-            </div>
-            <p className="text-2xl font-bold mt-2">8</p>
-          </CardContent>
-        </Card>
+      {/* Metrics Cards */}
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Total Features</CardTitle>
+              <Target className="h-4 w-4 text-purple-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{totalFeatures}</div>
+              <div className="flex items-center text-xs text-purple-600">
+                <TrendingUp className="mr-1 h-3 w-3" />
+                In roadmap
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">In Progress</CardTitle>
+              <Zap className="h-4 w-4 text-blue-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{inProgressFeatures}</div>
+              <div className="flex items-center text-xs text-blue-600">
+                <TrendingUp className="mr-1 h-3 w-3" />
+                Active development
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Completed</CardTitle>
+              <CheckCircle className="h-4 w-4 text-green-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{completedFeatures}</div>
+              <div className="flex items-center text-xs text-green-600">
+                <TrendingUp className="mr-1 h-3 w-3" />
+                Delivered
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.3 }}>
+          <Card>
+            <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
+              <CardTitle className="text-sm font-medium">Community Votes</CardTitle>
+              <ThumbsUp className="h-4 w-4 text-orange-600" />
+            </CardHeader>
+            <CardContent>
+              <div className="text-2xl font-bold">{totalVotes}</div>
+              <div className="flex items-center text-xs text-orange-600">
+                <TrendingUp className="mr-1 h-3 w-3" />
+                Total votes
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
       </div>
 
-      {/* Roadmap Items */}
-      <div className="space-y-4">
-        {roadmapItems.map((item, index) => (
-          <motion.div
-            key={item.id}
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <Card className="hover:shadow-md transition-shadow">
-              <CardHeader>
-                <div className="flex items-start justify-between">
-                  <div className="flex items-start gap-3 flex-1">
-                    {getStatusIcon(item.status)}
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <CardTitle className="text-lg">{item.title}</CardTitle>
-                        <Badge variant="outline" className="text-xs">
-                          {item.phase}
-                        </Badge>
-                        <Badge className={getPriorityColor(item.priority)}>
-                          {item.priority}
-                        </Badge>
-                      </div>
-                      <CardDescription className="text-sm">
-                        {item.description}
-                      </CardDescription>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <Button variant="ghost" size="sm" className="flex items-center gap-1">
-                      <Vote className="w-3 h-3" />
-                      {item.votes}
-                    </Button>
-                    <Badge className={getStatusColor(item.status)}>
-                      {item.status}
-                    </Badge>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">Progress</span>
-                    <span className="font-medium">{item.progress}%</span>
-                  </div>
-                  <Progress value={item.progress} className="h-2" />
-                  <div className="flex items-center justify-between text-sm">
-                    <span className="text-muted-foreground">
-                      Assignee: <span className="font-medium">{item.assignee}</span>
-                    </span>
-                    <span className="text-muted-foreground">
-                      Due: <span className="font-medium">{item.dueDate}</span>
-                    </span>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
-        ))}
-      </div>
+      {/* Roadmap Features DataTable */}
+      <DataTable
+        data={features}
+        columns={columns}
+        actions={actions}
+        loading={loading}
+        error={error || undefined}
+        onRefresh={refresh}
+        searchPlaceholder="Search roadmap features..."
+        exportButton={true}
+        className="mt-6"
+      />
 
-      {/* Community Voting */}
-      <Card>
-        <CardHeader>
-          <CardTitle className="flex items-center gap-2">
-            <Vote className="w-5 h-5" />
-            Community Voting
-          </CardTitle>
-          <CardDescription>
-            Help shape Angel OS by voting on features and suggesting new ideas
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <Button className="flex items-center gap-2">
-              <Lightbulb className="w-4 h-4" />
-              Suggest New Feature
-            </Button>
-            <Button variant="outline" className="flex items-center gap-2">
-              <MessageSquare className="w-4 h-4" />
-              Join Discussion
-            </Button>
-            <Button variant="outline" className="flex items-center gap-2">
-              <Code className="w-4 h-4" />
-              View on GitHub
-            </Button>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Create Feature Modal */}
+      <UniversalModal
+        title="Create Feature Request"
+        description="Propose a new feature for the product roadmap"
+        fields={roadmapModalFields}
+        onSubmit={handleCreateFeature}
+        open={showCreateModal}
+        onOpenChange={setShowCreateModal}
+        submitLabel="Create Feature Request"
+        size="lg"
+      />
     </div>
   )
 }

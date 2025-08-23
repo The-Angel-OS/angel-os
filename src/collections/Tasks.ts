@@ -315,12 +315,19 @@ export const Tasks: CollectionConfig = {
         // Update project metrics when task changes
         if (doc.project && (operation === 'create' || operation === 'update')) {
           try {
-            // Trigger project hook to recalculate metrics
-            await req.payload.update({
-              collection: 'projects',
-              id: doc.project,
-              data: {}, // Empty update to trigger hooks
-            })
+            // Extract project ID - handle both populated object and direct ID
+            const projectId = typeof doc.project === 'object' && doc.project !== null 
+              ? doc.project.id 
+              : doc.project
+            
+            if (projectId) {
+              // Trigger project hook to recalculate metrics
+              await req.payload.update({
+                collection: 'projects',
+                id: projectId,
+                data: {}, // Empty update to trigger hooks
+              })
+            }
           } catch (error) {
             console.error('Error updating project metrics from task change:', error)
           }

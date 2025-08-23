@@ -1,74 +1,116 @@
-# Spaces Commerce - Production Deployment Checklist
+# Angel OS Deployment Checklist
 
-## 🚀 Immediate Deployment Steps
+## 🚀 Vercel Deployment to angel-os.kendev.co
 
-### 1. GitHub Repository Setup ✓
-- [x] Initialize git repository
-- [x] Add remote origin: `https://github.com/kendevco/spacescommerce`
-- [ ] Initial commit and push
+### Pre-Deployment Checklist
 
-### 2. Environment Configuration
-```bash
-# Production environment variables needed:
-DATABASE_URL=                    # PostgreSQL connection string
-PAYLOAD_SECRET=                  # Generate secure random string
-STRIPE_SECRET_KEY=               # From Stripe Dashboard
-STRIPE_WEBHOOK_SECRET=           # From Stripe Webhooks
-NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=  # From Stripe Dashboard
-NEXT_PUBLIC_SERVER_URL=          # Your production URL
+- [x] **Passwords Updated** - Changed from `K3nD3v!host` to `angelos`
+- [x] **Domain Configuration** - Updated seed script to use `angel-os.kendev.co`
+- [x] **Environment Variables** - Updated `env.example` with production URLs
+- [x] **CSRF Protection** - Added `angel-os.kendev.co` to Payload config
+- [x] **Documentation** - Updated README.md and GETTING_STARTED.md with live URLs
+- [x] **Vercel Config** - Created `vercel.json` with proper aliases and settings
+- [x] **Vercel Analytics** - Added `@vercel/analytics` to both frontend and dashboard layouts
+
+### Vercel Environment Variables Required
+
+```env
+# Database
+DATABASE_URI=postgresql://...
+
+# Payload CMS
+PAYLOAD_SECRET=your-secure-secret-here
+ENCRYPTION_SECRET=your-encryption-secret-here
+
+# Application URLs
+NEXT_PUBLIC_SERVER_URL=https://angel-os.kendev.co
+PAYLOAD_PUBLIC_SERVER_URL=https://angel-os.kendev.co
+
+# Stripe (if using payments)
+STRIPE_SECRET_KEY=sk_...
+STRIPE_PUBLISHABLE_KEY=pk_...
+NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_...
+STRIPE_WEBHOOK_SECRET=whsec_...
+
+# AI Services (optional)
+OPENAI_API_KEY=sk-...
+ANTHROPIC_API_KEY=sk-ant-...
+GROQ_API_KEY=gsk_...
+
+# System User
+SYSTEM_USER_EMAIL=guardian@angel-os.kendev.co
 ```
 
-### 3. Database Setup
-- [ ] PostgreSQL database provisioned (74.208.87.243:5432 ready)
-- [ ] Run migrations: `pnpm payload migrate`
-- [ ] Seed initial data: `pnpm seed`
+### Deployment Steps
 
-### 4. Stripe Connect Configuration
-- [ ] Enable Stripe Connect in Dashboard
-- [ ] Configure webhook endpoints
-- [ ] Set up destination charges
-- [ ] Test payment flow
+1. **Push to GitHub**
+   ```bash
+   git add .
+   git commit -m "feat: prepare for angel-os.kendev.co deployment"
+   git push origin master
+   ```
 
-### 5. Vercel Deployment
-```bash
-# Deploy to Vercel
-vercel --prod
+2. **Create Vercel Project**
+   - Connect GitHub repository
+   - Set project name: `angel-os`
+   - Configure custom domain: `angel-os.kendev.co`
 
-# Set environment variables in Vercel Dashboard
-# Enable Vercel Postgres if needed
-```
+3. **Configure Environment Variables**
+   - Add all required environment variables in Vercel dashboard
+   - Ensure `NEXT_PUBLIC_SERVER_URL` points to `https://angel-os.kendev.co`
 
-### 6. Critical Features to Test
-- [ ] Multi-tenant isolation
-- [ ] Leo AI Assistant responses
-- [ ] Photo inventory upload
-- [ ] Payment processing
-- [ ] Commission calculations
-- [ ] Guardian Angel assignments
+4. **Deploy**
+   - Trigger deployment from Vercel dashboard
+   - Monitor build logs for any issues
 
-### 7. First Three Businesses
-1. **Clearwater Cruisin Tours** - Your tour guide company
-2. **Dave's Cactus Farm** - Revitalization project
-3. **Ernesto's Business** - Freedom & family time
+5. **Post-Deployment Verification**
+   - [ ] Visit `https://angel-os.kendev.co` - Homepage loads
+   - [ ] Visit `https://angel-os.kendev.co/dashboard` - Dashboard accessible
+   - [ ] Visit `https://angel-os.kendev.co/admin` - Payload admin loads
+   - [ ] Test login with `kenneth.courtney@gmail.com` / `angelos`
+   - [ ] Run seed script if needed: `https://angel-os.kendev.co/api/seed`
+   - [ ] Verify Vercel Analytics is tracking page views in Vercel dashboard
 
-### 8. Guardian Angel Network Launch
-- [ ] Onboarding flow active
-- [ ] Commission structures configured
-- [ ] Support documentation ready
-- [ ] 800 number planning (future phase)
+### Domain Configuration
 
-## 🎯 Success Metrics
-- First transaction processed
-- First Guardian Angel assigned
-- First photo inventory cataloged
-- First AI-assisted sale
+**Vercel Project Settings:**
+- Project Name: `angel-os`
+- Custom Domain: `angel-os.kendev.co`
+- Framework Preset: `Next.js`
+- Build Command: `pnpm build`
+- Output Directory: `.next`
 
-## 🚨 Production Monitoring
-- Error tracking (Sentry/LogRocket)
-- Performance monitoring
-- User analytics
-- Revenue tracking
+**DNS Configuration (if managing DNS):**
+- CNAME: `angel-os.kendev.co` → `cname.vercel-dns.com`
+
+### Troubleshooting
+
+**Common Issues:**
+1. **Build Timeout** - Increase Node.js memory in `vercel.json`
+2. **Database Connection** - Verify `DATABASE_URI` in environment variables
+3. **CORS Issues** - Check CSRF configuration in `payload.config.ts`
+4. **Static Generation** - Ensure all required data is available during build
+
+**Build Optimization:**
+- Node.js memory increased to 8GB
+- API routes have extended timeouts for seed/import operations
+- Static generation optimized for events and products
+
+### Success Criteria
+
+✅ **Deployment Complete When:**
+- Homepage loads at `https://angel-os.kendev.co`
+- Dashboard accessible with authentication
+- Admin panel functional
+- Demo login works with new credentials
+- All API routes responding correctly
+- Static pages generating properly
 
 ---
 
-**Remember: This platform changes lives. Every minute counts.**
+**Next Steps After Deployment:**
+1. Test all major functionality
+2. Run comprehensive seed script
+3. Verify multi-tenant operations
+4. Test payment processing (if configured)
+5. Monitor performance and error logs

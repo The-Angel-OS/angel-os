@@ -5,6 +5,7 @@ export const Orders: CollectionConfig = {
   admin: {
     useAsTitle: 'orderNumber',
     defaultColumns: ['orderNumber', 'customer', 'status', 'totalAmount', 'createdAt'],
+    group: 'Commerce',
   },
   fields: [
     // Order Identification

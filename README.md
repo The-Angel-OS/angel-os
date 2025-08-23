@@ -45,6 +45,9 @@ After comprehensive implementation, the platform now includes distributed networ
 
 ### Quick Start
 
+**🌐 Live Demo:** [https://angel-os.kendev.co](https://angel-os.kendev.co)  
+**🔑 Demo Login:** `kenneth.courtney@gmail.com` / `angelos`
+
 ```bash
 # Install dependencies
 pnpm install

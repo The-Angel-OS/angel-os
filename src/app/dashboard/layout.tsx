@@ -3,6 +3,7 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
+import { Analytics } from '@vercel/analytics/react'
 import { Sidebar } from "./_components/sidebar"
 import { Header } from "./_components/header"
 import { ChatPanel } from "./_components/ChatPanel"
@@ -88,6 +89,7 @@ export default function DashboardLayout({
             <ChatPanel />
           </div>
         </Providers>
+        <Analytics />
       </body>
     </html>
   )

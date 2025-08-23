@@ -228,6 +228,7 @@ export default buildConfig({
   csrf: [
     'http://localhost:3000',
     'http://localhost:3001',
+    'https://angel-os.kendev.co',
     getServerSideURL(),
   ],
   jobs: {

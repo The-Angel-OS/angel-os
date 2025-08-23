@@ -20,6 +20,8 @@ export const Media: CollectionConfig = {
     group: 'Content Management',
     description: 'Images, files, and media assets with optimized delivery',
   },
+  // Enable Payload Folders feature for media organization
+  folders: true,
   access: {
     create: authenticated,
     delete: authenticated,

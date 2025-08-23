@@ -5,6 +5,7 @@ export const Invoices: CollectionConfig = {
   admin: {
     useAsTitle: 'invoiceNumber',
     defaultColumns: ['invoiceNumber', 'recipientName', 'amount', 'status', 'createdAt'],
+    group: 'Commerce',
   },
   access: {
     read: () => true,

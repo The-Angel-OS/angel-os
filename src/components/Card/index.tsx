@@ -4,24 +4,34 @@ import useClickableCard from '@/utilities/useClickableCard'
 import Link from 'next/link'
 import React, { Fragment } from 'react'
 
-import type { Post } from '@/payload-types'
+import type { Post, Event } from '@/payload-types'
 
 import { Media } from '@/components/Media'
 
-export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'>
+export type CardPostData = Pick<Post, 'slug' | 'categories' | 'meta' | 'title'> | Pick<Event, 'slug' | 'title' | 'eventType' | 'eventDate'>
 
 export const Card: React.FC<{
   alignItems?: 'center'
   className?: string
   doc?: CardPostData
-  relationTo?: 'posts'
+  relationTo?: 'posts' | 'events'
   showCategories?: boolean
   title?: string
 }> = (props) => {
   const { card, link } = useClickableCard({})
   const { className, doc, relationTo, showCategories, title: titleFromProps } = props
 
-  const { slug, categories, meta, title } = doc || {}
+  const { slug, title } = doc || {}
+  
+  // Handle different data structures for posts vs events
+  const isPost = relationTo === 'posts'
+  const isEvent = relationTo === 'events'
+  
+  const categories = isPost ? (doc as any)?.categories : null
+  const meta = isPost ? (doc as any)?.meta : null
+  const eventType = isEvent ? (doc as any)?.eventType : null
+  const eventDate = isEvent ? (doc as any)?.eventDate : null
+  
   const { description, image: metaImage } = meta || {}
 
   const hasCategories = categories && Array.isArray(categories) && categories.length > 0
@@ -77,7 +87,22 @@ export const Card: React.FC<{
             </h3>
           </div>
         )}
-        {description && <div className="mt-2">{description && <p>{sanitizedDescription}</p>}</div>}
+        {/* Description for posts */}
+        {isPost && description && <div className="mt-2"><p>{sanitizedDescription}</p></div>}
+        
+        {/* Event-specific content */}
+        {isEvent && (
+          <div className="mt-2 space-y-1">
+            {eventType && (
+              <p className="text-sm text-muted-foreground capitalize">{eventType.replace('_', ' ')}</p>
+            )}
+            {eventDate && (
+              <p className="text-sm text-muted-foreground">
+                {new Date(eventDate).toLocaleDateString()}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </article>
   )

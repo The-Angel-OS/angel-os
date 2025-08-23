@@ -50,7 +50,7 @@ async function runSeed() {
     console.log('');
     console.log('🌟 You can now run: pnpm dev');
     console.log('🔗 Access dashboard at: http://localhost:3000/dashboard');
-    console.log('🔑 Login: kenneth.courtney@gmail.com / K3nD3v!host');
+    console.log('🔑 Login: kenneth.courtney@gmail.com / angelos');
     
   } catch (error) {
     console.error('❌ Seed failed:', error.message);

@@ -6,6 +6,7 @@ export const AIGenerationQueue: CollectionConfig = {
     useAsTitle: 'generationType',
     defaultColumns: ['space', 'generationType', 'status', 'createdAt'],
     description: 'Queue for AI-powered content and merchandise generation',
+    group: 'System',
   },
   access: {
     read: () => true,

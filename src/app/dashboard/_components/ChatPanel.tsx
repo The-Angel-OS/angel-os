@@ -126,38 +126,41 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
     setMessages(prev => [...prev, userMessage])
     setIsLoading(true)
 
-         try {
-       // For now, simulate LEO responses until we fix the API
-       console.log('Simulating LEO response for:', content)
-       
-       // Simulate thinking delay
-       await new Promise(resolve => setTimeout(resolve, 1000))
-       
-       // Generate a contextual response based on the message
-       let response = ""
-       const lowerContent = content.toLowerCase()
-       
-       if (lowerContent.includes('joke')) {
-         response = "Here's a tech joke for you: Why do programmers prefer dark mode? Because light attracts bugs! 🐛 Is there anything specific about Angel OS I can help you with?"
-       } else if (lowerContent.includes('help') || lowerContent.includes('how')) {
-         response = "I'm here to help! I can assist you with:\n\n• Dashboard navigation and features\n• Calendar and appointment management\n• File management and organization\n• Business analytics and reports\n• System configuration and settings\n\nWhat would you like to explore?"
-       } else if (lowerContent.includes('calendar') || lowerContent.includes('appointment')) {
-         response = "I can help you with calendar management! You can create appointments, schedule meetings, and manage your business calendar. The calendar integrates with our appointment system and stores everything as AT Protocol messages for federation. Would you like me to walk you through creating an appointment?"
-       } else if (lowerContent.includes('file') || lowerContent.includes('media')) {
-         response = "Our file manager handles all your media uploads! Files are stored in the Media collection and referenced through messages. You can organize, edit metadata, and delete files with automatic remote storage cleanup. Need help with file management?"
-       } else {
-         response = `I understand you said "${content}". I'm LEO, your Angel OS assistant! I can help you navigate the dashboard, manage your business operations, or answer questions about the system. What would you like to know more about?`
-       }
+                  try {
+      // Use the real LEO API
+      console.log('Calling LEO API for:', content)
+      
+      const response = await fetch('/api/leo-chat', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          message: content,
+          context: {
+            variant: 'friendly',
+            conversationHistory: messages.slice(-5), // Last 5 messages for context
+          },
+          spaceId: 1,
+          tenantId: 1,
+        }),
+      })
 
-       // Add LEO's response
-       const leoMessage: ChatMessage = {
-         id: (Date.now() + 1).toString(),
-         content: response,
-         sender: "ai",
-         senderName: "LEO",
-         timestamp: new Date().toISOString(),
-         type: "text"
-       }
+      if (!response.ok) {
+        throw new Error(`LEO API error: ${response.statusText}`)
+      }
+
+      const data = await response.json()
+      
+      // Add LEO's response
+      const leoMessage: ChatMessage = {
+        id: (Date.now() + 1).toString(),
+        content: data.response || "I apologize, but I'm having trouble processing your request right now.",
+        sender: "ai",
+        senderName: "LEO",
+        timestamp: new Date().toISOString(),
+        type: "text"
+      }
        setMessages(prev => [...prev, leoMessage])
      } catch (error) {
        console.error('Failed to send message:', error)

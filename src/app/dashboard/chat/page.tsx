@@ -195,7 +195,8 @@ export default function ChatPage() {
                  msg.messageType === 'system' ? 'system' : 'user',
           timestamp: new Date(msg.createdAt).toLocaleTimeString([], { 
             hour: '2-digit', 
-            minute: '2-digit' 
+            minute: '2-digit',
+            hour12: true
           }),
           senderName: msg.sender?.firstName ? 
             `${msg.sender.firstName} ${msg.sender.lastName}` : 

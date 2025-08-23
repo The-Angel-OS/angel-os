@@ -81,6 +81,119 @@ export class BusinessAgent {
   }
 
   /**
+   * Query real Angel OS data to provide contextual responses
+   */
+  async queryAngelOSData(query: string): Promise<any> {
+    try {
+      const payload = await getPayload({ config: {} as any })
+      const lowerQuery = query.toLowerCase()
+
+      // Tenant information
+      if (lowerQuery.includes('tenant') || lowerQuery.includes('provision')) {
+        const tenants = await payload.find({
+          collection: 'tenants',
+          limit: 100,
+        })
+        return {
+          type: 'tenants',
+          count: tenants.totalDocs,
+          data: tenants.docs.map(t => ({
+            name: t.name,
+            domain: t.domain,
+            status: t.status,
+            businessType: t.businessType,
+          }))
+        }
+      }
+
+      // Calendar/Events information
+      if (lowerQuery.includes('calendar') || lowerQuery.includes('event') || lowerQuery.includes('appointment')) {
+        const events = await payload.find({
+          collection: 'events',
+          where: {
+            eventDate: {
+              greater_than_equal: new Date().toISOString(),
+            }
+          },
+          limit: 10,
+          sort: 'eventDate',
+        })
+        return {
+          type: 'events',
+          count: events.totalDocs,
+          data: events.docs.map(e => ({
+            title: e.title,
+            eventDate: e.eventDate,
+            startTime: e.startTime,
+            endTime: e.endTime,
+            venue: e.venue?.name || 'TBD',
+          }))
+        }
+      }
+
+      // Products information
+      if (lowerQuery.includes('product') || lowerQuery.includes('inventory')) {
+        const products = await payload.find({
+          collection: 'products',
+          limit: 10,
+        })
+        return {
+          type: 'products',
+          count: products.totalDocs,
+          data: products.docs.map(p => ({
+            title: p.title,
+            status: p.status,
+            price: p.pricing?.basePrice,
+            inventory: p.inventory?.quantity,
+          }))
+        }
+      }
+
+      // Contacts/CRM information
+      if (lowerQuery.includes('contact') || lowerQuery.includes('customer') || lowerQuery.includes('crm')) {
+        const contacts = await payload.find({
+          collection: 'contacts',
+          limit: 10,
+        })
+        return {
+          type: 'contacts',
+          count: contacts.totalDocs,
+          data: contacts.docs.map(c => ({
+            name: c.displayName,
+            email: c.email,
+            company: c.company,
+            status: c.crm?.status,
+          }))
+        }
+      }
+
+      // Roadmap information
+      if (lowerQuery.includes('roadmap') || lowerQuery.includes('feature') || lowerQuery.includes('development')) {
+        const features = await payload.find({
+          collection: 'roadmap-features',
+          limit: 10,
+        })
+        return {
+          type: 'roadmap',
+          count: features.totalDocs,
+          data: features.docs.map(f => ({
+            title: f.title,
+            status: f.status,
+            priority: f.priority,
+            progress: f.progress?.completionPercentage || 0,
+            votes: f.voting?.votes || 0,
+          }))
+        }
+      }
+
+      return null
+    } catch (error) {
+      console.error('Error querying Angel OS data:', error)
+      return null
+    }
+  }
+
+  /**
    * Core method for generating intelligent responses using Claude-4-Sonnet
    * This is the main method used by the message pump architecture
    */
@@ -114,6 +227,20 @@ export class BusinessAgent {
 
       const urgencyNote = context?.urgency === 'high' ? '\n\nNote: This is a high-priority message requiring immediate attention.' : ''
 
+      // Query real Angel OS data for context
+      console.log(`[BusinessAgent ${this.tenantId}] Querying Angel OS data for context...`)
+      const angelOSData = await this.queryAngelOSData(message)
+      
+      let dataContext = ''
+      if (angelOSData) {
+        console.log(`[BusinessAgent ${this.tenantId}] Found ${angelOSData.type} data:`, angelOSData.count, 'items')
+        dataContext = `\n\nReal Angel OS Data (${angelOSData.type}): ${angelOSData.count} total items found.`
+        
+        if (angelOSData.data && angelOSData.data.length > 0) {
+          dataContext += `\nRecent items: ${JSON.stringify(angelOSData.data.slice(0, 3), null, 2)}`
+        }
+      }
+
       console.log(`[BusinessAgent ${this.tenantId}] Calling Anthropic API...`)
       const response = await this.anthropic.messages.create({
         model: 'claude-3-5-sonnet-20241022',
@@ -125,11 +252,13 @@ export class BusinessAgent {
 
 Business Personality: ${this.personality}
 User Name: ${customerName}
-User Message: "${message}"${conversationContext}${urgencyNote}
+User Message: "${message}"${conversationContext}${urgencyNote}${dataContext}
 
 Instructions:
 - Be ${this.personality} but always helpful
 - Address specific questions or concerns
+- Use the real Angel OS data provided to give accurate, current information
+- If data is available, provide specific counts and details
 - Help with dashboard navigation and features
 - Suggest relevant tools or sections when appropriate
 - Include next steps or guidance

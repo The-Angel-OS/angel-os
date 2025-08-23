@@ -14,6 +14,26 @@ export const RoadmapFeatures: CollectionConfig = {
     description: 'Public roadmap with feature voting and progress tracking',
   },
   access: publicReadAccess, // Public readable, super admin editable
+  defaultPopulate: {
+    title: true,
+    description: true,
+    category: true,
+    status: true,
+    priority: true,
+    timeline: {
+      estimatedCompletion: true,
+      quarterTarget: true,
+      estimatedEffort: true,
+    },
+    voting: {
+      votes: true,
+      allowVoting: true,
+    },
+    progress: {
+      completionPercentage: true,
+    },
+    tags: true,
+  },
   fields: [
     {
       name: 'title',

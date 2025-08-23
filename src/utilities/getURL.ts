@@ -1,25 +1,16 @@
 import canUseDOM from './canUseDOM'
-import { headers } from 'next/headers'
 
 /**
  * Get the current request's hostname (tenant-aware)
+ * Note: This is a synchronous version that works in more contexts
  */
 export const getCurrentHostname = () => {
   if (canUseDOM) {
     return window.location.hostname
   }
 
-  // Server-side: Get from headers
-  try {
-    const headersList = headers()
-    const host = headersList.get('host') || headersList.get('x-forwarded-host')
-    if (host) {
-      return host.split(':')[0] // Remove port if present
-    }
-  } catch (error) {
-    // Headers not available in some contexts
-  }
-
+  // Server-side: Try to get from process.env or return null
+  // The middleware will set proper headers for tenant resolution
   return null
 }
 
@@ -31,39 +22,20 @@ export const getCurrentURL = () => {
     return window.location.origin
   }
 
-  // Server-side: Build from headers
-  try {
-    const headersList = headers()
-    const host = headersList.get('host') || headersList.get('x-forwarded-host')
-    const protocol = headersList.get('x-forwarded-proto') || 'https'
-    
-    if (host) {
-      return `${protocol}://${host}`
-    }
-  } catch (error) {
-    // Headers not available in some contexts
-  }
-
+  // Server-side: Use getServerSideURL for consistency
   return getServerSideURL()
 }
 
 export const getServerSideURL = () => {
-  // First priority: Current request hostname (for multi-tenant)
-  const currentHostname = getCurrentHostname()
-  if (currentHostname && !currentHostname.includes('localhost')) {
-    const protocol = process.env.NODE_ENV === 'production' ? 'https' : 'http'
-    return `${protocol}://${currentHostname}`
-  }
-
-  // Second priority: Explicitly set NEXT_PUBLIC_SERVER_URL
+  // First priority: Explicitly set NEXT_PUBLIC_SERVER_URL
   let url = process.env.NEXT_PUBLIC_SERVER_URL
 
-  // Third priority: Vercel custom domain (production)
+  // Second priority: Vercel custom domain (production)
   if (!url && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
   }
 
-  // Fourth priority: Vercel deployment URL (preview/development)
+  // Third priority: Vercel deployment URL (preview/development)
   if (!url && process.env.VERCEL_URL) {
     return `https://${process.env.VERCEL_URL}`
   }
@@ -103,4 +75,25 @@ export const getTenantURL = (hostname: string, path: string = '') => {
 export const buildTenantAwareURL = (path: string = '') => {
   const baseUrl = getCurrentURL()
   return path ? `${baseUrl}${path.startsWith('/') ? path : `/${path}`}` : baseUrl
+}
+
+/**
+ * Get tenant-aware URL using headers (for server components)
+ * This version can access request headers when available
+ */
+export const getTenantAwareURLFromHeaders = (request?: Request) => {
+  if (canUseDOM) {
+    return window.location.origin
+  }
+
+  if (request) {
+    const host = request.headers.get('host') || request.headers.get('x-forwarded-host')
+    const protocol = request.headers.get('x-forwarded-proto') || 'https'
+    
+    if (host) {
+      return `${protocol}://${host}`
+    }
+  }
+
+  return getServerSideURL()
 }

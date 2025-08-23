@@ -40,8 +40,10 @@ export async function middleware(request: NextRequest) {
       if (parts.length >= 3 && parts[1] === 'kendev' && parts[2] === 'co') {
         // Subdomain pattern: {tenant}.kendev.co
         const subdomain = parts[0]
-        response.headers.set('x-tenant-slug', subdomain)
-        response.headers.set('x-domain-match-type', 'subdomain')
+        if (subdomain) {
+          response.headers.set('x-tenant-slug', subdomain)
+          response.headers.set('x-domain-match-type', 'subdomain')
+        }
       } else if (parts.length >= 2) {
         // Custom domain - will need database lookup
         response.headers.set('x-custom-domain', hostname)

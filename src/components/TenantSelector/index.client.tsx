@@ -55,6 +55,7 @@ export const TenantSelectorClient = ({
     [selectedTenantID, entityType, modified, switchTenant, openModal],
   )
 
+  // Only show tenant selector if there are multiple options
   if (options.length <= 1) {
     return null
   }

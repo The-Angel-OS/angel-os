@@ -1,0 +1,54 @@
+.tenant-selector {
+  margin-bottom: 1rem;
+
+  .tenant-selector__label {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--theme-text);
+  }
+
+  .tenant-selector__select {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid var(--theme-elevation-300);
+    border-radius: 4px;
+    background: var(--theme-elevation-0);
+    color: var(--theme-text);
+    font-size: 0.875rem;
+
+    &:focus {
+      outline: none;
+      border-color: var(--theme-success-500);
+      box-shadow: 0 0 0 2px var(--theme-success-100);
+    }
+
+    &:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+  }
+
+  .tenant-selector__current {
+    padding: 0.5rem;
+    background: var(--theme-elevation-50);
+    border: 1px solid var(--theme-elevation-200);
+    border-radius: 4px;
+    color: var(--theme-text);
+    font-size: 0.875rem;
+  }
+
+  .tenant-selector__loading {
+    padding: 0.5rem;
+    color: var(--theme-text-dim);
+    font-style: italic;
+  }
+
+  .tenant-selector__error {
+    padding: 0.5rem;
+    color: var(--theme-error-500);
+    background: var(--theme-error-50);
+    border: 1px solid var(--theme-error-200);
+    border-radius: 4px;
+    font-size: 0.875rem;
+  }
+}

@@ -143,7 +143,7 @@ export default buildConfig({
             tenantsArrayTenantFieldName: 'tenant',
             tenantsCollectionSlug: 'tenants',
             useAsTitle: 'name',
-            userHasAccessToAllTenants: (user: any) => user?.role === 'admin',
+            userHasAccessToAllTenants: (user: any) => user?.globalRole === 'super_admin',
           },
         },
       ],

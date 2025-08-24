@@ -19,3 +19,5 @@ export const TenantSelector = (props: Props) => {
 
   return <TenantSelectorClient disabled={!enabled} label={label} viewType={viewType} />
 }
+
+export default TenantSelector

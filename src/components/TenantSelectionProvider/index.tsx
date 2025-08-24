@@ -91,7 +91,6 @@ const getTenantOptions = async ({
   }
 
   if (userHasAccessToAllTenants(user)) {
-    console.log('🏢 TenantProvider Debug - User has access to all tenants, loading from DB...')
     // If the user has access to all tenants get them from the DB
     const collection = payload.collections[tenantsCollectionSlug as keyof typeof payload.collections]
     const isOrderable = collection?.config?.orderable || false
@@ -108,15 +107,10 @@ const getTenantOptions = async ({
       user,
     })
 
-    console.log('🏢 TenantProvider Debug - Found tenants:', tenants.docs.length)
-    console.log('🏢 TenantProvider Debug - Tenant docs:', tenants.docs)
-
     tenantOptions = tenants.docs.map((doc) => ({
       label: String((doc as any)[useAsTitle]), // useAsTitle is dynamic but the type thinks we are only selecting `id` | `_order`
       value: String(doc.id),
     }))
-    
-    console.log('🏢 TenantProvider Debug - Tenant options created:', tenantOptions)
   } else {
     const tenantsToPopulate: (number | string)[] = []
 

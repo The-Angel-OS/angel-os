@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
+import { ErrorBoundary } from "@/components/ErrorBoundary"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -434,19 +435,62 @@ export function UniversalModal({
 
   if (trigger) {
     return (
-      <Dialog open={open} onOpenChange={onOpenChange}>
-        <DialogTrigger asChild>
-          {trigger}
-        </DialogTrigger>
-        {modalContent}
-      </Dialog>
+      <ErrorBoundary
+        fallback={
+          <Dialog open={open} onOpenChange={onOpenChange}>
+            <DialogTrigger asChild>
+              {trigger}
+            </DialogTrigger>
+            <DialogContent className="max-w-md">
+              <DialogHeader>
+                <DialogTitle>Modal Error</DialogTitle>
+              </DialogHeader>
+              <div className="p-4 text-center">
+                <p className="text-muted-foreground mb-4">
+                  There was an error loading this form. Please try again.
+                </p>
+                <Button onClick={() => onOpenChange?.(false)}>
+                  Close
+                </Button>
+              </div>
+            </DialogContent>
+          </Dialog>
+        }
+      >
+        <Dialog open={open} onOpenChange={onOpenChange}>
+          <DialogTrigger asChild>
+            {trigger}
+          </DialogTrigger>
+          {modalContent}
+        </Dialog>
+      </ErrorBoundary>
     )
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      {modalContent}
-    </Dialog>
+    <ErrorBoundary
+      fallback={
+        <Dialog open={open} onOpenChange={onOpenChange}>
+          <DialogContent className="max-w-md">
+            <DialogHeader>
+              <DialogTitle>Modal Error</DialogTitle>
+            </DialogHeader>
+            <div className="p-4 text-center">
+              <p className="text-muted-foreground mb-4">
+                There was an error loading this form. Please try again.
+              </p>
+              <Button onClick={() => onOpenChange?.(false)}>
+                Close
+              </Button>
+            </div>
+          </DialogContent>
+        </Dialog>
+      }
+    >
+      <Dialog open={open} onOpenChange={onOpenChange}>
+        {modalContent}
+      </Dialog>
+    </ErrorBoundary>
   )
 }
 

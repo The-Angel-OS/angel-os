@@ -27,3 +27,8 @@ COMMIT;
 SELECT unnest(enum_range(NULL::enum_products_status)) AS valid_status_values;
 
 
+
+
+
+
+

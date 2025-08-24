@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 import type { TenantConfiguration } from '../types/tenant-configuration'
+import { getTenantOptionsEndpoint } from '../endpoints/getTenantOptionsEndpoint'
 
 export const Tenants: CollectionConfig = {
   slug: 'tenants',
@@ -17,13 +18,10 @@ export const Tenants: CollectionConfig = {
   access: {
     // Only super admins can manage tenants
     read: ({ req }) => {
-      // Temporarily allow all authenticated users to read tenants for debugging
-      // This will help us isolate if the issue is access controls vs. data/UI
+      // Allow authenticated users to read tenants
       if (req.user) {
-        console.log(`Tenant read access: user ${(req.user as any)?.email} with role ${(req.user as any)?.globalRole}`)
         return true
       }
-      console.log('Tenant read access: No user found')
       return false
     },
     create: ({ req }) => {
@@ -525,12 +523,18 @@ export const Tenants: CollectionConfig = {
       ],
     },
   ],
+  endpoints: [
+    getTenantOptionsEndpoint({
+      tenantsArrayFieldName: 'tenants',
+      tenantsArrayTenantFieldName: 'tenant',
+      tenantsCollectionSlug: 'tenants',
+      useAsTitle: 'name',
+      userHasAccessToAllTenants: (user: any) => user?.globalRole === 'super_admin',
+    }),
+  ],
   hooks: {
     afterChange: [
       async ({ doc, operation }) => {
-        // Log tenant changes for auditing
-        console.log(`Tenant ${operation}: ${doc.name} (${doc.slug})`)
-
         // TODO: Trigger tenant setup workflows when status changes to 'active'
         if (operation === 'create' || (operation === 'update' && doc.status === 'active')) {
           // Future: Trigger automated site setup based on businessType

@@ -1,7 +1,6 @@
 'use client'
 
 import React from 'react'
-import AdminTenantChooser from '../AdminTenantChooser'
 
 const BeforeDashboard: React.FC = () => {
   return (
@@ -11,7 +10,9 @@ const BeforeDashboard: React.FC = () => {
         <p className="text-muted-foreground mb-6">
           Manage your multi-tenant platform, content, and business operations.
         </p>
-        <AdminTenantChooser />
+        <div className="text-sm text-muted-foreground">
+          Use the tenant selector in the navigation menu to switch between tenants.
+        </div>
       </div>
     </div>
   )

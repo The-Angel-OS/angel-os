@@ -9,7 +9,7 @@ export const Spaces: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'tenant', 'businessIdentity.type', 'visibility', 'memberCount'],
-    group: 'Collaboration',
+    group: 'Communication',
     description: 'Business spaces for collaboration, content, and customer engagement',
   },
   access: {

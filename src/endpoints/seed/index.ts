@@ -265,8 +265,8 @@ export const seed = async ({
           status: 'active',
           priority: 'high',
           dates: {
-            startDate: new Date().toISOString(),
-            endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toISOString(), // 30 days from now
+            startDate: new Date(),
+            endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000), // 30 days from now
           },
           budget: {
             estimatedBudget: 5000,
@@ -286,7 +286,9 @@ export const seed = async ({
 
       // Seed sample tasks for the project
       payload.logger.info('— Creating sample tasks...')
-      await payload.create({
+      
+      // Create first task with proper Date objects
+      const task1 = await payload.create({
         collection: 'tasks',
         data: {
           title: 'Set up project workspace',
@@ -299,14 +301,14 @@ export const seed = async ({
           assignee: adminUserId,
           reporter: adminUserId,
           dates: {
-            dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toISOString(),
-            completedDate: new Date().toISOString(),
+            dueDate: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000),
+            completedDate: new Date(),
           },
           timeTracking: {
             estimatedHours: 4,
             actualHours: 3.5,
             timeEntries: [{
-              date: new Date().toISOString(),
+              date: new Date(),
               hours: 3.5,
               description: 'Initial project setup and configuration',
               user: adminUserId,
@@ -316,8 +318,11 @@ export const seed = async ({
           tenant: tenantId,
         },
       } as any)
+      
+      payload.logger.info('— First task created successfully')
 
-      await payload.create({
+      // Create second task with proper Date objects
+      const task2 = await payload.create({
         collection: 'tasks',
         data: {
           title: 'Create project documentation',
@@ -330,7 +335,7 @@ export const seed = async ({
           assignee: adminUserId,
           reporter: adminUserId,
           dates: {
-            dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000).toISOString(),
+            dueDate: new Date(Date.now() + 14 * 24 * 60 * 60 * 1000),
           },
           timeTracking: {
             estimatedHours: 8,
@@ -340,6 +345,8 @@ export const seed = async ({
           tenant: tenantId,
         },
       } as any)
+      
+      payload.logger.info('— Second task created successfully')
     }
 
     // Seed sample campaign
@@ -363,8 +370,8 @@ export const seed = async ({
           type: 'content',
           status: 'active',
           dates: {
-            startDate: new Date().toISOString(),
-            endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString(),
+            startDate: new Date(),
+            endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000),
           },
           budget: {
             totalBudget: 10000,
@@ -1063,18 +1070,20 @@ export const seed = async ({
         email: 'kenneth.courtney@gmail.com',
         password: 'angelos',
         globalRole: 'super_admin', // Super admin role
+        _verified: true, // Enable login immediately
         // tenant will be assigned after tenant creation
       } as any,
     })
     payload.logger.info('✅ Kenneth Courtney super admin created')
   } else {
     payload.logger.info('✅ Kenneth Courtney super admin already exists')
-    // Ensure the user has the correct role
+    // Ensure the user has the correct role and is verified
     await payload.update({
       collection: 'users',
       id: kenAdmin.id,
       data: {
         globalRole: 'super_admin',
+        _verified: true, // Ensure login is enabled
       } as any,
     })
     payload.logger.info('✅ Kenneth Courtney super admin role updated')
@@ -1135,14 +1144,15 @@ export const seed = async ({
 
   payload.logger.info(`— Checking for media...`)
 
-  // Check if media already exists
-  let image1Doc = await checkExists('media', { alt: { equals: 'Post 1' } })
-  let image2Doc = await checkExists('media', { alt: { equals: 'Post 2' } })
-  let image3Doc = await checkExists('media', { alt: { equals: 'Post 3' } })
-  let imageHomeDoc = await checkExists('media', { alt: { equals: 'Hero 1' } })
+  // Check if media already exists by checking for the specific filenames
+  let image1Doc = await checkExists('media', { filename: { contains: 'image-post1' } })
+  let image2Doc = await checkExists('media', { filename: { contains: 'image-post2' } })
+  let image3Doc = await checkExists('media', { filename: { contains: 'image-post3' } })
+  let imageHomeDoc = await checkExists('media', { filename: { contains: 'image-hero1' } })
 
   if (!image1Doc || !image2Doc || !image3Doc || !imageHomeDoc) {
     payload.logger.info(`— Creating missing media...`)
+    payload.logger.info(`— Missing: image1=${!image1Doc}, image2=${!image2Doc}, image3=${!image3Doc}, imageHome=${!imageHomeDoc}`)
 
   const [image1Buffer, image2Buffer, image3Buffer, hero1Buffer] = await Promise.all([
     fetchFileByURL(
@@ -1183,7 +1193,7 @@ export const seed = async ({
       mediaCreations.push(
     payload.create({
       collection: 'media',
-      data: image2,
+      data: image2, // Note: image2 and image3 have the same data, this is correct
       file: image3Buffer,
         })
       )
@@ -1411,6 +1421,7 @@ export const seed = async ({
         email: 'demo-author@example.com',
         password: 'password',
         globalRole: 'user',
+        _verified: true, // Enable login immediately
         // tenant: tenant.id, // Category collection doesn't have tenant field // NOW we have the tenant ID!
       } as any,
     })

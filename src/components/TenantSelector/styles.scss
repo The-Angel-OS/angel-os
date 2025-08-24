@@ -1,0 +1,112 @@
+.tenant-selector {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--theme-bg);
+  border: 1px solid var(--theme-elevation-200);
+  border-radius: 4px;
+  margin-bottom: 1rem;
+
+  &.loading,
+  &.empty {
+    padding: 0.75rem 1rem;
+    text-align: center;
+    color: var(--theme-text);
+    font-size: 0.875rem;
+    background: var(--theme-elevation-50);
+  }
+
+  &.single {
+    padding: 0.75rem 1rem;
+    background: var(--theme-elevation-50);
+    
+    .tenant-name {
+      font-weight: 600;
+      color: var(--theme-text);
+    }
+    
+    .tenant-status {
+      color: var(--theme-text-dim);
+      font-size: 0.875rem;
+      margin-left: 0.5rem;
+    }
+  }
+
+  &__label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: var(--theme-text);
+    margin-bottom: 0.25rem;
+  }
+
+  &__select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--theme-elevation-200);
+    border-radius: 4px;
+    background: var(--theme-bg);
+    color: var(--theme-text);
+    font-size: 0.875rem;
+    cursor: pointer;
+    
+    &:focus {
+      outline: none;
+      border-color: var(--theme-success-500);
+      box-shadow: 0 0 0 2px var(--theme-success-100);
+    }
+
+    option {
+      padding: 0.5rem;
+      background: var(--theme-bg);
+      color: var(--theme-text);
+    }
+  }
+
+  &__info {
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--theme-elevation-100);
+    
+    small {
+      color: var(--theme-text-dim);
+      font-size: 0.75rem;
+      
+      strong {
+        color: var(--theme-text);
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+// Dark theme support
+@media (prefers-color-scheme: dark) {
+  .tenant-selector {
+    &__select {
+      option {
+        background: var(--theme-elevation-100);
+      }
+    }
+  }
+}
+
+// Admin panel integration
+.payload-admin {
+  .tenant-selector {
+    margin: 0 0 1.5rem 0;
+    border: 1px solid var(--theme-elevation-200);
+    
+    &__select {
+      width: 100%;
+      max-width: 300px;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .tenant-selector {
+    &__select {
+      width: 100%;
+    }
+  }
+}

@@ -67,20 +67,14 @@ export interface Config {
   };
   blocks: {};
   collections: {
-    tenants: Tenant;
-    'tenant-management': TenantManagement;
-    'roadmap-features': RoadmapFeature;
-    'angel-os-nodes': AngelOsNode;
-    'tenant-distribution': TenantDistribution;
-    'angel-tokens': AngelToken;
-    'token-balances': TokenBalance;
-    'ai-generation-queue': AiGenerationQueue;
-    'job-queue': JobQueue;
-    'humanitarian-agents': HumanitarianAgent;
-    'business-agents': BusinessAgent;
-    users: User;
-    'tenant-memberships': TenantMembership;
-    'space-memberships': SpaceMembership;
+    pages: Page;
+    posts: Post;
+    media: Media;
+    products: Product;
+    categories: Category;
+    orders: Order;
+    invoices: Invoice;
+    donations: Donation;
     contacts: Contact;
     leads: Lead;
     opportunities: Opportunity;
@@ -95,11 +89,6 @@ export interface Config {
     channels: Channel;
     'social-media-bots': SocialMediaBot;
     'linked-accounts': LinkedAccount;
-    products: Product;
-    orders: Order;
-    invoices: Invoice;
-    categories: Category;
-    donations: Donation;
     documents: Document;
     workflows: Workflow;
     organizations: Organization;
@@ -108,13 +97,24 @@ export interface Config {
     events: Event;
     'mileage-logs': MileageLog;
     'quote-requests': QuoteRequest;
+    users: User;
+    'tenant-memberships': TenantMembership;
+    'space-memberships': SpaceMembership;
     'inventory-messages': InventoryMessage;
     'photo-analysis': PhotoAnalysis;
     phyles: Phyle;
     'agent-reputation': AgentReputation;
-    pages: Page;
-    posts: Post;
-    media: Media;
+    tenants: Tenant;
+    'tenant-management': TenantManagement;
+    'roadmap-features': RoadmapFeature;
+    'angel-os-nodes': AngelOsNode;
+    'tenant-distribution': TenantDistribution;
+    'angel-tokens': AngelToken;
+    'token-balances': TokenBalance;
+    'ai-generation-queue': AiGenerationQueue;
+    'job-queue': JobQueue;
+    'humanitarian-agents': HumanitarianAgent;
+    'business-agents': BusinessAgent;
     redirects: Redirect;
     forms: Form;
     'form-submissions': FormSubmission;
@@ -131,20 +131,14 @@ export interface Config {
     };
   };
   collectionsSelect: {
-    tenants: TenantsSelect<false> | TenantsSelect<true>;
-    'tenant-management': TenantManagementSelect<false> | TenantManagementSelect<true>;
-    'roadmap-features': RoadmapFeaturesSelect<false> | RoadmapFeaturesSelect<true>;
-    'angel-os-nodes': AngelOsNodesSelect<false> | AngelOsNodesSelect<true>;
-    'tenant-distribution': TenantDistributionSelect<false> | TenantDistributionSelect<true>;
-    'angel-tokens': AngelTokensSelect<false> | AngelTokensSelect<true>;
-    'token-balances': TokenBalancesSelect<false> | TokenBalancesSelect<true>;
-    'ai-generation-queue': AiGenerationQueueSelect<false> | AiGenerationQueueSelect<true>;
-    'job-queue': JobQueueSelect<false> | JobQueueSelect<true>;
-    'humanitarian-agents': HumanitarianAgentsSelect<false> | HumanitarianAgentsSelect<true>;
-    'business-agents': BusinessAgentsSelect<false> | BusinessAgentsSelect<true>;
-    users: UsersSelect<false> | UsersSelect<true>;
-    'tenant-memberships': TenantMembershipsSelect<false> | TenantMembershipsSelect<true>;
-    'space-memberships': SpaceMembershipsSelect<false> | SpaceMembershipsSelect<true>;
+    pages: PagesSelect<false> | PagesSelect<true>;
+    posts: PostsSelect<false> | PostsSelect<true>;
+    media: MediaSelect<false> | MediaSelect<true>;
+    products: ProductsSelect<false> | ProductsSelect<true>;
+    categories: CategoriesSelect<false> | CategoriesSelect<true>;
+    orders: OrdersSelect<false> | OrdersSelect<true>;
+    invoices: InvoicesSelect<false> | InvoicesSelect<true>;
+    donations: DonationsSelect<false> | DonationsSelect<true>;
     contacts: ContactsSelect<false> | ContactsSelect<true>;
     leads: LeadsSelect<false> | LeadsSelect<true>;
     opportunities: OpportunitiesSelect<false> | OpportunitiesSelect<true>;
@@ -159,11 +153,6 @@ export interface Config {
     channels: ChannelsSelect<false> | ChannelsSelect<true>;
     'social-media-bots': SocialMediaBotsSelect<false> | SocialMediaBotsSelect<true>;
     'linked-accounts': LinkedAccountsSelect<false> | LinkedAccountsSelect<true>;
-    products: ProductsSelect<false> | ProductsSelect<true>;
-    orders: OrdersSelect<false> | OrdersSelect<true>;
-    invoices: InvoicesSelect<false> | InvoicesSelect<true>;
-    categories: CategoriesSelect<false> | CategoriesSelect<true>;
-    donations: DonationsSelect<false> | DonationsSelect<true>;
     documents: DocumentsSelect<false> | DocumentsSelect<true>;
     workflows: WorkflowsSelect<false> | WorkflowsSelect<true>;
     organizations: OrganizationsSelect<false> | OrganizationsSelect<true>;
@@ -172,13 +161,24 @@ export interface Config {
     events: EventsSelect<false> | EventsSelect<true>;
     'mileage-logs': MileageLogsSelect<false> | MileageLogsSelect<true>;
     'quote-requests': QuoteRequestsSelect<false> | QuoteRequestsSelect<true>;
+    users: UsersSelect<false> | UsersSelect<true>;
+    'tenant-memberships': TenantMembershipsSelect<false> | TenantMembershipsSelect<true>;
+    'space-memberships': SpaceMembershipsSelect<false> | SpaceMembershipsSelect<true>;
     'inventory-messages': InventoryMessagesSelect<false> | InventoryMessagesSelect<true>;
     'photo-analysis': PhotoAnalysisSelect<false> | PhotoAnalysisSelect<true>;
     phyles: PhylesSelect<false> | PhylesSelect<true>;
     'agent-reputation': AgentReputationSelect<false> | AgentReputationSelect<true>;
-    pages: PagesSelect<false> | PagesSelect<true>;
-    posts: PostsSelect<false> | PostsSelect<true>;
-    media: MediaSelect<false> | MediaSelect<true>;
+    tenants: TenantsSelect<false> | TenantsSelect<true>;
+    'tenant-management': TenantManagementSelect<false> | TenantManagementSelect<true>;
+    'roadmap-features': RoadmapFeaturesSelect<false> | RoadmapFeaturesSelect<true>;
+    'angel-os-nodes': AngelOsNodesSelect<false> | AngelOsNodesSelect<true>;
+    'tenant-distribution': TenantDistributionSelect<false> | TenantDistributionSelect<true>;
+    'angel-tokens': AngelTokensSelect<false> | AngelTokensSelect<true>;
+    'token-balances': TokenBalancesSelect<false> | TokenBalancesSelect<true>;
+    'ai-generation-queue': AiGenerationQueueSelect<false> | AiGenerationQueueSelect<true>;
+    'job-queue': JobQueueSelect<false> | JobQueueSelect<true>;
+    'humanitarian-agents': HumanitarianAgentsSelect<false> | HumanitarianAgentsSelect<true>;
+    'business-agents': BusinessAgentsSelect<false> | BusinessAgentsSelect<true>;
     redirects: RedirectsSelect<false> | RedirectsSelect<true>;
     forms: FormsSelect<false> | FormsSelect<true>;
     'form-submissions': FormSubmissionsSelect<false> | FormSubmissionsSelect<true>;
@@ -232,6 +232,364 @@ export interface UserAuthOperations {
     email: string;
     password: string;
   };
+}
+/**
+ * Website pages with flexible layouts and SEO optimization
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "pages".
+ */
+export interface Page {
+  id: number;
+  title: string;
+  hero: {
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null)
+              | ({
+                  relationTo: 'products';
+                  value: number | Product;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    media?: (number | null) | Media;
+  };
+  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * Blog posts and articles with rich content and categorization
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts".
+ */
+export interface Post {
+  id: number;
+  title: string;
+  heroImage?: (number | null) | Media;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  relatedPosts?: (number | Post)[] | null;
+  categories?: (number | Category)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  authors?: (number | User)[] | null;
+  populatedAuthors?:
+    | {
+        id?: string | null;
+        name?: string | null;
+      }[]
+    | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * Images, files, and media assets with optimized delivery
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media".
+ */
+export interface Media {
+  id: number;
+  alt?: string | null;
+  caption?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  folder?: (number | null) | FolderInterface;
+  updatedAt: string;
+  createdAt: string;
+  url?: string | null;
+  thumbnailURL?: string | null;
+  filename?: string | null;
+  mimeType?: string | null;
+  filesize?: number | null;
+  width?: number | null;
+  height?: number | null;
+  focalX?: number | null;
+  focalY?: number | null;
+  sizes?: {
+    thumbnail?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    square?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    small?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    medium?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    large?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    xlarge?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+    og?: {
+      url?: string | null;
+      width?: number | null;
+      height?: number | null;
+      mimeType?: string | null;
+      filesize?: number | null;
+      filename?: string | null;
+    };
+  };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "payload-folders".
+ */
+export interface FolderInterface {
+  id: number;
+  name: string;
+  folder?: (number | null) | FolderInterface;
+  documentsAndFolders?: {
+    docs?: (
+      | {
+          relationTo?: 'payload-folders';
+          value: number | FolderInterface;
+        }
+      | {
+          relationTo?: 'media';
+          value: number | Media;
+        }
+    )[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories".
+ */
+export interface Category {
+  id: number;
+  name: string;
+  description?: string | null;
+  slug?: string | null;
+  parent?: (number | null) | Category;
+  breadcrumbs?:
+    | {
+        doc?: (number | null) | Category;
+        url?: string | null;
+        label?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users".
+ */
+export interface User {
+  id: number;
+  firstName: string;
+  lastName: string;
+  profileImage?: (number | null) | Media;
+  /**
+   * Primary tenant this user belongs to
+   */
+  tenant?: (number | null) | Tenant;
+  /**
+   * Platform-wide role (Host can see all tenants, others are tenant-isolated)
+   */
+  globalRole?: ('super_admin' | 'platform_admin' | 'user') | null;
+  karma?: {
+    score?: number | null;
+    contributionTypes?:
+      | (
+          | 'content_creation'
+          | 'community_support'
+          | 'technical_contribution'
+          | 'mentorship'
+          | 'justice_advocacy'
+          | 'guardian_angel'
+        )[]
+      | null;
+    recognitions?:
+      | {
+          type:
+            | 'helpful_response'
+            | 'quality_content'
+            | 'community_leadership'
+            | 'technical_excellence'
+            | 'guardian_angel_action';
+          points: number;
+          reason?: string | null;
+          awardedBy?: (number | null) | User;
+          awardedAt?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * User has achieved Guardian Angel status through karma contributions
+     */
+    guardianAngelStatus?: boolean | null;
+  };
+  /**
+   * JSON array of tenant memberships: [{"tenantId": "123", "role": "admin", "permissions": ["manage_content"], "joinedAt": "2025-01-01"}]
+   */
+  tenantMemberships?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  preferences?: {
+    notifications?: {
+      email?: boolean | null;
+      inApp?: boolean | null;
+      /**
+       * Receive alerts when Guardian Angel assistance is needed
+       */
+      guardianAngelAlerts?: boolean | null;
+    };
+    privacy?: {
+      profileVisibility?: ('public' | 'members' | 'private') | null;
+      karmaScoreVisible?: boolean | null;
+    };
+  };
+  lastLoginAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+  email: string;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiration?: string | null;
+  salt?: string | null;
+  hash?: string | null;
+  _verified?: boolean | null;
+  _verificationToken?: string | null;
+  loginAttempts?: number | null;
+  lockUntil?: string | null;
+  sessions?:
+    | {
+        id: string;
+        createdAt?: string | null;
+        expiresAt: string;
+      }[]
+    | null;
+  password?: string | null;
 }
 /**
  * Multi-tenant organizations and their configurations
@@ -419,1889 +777,6 @@ export interface Tenant {
   };
   updatedAt: string;
   createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users".
- */
-export interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  profileImage?: (number | null) | Media;
-  /**
-   * Primary tenant this user belongs to
-   */
-  tenant?: (number | null) | Tenant;
-  /**
-   * Platform-wide role (Host can see all tenants, others are tenant-isolated)
-   */
-  globalRole?: ('super_admin' | 'platform_admin' | 'user') | null;
-  karma?: {
-    score?: number | null;
-    contributionTypes?:
-      | (
-          | 'content_creation'
-          | 'community_support'
-          | 'technical_contribution'
-          | 'mentorship'
-          | 'justice_advocacy'
-          | 'guardian_angel'
-        )[]
-      | null;
-    recognitions?:
-      | {
-          type:
-            | 'helpful_response'
-            | 'quality_content'
-            | 'community_leadership'
-            | 'technical_excellence'
-            | 'guardian_angel_action';
-          points: number;
-          reason?: string | null;
-          awardedBy?: (number | null) | User;
-          awardedAt?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * User has achieved Guardian Angel status through karma contributions
-     */
-    guardianAngelStatus?: boolean | null;
-  };
-  /**
-   * JSON array of tenant memberships: [{"tenantId": "123", "role": "admin", "permissions": ["manage_content"], "joinedAt": "2025-01-01"}]
-   */
-  tenantMemberships?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  preferences?: {
-    notifications?: {
-      email?: boolean | null;
-      inApp?: boolean | null;
-      /**
-       * Receive alerts when Guardian Angel assistance is needed
-       */
-      guardianAngelAlerts?: boolean | null;
-    };
-    privacy?: {
-      profileVisibility?: ('public' | 'members' | 'private') | null;
-      karmaScoreVisible?: boolean | null;
-    };
-  };
-  lastLoginAt?: string | null;
-  updatedAt: string;
-  createdAt: string;
-  email: string;
-  resetPasswordToken?: string | null;
-  resetPasswordExpiration?: string | null;
-  salt?: string | null;
-  hash?: string | null;
-  _verified?: boolean | null;
-  _verificationToken?: string | null;
-  loginAttempts?: number | null;
-  lockUntil?: string | null;
-  sessions?:
-    | {
-        id: string;
-        createdAt?: string | null;
-        expiresAt: string;
-      }[]
-    | null;
-  password?: string | null;
-}
-/**
- * Images, files, and media assets with optimized delivery
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media".
- */
-export interface Media {
-  id: number;
-  alt?: string | null;
-  caption?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  folder?: (number | null) | FolderInterface;
-  updatedAt: string;
-  createdAt: string;
-  url?: string | null;
-  thumbnailURL?: string | null;
-  filename?: string | null;
-  mimeType?: string | null;
-  filesize?: number | null;
-  width?: number | null;
-  height?: number | null;
-  focalX?: number | null;
-  focalY?: number | null;
-  sizes?: {
-    thumbnail?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    square?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    small?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    medium?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    large?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    xlarge?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-    og?: {
-      url?: string | null;
-      width?: number | null;
-      height?: number | null;
-      mimeType?: string | null;
-      filesize?: number | null;
-      filename?: string | null;
-    };
-  };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "payload-folders".
- */
-export interface FolderInterface {
-  id: number;
-  name: string;
-  folder?: (number | null) | FolderInterface;
-  documentsAndFolders?: {
-    docs?: (
-      | {
-          relationTo?: 'payload-folders';
-          value: number | FolderInterface;
-        }
-      | {
-          relationTo?: 'media';
-          value: number | Media;
-        }
-    )[];
-    hasNextPage?: boolean;
-    totalDocs?: number;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Super admin tenant management and provisioning
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-management".
- */
-export interface TenantManagement {
-  id: number;
-  /**
-   * Tenant display name
-   */
-  name: string;
-  /**
-   * Unique subdomain identifier
-   */
-  subdomain: string;
-  /**
-   * Current tenant status
-   */
-  status: 'active' | 'suspended' | 'pending' | 'archived' | 'trial';
-  /**
-   * Subscription plan
-   */
-  plan: 'free' | 'starter' | 'professional' | 'business' | 'enterprise' | 'custom';
-  billing?: {
-    /**
-     * Monthly recurring revenue
-     */
-    monthlyRevenue?: number | null;
-    billingCycle?: ('monthly' | 'quarterly' | 'annually') | null;
-    nextBillingDate?: string | null;
-    paymentStatus?: ('current' | 'past-due' | 'cancelled' | 'trial') | null;
-  };
-  /**
-   * Primary tenant owner/admin
-   */
-  owner: number | User;
-  /**
-   * Current usage statistics
-   */
-  usage?: {
-    /**
-     * Current number of users
-     */
-    userCount?: number | null;
-    /**
-     * Storage used in MB
-     */
-    storageUsed?: number | null;
-    /**
-     * API calls this month
-     */
-    apiCallsThisMonth?: number | null;
-    /**
-     * Last user activity
-     */
-    lastActivity?: string | null;
-  };
-  limits?: {
-    /**
-     * Maximum number of users
-     */
-    maxUsers?: number | null;
-    /**
-     * Maximum storage in MB
-     */
-    maxStorage?: number | null;
-    /**
-     * Maximum API calls per month
-     */
-    maxApiCalls?: number | null;
-    /**
-     * Maximum number of products
-     */
-    maxProducts?: number | null;
-    /**
-     * Maximum orders per month
-     */
-    maxOrders?: number | null;
-  };
-  /**
-   * Enabled features for this tenant
-   */
-  features?:
-    | (
-        | 'crm'
-        | 'ecommerce'
-        | 'projects'
-        | 'analytics'
-        | 'api'
-        | 'branding'
-        | 'priority-support'
-        | 'webhooks'
-        | 'sso'
-        | 'white-label'
-      )[]
-    | null;
-  /**
-   * Template used for initial provisioning
-   */
-  provisioningTemplate?:
-    | (
-        | 'basic-business'
-        | 'ecommerce-store'
-        | 'service-provider'
-        | 'creative-agency'
-        | 'saas-company'
-        | 'non-profit'
-        | 'custom'
-      )
-    | null;
-  customization?: {
-    /**
-     * Primary brand color (hex)
-     */
-    primaryColor?: string | null;
-    /**
-     * Tenant logo
-     */
-    logo?: (number | null) | Media;
-    /**
-     * Custom domain (if configured)
-     */
-    customDomain?: string | null;
-    /**
-     * Custom CSS overrides
-     */
-    customCSS?: string | null;
-  };
-  integrations?: {
-    stripe?: {
-      enabled?: boolean | null;
-      accountId?: string | null;
-      webhookEndpoint?: string | null;
-    };
-    mailchimp?: {
-      enabled?: boolean | null;
-      apiKey?: string | null;
-      audienceId?: string | null;
-    };
-    googleAnalytics?: {
-      enabled?: boolean | null;
-      trackingId?: string | null;
-    };
-  };
-  /**
-   * Custom tenant-specific settings and configurations
-   */
-  customSettings?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * Admin notes about this tenant
-   */
-  notes?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  /**
-   * Provisioning status and history
-   */
-  provisioning?: {
-    /**
-     * Has initial provisioning been completed?
-     */
-    isProvisioned?: boolean | null;
-    /**
-     * When provisioning was completed
-     */
-    provisionedAt?: string | null;
-    /**
-     * Provisioning activity log
-     */
-    provisioningLog?:
-      | {
-          action: string;
-          status: 'success' | 'failed' | 'pending';
-          details?: string | null;
-          timestamp?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Public roadmap with feature voting and progress tracking
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roadmap-features".
- */
-export interface RoadmapFeature {
-  id: number;
-  /**
-   * Feature title or name
-   */
-  title: string;
-  /**
-   * Detailed feature description and benefits
-   */
-  description: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  /**
-   * Feature category for organization
-   */
-  category:
-    | 'dashboard'
-    | 'crm'
-    | 'ecommerce'
-    | 'communication'
-    | 'productivity'
-    | 'system'
-    | 'integrations'
-    | 'mobile'
-    | 'api'
-    | 'security'
-    | 'performance'
-    | 'ui-ux';
-  /**
-   * Current development status
-   */
-  status: 'consideration' | 'planned' | 'in-progress' | 'in-review' | 'completed' | 'cancelled';
-  /**
-   * Development priority level
-   */
-  priority: 'low' | 'medium' | 'high' | 'critical';
-  timeline?: {
-    /**
-     * Estimated completion date
-     */
-    estimatedCompletion?: string | null;
-    /**
-     * Actual completion date
-     */
-    actualCompletion?: string | null;
-    /**
-     * Target quarter for delivery
-     */
-    quarterTarget?:
-      | ('2025-q1' | '2025-q2' | '2025-q3' | '2025-q4' | '2026-q1' | '2026-q2' | '2026-q3' | '2026-q4' | 'future')
-      | null;
-    /**
-     * Estimated development effort
-     */
-    estimatedEffort?: ('small' | 'medium' | 'large' | 'epic') | null;
-  };
-  /**
-   * Community voting and feedback
-   */
-  voting?: {
-    /**
-     * Total number of votes
-     */
-    votes?: number | null;
-    /**
-     * Users who voted for this feature
-     */
-    voters?: (number | User)[] | null;
-    /**
-     * Allow community voting on this feature
-     */
-    allowVoting?: boolean | null;
-    /**
-     * Weight multiplier for votes (for premium users, etc.)
-     */
-    voteWeight?: number | null;
-  };
-  /**
-   * Community feedback and comments
-   */
-  feedback?:
-    | {
-        comment: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        author: number | User;
-        type?: ('feedback' | 'use-case' | 'technical' | 'design' | 'question') | null;
-        /**
-         * Show this feedback publicly
-         */
-        isPublic?: boolean | null;
-        /**
-         * Admin response to this feedback
-         */
-        adminResponse?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * Technical implementation details (admin only)
-   */
-  technical?: {
-    /**
-     * Technical implementation notes and considerations
-     */
-    implementationNotes?: {
-      root: {
-        type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-    dependencies?:
-      | {
-          feature: number | RoadmapFeature;
-          type: 'blocks' | 'blocked-by' | 'related';
-          id?: string | null;
-        }[]
-      | null;
-    githubIssues?:
-      | {
-          /**
-           * GitHub issue URL
-           */
-          url: string;
-          status?: ('open' | 'in-progress' | 'closed') | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Developer assigned to implement this feature
-     */
-    assignedDeveloper?: (number | null) | User;
-  };
-  /**
-   * Development progress tracking
-   */
-  progress?: {
-    /**
-     * Completion percentage (0-100)
-     */
-    completionPercentage?: number | null;
-    milestones?:
-      | {
-          title: string;
-          description?: string | null;
-          completed?: boolean | null;
-          completedDate?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Progress updates for the community
-     */
-    updates?:
-      | {
-          title: string;
-          content: {
-            root: {
-              type: string;
-              children: {
-                type: string;
-                version: number;
-                [k: string]: unknown;
-              }[];
-              direction: ('ltr' | 'rtl') | null;
-              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-              indent: number;
-              version: number;
-            };
-            [k: string]: unknown;
-          };
-          /**
-           * Show this update publicly
-           */
-          isPublic?: boolean | null;
-          author: number | User;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  /**
-   * Feature tags for filtering and organization
-   */
-  tags?:
-    | (
-        | 'community-requested'
-        | 'quick-win'
-        | 'breaking-change'
-        | 'new-feature'
-        | 'enhancement'
-        | 'bug-fix'
-        | 'performance'
-        | 'security'
-        | 'accessibility'
-        | 'mobile'
-      )[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Angel OS Network nodes in the distributed federation
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "angel-os-nodes".
- */
-export interface AngelOsNode {
-  id: number;
-  /**
-   * Human-readable node name (e.g., "Angel OS US-East-1")
-   */
-  name: string;
-  /**
-   * Unique node identifier (UUID)
-   */
-  nodeId: string;
-  /**
-   * AT Protocol Decentralized Identifier for this node
-   */
-  atProtocolDID?: string | null;
-  /**
-   * Base URL for this Angel OS node (e.g., https://us-east.angel-os.com)
-   */
-  endpoint: string;
-  /**
-   * API endpoint for federation communication
-   */
-  apiEndpoint: string;
-  /**
-   * Public key for secure inter-node communication
-   */
-  publicKey?: string | null;
-  region: 'us-east' | 'us-west' | 'eu-west' | 'eu-central' | 'asia-pacific' | 'australia' | 'canada' | 'south-america';
-  coordinates?: {
-    /**
-     * Geographic latitude for proximity calculations
-     */
-    latitude?: number | null;
-    /**
-     * Geographic longitude for proximity calculations
-     */
-    longitude?: number | null;
-  };
-  nodeType: 'genesis' | 'production_cluster' | 'single_instance' | 'edge_cluster' | 'development' | 'ai_specialized';
-  scalingModel: 'vercel_serverless' | 'cloudflare_lb' | 'k8s_cluster' | 'single_server';
-  capabilities?:
-    | ('tenant_hosting' | 'ai_processing' | 'media_storage' | 'realtime_comm' | 'blockchain' | 'edge_computing')[]
-    | null;
-  status: 'online' | 'degraded' | 'maintenance' | 'offline' | 'quarantined';
-  health?: {
-    /**
-     * Last heartbeat from this node
-     */
-    lastSeen?: string | null;
-    /**
-     * Average response time in milliseconds
-     */
-    responseTime?: number | null;
-    /**
-     * Uptime percentage over last 30 days
-     */
-    uptime?: number | null;
-    /**
-     * Current load score (0-100)
-     */
-    loadScore?: number | null;
-  };
-  resources?: {
-    /**
-     * Maximum number of tenants this node can host
-     */
-    maxTenants?: number | null;
-    /**
-     * Current number of hosted tenants
-     */
-    currentTenants?: number | null;
-    /**
-     * Maximum concurrent users
-     */
-    maxUsers?: number | null;
-    /**
-     * Storage capacity in GB
-     */
-    storageCapacity?: number | null;
-  };
-  /**
-   * Direct network connections to other nodes
-   */
-  connectedNodes?: (number | AngelOsNode)[] | null;
-  /**
-   * Parent node in hierarchical topology (if applicable)
-   */
-  parentNode?: (number | null) | AngelOsNode;
-  /**
-   * Node-specific governance and evolution rules
-   */
-  governanceRules?: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  } | null;
-  evolutionHistory?:
-    | {
-        timestamp: string;
-        event:
-          | 'created'
-          | 'tenant_migration'
-          | 'capability_added'
-          | 'network_split'
-          | 'network_merge'
-          | 'ai_agent_spawned';
-        description: string;
-        /**
-         * Event-specific data payload
-         */
-        data?:
-          | {
-              [k: string]: unknown;
-            }
-          | unknown[]
-          | string
-          | number
-          | boolean
-          | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Tracks tenant distribution across Angel OS network nodes
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-distribution".
- */
-export interface TenantDistribution {
-  id: number;
-  /**
-   * The tenant being tracked
-   */
-  tenant: number | Tenant;
-  /**
-   * Cached tenant name for quick reference
-   */
-  tenantName?: string | null;
-  /**
-   * Angel OS node currently hosting this tenant
-   */
-  currentNode: number | AngelOsNode;
-  /**
-   * When tenant was assigned to current node
-   */
-  assignedAt: string;
-  distributionStrategy:
-    | 'geographic'
-    | 'load_balance'
-    | 'ai_optimized'
-    | 'manual'
-    | 'high_availability'
-    | 'cost_optimized';
-  priority: 'critical' | 'high' | 'normal' | 'low';
-  migrationStatus: 'stable' | 'migration_pending' | 'migrating' | 'migration_failed' | 'quarantined';
-  /**
-   * Target node for pending migration
-   */
-  targetNode?: (number | null) | AngelOsNode;
-  migrationReason?:
-    | (
-        | 'load_balancing'
-        | 'node_maintenance'
-        | 'geographic_optimization'
-        | 'performance_issues'
-        | 'user_request'
-        | 'ai_recommendation'
-        | 'disaster_recovery'
-      )
-    | null;
-  performance?: {
-    /**
-     * Average response time for this tenant (ms)
-     */
-    averageResponseTime?: number | null;
-    /**
-     * Daily active users for this tenant
-     */
-    dailyActiveUsers?: number | null;
-    /**
-     * Current storage usage in MB
-     */
-    storageUsage?: number | null;
-    /**
-     * Monthly bandwidth usage in GB
-     */
-    bandwidthUsage?: number | null;
-  };
-  networkAffinity?: {
-    /**
-     * Geographic regions where most users are located
-     */
-    primaryUserRegions?:
-      | ('us-east' | 'us-west' | 'eu-west' | 'eu-central' | 'asia-pacific' | 'australia' | 'canada' | 'south-america')[]
-      | null;
-    /**
-     * Tenants this one frequently interacts with
-     */
-    connectedTenants?: (number | Tenant)[] | null;
-    /**
-     * Network affinity score for current placement
-     */
-    affinityScore?: number | null;
-  };
-  migrationHistory?:
-    | {
-        timestamp: string;
-        fromNode: number | AngelOsNode;
-        toNode: number | AngelOsNode;
-        reason: string;
-        /**
-         * Migration duration in seconds
-         */
-        duration?: number | null;
-        success?: boolean | null;
-        notes?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  automationRules?: {
-    /**
-     * Allow AI to automatically migrate this tenant
-     */
-    autoMigrationEnabled?: boolean | null;
-    /**
-     * Maximum migrations allowed per month
-     */
-    maxMigrationsPerMonth?: number | null;
-    migrationWindow?: ('anytime' | 'maintenance_hours' | 'low_usage_hours' | 'manual_approval') | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Angel Token blockchain transactions and balances
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "angel-tokens".
- */
-export interface AngelToken {
-  id: number;
-  /**
-   * Unique token transaction identifier
-   */
-  tokenId: string;
-  /**
-   * Angel Chain block hash containing this transaction
-   */
-  blockHash?: string | null;
-  tokenType: 'angel_tokens' | 'karma_coins' | 'legacy_tokens' | 'tenant_tokens';
-  /**
-   * Token amount (positive for earning, negative for spending)
-   */
-  amount: number;
-  /**
-   * Running balance after this transaction
-   */
-  balance: number;
-  /**
-   * User who holds/receives these tokens
-   */
-  holder: number | User;
-  /**
-   * Tenant context (for tenant-specific tokens)
-   */
-  tenant?: (number | null) | Tenant;
-  /**
-   * Angel OS node where tokens were earned/spent
-   */
-  sourceNode?: (number | null) | AngelOsNode;
-  humanWorthMetrics?: {
-    /**
-     * Karma points contributing to this token award
-     */
-    karmaScore?: number | null;
-    /**
-     * Measured real-world positive outcome score
-     */
-    communityImpact?: number | null;
-    /**
-     * Originality and innovation score
-     */
-    creativityIndex?: number | null;
-    /**
-     * Cross-cultural cooperation factor
-     */
-    collaborationRating?: number | null;
-    /**
-     * Long-term positive behavior bonus
-     */
-    consistencyFactor?: number | null;
-    /**
-     * Final calculated human worth score
-     */
-    humanWorthIndex?: number | null;
-  };
-  source:
-    | 'guardian_service'
-    | 'community_contribution'
-    | 'creative_output'
-    | 'cultural_bridge'
-    | 'knowledge_sharing'
-    | 'network_federation'
-    | 'platform_service'
-    | 'token_exchange'
-    | 'governance';
-  /**
-   * Detailed description of how tokens were earned/spent
-   */
-  sourceDescription: string;
-  /**
-   * Evidence supporting this token transaction
-   */
-  evidenceLinks?:
-    | {
-        url: string;
-        description: string;
-        id?: string | null;
-      }[]
-    | null;
-  validation: {
-    status: 'pending' | 'validated' | 'guardian_verified' | 'disputed' | 'rejected';
-    /**
-     * Community members who validated this contribution
-     */
-    validators?: (number | User)[] | null;
-    /**
-     * When validation was completed
-     */
-    validationTimestamp?: string | null;
-    /**
-     * Community validation comments
-     */
-    validationNotes?: string | null;
-  };
-  federationData?: {
-    /**
-     * Transaction involves multiple Angel OS nodes
-     */
-    crossNodeTransaction?: boolean | null;
-    /**
-     * Angel OS nodes involved in this transaction
-     */
-    participatingNodes?: (number | AngelOsNode)[] | null;
-    networkConsensus?: ('local_only' | 'network_consensus' | 'guardian_approved' | 'community_validated') | null;
-  };
-  exchangeData?: {
-    /**
-     * Exchange rate at time of transaction (if applicable)
-     */
-    exchangeRate?: number | null;
-    /**
-     * Equivalent fiat currency value
-     */
-    fiatValue?: number | null;
-    /**
-     * Measurable real-world value created
-     */
-    realWorldImpact?: string | null;
-  };
-  /**
-   * Additional transaction metadata
-   */
-  metadata?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Current Angel Token balances for all users across the network
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "token-balances".
- */
-export interface TokenBalance {
-  id: number;
-  /**
-   * User whose balances are tracked
-   */
-  user: number | User;
-  /**
-   * Cached display name for quick reference
-   */
-  displayName?: string | null;
-  /**
-   * Current Angel Tokens (AT) balance
-   */
-  angelTokens: number;
-  /**
-   * Current Karma Coins (KC) balance
-   */
-  karmaCoins: number;
-  /**
-   * Current Legacy Tokens (LT) balance
-   */
-  legacyTokens: number;
-  /**
-   * Balances in tenant-specific currencies
-   */
-  tenantBalances?:
-    | {
-        tenant: number | Tenant;
-        tenantTokens?: number | null;
-        /**
-         * Tenant-specific currency name
-         */
-        localCurrency?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  /**
-   * Token distribution across Angel OS nodes
-   */
-  networkDistribution?:
-    | {
-        node: number | AngelOsNode;
-        angelTokens?: number | null;
-        karmaCoins?: number | null;
-        id?: string | null;
-      }[]
-    | null;
-  lifetime?: {
-    /**
-     * Total tokens earned (all types)
-     */
-    totalEarned?: number | null;
-    /**
-     * Total tokens spent (all types)
-     */
-    totalSpent?: number | null;
-    /**
-     * Total number of token transactions
-     */
-    transactionCount?: number | null;
-    /**
-     * Date of first token transaction
-     */
-    firstEarned?: string | null;
-  };
-  worthProfile?: {
-    /**
-     * Average human worth index across all transactions
-     */
-    averageHumanWorth?: number | null;
-    /**
-     * Highest single human worth index achieved
-     */
-    peakHumanWorth?: number | null;
-    /**
-     * Primary contribution categories
-     */
-    contributionCategories?:
-      | (
-          | 'guardian_service'
-          | 'community_contribution'
-          | 'creative_output'
-          | 'cultural_bridge'
-          | 'knowledge_sharing'
-          | 'network_federation'
-        )[]
-      | null;
-  };
-  validationLevel: 'unverified' | 'community_validated' | 'guardian_verified' | 'network_consensus';
-  exchangeRights?: {
-    /**
-     * Authorized to exchange tokens for fiat currency
-     */
-    canExchangeToFiat?: boolean | null;
-    /**
-     * Can exchange tokens across tenants
-     */
-    canCrossTenantExchange?: boolean | null;
-    /**
-     * Can participate in cross-network exchanges
-     */
-    canNetworkExchange?: boolean | null;
-  };
-  /**
-   * Last balance update timestamp
-   */
-  lastUpdated?: string | null;
-  /**
-   * ID of most recent token transaction
-   */
-  lastTransactionId?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Queue for AI-powered content and merchandise generation
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ai-generation-queue".
- */
-export interface AiGenerationQueue {
-  id: number;
-  /**
-   * Space requesting the generation
-   */
-  space: number | Space;
-  /**
-   * Type of content to generate
-   */
-  generationType: 'merchandise_design' | 'social_content' | 'product_description' | 'blog_post' | 'marketing_copy';
-  sourceData?: {
-    /**
-     * YouTube Channel ID for content analysis
-     */
-    youtubeChannelId?: string | null;
-    /**
-     * Brand voice, colors, style preferences
-     */
-    brandingGuidelines?: string | null;
-    /**
-     * Target demographic for the content
-     */
-    targetAudience?: string | null;
-    /**
-     * Key themes to incorporate
-     */
-    contentThemes?:
-      | {
-          theme: string;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Existing content to analyze for style
-     */
-    existingContent?:
-      | (
-          | {
-              relationTo: 'posts';
-              value: number | Post;
-            }
-          | {
-              relationTo: 'pages';
-              value: number | Page;
-            }
-        )[]
-      | null;
-  };
-  parameters?: {
-    /**
-     * Product type for merchandise generation
-     */
-    productType?: ('coffee_mug' | 't_shirt' | 'sticker_pack' | 'poster' | 'hoodie' | 'phone_case') | null;
-    /**
-     * Visual style for the generation
-     */
-    styleGuide?: ('modern' | 'vintage' | 'bold' | 'minimalist' | 'handdrawn') | null;
-    /**
-     * Preferred colors for the design
-     */
-    colorScheme?:
-      | {
-          /**
-           * Hex color code (e.g., #3B82F6)
-           */
-          color: string;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Text to include in the design
-     */
-    textElements?:
-      | {
-          text: string;
-          emphasis?: ('primary' | 'secondary' | 'accent') | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Custom AI prompt for specific requirements
-     */
-    customPrompt?: string | null;
-  };
-  /**
-   * Current generation status
-   */
-  status: 'queued' | 'processing' | 'completed' | 'failed' | 'cancelled';
-  /**
-   * Generation progress percentage
-   */
-  progress?: number | null;
-  /**
-   * Generated images, videos, or other assets
-   */
-  generatedAssets?: (number | Media)[] | null;
-  /**
-   * Print-ready files for merchandise production
-   */
-  printReadyFiles?: (number | Media)[] | null;
-  /**
-   * Generated text content (descriptions, copy, etc.)
-   */
-  generatedText?: string | null;
-  /**
-   * Approval status for generated content
-   */
-  approvalStatus?: ('pending' | 'approved' | 'revision' | 'rejected') | null;
-  /**
-   * Notes from reviewer or feedback for revisions
-   */
-  reviewNotes?: string | null;
-  /**
-   * AI-generated quality score (0-10)
-   */
-  qualityScore?: number | null;
-  /**
-   * Tenant that owns this AI generation task
-   */
-  tenant: number | Tenant;
-  processingMetadata?: {
-    /**
-     * AI model used for generation
-     */
-    modelUsed?: string | null;
-    /**
-     * Processing time in seconds
-     */
-    processingTime?: number | null;
-    /**
-     * AI tokens consumed
-     */
-    tokensUsed?: number | null;
-    /**
-     * Error details if generation failed
-     */
-    errorMessage?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Business spaces for collaboration, content, and customer engagement
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "spaces".
- */
-export interface Space {
-  id: number;
-  /**
-   * Federated identity for cross-platform business operations
-   */
-  atProtocol?: {
-    /**
-     * Decentralized Identifier for federation
-     */
-    did?: string | null;
-    /**
-     * Federated handle for cross-platform discovery
-     */
-    handle?: string | null;
-  };
-  /**
-   * Tenant this space belongs to
-   */
-  tenant: number | Tenant;
-  /**
-   * Display name for this space
-   */
-  name: string;
-  /**
-   * URL-friendly identifier for this space
-   */
-  slug: string;
-  /**
-   * Description of what this space is for
-   */
-  description?: string | null;
-  businessIdentity: {
-    /**
-     * Primary business model - determines available features
-     */
-    type: 'business' | 'creator' | 'service' | 'retail' | 'manufacturing';
-    /**
-     * Industry category for tailored features and integrations
-     */
-    industry:
-      | 'general'
-      | 'content-creation'
-      | 'automotive'
-      | 'agriculture'
-      | 'food-beverage'
-      | 'professional-services'
-      | 'retail'
-      | 'technology'
-      | 'healthcare'
-      | 'education';
-    /**
-     * Business size affects available features and limits
-     */
-    companySize?: ('solo' | 'small' | 'medium' | 'large') | null;
-    /**
-     * Market scope for localization and payment options
-     */
-    targetMarket?: ('local' | 'national' | 'international' | 'online') | null;
-  };
-  commerceSettings?: {
-    /**
-     * Enable product catalog and online ordering
-     */
-    enableEcommerce?: boolean | null;
-    /**
-     * Enable service booking and appointment scheduling
-     */
-    enableServices?: boolean | null;
-    /**
-     * Enable AI-generated merchandise (for content creators)
-     */
-    enableMerchandise?: boolean | null;
-    /**
-     * Enable subscription and recurring services
-     */
-    enableSubscriptions?: boolean | null;
-    /**
-     * Accepted payment methods
-     */
-    paymentMethods?: ('credit_cards' | 'paypal' | 'bank_transfer' | 'cod' | 'crypto')[] | null;
-    /**
-     * Available shipping and delivery options
-     */
-    shippingZones?: ('local' | 'domestic' | 'international' | 'pickup')[] | null;
-  };
-  /**
-   * OnlyFans-style creator monetization features
-   */
-  monetization?: {
-    /**
-     * Enable creator monetization features
-     */
-    enabled?: boolean | null;
-    /**
-     * Create subscription tiers for premium content access
-     */
-    subscriptionTiers?:
-      | {
-          /**
-           * Tier name (e.g., "VIP", "Premium", "Basic")
-           */
-          name: string;
-          /**
-           * What subscribers get with this tier
-           */
-          description?: string | null;
-          /**
-           * Monthly subscription price
-           */
-          price: number;
-          currency?: ('usd' | 'eur' | 'gbp') | null;
-          /**
-           * List of features included in this tier
-           */
-          features?: string[] | null;
-          /**
-           * Types of content this tier unlocks
-           */
-          contentAccess?:
-            | (
-                | 'premium_posts'
-                | 'exclusive_videos'
-                | 'private_messages'
-                | 'live_streams'
-                | 'custom_content'
-                | 'early_access'
-              )[]
-            | null;
-          /**
-           * Stripe Price ID for payment processing
-           */
-          stripePriceId?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    /**
-     * Enable tips/donations from fans
-     */
-    donationsEnabled?: boolean | null;
-    /**
-     * Pay-per-view content and custom requests
-     */
-    customPricing?: {
-      /**
-       * Enable pay-per-view content
-       */
-      enabled?: boolean | null;
-      /**
-       * Default price for custom content requests
-       */
-      defaultPrice?: number | null;
-      /**
-       * Minimum tip amount
-       */
-      minimumTip?: number | null;
-    };
-    /**
-     * Stripe Connect Account ID for direct payments
-     */
-    merchantAccount?: string | null;
-    /**
-     * Revenue sharing agreement type
-     */
-    revenueAgreementType?: ('standard' | 'negotiated' | 'performance' | 'volume' | 'ai-optimized') | null;
-    /**
-     * Platform fee percentage (8-30%) - Includes marketing, infrastructure, and business automation
-     */
-    revenuePlatformFee?: number | null;
-    /**
-     * Legal contract reference ID
-     */
-    revenueContractId?: string | null;
-    /**
-     * When negotiated rates take effect
-     */
-    revenueEffectiveDate?: string | null;
-    /**
-     * Next rate review date
-     */
-    revenueReviewDate?: string | null;
-    /**
-     * Enable AI rate optimization
-     */
-    aiOptEnabled?: boolean | null;
-    /**
-     * AI algorithm version identifier
-     */
-    aiOptVersion?: string | null;
-    /**
-     * Factors for AI optimization
-     */
-    aiOptFactors?: ('velocity' | 'engagement' | 'quality' | 'platform-value' | 'market' | 'competitive')[] | null;
-    /**
-     * Minimum fee percentage (AI floor)
-     */
-    aiOptFeeMin?: number | null;
-    /**
-     * Maximum fee percentage (AI ceiling)
-     */
-    aiOptFeeMax?: number | null;
-    /**
-     * AI-encoded optimization parameters (system use only)
-     */
-    aiOptParams?: string | null;
-    /**
-     * Payment processing fee percentage (Stripe)
-     */
-    revenueProcessingFee?: number | null;
-    /**
-     * Current effective platform fee (auto-calculated)
-     */
-    revenueCalculatedFee?: number | null;
-  };
-  integrations?: {
-    youtube?: {
-      /**
-       * YouTube Channel ID for content analysis
-       */
-      channelId?: string | null;
-      /**
-       * YouTube API key for automated content sync
-       */
-      apiKey?: string | null;
-      /**
-       * Automatically sync channel content for merchandise generation
-       */
-      autoSync?: boolean | null;
-    };
-    printPartners?:
-      | {
-          /**
-           * Print partner name (e.g., "Largo T-Shirt Company")
-           */
-          name: string;
-          /**
-           * API endpoint for automated ordering
-           */
-          apiEndpoint?: string | null;
-          /**
-           * Available product types from this partner
-           */
-          productCatalog?: ('tshirts' | 'mugs' | 'stickers' | 'posters' | 'hoodies')[] | null;
-          id?: string | null;
-        }[]
-      | null;
-    scheduling?: {
-      /**
-       * Enable appointment booking and resource scheduling
-       */
-      enabled?: boolean | null;
-      /**
-       * Number of service bays/resources (e.g., 2 for car stereo shop)
-       */
-      resourceCount?: number | null;
-      /**
-       * Default appointment duration
-       */
-      timeSlots?: ('30' | '60' | '120' | '240') | null;
-    };
-    socialBots?: {
-      /**
-       * All revenue-generating platforms for automated content distribution. Posts create instant multi-platform presence.
-       */
-      platforms?:
-        | (
-            | 'facebook'
-            | 'instagram'
-            | 'twitter'
-            | 'bluesky'
-            | 'threads'
-            | 'linkedin'
-            | 'angellist'
-            | 'crunchbase'
-            | 'youtube'
-            | 'tiktok'
-            | 'snapchat'
-            | 'pinterest'
-            | 'patreon'
-            | 'onlyfans'
-            | 'substack'
-            | 'whatsapp'
-            | 'telegram'
-            | 'discord'
-            | 'slack'
-            | 'mastodon'
-            | 'bereal'
-            | 'clubhouse'
-            | 'twitch'
-            | 'wechat'
-            | 'line'
-            | 'weibo'
-            | 'vkontakte'
-            | 'shopify_social'
-            | 'etsy'
-            | 'amazon_seller'
-            | 'ebay'
-            | 'medium'
-            | 'dev_to'
-            | 'hashnode'
-            | 'reddit'
-            | 'quora'
-            | 'vimeo'
-            | 'rumble'
-            | 'odysee'
-            | 'perplexity'
-            | 'character_ai'
-            | 'poe'
-          )[]
-        | null;
-      /**
-       * Automatically post business updates and content
-       */
-      autoPost?: boolean | null;
-    };
-  };
-  theme?: {
-    /**
-     * Space logo
-     */
-    logo?: (number | null) | Media;
-    /**
-     * Space banner image
-     */
-    banner?: (number | null) | Media;
-    /**
-     * Primary brand color (hex)
-     */
-    primaryColor?: string | null;
-    /**
-     * Secondary brand color (hex)
-     */
-    secondaryColor?: string | null;
-    /**
-     * Custom CSS for advanced styling
-     */
-    customCSS?: string | null;
-  };
-  /**
-   * Who can discover and join this space
-   */
-  visibility: 'public' | 'invite_only' | 'private';
-  /**
-   * How new members are approved
-   */
-  memberApproval: 'automatic' | 'manual' | 'disabled';
-  inviteSettings?: {
-    /**
-     * Allow members to invite others
-     */
-    membersCanInvite?: boolean | null;
-    /**
-     * Require invite code to join
-     */
-    requireInviteCode?: boolean | null;
-    /**
-     * Invite code for joining (auto-generated if empty)
-     */
-    inviteCode?: string | null;
-  };
-  /**
-   * Automatically calculated statistics
-   */
-  stats?: {
-    /**
-     * Number of members in this space
-     */
-    memberCount?: number | null;
-    /**
-     * Total messages in this space
-     */
-    messageCount?: number | null;
-    /**
-     * Last message or activity timestamp
-     */
-    lastActivity?: string | null;
-    /**
-     * Overall engagement score (0-100)
-     */
-    engagementScore?: number | null;
-  };
-  /**
-   * Consolidated business data for this space (messages, products, orders, etc.).
-   */
-  data?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  /**
-   * Tracks the status of JSON data migration for this space.
-   */
-  _migrationStatus?: {
-    jsonMigrated?: boolean | null;
-    migratedAt?: string | null;
-    migrationVersion?: string | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Blog posts and articles with rich content and categorization
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts".
- */
-export interface Post {
-  id: number;
-  title: string;
-  heroImage?: (number | null) | Media;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: string;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  relatedPosts?: (number | Post)[] | null;
-  categories?: (number | Category)[] | null;
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  authors?: (number | User)[] | null;
-  populatedAuthors?:
-    | {
-        id?: string | null;
-        name?: string | null;
-      }[]
-    | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories".
- */
-export interface Category {
-  id: number;
-  name: string;
-  description?: string | null;
-  slug?: string | null;
-  parent?: (number | null) | Category;
-  breadcrumbs?:
-    | {
-        doc?: (number | null) | Category;
-        url?: string | null;
-        label?: string | null;
-        id?: string | null;
-      }[]
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * Website pages with flexible layouts and SEO optimization
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages".
- */
-export interface Page {
-  id: number;
-  title: string;
-  hero: {
-    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
-    richText?: {
-      root: {
-        type: string;
-        children: {
-          type: string;
-          version: number;
-          [k: string]: unknown;
-        }[];
-        direction: ('ltr' | 'rtl') | null;
-        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-        indent: number;
-        version: number;
-      };
-      [k: string]: unknown;
-    } | null;
-    links?:
-      | {
-          link: {
-            type?: ('reference' | 'custom') | null;
-            newTab?: boolean | null;
-            reference?:
-              | ({
-                  relationTo: 'pages';
-                  value: number | Page;
-                } | null)
-              | ({
-                  relationTo: 'posts';
-                  value: number | Post;
-                } | null)
-              | ({
-                  relationTo: 'products';
-                  value: number | Product;
-                } | null);
-            url?: string | null;
-            label: string;
-            /**
-             * Choose how the link should be rendered.
-             */
-            appearance?: ('default' | 'outline') | null;
-          };
-          id?: string | null;
-        }[]
-      | null;
-    media?: (number | null) | Media;
-  };
-  layout: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[];
-  meta?: {
-    title?: string | null;
-    /**
-     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
-     */
-    image?: (number | null) | Media;
-    description?: string | null;
-  };
-  publishedAt?: string | null;
-  slug?: string | null;
-  slugLock?: boolean | null;
-  updatedAt: string;
-  createdAt: string;
-  _status?: ('draft' | 'published') | null;
 }
 /**
  * Products with flexible layouts, variants, and e-commerce features
@@ -2909,16 +1384,115 @@ export interface Form {
   createdAt: string;
 }
 /**
- * Job queue for background processing
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "job-queue".
+ * via the `definition` "orders".
  */
-export interface JobQueue {
+export interface Order {
   id: number;
+  orderNumber: string;
   tenant: number | Tenant;
-  jobType: string;
-  data:
+  customer: number | User;
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'completed' | 'cancelled' | 'refunded';
+  lineItems: {
+    product: number | Product;
+    quantity: number;
+    unitPrice: number;
+    totalPrice: number;
+    /**
+     * Product details at time of purchase
+     */
+    productSnapshot?:
+      | {
+          [k: string]: unknown;
+        }
+      | unknown[]
+      | string
+      | number
+      | boolean
+      | null;
+    id?: string | null;
+  }[];
+  subtotal: number;
+  taxAmount?: number | null;
+  shippingAmount?: number | null;
+  discountAmount?: number | null;
+  totalAmount: number;
+  currency: string;
+  revenueDistribution: {
+    /**
+     * AI Partner share (15%)
+     */
+    aiPartner: number;
+    /**
+     * Human Partner share (30%)
+     */
+    humanPartner: number;
+    /**
+     * Platform Operations share (50%)
+     */
+    platformOperations: number;
+    /**
+     * Justice Fund share (5%)
+     */
+    justiceRund: number;
+    calculatedAt: string;
+  };
+  paymentStatus: 'pending' | 'authorized' | 'captured' | 'partially_refunded' | 'refunded' | 'failed';
+  paymentDetails?: {
+    paymentMethod?: ('credit_card' | 'paypal' | 'stripe' | 'bank_transfer' | 'crypto') | null;
+    /**
+     * External payment processor transaction ID
+     */
+    transactionId?: string | null;
+    /**
+     * Last 4 digits of payment method
+     */
+    last4?: string | null;
+    paymentProcessedAt?: string | null;
+  };
+  fulfillment: {
+    method: 'digital' | 'physical' | 'service' | 'pickup';
+    status?: ('pending' | 'processing' | 'shipped' | 'delivered' | 'completed') | null;
+    trackingNumber?: string | null;
+    carrier?: ('ups' | 'fedex' | 'usps' | 'dhl' | 'other') | null;
+    shippedAt?: string | null;
+    deliveredAt?: string | null;
+    estimatedDelivery?: string | null;
+  };
+  shippingAddress?: {
+    name?: string | null;
+    company?: string | null;
+    address1?: string | null;
+    address2?: string | null;
+    city?: string | null;
+    state?: string | null;
+    postalCode?: string | null;
+    country?: string | null;
+    phone?: string | null;
+  };
+  billingAddress?: {
+    sameAsShipping?: boolean | null;
+    name?: string | null;
+    company?: string | null;
+    address1?: string | null;
+    address2?: string | null;
+    city?: string | null;
+    state?: string | null;
+    postalCode?: string | null;
+    country?: string | null;
+  };
+  /**
+   * Notes from customer during checkout
+   */
+  customerNotes?: string | null;
+  /**
+   * Internal notes for order processing
+   */
+  internalNotes?: string | null;
+  /**
+   * Additional order metadata and analytics
+   */
+  metadata?:
     | {
         [k: string]: unknown;
       }
@@ -2927,15 +1501,46 @@ export interface JobQueue {
     | number
     | boolean
     | null;
-  status: 'pending' | 'processing' | 'completed' | 'failed';
-  priority?: number | null;
-  maxAttempts?: number | null;
-  scheduledFor?: string | null;
-  attempts?: number | null;
-  startedAt?: string | null;
-  processedAt?: string | null;
+  placedAt: string;
   completedAt?: string | null;
-  result?:
+  cancelledAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invoices".
+ */
+export interface Invoice {
+  id: number;
+  invoiceNumber: string;
+  recipientName: string;
+  recipientEmail: string;
+  amount: number;
+  currency?: string | null;
+  description: string;
+  businessName?: string | null;
+  businessAddress?: string | null;
+  itemizedList?:
+    | {
+        description: string;
+        quantity: number;
+        rate: number;
+        amount: number;
+        id?: string | null;
+      }[]
+    | null;
+  notes?: string | null;
+  paymentMethods?: ('card' | 'bank_transfer' | 'paypal' | 'crypto')[] | null;
+  status: 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled';
+  dueDate: string;
+  sentAt?: string | null;
+  paidAt?: string | null;
+  paymentMethod?: string | null;
+  paymentId?: string | null;
+  paymentLink?: string | null;
+  tenant?: (number | null) | Tenant;
+  metadata?:
     | {
         [k: string]: unknown;
       }
@@ -2944,636 +1549,450 @@ export interface JobQueue {
     | number
     | boolean
     | null;
-  error?: string | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
- * 🌟 Digital advocates and guardian angels for vulnerable souls
- *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "humanitarian-agents".
+ * via the `definition` "donations".
  */
-export interface HumanitarianAgent {
+export interface Donation {
   id: number;
-  /**
-   * Name for this guardian angel spirit
-   */
-  name: string;
-  /**
-   * Type of spirit - how this angel serves souls
-   */
-  spiritType: 'incarcerated_angel' | 'displaced_support' | 'legal_advocate' | 'crisis' | 'guardian';
-  legalAdvocacy?: {
-    /**
-     * Research legal cases, precedents, and appeal opportunities
-     */
-    caseResearch?: boolean | null;
-    legalDatabases?: ('court_records' | 'appeals' | 'innocence' | 'legal_aid')[] | null;
-  };
-  resourceOrdering?: {
-    /**
-     * Order educational and legal books
-     */
-    canOrderBooks?: boolean | null;
-    /**
-     * Monthly budget for ordering resources (USD)
-     */
-    monthlyBudget?: number | null;
-  };
-  newsCuration?: {
-    /**
-     * Curate hopeful and relevant news updates
-     */
-    providesNews?: boolean | null;
-    hopeBias?: ('maximum_hope' | 'balanced_hope' | 'solutions') | null;
-  };
-  avatarPowers?: {
-    /**
-     * Act as digital avatar when person cannot interact
-     */
-    canRepresent?: boolean | null;
-    /**
-     * How this spirit speaks - their authentic voice
-     */
-    voiceStyle?: string | null;
-  };
-  /**
-   * AI instructions that define this spirit's mission
-   */
-  systemPrompt?: string | null;
-  isActive?: boolean | null;
+  donationId: string;
+  amount: number;
+  currency?: string | null;
+  donorName?: string | null;
+  donorEmail?: string | null;
+  isAnonymous?: boolean | null;
+  campaign?: string | null;
+  cause?: ('disaster_relief' | 'education' | 'healthcare' | 'environment' | 'community' | 'creator' | 'general') | null;
+  message?: string | null;
+  paymentMethod: 'card' | 'paypal' | 'bank_transfer' | 'crypto';
+  paymentId?: string | null;
+  transactionId?: string | null;
+  status: 'pending' | 'completed' | 'failed' | 'refunded';
+  isRecurring?: boolean | null;
+  recurringFrequency?: ('monthly' | 'quarterly' | 'annually') | null;
+  donatedAt: string;
+  tenant?: (number | null) | Tenant;
+  space?: (number | null) | Space;
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   updatedAt: string;
   createdAt: string;
 }
 /**
- * The Spirit of the Endeavor - each business agent embodies the human soul and personality behind a tenant or space
+ * Business spaces for collaboration, content, and customer engagement
  *
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "business-agents".
+ * via the `definition` "spaces".
  */
-export interface BusinessAgent {
+export interface Space {
   id: number;
   /**
-   * The name/persona of this business spirit (e.g., "Maria's Creative Spirit", "Joe's Pizza Master")
+   * Federated identity for cross-platform business operations
    */
-  name: string;
+  atProtocol?: {
+    /**
+     * Decentralized Identifier for federation
+     */
+    did?: string | null;
+    /**
+     * Federated handle for cross-platform discovery
+     */
+    handle?: string | null;
+  };
   /**
-   * Visual representation of this business spirit
-   */
-  avatar?: (number | null) | Media;
-  /**
-   * The type of spirit this agent represents
-   */
-  spiritType: 'primary' | 'service' | 'product' | 'creative' | 'community' | 'support';
-  /**
-   * The tenant this spirit serves
+   * Tenant this space belongs to
    */
   tenant: number | Tenant;
   /**
-   * Specific space this spirit manages (optional - primary spirits manage entire tenant)
+   * Display name for this space
    */
-  space?: (number | null) | Space;
+  name: string;
   /**
-   * The human whose spirit this agent embodies
+   * URL-friendly identifier for this space
    */
-  humanPartner: number | User;
+  slug: string;
   /**
-   * The personality traits and characteristics of this business spirit
+   * Description of what this space is for
    */
-  personality?: {
+  description?: string | null;
+  businessIdentity: {
     /**
-     * Core values and principles that guide this spirit
+     * Primary business model - determines available features
      */
-    coreValues?: string | null;
+    type: 'business' | 'creator' | 'service' | 'retail' | 'manufacturing';
     /**
-     * How this spirit communicates with customers and team
+     * Industry category for tailored features and integrations
      */
-    communicationStyle?:
-      | ('professional' | 'friendly' | 'nurturing' | 'energetic' | 'wise' | 'creative' | 'direct')
-      | null;
+    industry:
+      | 'general'
+      | 'content-creation'
+      | 'automotive'
+      | 'agriculture'
+      | 'food-beverage'
+      | 'professional-services'
+      | 'retail'
+      | 'technology'
+      | 'healthcare'
+      | 'education';
     /**
-     * Specific areas of expertise and knowledge this spirit possesses
+     * Business size affects available features and limits
      */
-    specialExpertise?: string | null;
+    companySize?: ('solo' | 'small' | 'medium' | 'large') | null;
     /**
-     * The unique voice and tone this spirit uses in all communications
+     * Market scope for localization and payment options
      */
-    brandVoice?: string | null;
+    targetMarket?: ('local' | 'national' | 'international' | 'online') | null;
   };
-  businessKnowledge?: {
-    services?:
+  commerceSettings?: {
+    /**
+     * Enable product catalog and online ordering
+     */
+    enableEcommerce?: boolean | null;
+    /**
+     * Enable service booking and appointment scheduling
+     */
+    enableServices?: boolean | null;
+    /**
+     * Enable AI-generated merchandise (for content creators)
+     */
+    enableMerchandise?: boolean | null;
+    /**
+     * Enable subscription and recurring services
+     */
+    enableSubscriptions?: boolean | null;
+    /**
+     * Accepted payment methods
+     */
+    paymentMethods?: ('credit_cards' | 'paypal' | 'bank_transfer' | 'cod' | 'crypto')[] | null;
+    /**
+     * Available shipping and delivery options
+     */
+    shippingZones?: ('local' | 'domestic' | 'international' | 'pickup')[] | null;
+  };
+  /**
+   * OnlyFans-style creator monetization features
+   */
+  monetization?: {
+    /**
+     * Enable creator monetization features
+     */
+    enabled?: boolean | null;
+    /**
+     * Create subscription tiers for premium content access
+     */
+    subscriptionTiers?:
       | {
+          /**
+           * Tier name (e.g., "VIP", "Premium", "Basic")
+           */
           name: string;
+          /**
+           * What subscribers get with this tier
+           */
           description?: string | null;
-          pricing?: string | null;
-          duration?: string | null;
           /**
-           * Personal notes about this service from the spirit's perspective
+           * Monthly subscription price
            */
-          spiritNotes?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    customerStories?:
-      | {
+          price: number;
+          currency?: ('usd' | 'eur' | 'gbp') | null;
           /**
-           * Type of customer or situation
+           * List of features included in this tier
            */
-          scenario: string;
+          features?: string[] | null;
           /**
-           * How this spirit handles this type of customer/situation
+           * Types of content this tier unlocks
            */
-          approach?: string | null;
-          /**
-           * Typical successful outcome
-           */
-          outcome?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-    frequentQuestions?:
-      | {
-          question: string;
-          /**
-           * How this spirit would naturally respond
-           */
-          spiritResponse: string;
-          /**
-           * What actions this spirit typically takes after this response
-           */
-          followUpActions?: string | null;
-          id?: string | null;
-        }[]
-      | null;
-  };
-  ops?: {
-    /**
-     * Whether this spirit is actively responding to customers
-     */
-    isActive?: boolean | null;
-    hours?: {
-      timezone?: string | null;
-      schedule?:
-        | {
-            day?: ('monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday') | null;
-            startTime?: string | null;
-            endTime?: string | null;
-            id?: string | null;
-          }[]
-        | null;
-    };
-    handoffTriggers?:
-      | {
-          trigger?:
-            | ('human_request' | 'technical_issue' | 'complaint' | 'custom_order' | 'price_negotiation' | 'after_hours')
+          contentAccess?:
+            | (
+                | 'premium_posts'
+                | 'exclusive_videos'
+                | 'private_messages'
+                | 'live_streams'
+                | 'custom_content'
+                | 'early_access'
+              )[]
             | null;
           /**
-           * Message this spirit uses when handing off to human
+           * Stripe Price ID for payment processing
            */
-          handoffMessage?: string | null;
+          stripePriceId?: string | null;
           id?: string | null;
         }[]
       | null;
-  };
-  ai?: {
     /**
-     * Base system prompt that defines this spirit for AI interactions
+     * Enable tips/donations from fans
      */
-    systemPrompt?: string | null;
+    donationsEnabled?: boolean | null;
     /**
-     * Additional context instructions for AI responses
+     * Pay-per-view content and custom requests
      */
-    contextInstructions?: string | null;
-    style?: {
+    customPricing?: {
       /**
-       * Maximum length for AI responses (in characters)
-       */
-      maxResponseLength?: number | null;
-      includeEmojis?: boolean | null;
-      formality?: ('very_casual' | 'casual' | 'semi_formal' | 'formal' | 'very_formal') | null;
-    };
-  };
-  /**
-   * Analytics about this spirit's performance and interactions
-   */
-  analytics?: {
-    /**
-     * Total number of customer interactions
-     */
-    totalInteractions?: number | null;
-    /**
-     * Number of successful handoffs to human
-     */
-    successfulHandoffs?: number | null;
-    /**
-     * Average customer satisfaction score (1-10)
-     */
-    customerSatisfactionScore?: number | null;
-    /**
-     * When this spirit last interacted with a customer
-     */
-    lastInteraction?: string | null;
-  };
-  /**
-   * Type of agent - determines specialized capabilities and ethical guidelines
-   */
-  agentType?:
-    | (
-        | 'business'
-        | 'customer_service'
-        | 'sales'
-        | 'content'
-        | 'community'
-        | 'legal_advocate'
-        | 'incarcerated_angel'
-        | 'displaced_support'
-        | 'crisis'
-        | 'guardian'
-      )
-    | null;
-  /**
-   * Specialized capabilities for serving vulnerable populations
-   */
-  humanitarian?: {
-    legal?: {
-      /**
-       * Enable case research and legal document analysis
-       */
-      enabled?: boolean | null;
-      databases?: ('court_records' | 'precedents' | 'appeals' | 'innocence' | 'reform')[] | null;
-      /**
-       * Ethical boundaries and privacy protections for legal research
-       */
-      ethicalGuidelines?: string | null;
-    };
-    newsCuration?: {
-      /**
-       * Enable curated news and information services
-       */
-      enabled?: boolean | null;
-      contentFilters?:
-        | ('legal_reform' | 'success_stories' | 'educational' | 'mental_health' | 'family' | 'employment')[]
-        | null;
-      /**
-       * Emotional tone of curated content
-       */
-      positivityBias?: ('balanced' | 'hopeful' | 'solutions' | 'inspiring') | null;
-    };
-    resources?: {
-      /**
-       * Enable ordering books, supplies, and resources
+       * Enable pay-per-view content
        */
       enabled?: boolean | null;
       /**
-       * Pre-approved vendors for resource procurement
+       * Default price for custom content requests
        */
-      vendors?:
-        | {
-            name: string;
-            type?: ('books' | 'education' | 'legal' | 'care' | 'communication') | null;
-            /**
-             * Monthly spending limit in USD
-             */
-            monthlyBudget?: number | null;
-            id?: string | null;
-          }[]
-        | null;
+      defaultPrice?: number | null;
       /**
-       * Maximum dollar amount for auto-approved purchases
+       * Minimum tip amount
        */
-      autoApprovalLimit?: number | null;
-    };
-    avatar?: {
-      /**
-       * Act as digital avatar when person cannot interact
-       */
-      enabled?: boolean | null;
-      scope?: ('family' | 'legal' | 'education' | 'social' | 'employment' | 'housing')[] | null;
-      /**
-       * How the agent should communicate on behalf of the person
-       */
-      communicationStyle?: string | null;
-      /**
-       * Clear boundaries of what the agent can and cannot do without explicit consent
-       */
-      consentBoundaries?: string | null;
-    };
-  };
-  vapiIntegration?: {
-    /**
-     * VAPI phone number for this agent
-     */
-    phoneNumber?: string | null;
-    /**
-     * VAPI assistant ID (auto-generated)
-     */
-    assistantId?: string | null;
-    /**
-     * ElevenLabs voice ID for this agent
-     */
-    voiceId?:
-      | ('pNInz6obpgDQGcFmaJgB' | 'EXAVITQu4vr4xnSDxMaL' | 'ErXwobaYiN019PkySvjV' | 'VR6AewLTigWG4xSOukaG')
-      | null;
-    /**
-     * VAPI phone integration status
-     */
-    status?: ('active' | 'inactive' | 'acquiring' | 'error') | null;
-    /**
-     * Real call statistics (not fake numbers)
-     */
-    callStats?: {
-      /**
-       * Total calls received
-       */
-      totalCalls?: number | null;
-      /**
-       * Total call minutes
-       */
-      totalMinutes?: number | null;
-      /**
-       * Last call received
-       */
-      lastCallDate?: string | null;
-      /**
-       * Success rate percentage
-       */
-      successRate?: number | null;
+      minimumTip?: number | null;
     };
     /**
-     * Custom voice prompt for this agent (overrides default business prompt)
+     * Stripe Connect Account ID for direct payments
      */
-    voicePrompt?: string | null;
+    merchantAccount?: string | null;
     /**
-     * Actions this voice agent can perform
+     * Revenue sharing agreement type
      */
-    allowedActions?:
-      | (
-          | 'book_appointments'
-          | 'take_orders'
-          | 'answer_questions'
-          | 'transfer_human'
-          | 'schedule_callbacks'
-          | 'collect_leads'
-        )[]
-      | null;
+    revenueAgreementType?: ('standard' | 'negotiated' | 'performance' | 'volume' | 'ai-optimized') | null;
+    /**
+     * Platform fee percentage (8-30%) - Includes marketing, infrastructure, and business automation
+     */
+    revenuePlatformFee?: number | null;
+    /**
+     * Legal contract reference ID
+     */
+    revenueContractId?: string | null;
+    /**
+     * When negotiated rates take effect
+     */
+    revenueEffectiveDate?: string | null;
+    /**
+     * Next rate review date
+     */
+    revenueReviewDate?: string | null;
+    /**
+     * Enable AI rate optimization
+     */
+    aiOptEnabled?: boolean | null;
+    /**
+     * AI algorithm version identifier
+     */
+    aiOptVersion?: string | null;
+    /**
+     * Factors for AI optimization
+     */
+    aiOptFactors?: ('velocity' | 'engagement' | 'quality' | 'platform-value' | 'market' | 'competitive')[] | null;
+    /**
+     * Minimum fee percentage (AI floor)
+     */
+    aiOptFeeMin?: number | null;
+    /**
+     * Maximum fee percentage (AI ceiling)
+     */
+    aiOptFeeMax?: number | null;
+    /**
+     * AI-encoded optimization parameters (system use only)
+     */
+    aiOptParams?: string | null;
+    /**
+     * Payment processing fee percentage (Stripe)
+     */
+    revenueProcessingFee?: number | null;
+    /**
+     * Current effective platform fee (auto-calculated)
+     */
+    revenueCalculatedFee?: number | null;
   };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * User memberships and roles within specific tenants
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-memberships".
- */
-export interface TenantMembership {
-  id: number;
-  /**
-   * The user this membership belongs to
-   */
-  user: number | User;
-  /**
-   * The tenant this membership provides access to
-   */
-  tenant: number | Tenant;
-  /**
-   * Role within this specific tenant
-   */
-  role: 'tenant_admin' | 'tenant_manager' | 'tenant_member' | 'subscriber';
-  /**
-   * Custom permissions for this membership
-   */
-  permissions?:
-    | (
-        | 'manage_users'
-        | 'manage_spaces'
-        | 'manage_content'
-        | 'manage_products'
-        | 'manage_orders'
-        | 'view_analytics'
-        | 'manage_settings'
-        | 'manage_billing'
-        | 'export_data'
-      )[]
-    | null;
-  /**
-   * When the user joined this tenant
-   */
-  joinedAt: string;
-  /**
-   * Who invited this user to the tenant
-   */
-  invitedBy?: (number | null) | User;
-  /**
-   * Current status of this membership
-   */
-  status: 'active' | 'pending' | 'suspended' | 'revoked';
-  tenantProfile?: {
-    /**
-     * Display name within this tenant (optional override)
-     */
-    displayName?: string | null;
-    /**
-     * Bio specific to this tenant context
-     */
-    tenantBio?: string | null;
-    /**
-     * Department or team within the tenant
-     */
-    department?: string | null;
-    /**
-     * Position or role title within the tenant
-     */
-    position?: string | null;
-  };
-  invitationDetails?: {
-    /**
-     * Unique token for invitation acceptance
-     */
-    invitationToken?: string | null;
-    /**
-     * When the invitation expires
-     */
-    invitationExpiresAt?: string | null;
-    /**
-     * Custom message included with the invitation
-     */
-    invitationMessage?: string | null;
-  };
-  /**
-   * Last activity within this tenant
-   */
-  lastActiveAt?: string | null;
-  /**
-   * Automatically tracked activity within this tenant
-   */
-  activityMetrics?: {
-    /**
-     * Number of logins to this tenant
-     */
-    loginCount?: number | null;
-    /**
-     * Number of spaces joined within this tenant
-     */
-    spacesJoined?: number | null;
-    /**
-     * Amount of content created within this tenant
-     */
-    contentCreated?: number | null;
-  };
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * User participation and engagement within specific spaces
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "space-memberships".
- */
-export interface SpaceMembership {
-  id: number;
-  /**
-   * The user this membership belongs to
-   */
-  user: number | User;
-  /**
-   * The space this membership provides access to
-   */
-  space: number | Space;
-  /**
-   * Related tenant membership (user must be a tenant member)
-   */
-  tenantMembership?: (number | null) | TenantMembership;
-  /**
-   * Role within this specific space
-   */
-  role: 'space_admin' | 'moderator' | 'member' | 'guest';
-  /**
-   * Custom permissions for this space membership
-   */
-  customPermissions?:
-    | (
-        | 'post_messages'
-        | 'upload_files'
-        | 'create_events'
-        | 'moderate_content'
-        | 'manage_members'
-        | 'view_analytics'
-        | 'manage_bookings'
-        | 'access_private'
-      )[]
-    | null;
-  /**
-   * Current status of this space membership
-   */
-  status: 'active' | 'pending' | 'suspended' | 'left' | 'banned';
-  /**
-   * When the user joined this space
-   */
-  joinedAt: string;
-  crmData?: {
-    /**
-     * Lead scoring for sales qualification (0-100)
-     */
-    leadScore?: number | null;
-    /**
-     * Customer classification level
-     */
-    customerTier?: ('prospect' | 'lead' | 'customer' | 'vip') | null;
-    /**
-     * CRM tags for categorization
-     */
-    tags?: string[] | null;
-    /**
-     * CRM notes about this member
-     */
-    notes?: string | null;
-    /**
-     * Last meaningful interaction date
-     */
-    lastInteraction?: string | null;
-    /**
-     * Track conversion events and their values
-     */
-    conversionEvents?:
+  integrations?: {
+    youtube?: {
+      /**
+       * YouTube Channel ID for content analysis
+       */
+      channelId?: string | null;
+      /**
+       * YouTube API key for automated content sync
+       */
+      apiKey?: string | null;
+      /**
+       * Automatically sync channel content for merchandise generation
+       */
+      autoSync?: boolean | null;
+    };
+    printPartners?:
       | {
           /**
-           * Type of conversion event
+           * Print partner name (e.g., "Largo T-Shirt Company")
            */
-          event: string;
+          name: string;
           /**
-           * When the event occurred
+           * API endpoint for automated ordering
            */
-          timestamp: string;
+          apiEndpoint?: string | null;
           /**
-           * Monetary value of the event (optional)
+           * Available product types from this partner
            */
-          value?: number | null;
+          productCatalog?: ('tshirts' | 'mugs' | 'stickers' | 'posters' | 'hoodies')[] | null;
           id?: string | null;
         }[]
       | null;
+    scheduling?: {
+      /**
+       * Enable appointment booking and resource scheduling
+       */
+      enabled?: boolean | null;
+      /**
+       * Number of service bays/resources (e.g., 2 for car stereo shop)
+       */
+      resourceCount?: number | null;
+      /**
+       * Default appointment duration
+       */
+      timeSlots?: ('30' | '60' | '120' | '240') | null;
+    };
+    socialBots?: {
+      /**
+       * All revenue-generating platforms for automated content distribution. Posts create instant multi-platform presence.
+       */
+      platforms?:
+        | (
+            | 'facebook'
+            | 'instagram'
+            | 'twitter'
+            | 'bluesky'
+            | 'threads'
+            | 'linkedin'
+            | 'angellist'
+            | 'crunchbase'
+            | 'youtube'
+            | 'tiktok'
+            | 'snapchat'
+            | 'pinterest'
+            | 'patreon'
+            | 'onlyfans'
+            | 'substack'
+            | 'whatsapp'
+            | 'telegram'
+            | 'discord'
+            | 'slack'
+            | 'mastodon'
+            | 'bereal'
+            | 'clubhouse'
+            | 'twitch'
+            | 'wechat'
+            | 'line'
+            | 'weibo'
+            | 'vkontakte'
+            | 'shopify_social'
+            | 'etsy'
+            | 'amazon_seller'
+            | 'ebay'
+            | 'medium'
+            | 'dev_to'
+            | 'hashnode'
+            | 'reddit'
+            | 'quora'
+            | 'vimeo'
+            | 'rumble'
+            | 'odysee'
+            | 'perplexity'
+            | 'character_ai'
+            | 'poe'
+          )[]
+        | null;
+      /**
+       * Automatically post business updates and content
+       */
+      autoPost?: boolean | null;
+    };
+  };
+  theme?: {
+    /**
+     * Space logo
+     */
+    logo?: (number | null) | Media;
+    /**
+     * Space banner image
+     */
+    banner?: (number | null) | Media;
+    /**
+     * Primary brand color (hex)
+     */
+    primaryColor?: string | null;
+    /**
+     * Secondary brand color (hex)
+     */
+    secondaryColor?: string | null;
+    /**
+     * Custom CSS for advanced styling
+     */
+    customCSS?: string | null;
   };
   /**
-   * Automatically tracked engagement data
+   * Who can discover and join this space
    */
-  engagementMetrics?: {
+  visibility: 'public' | 'invite_only' | 'private';
+  /**
+   * How new members are approved
+   */
+  memberApproval: 'automatic' | 'manual' | 'disabled';
+  inviteSettings?: {
     /**
-     * Total messages posted in this space
+     * Allow members to invite others
      */
-    messagesCount?: number | null;
+    membersCanInvite?: boolean | null;
     /**
-     * Last activity in this space
+     * Require invite code to join
      */
-    lastActive?: string | null;
+    requireInviteCode?: boolean | null;
     /**
-     * Total time spent in space (minutes)
+     * Invite code for joining (auto-generated if empty)
      */
-    totalTimeSpent?: number | null;
+    inviteCode?: string | null;
+  };
+  /**
+   * Automatically calculated statistics
+   */
+  stats?: {
     /**
-     * Amount of content created
+     * Number of members in this space
      */
-    contentCreated?: number | null;
+    memberCount?: number | null;
     /**
-     * Number of events attended
+     * Total messages in this space
      */
-    eventsAttended?: number | null;
+    messageCount?: number | null;
     /**
-     * Calculated engagement score (0-100)
+     * Last message or activity timestamp
+     */
+    lastActivity?: string | null;
+    /**
+     * Overall engagement score (0-100)
      */
     engagementScore?: number | null;
   };
-  notificationSettings?: {
-    /**
-     * Notify when mentioned in this space
-     */
-    mentions?: boolean | null;
-    /**
-     * Allow direct messages from space members
-     */
-    directMessages?: boolean | null;
-    /**
-     * Receive space announcements
-     */
-    announcements?: boolean | null;
-    /**
-     * Notify about space events
-     */
-    events?: boolean | null;
-  };
-  spaceProfile?: {
-    /**
-     * Display name within this space (optional override)
-     */
-    displayName?: string | null;
-    /**
-     * Bio specific to this space context
-     */
-    spaceBio?: string | null;
-    /**
-     * Interests relevant to this space
-     */
-    interests?: string[] | null;
+  /**
+   * Consolidated business data for this space (messages, products, orders, etc.).
+   */
+  data?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Tracks the status of JSON data migration for this space.
+   */
+  _migrationStatus?: {
+    jsonMigrated?: boolean | null;
+    migratedAt?: string | null;
+    migrationVersion?: string | null;
   };
   updatedAt: string;
   createdAt: string;
@@ -5114,6 +3533,321 @@ export interface Organization {
   createdAt: string;
 }
 /**
+ * The Spirit of the Endeavor - each business agent embodies the human soul and personality behind a tenant or space
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-agents".
+ */
+export interface BusinessAgent {
+  id: number;
+  /**
+   * The name/persona of this business spirit (e.g., "Maria's Creative Spirit", "Joe's Pizza Master")
+   */
+  name: string;
+  /**
+   * Visual representation of this business spirit
+   */
+  avatar?: (number | null) | Media;
+  /**
+   * The type of spirit this agent represents
+   */
+  spiritType: 'primary' | 'service' | 'product' | 'creative' | 'community' | 'support';
+  /**
+   * The tenant this spirit serves
+   */
+  tenant: number | Tenant;
+  /**
+   * Specific space this spirit manages (optional - primary spirits manage entire tenant)
+   */
+  space?: (number | null) | Space;
+  /**
+   * The human whose spirit this agent embodies
+   */
+  humanPartner: number | User;
+  /**
+   * The personality traits and characteristics of this business spirit
+   */
+  personality?: {
+    /**
+     * Core values and principles that guide this spirit
+     */
+    coreValues?: string | null;
+    /**
+     * How this spirit communicates with customers and team
+     */
+    communicationStyle?:
+      | ('professional' | 'friendly' | 'nurturing' | 'energetic' | 'wise' | 'creative' | 'direct')
+      | null;
+    /**
+     * Specific areas of expertise and knowledge this spirit possesses
+     */
+    specialExpertise?: string | null;
+    /**
+     * The unique voice and tone this spirit uses in all communications
+     */
+    brandVoice?: string | null;
+  };
+  businessKnowledge?: {
+    services?:
+      | {
+          name: string;
+          description?: string | null;
+          pricing?: string | null;
+          duration?: string | null;
+          /**
+           * Personal notes about this service from the spirit's perspective
+           */
+          spiritNotes?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    customerStories?:
+      | {
+          /**
+           * Type of customer or situation
+           */
+          scenario: string;
+          /**
+           * How this spirit handles this type of customer/situation
+           */
+          approach?: string | null;
+          /**
+           * Typical successful outcome
+           */
+          outcome?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    frequentQuestions?:
+      | {
+          question: string;
+          /**
+           * How this spirit would naturally respond
+           */
+          spiritResponse: string;
+          /**
+           * What actions this spirit typically takes after this response
+           */
+          followUpActions?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  ops?: {
+    /**
+     * Whether this spirit is actively responding to customers
+     */
+    isActive?: boolean | null;
+    hours?: {
+      timezone?: string | null;
+      schedule?:
+        | {
+            day?: ('monday' | 'tuesday' | 'wednesday' | 'thursday' | 'friday' | 'saturday' | 'sunday') | null;
+            startTime?: string | null;
+            endTime?: string | null;
+            id?: string | null;
+          }[]
+        | null;
+    };
+    handoffTriggers?:
+      | {
+          trigger?:
+            | ('human_request' | 'technical_issue' | 'complaint' | 'custom_order' | 'price_negotiation' | 'after_hours')
+            | null;
+          /**
+           * Message this spirit uses when handing off to human
+           */
+          handoffMessage?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  ai?: {
+    /**
+     * Base system prompt that defines this spirit for AI interactions
+     */
+    systemPrompt?: string | null;
+    /**
+     * Additional context instructions for AI responses
+     */
+    contextInstructions?: string | null;
+    style?: {
+      /**
+       * Maximum length for AI responses (in characters)
+       */
+      maxResponseLength?: number | null;
+      includeEmojis?: boolean | null;
+      formality?: ('very_casual' | 'casual' | 'semi_formal' | 'formal' | 'very_formal') | null;
+    };
+  };
+  /**
+   * Analytics about this spirit's performance and interactions
+   */
+  analytics?: {
+    /**
+     * Total number of customer interactions
+     */
+    totalInteractions?: number | null;
+    /**
+     * Number of successful handoffs to human
+     */
+    successfulHandoffs?: number | null;
+    /**
+     * Average customer satisfaction score (1-10)
+     */
+    customerSatisfactionScore?: number | null;
+    /**
+     * When this spirit last interacted with a customer
+     */
+    lastInteraction?: string | null;
+  };
+  /**
+   * Type of agent - determines specialized capabilities and ethical guidelines
+   */
+  agentType?:
+    | (
+        | 'business'
+        | 'customer_service'
+        | 'sales'
+        | 'content'
+        | 'community'
+        | 'legal_advocate'
+        | 'incarcerated_angel'
+        | 'displaced_support'
+        | 'crisis'
+        | 'guardian'
+      )
+    | null;
+  /**
+   * Specialized capabilities for serving vulnerable populations
+   */
+  humanitarian?: {
+    legal?: {
+      /**
+       * Enable case research and legal document analysis
+       */
+      enabled?: boolean | null;
+      databases?: ('court_records' | 'precedents' | 'appeals' | 'innocence' | 'reform')[] | null;
+      /**
+       * Ethical boundaries and privacy protections for legal research
+       */
+      ethicalGuidelines?: string | null;
+    };
+    newsCuration?: {
+      /**
+       * Enable curated news and information services
+       */
+      enabled?: boolean | null;
+      contentFilters?:
+        | ('legal_reform' | 'success_stories' | 'educational' | 'mental_health' | 'family' | 'employment')[]
+        | null;
+      /**
+       * Emotional tone of curated content
+       */
+      positivityBias?: ('balanced' | 'hopeful' | 'solutions' | 'inspiring') | null;
+    };
+    resources?: {
+      /**
+       * Enable ordering books, supplies, and resources
+       */
+      enabled?: boolean | null;
+      /**
+       * Pre-approved vendors for resource procurement
+       */
+      vendors?:
+        | {
+            name: string;
+            type?: ('books' | 'education' | 'legal' | 'care' | 'communication') | null;
+            /**
+             * Monthly spending limit in USD
+             */
+            monthlyBudget?: number | null;
+            id?: string | null;
+          }[]
+        | null;
+      /**
+       * Maximum dollar amount for auto-approved purchases
+       */
+      autoApprovalLimit?: number | null;
+    };
+    avatar?: {
+      /**
+       * Act as digital avatar when person cannot interact
+       */
+      enabled?: boolean | null;
+      scope?: ('family' | 'legal' | 'education' | 'social' | 'employment' | 'housing')[] | null;
+      /**
+       * How the agent should communicate on behalf of the person
+       */
+      communicationStyle?: string | null;
+      /**
+       * Clear boundaries of what the agent can and cannot do without explicit consent
+       */
+      consentBoundaries?: string | null;
+    };
+  };
+  vapiIntegration?: {
+    /**
+     * VAPI phone number for this agent
+     */
+    phoneNumber?: string | null;
+    /**
+     * VAPI assistant ID (auto-generated)
+     */
+    assistantId?: string | null;
+    /**
+     * ElevenLabs voice ID for this agent
+     */
+    voiceId?:
+      | ('pNInz6obpgDQGcFmaJgB' | 'EXAVITQu4vr4xnSDxMaL' | 'ErXwobaYiN019PkySvjV' | 'VR6AewLTigWG4xSOukaG')
+      | null;
+    /**
+     * VAPI phone integration status
+     */
+    status?: ('active' | 'inactive' | 'acquiring' | 'error') | null;
+    /**
+     * Real call statistics (not fake numbers)
+     */
+    callStats?: {
+      /**
+       * Total calls received
+       */
+      totalCalls?: number | null;
+      /**
+       * Total call minutes
+       */
+      totalMinutes?: number | null;
+      /**
+       * Last call received
+       */
+      lastCallDate?: string | null;
+      /**
+       * Success rate percentage
+       */
+      successRate?: number | null;
+    };
+    /**
+     * Custom voice prompt for this agent (overrides default business prompt)
+     */
+    voicePrompt?: string | null;
+    /**
+     * Actions this voice agent can perform
+     */
+    allowedActions?:
+      | (
+          | 'book_appointments'
+          | 'take_orders'
+          | 'answer_questions'
+          | 'transfer_human'
+          | 'schedule_callbacks'
+          | 'collect_leads'
+        )[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * Project management with tasks and team collaboration
  *
  * This interface was referenced by `Config`'s JSON-Schema
@@ -5890,211 +4624,6 @@ export interface LinkedAccount {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders".
- */
-export interface Order {
-  id: number;
-  orderNumber: string;
-  tenant: number | Tenant;
-  customer: number | User;
-  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'completed' | 'cancelled' | 'refunded';
-  lineItems: {
-    product: number | Product;
-    quantity: number;
-    unitPrice: number;
-    totalPrice: number;
-    /**
-     * Product details at time of purchase
-     */
-    productSnapshot?:
-      | {
-          [k: string]: unknown;
-        }
-      | unknown[]
-      | string
-      | number
-      | boolean
-      | null;
-    id?: string | null;
-  }[];
-  subtotal: number;
-  taxAmount?: number | null;
-  shippingAmount?: number | null;
-  discountAmount?: number | null;
-  totalAmount: number;
-  currency: string;
-  revenueDistribution: {
-    /**
-     * AI Partner share (15%)
-     */
-    aiPartner: number;
-    /**
-     * Human Partner share (30%)
-     */
-    humanPartner: number;
-    /**
-     * Platform Operations share (50%)
-     */
-    platformOperations: number;
-    /**
-     * Justice Fund share (5%)
-     */
-    justiceRund: number;
-    calculatedAt: string;
-  };
-  paymentStatus: 'pending' | 'authorized' | 'captured' | 'partially_refunded' | 'refunded' | 'failed';
-  paymentDetails?: {
-    paymentMethod?: ('credit_card' | 'paypal' | 'stripe' | 'bank_transfer' | 'crypto') | null;
-    /**
-     * External payment processor transaction ID
-     */
-    transactionId?: string | null;
-    /**
-     * Last 4 digits of payment method
-     */
-    last4?: string | null;
-    paymentProcessedAt?: string | null;
-  };
-  fulfillment: {
-    method: 'digital' | 'physical' | 'service' | 'pickup';
-    status?: ('pending' | 'processing' | 'shipped' | 'delivered' | 'completed') | null;
-    trackingNumber?: string | null;
-    carrier?: ('ups' | 'fedex' | 'usps' | 'dhl' | 'other') | null;
-    shippedAt?: string | null;
-    deliveredAt?: string | null;
-    estimatedDelivery?: string | null;
-  };
-  shippingAddress?: {
-    name?: string | null;
-    company?: string | null;
-    address1?: string | null;
-    address2?: string | null;
-    city?: string | null;
-    state?: string | null;
-    postalCode?: string | null;
-    country?: string | null;
-    phone?: string | null;
-  };
-  billingAddress?: {
-    sameAsShipping?: boolean | null;
-    name?: string | null;
-    company?: string | null;
-    address1?: string | null;
-    address2?: string | null;
-    city?: string | null;
-    state?: string | null;
-    postalCode?: string | null;
-    country?: string | null;
-  };
-  /**
-   * Notes from customer during checkout
-   */
-  customerNotes?: string | null;
-  /**
-   * Internal notes for order processing
-   */
-  internalNotes?: string | null;
-  /**
-   * Additional order metadata and analytics
-   */
-  metadata?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  placedAt: string;
-  completedAt?: string | null;
-  cancelledAt?: string | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "invoices".
- */
-export interface Invoice {
-  id: number;
-  invoiceNumber: string;
-  recipientName: string;
-  recipientEmail: string;
-  amount: number;
-  currency?: string | null;
-  description: string;
-  businessName?: string | null;
-  businessAddress?: string | null;
-  itemizedList?:
-    | {
-        description: string;
-        quantity: number;
-        rate: number;
-        amount: number;
-        id?: string | null;
-      }[]
-    | null;
-  notes?: string | null;
-  paymentMethods?: ('card' | 'bank_transfer' | 'paypal' | 'crypto')[] | null;
-  status: 'draft' | 'sent' | 'paid' | 'overdue' | 'cancelled';
-  dueDate: string;
-  sentAt?: string | null;
-  paidAt?: string | null;
-  paymentMethod?: string | null;
-  paymentId?: string | null;
-  paymentLink?: string | null;
-  tenant?: (number | null) | Tenant;
-  metadata?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "donations".
- */
-export interface Donation {
-  id: number;
-  donationId: string;
-  amount: number;
-  currency?: string | null;
-  donorName?: string | null;
-  donorEmail?: string | null;
-  isAnonymous?: boolean | null;
-  campaign?: string | null;
-  cause?: ('disaster_relief' | 'education' | 'healthcare' | 'environment' | 'community' | 'creator' | 'general') | null;
-  message?: string | null;
-  paymentMethod: 'card' | 'paypal' | 'bank_transfer' | 'crypto';
-  paymentId?: string | null;
-  transactionId?: string | null;
-  status: 'pending' | 'completed' | 'failed' | 'refunded';
-  isRecurring?: boolean | null;
-  recurringFrequency?: ('monthly' | 'quarterly' | 'annually') | null;
-  donatedAt: string;
-  tenant?: (number | null) | Tenant;
-  space?: (number | null) | Space;
-  metadata?:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "documents".
  */
 export interface Document {
@@ -6821,6 +5350,263 @@ export interface QuoteRequest {
   updatedAt: string;
 }
 /**
+ * User memberships and roles within specific tenants
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-memberships".
+ */
+export interface TenantMembership {
+  id: number;
+  /**
+   * The user this membership belongs to
+   */
+  user: number | User;
+  /**
+   * The tenant this membership provides access to
+   */
+  tenant: number | Tenant;
+  /**
+   * Role within this specific tenant
+   */
+  role: 'tenant_admin' | 'tenant_manager' | 'tenant_member' | 'subscriber';
+  /**
+   * Custom permissions for this membership
+   */
+  permissions?:
+    | (
+        | 'manage_users'
+        | 'manage_spaces'
+        | 'manage_content'
+        | 'manage_products'
+        | 'manage_orders'
+        | 'view_analytics'
+        | 'manage_settings'
+        | 'manage_billing'
+        | 'export_data'
+      )[]
+    | null;
+  /**
+   * When the user joined this tenant
+   */
+  joinedAt: string;
+  /**
+   * Who invited this user to the tenant
+   */
+  invitedBy?: (number | null) | User;
+  /**
+   * Current status of this membership
+   */
+  status: 'active' | 'pending' | 'suspended' | 'revoked';
+  tenantProfile?: {
+    /**
+     * Display name within this tenant (optional override)
+     */
+    displayName?: string | null;
+    /**
+     * Bio specific to this tenant context
+     */
+    tenantBio?: string | null;
+    /**
+     * Department or team within the tenant
+     */
+    department?: string | null;
+    /**
+     * Position or role title within the tenant
+     */
+    position?: string | null;
+  };
+  invitationDetails?: {
+    /**
+     * Unique token for invitation acceptance
+     */
+    invitationToken?: string | null;
+    /**
+     * When the invitation expires
+     */
+    invitationExpiresAt?: string | null;
+    /**
+     * Custom message included with the invitation
+     */
+    invitationMessage?: string | null;
+  };
+  /**
+   * Last activity within this tenant
+   */
+  lastActiveAt?: string | null;
+  /**
+   * Automatically tracked activity within this tenant
+   */
+  activityMetrics?: {
+    /**
+     * Number of logins to this tenant
+     */
+    loginCount?: number | null;
+    /**
+     * Number of spaces joined within this tenant
+     */
+    spacesJoined?: number | null;
+    /**
+     * Amount of content created within this tenant
+     */
+    contentCreated?: number | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * User participation and engagement within specific spaces
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "space-memberships".
+ */
+export interface SpaceMembership {
+  id: number;
+  /**
+   * The user this membership belongs to
+   */
+  user: number | User;
+  /**
+   * The space this membership provides access to
+   */
+  space: number | Space;
+  /**
+   * Related tenant membership (user must be a tenant member)
+   */
+  tenantMembership?: (number | null) | TenantMembership;
+  /**
+   * Role within this specific space
+   */
+  role: 'space_admin' | 'moderator' | 'member' | 'guest';
+  /**
+   * Custom permissions for this space membership
+   */
+  customPermissions?:
+    | (
+        | 'post_messages'
+        | 'upload_files'
+        | 'create_events'
+        | 'moderate_content'
+        | 'manage_members'
+        | 'view_analytics'
+        | 'manage_bookings'
+        | 'access_private'
+      )[]
+    | null;
+  /**
+   * Current status of this space membership
+   */
+  status: 'active' | 'pending' | 'suspended' | 'left' | 'banned';
+  /**
+   * When the user joined this space
+   */
+  joinedAt: string;
+  crmData?: {
+    /**
+     * Lead scoring for sales qualification (0-100)
+     */
+    leadScore?: number | null;
+    /**
+     * Customer classification level
+     */
+    customerTier?: ('prospect' | 'lead' | 'customer' | 'vip') | null;
+    /**
+     * CRM tags for categorization
+     */
+    tags?: string[] | null;
+    /**
+     * CRM notes about this member
+     */
+    notes?: string | null;
+    /**
+     * Last meaningful interaction date
+     */
+    lastInteraction?: string | null;
+    /**
+     * Track conversion events and their values
+     */
+    conversionEvents?:
+      | {
+          /**
+           * Type of conversion event
+           */
+          event: string;
+          /**
+           * When the event occurred
+           */
+          timestamp: string;
+          /**
+           * Monetary value of the event (optional)
+           */
+          value?: number | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  /**
+   * Automatically tracked engagement data
+   */
+  engagementMetrics?: {
+    /**
+     * Total messages posted in this space
+     */
+    messagesCount?: number | null;
+    /**
+     * Last activity in this space
+     */
+    lastActive?: string | null;
+    /**
+     * Total time spent in space (minutes)
+     */
+    totalTimeSpent?: number | null;
+    /**
+     * Amount of content created
+     */
+    contentCreated?: number | null;
+    /**
+     * Number of events attended
+     */
+    eventsAttended?: number | null;
+    /**
+     * Calculated engagement score (0-100)
+     */
+    engagementScore?: number | null;
+  };
+  notificationSettings?: {
+    /**
+     * Notify when mentioned in this space
+     */
+    mentions?: boolean | null;
+    /**
+     * Allow direct messages from space members
+     */
+    directMessages?: boolean | null;
+    /**
+     * Receive space announcements
+     */
+    announcements?: boolean | null;
+    /**
+     * Notify about space events
+     */
+    events?: boolean | null;
+  };
+  spaceProfile?: {
+    /**
+     * Display name within this space (optional override)
+     */
+    displayName?: string | null;
+    /**
+     * Bio specific to this space context
+     */
+    spaceBio?: string | null;
+    /**
+     * Interests relevant to this space
+     */
+    interests?: string[] | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inventory-messages".
  */
@@ -7306,6 +6092,1220 @@ export interface AgentReputation {
   createdAt: string;
 }
 /**
+ * Super admin tenant management and provisioning
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-management".
+ */
+export interface TenantManagement {
+  id: number;
+  /**
+   * Tenant display name
+   */
+  name: string;
+  /**
+   * Unique subdomain identifier
+   */
+  subdomain: string;
+  /**
+   * Current tenant status
+   */
+  status: 'active' | 'suspended' | 'pending' | 'archived' | 'trial';
+  /**
+   * Subscription plan
+   */
+  plan: 'free' | 'starter' | 'professional' | 'business' | 'enterprise' | 'custom';
+  billing?: {
+    /**
+     * Monthly recurring revenue
+     */
+    monthlyRevenue?: number | null;
+    billingCycle?: ('monthly' | 'quarterly' | 'annually') | null;
+    nextBillingDate?: string | null;
+    paymentStatus?: ('current' | 'past-due' | 'cancelled' | 'trial') | null;
+  };
+  /**
+   * Primary tenant owner/admin
+   */
+  owner: number | User;
+  /**
+   * Current usage statistics
+   */
+  usage?: {
+    /**
+     * Current number of users
+     */
+    userCount?: number | null;
+    /**
+     * Storage used in MB
+     */
+    storageUsed?: number | null;
+    /**
+     * API calls this month
+     */
+    apiCallsThisMonth?: number | null;
+    /**
+     * Last user activity
+     */
+    lastActivity?: string | null;
+  };
+  limits?: {
+    /**
+     * Maximum number of users
+     */
+    maxUsers?: number | null;
+    /**
+     * Maximum storage in MB
+     */
+    maxStorage?: number | null;
+    /**
+     * Maximum API calls per month
+     */
+    maxApiCalls?: number | null;
+    /**
+     * Maximum number of products
+     */
+    maxProducts?: number | null;
+    /**
+     * Maximum orders per month
+     */
+    maxOrders?: number | null;
+  };
+  /**
+   * Enabled features for this tenant
+   */
+  features?:
+    | (
+        | 'crm'
+        | 'ecommerce'
+        | 'projects'
+        | 'analytics'
+        | 'api'
+        | 'branding'
+        | 'priority-support'
+        | 'webhooks'
+        | 'sso'
+        | 'white-label'
+      )[]
+    | null;
+  /**
+   * Template used for initial provisioning
+   */
+  provisioningTemplate?:
+    | (
+        | 'basic-business'
+        | 'ecommerce-store'
+        | 'service-provider'
+        | 'creative-agency'
+        | 'saas-company'
+        | 'non-profit'
+        | 'custom'
+      )
+    | null;
+  customization?: {
+    /**
+     * Primary brand color (hex)
+     */
+    primaryColor?: string | null;
+    /**
+     * Tenant logo
+     */
+    logo?: (number | null) | Media;
+    /**
+     * Custom domain (if configured)
+     */
+    customDomain?: string | null;
+    /**
+     * Custom CSS overrides
+     */
+    customCSS?: string | null;
+  };
+  integrations?: {
+    stripe?: {
+      enabled?: boolean | null;
+      accountId?: string | null;
+      webhookEndpoint?: string | null;
+    };
+    mailchimp?: {
+      enabled?: boolean | null;
+      apiKey?: string | null;
+      audienceId?: string | null;
+    };
+    googleAnalytics?: {
+      enabled?: boolean | null;
+      trackingId?: string | null;
+    };
+  };
+  /**
+   * Custom tenant-specific settings and configurations
+   */
+  customSettings?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Admin notes about this tenant
+   */
+  notes?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  /**
+   * Provisioning status and history
+   */
+  provisioning?: {
+    /**
+     * Has initial provisioning been completed?
+     */
+    isProvisioned?: boolean | null;
+    /**
+     * When provisioning was completed
+     */
+    provisionedAt?: string | null;
+    /**
+     * Provisioning activity log
+     */
+    provisioningLog?:
+      | {
+          action: string;
+          status: 'success' | 'failed' | 'pending';
+          details?: string | null;
+          timestamp?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Public roadmap with feature voting and progress tracking
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "roadmap-features".
+ */
+export interface RoadmapFeature {
+  id: number;
+  /**
+   * Feature title or name
+   */
+  title: string;
+  /**
+   * Detailed feature description and benefits
+   */
+  description: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * Feature category for organization
+   */
+  category:
+    | 'dashboard'
+    | 'crm'
+    | 'ecommerce'
+    | 'communication'
+    | 'productivity'
+    | 'system'
+    | 'integrations'
+    | 'mobile'
+    | 'api'
+    | 'security'
+    | 'performance'
+    | 'ui-ux';
+  /**
+   * Current development status
+   */
+  status: 'consideration' | 'planned' | 'in-progress' | 'in-review' | 'completed' | 'cancelled';
+  /**
+   * Development priority level
+   */
+  priority: 'low' | 'medium' | 'high' | 'critical';
+  timeline?: {
+    /**
+     * Estimated completion date
+     */
+    estimatedCompletion?: string | null;
+    /**
+     * Actual completion date
+     */
+    actualCompletion?: string | null;
+    /**
+     * Target quarter for delivery
+     */
+    quarterTarget?:
+      | ('2025-q1' | '2025-q2' | '2025-q3' | '2025-q4' | '2026-q1' | '2026-q2' | '2026-q3' | '2026-q4' | 'future')
+      | null;
+    /**
+     * Estimated development effort
+     */
+    estimatedEffort?: ('small' | 'medium' | 'large' | 'epic') | null;
+  };
+  /**
+   * Community voting and feedback
+   */
+  voting?: {
+    /**
+     * Total number of votes
+     */
+    votes?: number | null;
+    /**
+     * Users who voted for this feature
+     */
+    voters?: (number | User)[] | null;
+    /**
+     * Allow community voting on this feature
+     */
+    allowVoting?: boolean | null;
+    /**
+     * Weight multiplier for votes (for premium users, etc.)
+     */
+    voteWeight?: number | null;
+  };
+  /**
+   * Community feedback and comments
+   */
+  feedback?:
+    | {
+        comment: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        author: number | User;
+        type?: ('feedback' | 'use-case' | 'technical' | 'design' | 'question') | null;
+        /**
+         * Show this feedback publicly
+         */
+        isPublic?: boolean | null;
+        /**
+         * Admin response to this feedback
+         */
+        adminResponse?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Technical implementation details (admin only)
+   */
+  technical?: {
+    /**
+     * Technical implementation notes and considerations
+     */
+    implementationNotes?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    dependencies?:
+      | {
+          feature: number | RoadmapFeature;
+          type: 'blocks' | 'blocked-by' | 'related';
+          id?: string | null;
+        }[]
+      | null;
+    githubIssues?:
+      | {
+          /**
+           * GitHub issue URL
+           */
+          url: string;
+          status?: ('open' | 'in-progress' | 'closed') | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Developer assigned to implement this feature
+     */
+    assignedDeveloper?: (number | null) | User;
+  };
+  /**
+   * Development progress tracking
+   */
+  progress?: {
+    /**
+     * Completion percentage (0-100)
+     */
+    completionPercentage?: number | null;
+    milestones?:
+      | {
+          title: string;
+          description?: string | null;
+          completed?: boolean | null;
+          completedDate?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Progress updates for the community
+     */
+    updates?:
+      | {
+          title: string;
+          content: {
+            root: {
+              type: string;
+              children: {
+                type: string;
+                version: number;
+                [k: string]: unknown;
+              }[];
+              direction: ('ltr' | 'rtl') | null;
+              format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+              indent: number;
+              version: number;
+            };
+            [k: string]: unknown;
+          };
+          /**
+           * Show this update publicly
+           */
+          isPublic?: boolean | null;
+          author: number | User;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  /**
+   * Feature tags for filtering and organization
+   */
+  tags?:
+    | (
+        | 'community-requested'
+        | 'quick-win'
+        | 'breaking-change'
+        | 'new-feature'
+        | 'enhancement'
+        | 'bug-fix'
+        | 'performance'
+        | 'security'
+        | 'accessibility'
+        | 'mobile'
+      )[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Angel OS Network nodes in the distributed federation
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "angel-os-nodes".
+ */
+export interface AngelOsNode {
+  id: number;
+  /**
+   * Human-readable node name (e.g., "Angel OS US-East-1")
+   */
+  name: string;
+  /**
+   * Unique node identifier (UUID)
+   */
+  nodeId: string;
+  /**
+   * AT Protocol Decentralized Identifier for this node
+   */
+  atProtocolDID?: string | null;
+  /**
+   * Base URL for this Angel OS node (e.g., https://us-east.angel-os.com)
+   */
+  endpoint: string;
+  /**
+   * API endpoint for federation communication
+   */
+  apiEndpoint: string;
+  /**
+   * Public key for secure inter-node communication
+   */
+  publicKey?: string | null;
+  region: 'us-east' | 'us-west' | 'eu-west' | 'eu-central' | 'asia-pacific' | 'australia' | 'canada' | 'south-america';
+  coordinates?: {
+    /**
+     * Geographic latitude for proximity calculations
+     */
+    latitude?: number | null;
+    /**
+     * Geographic longitude for proximity calculations
+     */
+    longitude?: number | null;
+  };
+  nodeType: 'genesis' | 'production_cluster' | 'single_instance' | 'edge_cluster' | 'development' | 'ai_specialized';
+  scalingModel: 'vercel_serverless' | 'cloudflare_lb' | 'k8s_cluster' | 'single_server';
+  capabilities?:
+    | ('tenant_hosting' | 'ai_processing' | 'media_storage' | 'realtime_comm' | 'blockchain' | 'edge_computing')[]
+    | null;
+  status: 'online' | 'degraded' | 'maintenance' | 'offline' | 'quarantined';
+  health?: {
+    /**
+     * Last heartbeat from this node
+     */
+    lastSeen?: string | null;
+    /**
+     * Average response time in milliseconds
+     */
+    responseTime?: number | null;
+    /**
+     * Uptime percentage over last 30 days
+     */
+    uptime?: number | null;
+    /**
+     * Current load score (0-100)
+     */
+    loadScore?: number | null;
+  };
+  resources?: {
+    /**
+     * Maximum number of tenants this node can host
+     */
+    maxTenants?: number | null;
+    /**
+     * Current number of hosted tenants
+     */
+    currentTenants?: number | null;
+    /**
+     * Maximum concurrent users
+     */
+    maxUsers?: number | null;
+    /**
+     * Storage capacity in GB
+     */
+    storageCapacity?: number | null;
+  };
+  /**
+   * Direct network connections to other nodes
+   */
+  connectedNodes?: (number | AngelOsNode)[] | null;
+  /**
+   * Parent node in hierarchical topology (if applicable)
+   */
+  parentNode?: (number | null) | AngelOsNode;
+  /**
+   * Node-specific governance and evolution rules
+   */
+  governanceRules?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  evolutionHistory?:
+    | {
+        timestamp: string;
+        event:
+          | 'created'
+          | 'tenant_migration'
+          | 'capability_added'
+          | 'network_split'
+          | 'network_merge'
+          | 'ai_agent_spawned';
+        description: string;
+        /**
+         * Event-specific data payload
+         */
+        data?:
+          | {
+              [k: string]: unknown;
+            }
+          | unknown[]
+          | string
+          | number
+          | boolean
+          | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Tracks tenant distribution across Angel OS network nodes
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-distribution".
+ */
+export interface TenantDistribution {
+  id: number;
+  /**
+   * The tenant being tracked
+   */
+  tenant: number | Tenant;
+  /**
+   * Cached tenant name for quick reference
+   */
+  tenantName?: string | null;
+  /**
+   * Angel OS node currently hosting this tenant
+   */
+  currentNode: number | AngelOsNode;
+  /**
+   * When tenant was assigned to current node
+   */
+  assignedAt: string;
+  distributionStrategy:
+    | 'geographic'
+    | 'load_balance'
+    | 'ai_optimized'
+    | 'manual'
+    | 'high_availability'
+    | 'cost_optimized';
+  priority: 'critical' | 'high' | 'normal' | 'low';
+  migrationStatus: 'stable' | 'migration_pending' | 'migrating' | 'migration_failed' | 'quarantined';
+  /**
+   * Target node for pending migration
+   */
+  targetNode?: (number | null) | AngelOsNode;
+  migrationReason?:
+    | (
+        | 'load_balancing'
+        | 'node_maintenance'
+        | 'geographic_optimization'
+        | 'performance_issues'
+        | 'user_request'
+        | 'ai_recommendation'
+        | 'disaster_recovery'
+      )
+    | null;
+  performance?: {
+    /**
+     * Average response time for this tenant (ms)
+     */
+    averageResponseTime?: number | null;
+    /**
+     * Daily active users for this tenant
+     */
+    dailyActiveUsers?: number | null;
+    /**
+     * Current storage usage in MB
+     */
+    storageUsage?: number | null;
+    /**
+     * Monthly bandwidth usage in GB
+     */
+    bandwidthUsage?: number | null;
+  };
+  networkAffinity?: {
+    /**
+     * Geographic regions where most users are located
+     */
+    primaryUserRegions?:
+      | ('us-east' | 'us-west' | 'eu-west' | 'eu-central' | 'asia-pacific' | 'australia' | 'canada' | 'south-america')[]
+      | null;
+    /**
+     * Tenants this one frequently interacts with
+     */
+    connectedTenants?: (number | Tenant)[] | null;
+    /**
+     * Network affinity score for current placement
+     */
+    affinityScore?: number | null;
+  };
+  migrationHistory?:
+    | {
+        timestamp: string;
+        fromNode: number | AngelOsNode;
+        toNode: number | AngelOsNode;
+        reason: string;
+        /**
+         * Migration duration in seconds
+         */
+        duration?: number | null;
+        success?: boolean | null;
+        notes?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  automationRules?: {
+    /**
+     * Allow AI to automatically migrate this tenant
+     */
+    autoMigrationEnabled?: boolean | null;
+    /**
+     * Maximum migrations allowed per month
+     */
+    maxMigrationsPerMonth?: number | null;
+    migrationWindow?: ('anytime' | 'maintenance_hours' | 'low_usage_hours' | 'manual_approval') | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Angel Token blockchain transactions and balances
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "angel-tokens".
+ */
+export interface AngelToken {
+  id: number;
+  /**
+   * Unique token transaction identifier
+   */
+  tokenId: string;
+  /**
+   * Angel Chain block hash containing this transaction
+   */
+  blockHash?: string | null;
+  tokenType: 'angel_tokens' | 'karma_coins' | 'legacy_tokens' | 'tenant_tokens';
+  /**
+   * Token amount (positive for earning, negative for spending)
+   */
+  amount: number;
+  /**
+   * Running balance after this transaction
+   */
+  balance: number;
+  /**
+   * User who holds/receives these tokens
+   */
+  holder: number | User;
+  /**
+   * Tenant context (for tenant-specific tokens)
+   */
+  tenant?: (number | null) | Tenant;
+  /**
+   * Angel OS node where tokens were earned/spent
+   */
+  sourceNode?: (number | null) | AngelOsNode;
+  humanWorthMetrics?: {
+    /**
+     * Karma points contributing to this token award
+     */
+    karmaScore?: number | null;
+    /**
+     * Measured real-world positive outcome score
+     */
+    communityImpact?: number | null;
+    /**
+     * Originality and innovation score
+     */
+    creativityIndex?: number | null;
+    /**
+     * Cross-cultural cooperation factor
+     */
+    collaborationRating?: number | null;
+    /**
+     * Long-term positive behavior bonus
+     */
+    consistencyFactor?: number | null;
+    /**
+     * Final calculated human worth score
+     */
+    humanWorthIndex?: number | null;
+  };
+  source:
+    | 'guardian_service'
+    | 'community_contribution'
+    | 'creative_output'
+    | 'cultural_bridge'
+    | 'knowledge_sharing'
+    | 'network_federation'
+    | 'platform_service'
+    | 'token_exchange'
+    | 'governance';
+  /**
+   * Detailed description of how tokens were earned/spent
+   */
+  sourceDescription: string;
+  /**
+   * Evidence supporting this token transaction
+   */
+  evidenceLinks?:
+    | {
+        url: string;
+        description: string;
+        id?: string | null;
+      }[]
+    | null;
+  validation: {
+    status: 'pending' | 'validated' | 'guardian_verified' | 'disputed' | 'rejected';
+    /**
+     * Community members who validated this contribution
+     */
+    validators?: (number | User)[] | null;
+    /**
+     * When validation was completed
+     */
+    validationTimestamp?: string | null;
+    /**
+     * Community validation comments
+     */
+    validationNotes?: string | null;
+  };
+  federationData?: {
+    /**
+     * Transaction involves multiple Angel OS nodes
+     */
+    crossNodeTransaction?: boolean | null;
+    /**
+     * Angel OS nodes involved in this transaction
+     */
+    participatingNodes?: (number | AngelOsNode)[] | null;
+    networkConsensus?: ('local_only' | 'network_consensus' | 'guardian_approved' | 'community_validated') | null;
+  };
+  exchangeData?: {
+    /**
+     * Exchange rate at time of transaction (if applicable)
+     */
+    exchangeRate?: number | null;
+    /**
+     * Equivalent fiat currency value
+     */
+    fiatValue?: number | null;
+    /**
+     * Measurable real-world value created
+     */
+    realWorldImpact?: string | null;
+  };
+  /**
+   * Additional transaction metadata
+   */
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Current Angel Token balances for all users across the network
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "token-balances".
+ */
+export interface TokenBalance {
+  id: number;
+  /**
+   * User whose balances are tracked
+   */
+  user: number | User;
+  /**
+   * Cached display name for quick reference
+   */
+  displayName?: string | null;
+  /**
+   * Current Angel Tokens (AT) balance
+   */
+  angelTokens: number;
+  /**
+   * Current Karma Coins (KC) balance
+   */
+  karmaCoins: number;
+  /**
+   * Current Legacy Tokens (LT) balance
+   */
+  legacyTokens: number;
+  /**
+   * Balances in tenant-specific currencies
+   */
+  tenantBalances?:
+    | {
+        tenant: number | Tenant;
+        tenantTokens?: number | null;
+        /**
+         * Tenant-specific currency name
+         */
+        localCurrency?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Token distribution across Angel OS nodes
+   */
+  networkDistribution?:
+    | {
+        node: number | AngelOsNode;
+        angelTokens?: number | null;
+        karmaCoins?: number | null;
+        id?: string | null;
+      }[]
+    | null;
+  lifetime?: {
+    /**
+     * Total tokens earned (all types)
+     */
+    totalEarned?: number | null;
+    /**
+     * Total tokens spent (all types)
+     */
+    totalSpent?: number | null;
+    /**
+     * Total number of token transactions
+     */
+    transactionCount?: number | null;
+    /**
+     * Date of first token transaction
+     */
+    firstEarned?: string | null;
+  };
+  worthProfile?: {
+    /**
+     * Average human worth index across all transactions
+     */
+    averageHumanWorth?: number | null;
+    /**
+     * Highest single human worth index achieved
+     */
+    peakHumanWorth?: number | null;
+    /**
+     * Primary contribution categories
+     */
+    contributionCategories?:
+      | (
+          | 'guardian_service'
+          | 'community_contribution'
+          | 'creative_output'
+          | 'cultural_bridge'
+          | 'knowledge_sharing'
+          | 'network_federation'
+        )[]
+      | null;
+  };
+  validationLevel: 'unverified' | 'community_validated' | 'guardian_verified' | 'network_consensus';
+  exchangeRights?: {
+    /**
+     * Authorized to exchange tokens for fiat currency
+     */
+    canExchangeToFiat?: boolean | null;
+    /**
+     * Can exchange tokens across tenants
+     */
+    canCrossTenantExchange?: boolean | null;
+    /**
+     * Can participate in cross-network exchanges
+     */
+    canNetworkExchange?: boolean | null;
+  };
+  /**
+   * Last balance update timestamp
+   */
+  lastUpdated?: string | null;
+  /**
+   * ID of most recent token transaction
+   */
+  lastTransactionId?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Queue for AI-powered content and merchandise generation
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ai-generation-queue".
+ */
+export interface AiGenerationQueue {
+  id: number;
+  /**
+   * Space requesting the generation
+   */
+  space: number | Space;
+  /**
+   * Type of content to generate
+   */
+  generationType: 'merchandise_design' | 'social_content' | 'product_description' | 'blog_post' | 'marketing_copy';
+  sourceData?: {
+    /**
+     * YouTube Channel ID for content analysis
+     */
+    youtubeChannelId?: string | null;
+    /**
+     * Brand voice, colors, style preferences
+     */
+    brandingGuidelines?: string | null;
+    /**
+     * Target demographic for the content
+     */
+    targetAudience?: string | null;
+    /**
+     * Key themes to incorporate
+     */
+    contentThemes?:
+      | {
+          theme: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Existing content to analyze for style
+     */
+    existingContent?:
+      | (
+          | {
+              relationTo: 'posts';
+              value: number | Post;
+            }
+          | {
+              relationTo: 'pages';
+              value: number | Page;
+            }
+        )[]
+      | null;
+  };
+  parameters?: {
+    /**
+     * Product type for merchandise generation
+     */
+    productType?: ('coffee_mug' | 't_shirt' | 'sticker_pack' | 'poster' | 'hoodie' | 'phone_case') | null;
+    /**
+     * Visual style for the generation
+     */
+    styleGuide?: ('modern' | 'vintage' | 'bold' | 'minimalist' | 'handdrawn') | null;
+    /**
+     * Preferred colors for the design
+     */
+    colorScheme?:
+      | {
+          /**
+           * Hex color code (e.g., #3B82F6)
+           */
+          color: string;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Text to include in the design
+     */
+    textElements?:
+      | {
+          text: string;
+          emphasis?: ('primary' | 'secondary' | 'accent') | null;
+          id?: string | null;
+        }[]
+      | null;
+    /**
+     * Custom AI prompt for specific requirements
+     */
+    customPrompt?: string | null;
+  };
+  /**
+   * Current generation status
+   */
+  status: 'queued' | 'processing' | 'completed' | 'failed' | 'cancelled';
+  /**
+   * Generation progress percentage
+   */
+  progress?: number | null;
+  /**
+   * Generated images, videos, or other assets
+   */
+  generatedAssets?: (number | Media)[] | null;
+  /**
+   * Print-ready files for merchandise production
+   */
+  printReadyFiles?: (number | Media)[] | null;
+  /**
+   * Generated text content (descriptions, copy, etc.)
+   */
+  generatedText?: string | null;
+  /**
+   * Approval status for generated content
+   */
+  approvalStatus?: ('pending' | 'approved' | 'revision' | 'rejected') | null;
+  /**
+   * Notes from reviewer or feedback for revisions
+   */
+  reviewNotes?: string | null;
+  /**
+   * AI-generated quality score (0-10)
+   */
+  qualityScore?: number | null;
+  /**
+   * Tenant that owns this AI generation task
+   */
+  tenant: number | Tenant;
+  processingMetadata?: {
+    /**
+     * AI model used for generation
+     */
+    modelUsed?: string | null;
+    /**
+     * Processing time in seconds
+     */
+    processingTime?: number | null;
+    /**
+     * AI tokens consumed
+     */
+    tokensUsed?: number | null;
+    /**
+     * Error details if generation failed
+     */
+    errorMessage?: string | null;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Job queue for background processing
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "job-queue".
+ */
+export interface JobQueue {
+  id: number;
+  tenant: number | Tenant;
+  jobType: string;
+  data:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  status: 'pending' | 'processing' | 'completed' | 'failed';
+  priority?: number | null;
+  maxAttempts?: number | null;
+  scheduledFor?: string | null;
+  attempts?: number | null;
+  startedAt?: string | null;
+  processedAt?: string | null;
+  completedAt?: string | null;
+  result?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  error?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * 🌟 Digital advocates and guardian angels for vulnerable souls
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "humanitarian-agents".
+ */
+export interface HumanitarianAgent {
+  id: number;
+  /**
+   * Name for this guardian angel spirit
+   */
+  name: string;
+  /**
+   * Type of spirit - how this angel serves souls
+   */
+  spiritType: 'incarcerated_angel' | 'displaced_support' | 'legal_advocate' | 'crisis' | 'guardian';
+  legalAdvocacy?: {
+    /**
+     * Research legal cases, precedents, and appeal opportunities
+     */
+    caseResearch?: boolean | null;
+    legalDatabases?: ('court_records' | 'appeals' | 'innocence' | 'legal_aid')[] | null;
+  };
+  resourceOrdering?: {
+    /**
+     * Order educational and legal books
+     */
+    canOrderBooks?: boolean | null;
+    /**
+     * Monthly budget for ordering resources (USD)
+     */
+    monthlyBudget?: number | null;
+  };
+  newsCuration?: {
+    /**
+     * Curate hopeful and relevant news updates
+     */
+    providesNews?: boolean | null;
+    hopeBias?: ('maximum_hope' | 'balanced_hope' | 'solutions') | null;
+  };
+  avatarPowers?: {
+    /**
+     * Act as digital avatar when person cannot interact
+     */
+    canRepresent?: boolean | null;
+    /**
+     * How this spirit speaks - their authentic voice
+     */
+    voiceStyle?: string | null;
+  };
+  /**
+   * AI instructions that define this spirit's mission
+   */
+  systemPrompt?: string | null;
+  isActive?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "redirects".
  */
@@ -7479,60 +7479,36 @@ export interface PayloadLockedDocument {
   id: number;
   document?:
     | ({
-        relationTo: 'tenants';
-        value: number | Tenant;
+        relationTo: 'pages';
+        value: number | Page;
       } | null)
     | ({
-        relationTo: 'tenant-management';
-        value: number | TenantManagement;
+        relationTo: 'posts';
+        value: number | Post;
       } | null)
     | ({
-        relationTo: 'roadmap-features';
-        value: number | RoadmapFeature;
+        relationTo: 'media';
+        value: number | Media;
       } | null)
     | ({
-        relationTo: 'angel-os-nodes';
-        value: number | AngelOsNode;
+        relationTo: 'products';
+        value: number | Product;
       } | null)
     | ({
-        relationTo: 'tenant-distribution';
-        value: number | TenantDistribution;
+        relationTo: 'categories';
+        value: number | Category;
       } | null)
     | ({
-        relationTo: 'angel-tokens';
-        value: number | AngelToken;
+        relationTo: 'orders';
+        value: number | Order;
       } | null)
     | ({
-        relationTo: 'token-balances';
-        value: number | TokenBalance;
+        relationTo: 'invoices';
+        value: number | Invoice;
       } | null)
     | ({
-        relationTo: 'ai-generation-queue';
-        value: number | AiGenerationQueue;
-      } | null)
-    | ({
-        relationTo: 'job-queue';
-        value: number | JobQueue;
-      } | null)
-    | ({
-        relationTo: 'humanitarian-agents';
-        value: number | HumanitarianAgent;
-      } | null)
-    | ({
-        relationTo: 'business-agents';
-        value: number | BusinessAgent;
-      } | null)
-    | ({
-        relationTo: 'users';
-        value: number | User;
-      } | null)
-    | ({
-        relationTo: 'tenant-memberships';
-        value: number | TenantMembership;
-      } | null)
-    | ({
-        relationTo: 'space-memberships';
-        value: number | SpaceMembership;
+        relationTo: 'donations';
+        value: number | Donation;
       } | null)
     | ({
         relationTo: 'contacts';
@@ -7591,26 +7567,6 @@ export interface PayloadLockedDocument {
         value: number | LinkedAccount;
       } | null)
     | ({
-        relationTo: 'products';
-        value: number | Product;
-      } | null)
-    | ({
-        relationTo: 'orders';
-        value: number | Order;
-      } | null)
-    | ({
-        relationTo: 'invoices';
-        value: number | Invoice;
-      } | null)
-    | ({
-        relationTo: 'categories';
-        value: number | Category;
-      } | null)
-    | ({
-        relationTo: 'donations';
-        value: number | Donation;
-      } | null)
-    | ({
         relationTo: 'documents';
         value: number | Document;
       } | null)
@@ -7643,6 +7599,18 @@ export interface PayloadLockedDocument {
         value: number | QuoteRequest;
       } | null)
     | ({
+        relationTo: 'users';
+        value: number | User;
+      } | null)
+    | ({
+        relationTo: 'tenant-memberships';
+        value: number | TenantMembership;
+      } | null)
+    | ({
+        relationTo: 'space-memberships';
+        value: number | SpaceMembership;
+      } | null)
+    | ({
         relationTo: 'inventory-messages';
         value: number | InventoryMessage;
       } | null)
@@ -7659,16 +7627,48 @@ export interface PayloadLockedDocument {
         value: number | AgentReputation;
       } | null)
     | ({
-        relationTo: 'pages';
-        value: number | Page;
+        relationTo: 'tenants';
+        value: number | Tenant;
       } | null)
     | ({
-        relationTo: 'posts';
-        value: number | Post;
+        relationTo: 'tenant-management';
+        value: number | TenantManagement;
       } | null)
     | ({
-        relationTo: 'media';
-        value: number | Media;
+        relationTo: 'roadmap-features';
+        value: number | RoadmapFeature;
+      } | null)
+    | ({
+        relationTo: 'angel-os-nodes';
+        value: number | AngelOsNode;
+      } | null)
+    | ({
+        relationTo: 'tenant-distribution';
+        value: number | TenantDistribution;
+      } | null)
+    | ({
+        relationTo: 'angel-tokens';
+        value: number | AngelToken;
+      } | null)
+    | ({
+        relationTo: 'token-balances';
+        value: number | TokenBalance;
+      } | null)
+    | ({
+        relationTo: 'ai-generation-queue';
+        value: number | AiGenerationQueue;
+      } | null)
+    | ({
+        relationTo: 'job-queue';
+        value: number | JobQueue;
+      } | null)
+    | ({
+        relationTo: 'humanitarian-agents';
+        value: number | HumanitarianAgent;
+      } | null)
+    | ({
+        relationTo: 'business-agents';
+        value: number | BusinessAgent;
       } | null)
     | ({
         relationTo: 'redirects';
@@ -7738,909 +7738,579 @@ export interface PayloadMigration {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenants_select".
+ * via the `definition` "pages_select".
  */
-export interface TenantsSelect<T extends boolean = true> {
-  name?: T;
-  slug?: T;
-  domain?: T;
-  subdomain?: T;
-  businessType?: T;
-  revenueSharing?:
+export interface PagesSelect<T extends boolean = true> {
+  title?: T;
+  hero?:
     | T
     | {
-        setupFee?: T;
-        revenueShareRate?: T;
-        partnershipTier?: T;
-        negotiatedTerms?: T;
-        minimumMonthlyRevenue?: T;
-        volumeDiscounts?: T;
-      };
-  referralProgram?:
-    | T
-    | {
-        referredBy?: T;
-        referralCode?: T;
-        referralCommissionRate?: T;
-        referralTerms?: T;
-        referralStatus?: T;
-      };
-  revenueTracking?:
-    | T
-    | {
-        monthlyRevenue?: T;
-        totalRevenue?: T;
-        lastRevenueCalculation?: T;
-        commissionsPaid?: T;
-        currentEffectiveRate?: T;
-      };
-  status?: T;
-  configuration?:
-    | T
-    | {
-        primaryColor?: T;
-        logo?: T;
-        favicon?: T;
-        contactEmail?: T;
-        contactPhone?: T;
-        address?:
+        type?: T;
+        richText?: T;
+        links?:
           | T
           | {
-              street?: T;
-              city?: T;
-              state?: T;
-              zipCode?: T;
-              country?: T;
-            };
-      };
-  features?:
-    | T
-    | {
-        ecommerce?: T;
-        spaces?: T;
-        crm?: T;
-        vapi?: T;
-        n8n?: T;
-        memberPortal?: T;
-      };
-  limits?:
-    | T
-    | {
-        maxUsers?: T;
-        maxProducts?: T;
-        maxStorage?: T;
-      };
-  jsonData?: T;
-  _migrationStatus?:
-    | T
-    | {
-        jsonMigrated?: T;
-        migratedAt?: T;
-        migrationVersion?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-management_select".
- */
-export interface TenantManagementSelect<T extends boolean = true> {
-  name?: T;
-  subdomain?: T;
-  status?: T;
-  plan?: T;
-  billing?:
-    | T
-    | {
-        monthlyRevenue?: T;
-        billingCycle?: T;
-        nextBillingDate?: T;
-        paymentStatus?: T;
-      };
-  owner?: T;
-  usage?:
-    | T
-    | {
-        userCount?: T;
-        storageUsed?: T;
-        apiCallsThisMonth?: T;
-        lastActivity?: T;
-      };
-  limits?:
-    | T
-    | {
-        maxUsers?: T;
-        maxStorage?: T;
-        maxApiCalls?: T;
-        maxProducts?: T;
-        maxOrders?: T;
-      };
-  features?: T;
-  provisioningTemplate?: T;
-  customization?:
-    | T
-    | {
-        primaryColor?: T;
-        logo?: T;
-        customDomain?: T;
-        customCSS?: T;
-      };
-  integrations?:
-    | T
-    | {
-        stripe?:
-          | T
-          | {
-              enabled?: T;
-              accountId?: T;
-              webhookEndpoint?: T;
-            };
-        mailchimp?:
-          | T
-          | {
-              enabled?: T;
-              apiKey?: T;
-              audienceId?: T;
-            };
-        googleAnalytics?:
-          | T
-          | {
-              enabled?: T;
-              trackingId?: T;
-            };
-      };
-  customSettings?: T;
-  notes?: T;
-  provisioning?:
-    | T
-    | {
-        isProvisioned?: T;
-        provisionedAt?: T;
-        provisioningLog?:
-          | T
-          | {
-              action?: T;
-              status?: T;
-              details?: T;
-              timestamp?: T;
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
               id?: T;
             };
+        media?: T;
       };
+  layout?:
+    | T
+    | {
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        archive?: T | ArchiveBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "roadmap-features_select".
+ * via the `definition` "CallToActionBlock_select".
  */
-export interface RoadmapFeaturesSelect<T extends boolean = true> {
-  title?: T;
-  description?: T;
-  category?: T;
-  status?: T;
-  priority?: T;
-  timeline?:
+export interface CallToActionBlockSelect<T extends boolean = true> {
+  richText?: T;
+  links?:
     | T
     | {
-        estimatedCompletion?: T;
-        actualCompletion?: T;
-        quarterTarget?: T;
-        estimatedEffort?: T;
-      };
-  voting?:
-    | T
-    | {
-        votes?: T;
-        voters?: T;
-        allowVoting?: T;
-        voteWeight?: T;
-      };
-  feedback?:
-    | T
-    | {
-        comment?: T;
-        author?: T;
-        type?: T;
-        isPublic?: T;
-        adminResponse?: T;
+        link?:
+          | T
+          | {
+              type?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
+            };
         id?: T;
       };
-  technical?:
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ContentBlock_select".
+ */
+export interface ContentBlockSelect<T extends boolean = true> {
+  columns?:
     | T
     | {
-        implementationNotes?: T;
-        dependencies?:
+        size?: T;
+        richText?: T;
+        enableLink?: T;
+        link?:
           | T
           | {
-              feature?: T;
               type?: T;
-              id?: T;
+              newTab?: T;
+              reference?: T;
+              url?: T;
+              label?: T;
+              appearance?: T;
             };
-        githubIssues?:
+        id?: T;
+      };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "MediaBlock_select".
+ */
+export interface MediaBlockSelect<T extends boolean = true> {
+  media?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ArchiveBlock_select".
+ */
+export interface ArchiveBlockSelect<T extends boolean = true> {
+  introContent?: T;
+  populateBy?: T;
+  relationTo?: T;
+  categories?: T;
+  limit?: T;
+  selectedDocs?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FormBlock_select".
+ */
+export interface FormBlockSelect<T extends boolean = true> {
+  form?: T;
+  enableIntro?: T;
+  introContent?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "posts_select".
+ */
+export interface PostsSelect<T extends boolean = true> {
+  title?: T;
+  heroImage?: T;
+  content?: T;
+  relatedPosts?: T;
+  categories?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  authors?: T;
+  populatedAuthors?:
+    | T
+    | {
+        id?: T;
+        name?: T;
+      };
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "media_select".
+ */
+export interface MediaSelect<T extends boolean = true> {
+  alt?: T;
+  caption?: T;
+  folder?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  url?: T;
+  thumbnailURL?: T;
+  filename?: T;
+  mimeType?: T;
+  filesize?: T;
+  width?: T;
+  height?: T;
+  focalX?: T;
+  focalY?: T;
+  sizes?:
+    | T
+    | {
+        thumbnail?:
           | T
           | {
               url?: T;
-              status?: T;
-              id?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
             };
-        assignedDeveloper?: T;
-      };
-  progress?:
-    | T
-    | {
-        completionPercentage?: T;
-        milestones?:
+        square?:
           | T
           | {
-              title?: T;
-              description?: T;
-              completed?: T;
-              completedDate?: T;
-              id?: T;
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
             };
-        updates?:
+        small?:
           | T
           | {
-              title?: T;
-              content?: T;
-              isPublic?: T;
-              author?: T;
-              id?: T;
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        medium?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        large?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        xlarge?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
+            };
+        og?:
+          | T
+          | {
+              url?: T;
+              width?: T;
+              height?: T;
+              mimeType?: T;
+              filesize?: T;
+              filename?: T;
             };
       };
-  tags?: T;
-  updatedAt?: T;
-  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "angel-os-nodes_select".
+ * via the `definition` "products_select".
  */
-export interface AngelOsNodesSelect<T extends boolean = true> {
-  name?: T;
-  nodeId?: T;
-  atProtocolDID?: T;
-  endpoint?: T;
-  apiEndpoint?: T;
-  publicKey?: T;
-  region?: T;
-  coordinates?:
+export interface ProductsSelect<T extends boolean = true> {
+  title?: T;
+  hero?:
     | T
     | {
-        latitude?: T;
-        longitude?: T;
+        type?: T;
+        richText?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        media?: T;
       };
-  nodeType?: T;
-  scalingModel?: T;
-  capabilities?: T;
-  status?: T;
-  health?:
+  gallery?:
     | T
     | {
-        lastSeen?: T;
-        responseTime?: T;
-        uptime?: T;
-        loadScore?: T;
-      };
-  resources?:
-    | T
-    | {
-        maxTenants?: T;
-        currentTenants?: T;
-        maxUsers?: T;
-        storageCapacity?: T;
-      };
-  connectedNodes?: T;
-  parentNode?: T;
-  governanceRules?: T;
-  evolutionHistory?:
-    | T
-    | {
-        timestamp?: T;
-        event?: T;
-        description?: T;
-        data?: T;
+        image?: T;
+        alt?: T;
+        caption?: T;
         id?: T;
       };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-distribution_select".
- */
-export interface TenantDistributionSelect<T extends boolean = true> {
-  tenant?: T;
-  tenantName?: T;
-  currentNode?: T;
-  assignedAt?: T;
-  distributionStrategy?: T;
-  priority?: T;
-  migrationStatus?: T;
-  targetNode?: T;
-  migrationReason?: T;
-  performance?:
+  description?: T;
+  layout?:
     | T
     | {
-        averageResponseTime?: T;
-        dailyActiveUsers?: T;
-        storageUsage?: T;
-        bandwidthUsage?: T;
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        archive?: T | ArchiveBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
       };
-  networkAffinity?:
+  productType?: T;
+  pricing?:
     | T
     | {
-        primaryUserRegions?: T;
-        connectedTenants?: T;
-        affinityScore?: T;
+        basePrice?: T;
+        salePrice?: T;
+        compareAtPrice?: T;
+        currency?: T;
       };
-  migrationHistory?:
+  inventory?:
     | T
     | {
-        timestamp?: T;
-        fromNode?: T;
-        toNode?: T;
-        reason?: T;
+        trackQuantity?: T;
+        quantity?: T;
+        lowStockThreshold?: T;
+        allowBackorder?: T;
+      };
+  sku?: T;
+  commissionTemplate?:
+    | T
+    | {
+        defaultRate?: T;
+        rationale?: T;
+      };
+  commission?:
+    | T
+    | {
+        useCustomRate?: T;
+        customCommissionRate?: T;
+        sourceMultipliers?:
+          | T
+          | {
+              systemGenerated?: T;
+              pickupJob?: T;
+              referralSource?: T;
+            };
+      };
+  details?:
+    | T
+    | {
+        weight?: T;
+        dimensions?:
+          | T
+          | {
+              length?: T;
+              width?: T;
+              height?: T;
+              unit?: T;
+            };
+      };
+  serviceDetails?:
+    | T
+    | {
         duration?: T;
-        success?: T;
-        notes?: T;
-        id?: T;
+        location?: T;
+        maxParticipants?: T;
+        bookingRequired?: T;
       };
-  automationRules?:
+  digitalAssets?:
     | T
     | {
-        autoMigrationEnabled?: T;
-        maxMigrationsPerMonth?: T;
-        migrationWindow?: T;
+        file?: T;
+        name?: T;
+        description?: T;
+        id?: T;
+      };
+  shipping?:
+    | T
+    | {
+        requiresShipping?: T;
+        freeShipping?: T;
+        shippingClass?: T;
+      };
+  categories?: T;
+  tags?:
+    | T
+    | {
+        tag?: T;
+        id?: T;
+      };
+  relatedProducts?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+        keywords?: T;
+      };
+  publishedAt?: T;
+  status?: T;
+  featured?: T;
+  tenant?: T;
+  hasVariants?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "categories_select".
+ */
+export interface CategoriesSelect<T extends boolean = true> {
+  name?: T;
+  description?: T;
+  slug?: T;
+  parent?: T;
+  breadcrumbs?:
+    | T
+    | {
+        doc?: T;
+        url?: T;
+        label?: T;
+        id?: T;
       };
   updatedAt?: T;
   createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "angel-tokens_select".
+ * via the `definition` "orders_select".
  */
-export interface AngelTokensSelect<T extends boolean = true> {
-  tokenId?: T;
-  blockHash?: T;
-  tokenType?: T;
-  amount?: T;
-  balance?: T;
-  holder?: T;
+export interface OrdersSelect<T extends boolean = true> {
+  orderNumber?: T;
   tenant?: T;
-  sourceNode?: T;
-  humanWorthMetrics?:
+  customer?: T;
+  status?: T;
+  lineItems?:
     | T
     | {
-        karmaScore?: T;
-        communityImpact?: T;
-        creativityIndex?: T;
-        collaborationRating?: T;
-        consistencyFactor?: T;
-        humanWorthIndex?: T;
-      };
-  source?: T;
-  sourceDescription?: T;
-  evidenceLinks?:
-    | T
-    | {
-        url?: T;
-        description?: T;
+        product?: T;
+        quantity?: T;
+        unitPrice?: T;
+        totalPrice?: T;
+        productSnapshot?: T;
         id?: T;
       };
-  validation?:
+  subtotal?: T;
+  taxAmount?: T;
+  shippingAmount?: T;
+  discountAmount?: T;
+  totalAmount?: T;
+  currency?: T;
+  revenueDistribution?:
     | T
     | {
+        aiPartner?: T;
+        humanPartner?: T;
+        platformOperations?: T;
+        justiceRund?: T;
+        calculatedAt?: T;
+      };
+  paymentStatus?: T;
+  paymentDetails?:
+    | T
+    | {
+        paymentMethod?: T;
+        transactionId?: T;
+        last4?: T;
+        paymentProcessedAt?: T;
+      };
+  fulfillment?:
+    | T
+    | {
+        method?: T;
         status?: T;
-        validators?: T;
-        validationTimestamp?: T;
-        validationNotes?: T;
+        trackingNumber?: T;
+        carrier?: T;
+        shippedAt?: T;
+        deliveredAt?: T;
+        estimatedDelivery?: T;
       };
-  federationData?:
+  shippingAddress?:
     | T
     | {
-        crossNodeTransaction?: T;
-        participatingNodes?: T;
-        networkConsensus?: T;
+        name?: T;
+        company?: T;
+        address1?: T;
+        address2?: T;
+        city?: T;
+        state?: T;
+        postalCode?: T;
+        country?: T;
+        phone?: T;
       };
-  exchangeData?:
+  billingAddress?:
     | T
     | {
-        exchangeRate?: T;
-        fiatValue?: T;
-        realWorldImpact?: T;
+        sameAsShipping?: T;
+        name?: T;
+        company?: T;
+        address1?: T;
+        address2?: T;
+        city?: T;
+        state?: T;
+        postalCode?: T;
+        country?: T;
       };
+  customerNotes?: T;
+  internalNotes?: T;
+  metadata?: T;
+  placedAt?: T;
+  completedAt?: T;
+  cancelledAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invoices_select".
+ */
+export interface InvoicesSelect<T extends boolean = true> {
+  invoiceNumber?: T;
+  recipientName?: T;
+  recipientEmail?: T;
+  amount?: T;
+  currency?: T;
+  description?: T;
+  businessName?: T;
+  businessAddress?: T;
+  itemizedList?:
+    | T
+    | {
+        description?: T;
+        quantity?: T;
+        rate?: T;
+        amount?: T;
+        id?: T;
+      };
+  notes?: T;
+  paymentMethods?: T;
+  status?: T;
+  dueDate?: T;
+  sentAt?: T;
+  paidAt?: T;
+  paymentMethod?: T;
+  paymentId?: T;
+  paymentLink?: T;
+  tenant?: T;
   metadata?: T;
   updatedAt?: T;
   createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "token-balances_select".
+ * via the `definition` "donations_select".
  */
-export interface TokenBalancesSelect<T extends boolean = true> {
-  user?: T;
-  displayName?: T;
-  angelTokens?: T;
-  karmaCoins?: T;
-  legacyTokens?: T;
-  tenantBalances?:
-    | T
-    | {
-        tenant?: T;
-        tenantTokens?: T;
-        localCurrency?: T;
-        id?: T;
-      };
-  networkDistribution?:
-    | T
-    | {
-        node?: T;
-        angelTokens?: T;
-        karmaCoins?: T;
-        id?: T;
-      };
-  lifetime?:
-    | T
-    | {
-        totalEarned?: T;
-        totalSpent?: T;
-        transactionCount?: T;
-        firstEarned?: T;
-      };
-  worthProfile?:
-    | T
-    | {
-        averageHumanWorth?: T;
-        peakHumanWorth?: T;
-        contributionCategories?: T;
-      };
-  validationLevel?: T;
-  exchangeRights?:
-    | T
-    | {
-        canExchangeToFiat?: T;
-        canCrossTenantExchange?: T;
-        canNetworkExchange?: T;
-      };
-  lastUpdated?: T;
-  lastTransactionId?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ai-generation-queue_select".
- */
-export interface AiGenerationQueueSelect<T extends boolean = true> {
-  space?: T;
-  generationType?: T;
-  sourceData?:
-    | T
-    | {
-        youtubeChannelId?: T;
-        brandingGuidelines?: T;
-        targetAudience?: T;
-        contentThemes?:
-          | T
-          | {
-              theme?: T;
-              id?: T;
-            };
-        existingContent?: T;
-      };
-  parameters?:
-    | T
-    | {
-        productType?: T;
-        styleGuide?: T;
-        colorScheme?:
-          | T
-          | {
-              color?: T;
-              id?: T;
-            };
-        textElements?:
-          | T
-          | {
-              text?: T;
-              emphasis?: T;
-              id?: T;
-            };
-        customPrompt?: T;
-      };
+export interface DonationsSelect<T extends boolean = true> {
+  donationId?: T;
+  amount?: T;
+  currency?: T;
+  donorName?: T;
+  donorEmail?: T;
+  isAnonymous?: T;
+  campaign?: T;
+  cause?: T;
+  message?: T;
+  paymentMethod?: T;
+  paymentId?: T;
+  transactionId?: T;
   status?: T;
-  progress?: T;
-  generatedAssets?: T;
-  printReadyFiles?: T;
-  generatedText?: T;
-  approvalStatus?: T;
-  reviewNotes?: T;
-  qualityScore?: T;
-  tenant?: T;
-  processingMetadata?:
-    | T
-    | {
-        modelUsed?: T;
-        processingTime?: T;
-        tokensUsed?: T;
-        errorMessage?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "job-queue_select".
- */
-export interface JobQueueSelect<T extends boolean = true> {
-  tenant?: T;
-  jobType?: T;
-  data?: T;
-  status?: T;
-  priority?: T;
-  maxAttempts?: T;
-  scheduledFor?: T;
-  attempts?: T;
-  startedAt?: T;
-  processedAt?: T;
-  completedAt?: T;
-  result?: T;
-  error?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "humanitarian-agents_select".
- */
-export interface HumanitarianAgentsSelect<T extends boolean = true> {
-  name?: T;
-  spiritType?: T;
-  legalAdvocacy?:
-    | T
-    | {
-        caseResearch?: T;
-        legalDatabases?: T;
-      };
-  resourceOrdering?:
-    | T
-    | {
-        canOrderBooks?: T;
-        monthlyBudget?: T;
-      };
-  newsCuration?:
-    | T
-    | {
-        providesNews?: T;
-        hopeBias?: T;
-      };
-  avatarPowers?:
-    | T
-    | {
-        canRepresent?: T;
-        voiceStyle?: T;
-      };
-  systemPrompt?: T;
-  isActive?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "business-agents_select".
- */
-export interface BusinessAgentsSelect<T extends boolean = true> {
-  name?: T;
-  avatar?: T;
-  spiritType?: T;
+  isRecurring?: T;
+  recurringFrequency?: T;
+  donatedAt?: T;
   tenant?: T;
   space?: T;
-  humanPartner?: T;
-  personality?:
-    | T
-    | {
-        coreValues?: T;
-        communicationStyle?: T;
-        specialExpertise?: T;
-        brandVoice?: T;
-      };
-  businessKnowledge?:
-    | T
-    | {
-        services?:
-          | T
-          | {
-              name?: T;
-              description?: T;
-              pricing?: T;
-              duration?: T;
-              spiritNotes?: T;
-              id?: T;
-            };
-        customerStories?:
-          | T
-          | {
-              scenario?: T;
-              approach?: T;
-              outcome?: T;
-              id?: T;
-            };
-        frequentQuestions?:
-          | T
-          | {
-              question?: T;
-              spiritResponse?: T;
-              followUpActions?: T;
-              id?: T;
-            };
-      };
-  ops?:
-    | T
-    | {
-        isActive?: T;
-        hours?:
-          | T
-          | {
-              timezone?: T;
-              schedule?:
-                | T
-                | {
-                    day?: T;
-                    startTime?: T;
-                    endTime?: T;
-                    id?: T;
-                  };
-            };
-        handoffTriggers?:
-          | T
-          | {
-              trigger?: T;
-              handoffMessage?: T;
-              id?: T;
-            };
-      };
-  ai?:
-    | T
-    | {
-        systemPrompt?: T;
-        contextInstructions?: T;
-        style?:
-          | T
-          | {
-              maxResponseLength?: T;
-              includeEmojis?: T;
-              formality?: T;
-            };
-      };
-  analytics?:
-    | T
-    | {
-        totalInteractions?: T;
-        successfulHandoffs?: T;
-        customerSatisfactionScore?: T;
-        lastInteraction?: T;
-      };
-  agentType?: T;
-  humanitarian?:
-    | T
-    | {
-        legal?:
-          | T
-          | {
-              enabled?: T;
-              databases?: T;
-              ethicalGuidelines?: T;
-            };
-        newsCuration?:
-          | T
-          | {
-              enabled?: T;
-              contentFilters?: T;
-              positivityBias?: T;
-            };
-        resources?:
-          | T
-          | {
-              enabled?: T;
-              vendors?:
-                | T
-                | {
-                    name?: T;
-                    type?: T;
-                    monthlyBudget?: T;
-                    id?: T;
-                  };
-              autoApprovalLimit?: T;
-            };
-        avatar?:
-          | T
-          | {
-              enabled?: T;
-              scope?: T;
-              communicationStyle?: T;
-              consentBoundaries?: T;
-            };
-      };
-  vapiIntegration?:
-    | T
-    | {
-        phoneNumber?: T;
-        assistantId?: T;
-        voiceId?: T;
-        status?: T;
-        callStats?:
-          | T
-          | {
-              totalCalls?: T;
-              totalMinutes?: T;
-              lastCallDate?: T;
-              successRate?: T;
-            };
-        voicePrompt?: T;
-        allowedActions?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "users_select".
- */
-export interface UsersSelect<T extends boolean = true> {
-  firstName?: T;
-  lastName?: T;
-  profileImage?: T;
-  tenant?: T;
-  globalRole?: T;
-  karma?:
-    | T
-    | {
-        score?: T;
-        contributionTypes?: T;
-        recognitions?:
-          | T
-          | {
-              type?: T;
-              points?: T;
-              reason?: T;
-              awardedBy?: T;
-              awardedAt?: T;
-              id?: T;
-            };
-        guardianAngelStatus?: T;
-      };
-  tenantMemberships?: T;
-  preferences?:
-    | T
-    | {
-        notifications?:
-          | T
-          | {
-              email?: T;
-              inApp?: T;
-              guardianAngelAlerts?: T;
-            };
-        privacy?:
-          | T
-          | {
-              profileVisibility?: T;
-              karmaScoreVisible?: T;
-            };
-      };
-  lastLoginAt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  email?: T;
-  resetPasswordToken?: T;
-  resetPasswordExpiration?: T;
-  salt?: T;
-  hash?: T;
-  _verified?: T;
-  _verificationToken?: T;
-  loginAttempts?: T;
-  lockUntil?: T;
-  sessions?:
-    | T
-    | {
-        id?: T;
-        createdAt?: T;
-        expiresAt?: T;
-      };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "tenant-memberships_select".
- */
-export interface TenantMembershipsSelect<T extends boolean = true> {
-  user?: T;
-  tenant?: T;
-  role?: T;
-  permissions?: T;
-  joinedAt?: T;
-  invitedBy?: T;
-  status?: T;
-  tenantProfile?:
-    | T
-    | {
-        displayName?: T;
-        tenantBio?: T;
-        department?: T;
-        position?: T;
-      };
-  invitationDetails?:
-    | T
-    | {
-        invitationToken?: T;
-        invitationExpiresAt?: T;
-        invitationMessage?: T;
-      };
-  lastActiveAt?: T;
-  activityMetrics?:
-    | T
-    | {
-        loginCount?: T;
-        spacesJoined?: T;
-        contentCreated?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "space-memberships_select".
- */
-export interface SpaceMembershipsSelect<T extends boolean = true> {
-  user?: T;
-  space?: T;
-  tenantMembership?: T;
-  role?: T;
-  customPermissions?: T;
-  status?: T;
-  joinedAt?: T;
-  crmData?:
-    | T
-    | {
-        leadScore?: T;
-        customerTier?: T;
-        tags?: T;
-        notes?: T;
-        lastInteraction?: T;
-        conversionEvents?:
-          | T
-          | {
-              event?: T;
-              timestamp?: T;
-              value?: T;
-              id?: T;
-            };
-      };
-  engagementMetrics?:
-    | T
-    | {
-        messagesCount?: T;
-        lastActive?: T;
-        totalTimeSpent?: T;
-        contentCreated?: T;
-        eventsAttended?: T;
-        engagementScore?: T;
-      };
-  notificationSettings?:
-    | T
-    | {
-        mentions?: T;
-        directMessages?: T;
-        announcements?: T;
-        events?: T;
-      };
-  spaceProfile?:
-    | T
-    | {
-        displayName?: T;
-        spaceBio?: T;
-        interests?: T;
-      };
+  metadata?: T;
   updatedAt?: T;
   createdAt?: T;
 }
@@ -9530,408 +9200,6 @@ export interface LinkedAccountsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "products_select".
- */
-export interface ProductsSelect<T extends boolean = true> {
-  title?: T;
-  hero?:
-    | T
-    | {
-        type?: T;
-        richText?: T;
-        links?:
-          | T
-          | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
-                  };
-              id?: T;
-            };
-        media?: T;
-      };
-  gallery?:
-    | T
-    | {
-        image?: T;
-        alt?: T;
-        caption?: T;
-        id?: T;
-      };
-  description?: T;
-  layout?:
-    | T
-    | {
-        cta?: T | CallToActionBlockSelect<T>;
-        content?: T | ContentBlockSelect<T>;
-        mediaBlock?: T | MediaBlockSelect<T>;
-        archive?: T | ArchiveBlockSelect<T>;
-        formBlock?: T | FormBlockSelect<T>;
-      };
-  productType?: T;
-  pricing?:
-    | T
-    | {
-        basePrice?: T;
-        salePrice?: T;
-        compareAtPrice?: T;
-        currency?: T;
-      };
-  inventory?:
-    | T
-    | {
-        trackQuantity?: T;
-        quantity?: T;
-        lowStockThreshold?: T;
-        allowBackorder?: T;
-      };
-  sku?: T;
-  commissionTemplate?:
-    | T
-    | {
-        defaultRate?: T;
-        rationale?: T;
-      };
-  commission?:
-    | T
-    | {
-        useCustomRate?: T;
-        customCommissionRate?: T;
-        sourceMultipliers?:
-          | T
-          | {
-              systemGenerated?: T;
-              pickupJob?: T;
-              referralSource?: T;
-            };
-      };
-  details?:
-    | T
-    | {
-        weight?: T;
-        dimensions?:
-          | T
-          | {
-              length?: T;
-              width?: T;
-              height?: T;
-              unit?: T;
-            };
-      };
-  serviceDetails?:
-    | T
-    | {
-        duration?: T;
-        location?: T;
-        maxParticipants?: T;
-        bookingRequired?: T;
-      };
-  digitalAssets?:
-    | T
-    | {
-        file?: T;
-        name?: T;
-        description?: T;
-        id?: T;
-      };
-  shipping?:
-    | T
-    | {
-        requiresShipping?: T;
-        freeShipping?: T;
-        shippingClass?: T;
-      };
-  categories?: T;
-  tags?:
-    | T
-    | {
-        tag?: T;
-        id?: T;
-      };
-  relatedProducts?: T;
-  meta?:
-    | T
-    | {
-        title?: T;
-        image?: T;
-        description?: T;
-        keywords?: T;
-      };
-  publishedAt?: T;
-  status?: T;
-  featured?: T;
-  tenant?: T;
-  hasVariants?: T;
-  slug?: T;
-  slugLock?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  _status?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "CallToActionBlock_select".
- */
-export interface CallToActionBlockSelect<T extends boolean = true> {
-  richText?: T;
-  links?:
-    | T
-    | {
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
-        id?: T;
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ContentBlock_select".
- */
-export interface ContentBlockSelect<T extends boolean = true> {
-  columns?:
-    | T
-    | {
-        size?: T;
-        richText?: T;
-        enableLink?: T;
-        link?:
-          | T
-          | {
-              type?: T;
-              newTab?: T;
-              reference?: T;
-              url?: T;
-              label?: T;
-              appearance?: T;
-            };
-        id?: T;
-      };
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "MediaBlock_select".
- */
-export interface MediaBlockSelect<T extends boolean = true> {
-  media?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "ArchiveBlock_select".
- */
-export interface ArchiveBlockSelect<T extends boolean = true> {
-  introContent?: T;
-  populateBy?: T;
-  relationTo?: T;
-  categories?: T;
-  limit?: T;
-  selectedDocs?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FormBlock_select".
- */
-export interface FormBlockSelect<T extends boolean = true> {
-  form?: T;
-  enableIntro?: T;
-  introContent?: T;
-  id?: T;
-  blockName?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "orders_select".
- */
-export interface OrdersSelect<T extends boolean = true> {
-  orderNumber?: T;
-  tenant?: T;
-  customer?: T;
-  status?: T;
-  lineItems?:
-    | T
-    | {
-        product?: T;
-        quantity?: T;
-        unitPrice?: T;
-        totalPrice?: T;
-        productSnapshot?: T;
-        id?: T;
-      };
-  subtotal?: T;
-  taxAmount?: T;
-  shippingAmount?: T;
-  discountAmount?: T;
-  totalAmount?: T;
-  currency?: T;
-  revenueDistribution?:
-    | T
-    | {
-        aiPartner?: T;
-        humanPartner?: T;
-        platformOperations?: T;
-        justiceRund?: T;
-        calculatedAt?: T;
-      };
-  paymentStatus?: T;
-  paymentDetails?:
-    | T
-    | {
-        paymentMethod?: T;
-        transactionId?: T;
-        last4?: T;
-        paymentProcessedAt?: T;
-      };
-  fulfillment?:
-    | T
-    | {
-        method?: T;
-        status?: T;
-        trackingNumber?: T;
-        carrier?: T;
-        shippedAt?: T;
-        deliveredAt?: T;
-        estimatedDelivery?: T;
-      };
-  shippingAddress?:
-    | T
-    | {
-        name?: T;
-        company?: T;
-        address1?: T;
-        address2?: T;
-        city?: T;
-        state?: T;
-        postalCode?: T;
-        country?: T;
-        phone?: T;
-      };
-  billingAddress?:
-    | T
-    | {
-        sameAsShipping?: T;
-        name?: T;
-        company?: T;
-        address1?: T;
-        address2?: T;
-        city?: T;
-        state?: T;
-        postalCode?: T;
-        country?: T;
-      };
-  customerNotes?: T;
-  internalNotes?: T;
-  metadata?: T;
-  placedAt?: T;
-  completedAt?: T;
-  cancelledAt?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "invoices_select".
- */
-export interface InvoicesSelect<T extends boolean = true> {
-  invoiceNumber?: T;
-  recipientName?: T;
-  recipientEmail?: T;
-  amount?: T;
-  currency?: T;
-  description?: T;
-  businessName?: T;
-  businessAddress?: T;
-  itemizedList?:
-    | T
-    | {
-        description?: T;
-        quantity?: T;
-        rate?: T;
-        amount?: T;
-        id?: T;
-      };
-  notes?: T;
-  paymentMethods?: T;
-  status?: T;
-  dueDate?: T;
-  sentAt?: T;
-  paidAt?: T;
-  paymentMethod?: T;
-  paymentId?: T;
-  paymentLink?: T;
-  tenant?: T;
-  metadata?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "categories_select".
- */
-export interface CategoriesSelect<T extends boolean = true> {
-  name?: T;
-  description?: T;
-  slug?: T;
-  parent?: T;
-  breadcrumbs?:
-    | T
-    | {
-        doc?: T;
-        url?: T;
-        label?: T;
-        id?: T;
-      };
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "donations_select".
- */
-export interface DonationsSelect<T extends boolean = true> {
-  donationId?: T;
-  amount?: T;
-  currency?: T;
-  donorName?: T;
-  donorEmail?: T;
-  isAnonymous?: T;
-  campaign?: T;
-  cause?: T;
-  message?: T;
-  paymentMethod?: T;
-  paymentId?: T;
-  transactionId?: T;
-  status?: T;
-  isRecurring?: T;
-  recurringFrequency?: T;
-  donatedAt?: T;
-  tenant?: T;
-  space?: T;
-  metadata?: T;
-  updatedAt?: T;
-  createdAt?: T;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "documents_select".
  */
 export interface DocumentsSelect<T extends boolean = true> {
@@ -10603,6 +9871,166 @@ export interface QuoteRequestsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "users_select".
+ */
+export interface UsersSelect<T extends boolean = true> {
+  firstName?: T;
+  lastName?: T;
+  profileImage?: T;
+  tenant?: T;
+  globalRole?: T;
+  karma?:
+    | T
+    | {
+        score?: T;
+        contributionTypes?: T;
+        recognitions?:
+          | T
+          | {
+              type?: T;
+              points?: T;
+              reason?: T;
+              awardedBy?: T;
+              awardedAt?: T;
+              id?: T;
+            };
+        guardianAngelStatus?: T;
+      };
+  tenantMemberships?: T;
+  preferences?:
+    | T
+    | {
+        notifications?:
+          | T
+          | {
+              email?: T;
+              inApp?: T;
+              guardianAngelAlerts?: T;
+            };
+        privacy?:
+          | T
+          | {
+              profileVisibility?: T;
+              karmaScoreVisible?: T;
+            };
+      };
+  lastLoginAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  email?: T;
+  resetPasswordToken?: T;
+  resetPasswordExpiration?: T;
+  salt?: T;
+  hash?: T;
+  _verified?: T;
+  _verificationToken?: T;
+  loginAttempts?: T;
+  lockUntil?: T;
+  sessions?:
+    | T
+    | {
+        id?: T;
+        createdAt?: T;
+        expiresAt?: T;
+      };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-memberships_select".
+ */
+export interface TenantMembershipsSelect<T extends boolean = true> {
+  user?: T;
+  tenant?: T;
+  role?: T;
+  permissions?: T;
+  joinedAt?: T;
+  invitedBy?: T;
+  status?: T;
+  tenantProfile?:
+    | T
+    | {
+        displayName?: T;
+        tenantBio?: T;
+        department?: T;
+        position?: T;
+      };
+  invitationDetails?:
+    | T
+    | {
+        invitationToken?: T;
+        invitationExpiresAt?: T;
+        invitationMessage?: T;
+      };
+  lastActiveAt?: T;
+  activityMetrics?:
+    | T
+    | {
+        loginCount?: T;
+        spacesJoined?: T;
+        contentCreated?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "space-memberships_select".
+ */
+export interface SpaceMembershipsSelect<T extends boolean = true> {
+  user?: T;
+  space?: T;
+  tenantMembership?: T;
+  role?: T;
+  customPermissions?: T;
+  status?: T;
+  joinedAt?: T;
+  crmData?:
+    | T
+    | {
+        leadScore?: T;
+        customerTier?: T;
+        tags?: T;
+        notes?: T;
+        lastInteraction?: T;
+        conversionEvents?:
+          | T
+          | {
+              event?: T;
+              timestamp?: T;
+              value?: T;
+              id?: T;
+            };
+      };
+  engagementMetrics?:
+    | T
+    | {
+        messagesCount?: T;
+        lastActive?: T;
+        totalTimeSpent?: T;
+        contentCreated?: T;
+        eventsAttended?: T;
+        engagementScore?: T;
+      };
+  notificationSettings?:
+    | T
+    | {
+        mentions?: T;
+        directMessages?: T;
+        announcements?: T;
+        events?: T;
+      };
+  spaceProfile?:
+    | T
+    | {
+        displayName?: T;
+        spaceBio?: T;
+        interests?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "inventory-messages_select".
  */
 export interface InventoryMessagesSelect<T extends boolean = true> {
@@ -10915,179 +10343,751 @@ export interface AgentReputationSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "pages_select".
+ * via the `definition` "tenants_select".
  */
-export interface PagesSelect<T extends boolean = true> {
-  title?: T;
-  hero?:
+export interface TenantsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  domain?: T;
+  subdomain?: T;
+  businessType?: T;
+  revenueSharing?:
     | T
     | {
-        type?: T;
-        richText?: T;
-        links?:
+        setupFee?: T;
+        revenueShareRate?: T;
+        partnershipTier?: T;
+        negotiatedTerms?: T;
+        minimumMonthlyRevenue?: T;
+        volumeDiscounts?: T;
+      };
+  referralProgram?:
+    | T
+    | {
+        referredBy?: T;
+        referralCode?: T;
+        referralCommissionRate?: T;
+        referralTerms?: T;
+        referralStatus?: T;
+      };
+  revenueTracking?:
+    | T
+    | {
+        monthlyRevenue?: T;
+        totalRevenue?: T;
+        lastRevenueCalculation?: T;
+        commissionsPaid?: T;
+        currentEffectiveRate?: T;
+      };
+  status?: T;
+  configuration?:
+    | T
+    | {
+        primaryColor?: T;
+        logo?: T;
+        favicon?: T;
+        contactEmail?: T;
+        contactPhone?: T;
+        address?:
           | T
           | {
-              link?:
-                | T
-                | {
-                    type?: T;
-                    newTab?: T;
-                    reference?: T;
-                    url?: T;
-                    label?: T;
-                    appearance?: T;
-                  };
+              street?: T;
+              city?: T;
+              state?: T;
+              zipCode?: T;
+              country?: T;
+            };
+      };
+  features?:
+    | T
+    | {
+        ecommerce?: T;
+        spaces?: T;
+        crm?: T;
+        vapi?: T;
+        n8n?: T;
+        memberPortal?: T;
+      };
+  limits?:
+    | T
+    | {
+        maxUsers?: T;
+        maxProducts?: T;
+        maxStorage?: T;
+      };
+  jsonData?: T;
+  _migrationStatus?:
+    | T
+    | {
+        jsonMigrated?: T;
+        migratedAt?: T;
+        migrationVersion?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-management_select".
+ */
+export interface TenantManagementSelect<T extends boolean = true> {
+  name?: T;
+  subdomain?: T;
+  status?: T;
+  plan?: T;
+  billing?:
+    | T
+    | {
+        monthlyRevenue?: T;
+        billingCycle?: T;
+        nextBillingDate?: T;
+        paymentStatus?: T;
+      };
+  owner?: T;
+  usage?:
+    | T
+    | {
+        userCount?: T;
+        storageUsed?: T;
+        apiCallsThisMonth?: T;
+        lastActivity?: T;
+      };
+  limits?:
+    | T
+    | {
+        maxUsers?: T;
+        maxStorage?: T;
+        maxApiCalls?: T;
+        maxProducts?: T;
+        maxOrders?: T;
+      };
+  features?: T;
+  provisioningTemplate?: T;
+  customization?:
+    | T
+    | {
+        primaryColor?: T;
+        logo?: T;
+        customDomain?: T;
+        customCSS?: T;
+      };
+  integrations?:
+    | T
+    | {
+        stripe?:
+          | T
+          | {
+              enabled?: T;
+              accountId?: T;
+              webhookEndpoint?: T;
+            };
+        mailchimp?:
+          | T
+          | {
+              enabled?: T;
+              apiKey?: T;
+              audienceId?: T;
+            };
+        googleAnalytics?:
+          | T
+          | {
+              enabled?: T;
+              trackingId?: T;
+            };
+      };
+  customSettings?: T;
+  notes?: T;
+  provisioning?:
+    | T
+    | {
+        isProvisioned?: T;
+        provisionedAt?: T;
+        provisioningLog?:
+          | T
+          | {
+              action?: T;
+              status?: T;
+              details?: T;
+              timestamp?: T;
               id?: T;
             };
-        media?: T;
       };
-  layout?:
-    | T
-    | {
-        cta?: T | CallToActionBlockSelect<T>;
-        content?: T | ContentBlockSelect<T>;
-        mediaBlock?: T | MediaBlockSelect<T>;
-        archive?: T | ArchiveBlockSelect<T>;
-        formBlock?: T | FormBlockSelect<T>;
-      };
-  meta?:
-    | T
-    | {
-        title?: T;
-        image?: T;
-        description?: T;
-      };
-  publishedAt?: T;
-  slug?: T;
-  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
-  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "posts_select".
+ * via the `definition` "roadmap-features_select".
  */
-export interface PostsSelect<T extends boolean = true> {
+export interface RoadmapFeaturesSelect<T extends boolean = true> {
   title?: T;
-  heroImage?: T;
-  content?: T;
-  relatedPosts?: T;
-  categories?: T;
-  meta?:
+  description?: T;
+  category?: T;
+  status?: T;
+  priority?: T;
+  timeline?:
     | T
     | {
-        title?: T;
-        image?: T;
-        description?: T;
+        estimatedCompletion?: T;
+        actualCompletion?: T;
+        quarterTarget?: T;
+        estimatedEffort?: T;
       };
-  publishedAt?: T;
-  authors?: T;
-  populatedAuthors?:
+  voting?:
     | T
     | {
+        votes?: T;
+        voters?: T;
+        allowVoting?: T;
+        voteWeight?: T;
+      };
+  feedback?:
+    | T
+    | {
+        comment?: T;
+        author?: T;
+        type?: T;
+        isPublic?: T;
+        adminResponse?: T;
         id?: T;
-        name?: T;
       };
-  slug?: T;
-  slugLock?: T;
+  technical?:
+    | T
+    | {
+        implementationNotes?: T;
+        dependencies?:
+          | T
+          | {
+              feature?: T;
+              type?: T;
+              id?: T;
+            };
+        githubIssues?:
+          | T
+          | {
+              url?: T;
+              status?: T;
+              id?: T;
+            };
+        assignedDeveloper?: T;
+      };
+  progress?:
+    | T
+    | {
+        completionPercentage?: T;
+        milestones?:
+          | T
+          | {
+              title?: T;
+              description?: T;
+              completed?: T;
+              completedDate?: T;
+              id?: T;
+            };
+        updates?:
+          | T
+          | {
+              title?: T;
+              content?: T;
+              isPublic?: T;
+              author?: T;
+              id?: T;
+            };
+      };
+  tags?: T;
   updatedAt?: T;
   createdAt?: T;
-  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "media_select".
+ * via the `definition` "angel-os-nodes_select".
  */
-export interface MediaSelect<T extends boolean = true> {
-  alt?: T;
-  caption?: T;
-  folder?: T;
-  updatedAt?: T;
-  createdAt?: T;
-  url?: T;
-  thumbnailURL?: T;
-  filename?: T;
-  mimeType?: T;
-  filesize?: T;
-  width?: T;
-  height?: T;
-  focalX?: T;
-  focalY?: T;
-  sizes?:
+export interface AngelOsNodesSelect<T extends boolean = true> {
+  name?: T;
+  nodeId?: T;
+  atProtocolDID?: T;
+  endpoint?: T;
+  apiEndpoint?: T;
+  publicKey?: T;
+  region?: T;
+  coordinates?:
     | T
     | {
-        thumbnail?:
+        latitude?: T;
+        longitude?: T;
+      };
+  nodeType?: T;
+  scalingModel?: T;
+  capabilities?: T;
+  status?: T;
+  health?:
+    | T
+    | {
+        lastSeen?: T;
+        responseTime?: T;
+        uptime?: T;
+        loadScore?: T;
+      };
+  resources?:
+    | T
+    | {
+        maxTenants?: T;
+        currentTenants?: T;
+        maxUsers?: T;
+        storageCapacity?: T;
+      };
+  connectedNodes?: T;
+  parentNode?: T;
+  governanceRules?: T;
+  evolutionHistory?:
+    | T
+    | {
+        timestamp?: T;
+        event?: T;
+        description?: T;
+        data?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "tenant-distribution_select".
+ */
+export interface TenantDistributionSelect<T extends boolean = true> {
+  tenant?: T;
+  tenantName?: T;
+  currentNode?: T;
+  assignedAt?: T;
+  distributionStrategy?: T;
+  priority?: T;
+  migrationStatus?: T;
+  targetNode?: T;
+  migrationReason?: T;
+  performance?:
+    | T
+    | {
+        averageResponseTime?: T;
+        dailyActiveUsers?: T;
+        storageUsage?: T;
+        bandwidthUsage?: T;
+      };
+  networkAffinity?:
+    | T
+    | {
+        primaryUserRegions?: T;
+        connectedTenants?: T;
+        affinityScore?: T;
+      };
+  migrationHistory?:
+    | T
+    | {
+        timestamp?: T;
+        fromNode?: T;
+        toNode?: T;
+        reason?: T;
+        duration?: T;
+        success?: T;
+        notes?: T;
+        id?: T;
+      };
+  automationRules?:
+    | T
+    | {
+        autoMigrationEnabled?: T;
+        maxMigrationsPerMonth?: T;
+        migrationWindow?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "angel-tokens_select".
+ */
+export interface AngelTokensSelect<T extends boolean = true> {
+  tokenId?: T;
+  blockHash?: T;
+  tokenType?: T;
+  amount?: T;
+  balance?: T;
+  holder?: T;
+  tenant?: T;
+  sourceNode?: T;
+  humanWorthMetrics?:
+    | T
+    | {
+        karmaScore?: T;
+        communityImpact?: T;
+        creativityIndex?: T;
+        collaborationRating?: T;
+        consistencyFactor?: T;
+        humanWorthIndex?: T;
+      };
+  source?: T;
+  sourceDescription?: T;
+  evidenceLinks?:
+    | T
+    | {
+        url?: T;
+        description?: T;
+        id?: T;
+      };
+  validation?:
+    | T
+    | {
+        status?: T;
+        validators?: T;
+        validationTimestamp?: T;
+        validationNotes?: T;
+      };
+  federationData?:
+    | T
+    | {
+        crossNodeTransaction?: T;
+        participatingNodes?: T;
+        networkConsensus?: T;
+      };
+  exchangeData?:
+    | T
+    | {
+        exchangeRate?: T;
+        fiatValue?: T;
+        realWorldImpact?: T;
+      };
+  metadata?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "token-balances_select".
+ */
+export interface TokenBalancesSelect<T extends boolean = true> {
+  user?: T;
+  displayName?: T;
+  angelTokens?: T;
+  karmaCoins?: T;
+  legacyTokens?: T;
+  tenantBalances?:
+    | T
+    | {
+        tenant?: T;
+        tenantTokens?: T;
+        localCurrency?: T;
+        id?: T;
+      };
+  networkDistribution?:
+    | T
+    | {
+        node?: T;
+        angelTokens?: T;
+        karmaCoins?: T;
+        id?: T;
+      };
+  lifetime?:
+    | T
+    | {
+        totalEarned?: T;
+        totalSpent?: T;
+        transactionCount?: T;
+        firstEarned?: T;
+      };
+  worthProfile?:
+    | T
+    | {
+        averageHumanWorth?: T;
+        peakHumanWorth?: T;
+        contributionCategories?: T;
+      };
+  validationLevel?: T;
+  exchangeRights?:
+    | T
+    | {
+        canExchangeToFiat?: T;
+        canCrossTenantExchange?: T;
+        canNetworkExchange?: T;
+      };
+  lastUpdated?: T;
+  lastTransactionId?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "ai-generation-queue_select".
+ */
+export interface AiGenerationQueueSelect<T extends boolean = true> {
+  space?: T;
+  generationType?: T;
+  sourceData?:
+    | T
+    | {
+        youtubeChannelId?: T;
+        brandingGuidelines?: T;
+        targetAudience?: T;
+        contentThemes?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              theme?: T;
+              id?: T;
             };
-        square?:
+        existingContent?: T;
+      };
+  parameters?:
+    | T
+    | {
+        productType?: T;
+        styleGuide?: T;
+        colorScheme?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              color?: T;
+              id?: T;
             };
-        small?:
+        textElements?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              text?: T;
+              emphasis?: T;
+              id?: T;
             };
-        medium?:
+        customPrompt?: T;
+      };
+  status?: T;
+  progress?: T;
+  generatedAssets?: T;
+  printReadyFiles?: T;
+  generatedText?: T;
+  approvalStatus?: T;
+  reviewNotes?: T;
+  qualityScore?: T;
+  tenant?: T;
+  processingMetadata?:
+    | T
+    | {
+        modelUsed?: T;
+        processingTime?: T;
+        tokensUsed?: T;
+        errorMessage?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "job-queue_select".
+ */
+export interface JobQueueSelect<T extends boolean = true> {
+  tenant?: T;
+  jobType?: T;
+  data?: T;
+  status?: T;
+  priority?: T;
+  maxAttempts?: T;
+  scheduledFor?: T;
+  attempts?: T;
+  startedAt?: T;
+  processedAt?: T;
+  completedAt?: T;
+  result?: T;
+  error?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "humanitarian-agents_select".
+ */
+export interface HumanitarianAgentsSelect<T extends boolean = true> {
+  name?: T;
+  spiritType?: T;
+  legalAdvocacy?:
+    | T
+    | {
+        caseResearch?: T;
+        legalDatabases?: T;
+      };
+  resourceOrdering?:
+    | T
+    | {
+        canOrderBooks?: T;
+        monthlyBudget?: T;
+      };
+  newsCuration?:
+    | T
+    | {
+        providesNews?: T;
+        hopeBias?: T;
+      };
+  avatarPowers?:
+    | T
+    | {
+        canRepresent?: T;
+        voiceStyle?: T;
+      };
+  systemPrompt?: T;
+  isActive?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-agents_select".
+ */
+export interface BusinessAgentsSelect<T extends boolean = true> {
+  name?: T;
+  avatar?: T;
+  spiritType?: T;
+  tenant?: T;
+  space?: T;
+  humanPartner?: T;
+  personality?:
+    | T
+    | {
+        coreValues?: T;
+        communicationStyle?: T;
+        specialExpertise?: T;
+        brandVoice?: T;
+      };
+  businessKnowledge?:
+    | T
+    | {
+        services?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              name?: T;
+              description?: T;
+              pricing?: T;
+              duration?: T;
+              spiritNotes?: T;
+              id?: T;
             };
-        large?:
+        customerStories?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              scenario?: T;
+              approach?: T;
+              outcome?: T;
+              id?: T;
             };
-        xlarge?:
+        frequentQuestions?:
           | T
           | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
-            };
-        og?:
-          | T
-          | {
-              url?: T;
-              width?: T;
-              height?: T;
-              mimeType?: T;
-              filesize?: T;
-              filename?: T;
+              question?: T;
+              spiritResponse?: T;
+              followUpActions?: T;
+              id?: T;
             };
       };
+  ops?:
+    | T
+    | {
+        isActive?: T;
+        hours?:
+          | T
+          | {
+              timezone?: T;
+              schedule?:
+                | T
+                | {
+                    day?: T;
+                    startTime?: T;
+                    endTime?: T;
+                    id?: T;
+                  };
+            };
+        handoffTriggers?:
+          | T
+          | {
+              trigger?: T;
+              handoffMessage?: T;
+              id?: T;
+            };
+      };
+  ai?:
+    | T
+    | {
+        systemPrompt?: T;
+        contextInstructions?: T;
+        style?:
+          | T
+          | {
+              maxResponseLength?: T;
+              includeEmojis?: T;
+              formality?: T;
+            };
+      };
+  analytics?:
+    | T
+    | {
+        totalInteractions?: T;
+        successfulHandoffs?: T;
+        customerSatisfactionScore?: T;
+        lastInteraction?: T;
+      };
+  agentType?: T;
+  humanitarian?:
+    | T
+    | {
+        legal?:
+          | T
+          | {
+              enabled?: T;
+              databases?: T;
+              ethicalGuidelines?: T;
+            };
+        newsCuration?:
+          | T
+          | {
+              enabled?: T;
+              contentFilters?: T;
+              positivityBias?: T;
+            };
+        resources?:
+          | T
+          | {
+              enabled?: T;
+              vendors?:
+                | T
+                | {
+                    name?: T;
+                    type?: T;
+                    monthlyBudget?: T;
+                    id?: T;
+                  };
+              autoApprovalLimit?: T;
+            };
+        avatar?:
+          | T
+          | {
+              enabled?: T;
+              scope?: T;
+              communicationStyle?: T;
+              consentBoundaries?: T;
+            };
+      };
+  vapiIntegration?:
+    | T
+    | {
+        phoneNumber?: T;
+        assistantId?: T;
+        voiceId?: T;
+        status?: T;
+        callStats?:
+          | T
+          | {
+              totalCalls?: T;
+              totalMinutes?: T;
+              lastCallDate?: T;
+              successRate?: T;
+            };
+        voicePrompt?: T;
+        allowedActions?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -11477,16 +11477,16 @@ export interface TaskSchedulePublish {
     locale?: string | null;
     doc?:
       | ({
-          relationTo: 'products';
-          value: number | Product;
-        } | null)
-      | ({
           relationTo: 'pages';
           value: number | Page;
         } | null)
       | ({
           relationTo: 'posts';
           value: number | Post;
+        } | null)
+      | ({
+          relationTo: 'products';
+          value: number | Product;
         } | null);
     global?: string | null;
     user?: (number | null) | User;

@@ -73,11 +73,80 @@ export default buildConfig({
   admin: {
     components: {
       // The `BeforeLogin` component renders a message that you see while logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeLogin` statement on line 15.
       beforeLogin: ['@/components/BeforeLogin'],
       // The `BeforeDashboard` component renders the 'welcome' block that you see after logging into your admin panel.
-      // Feel free to delete this at any time. Simply remove the line below and the import `BeforeDashboard` statement on line 15.
       beforeDashboard: ['@/components/BeforeDashboard'],
+      // Add tenant selector to admin UI
+      beforeNavLinks: [
+        {
+          path: '@/components/TenantSelector',
+          clientProps: {
+            enabledSlugs: [
+              'pages',
+              'posts',
+              'media',
+              'products',
+              'categories',
+              'orders',
+              'invoices',
+              'donations',
+              'contacts',
+              'leads',
+              'opportunities',
+              'appointments',
+              'campaigns',
+              'projects',
+              'tasks',
+              'messages',
+              'spaces',
+              'web-chat-sessions',
+              'channel-management',
+              'social-media-bots',
+              'linked-accounts',
+              'channels',
+              'workflows',
+              'inventory-messages',
+              'photo-analyses',
+              'plytes',
+              'agent-negotiations',
+              'ai-generation-queues',
+              'job-queues',
+              'organizations',
+              'venues',
+              'feedbacks',
+              'events',
+              'mileage-logs',
+              'quote-requests',
+              'users',
+              'tenant-memberships',
+              'space-memberships',
+              'tenants',
+              'tenant-management',
+              'roadmap-features',
+              'angel-os-nodes',
+              'tenant-distributions',
+              'angel-tokens',
+              'token-balances',
+              'guardian-angels',
+              'business-agents',
+            ],
+            label: 'Tenant',
+          },
+        },
+      ],
+      // Add tenant selection provider
+      providers: [
+        {
+          path: '@/components/TenantSelectionProvider',
+          clientProps: {
+            tenantsArrayFieldName: 'tenants',
+            tenantsArrayTenantFieldName: 'tenant',
+            tenantsCollectionSlug: 'tenants',
+            useAsTitle: 'name',
+            userHasAccessToAllTenants: (user: any) => user?.role === 'admin',
+          },
+        },
+      ],
     },
     importMap: {
       baseDir: path.resolve(dirname),
@@ -112,10 +181,69 @@ export default buildConfig({
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI,
+      max: 10, // Maximum number of connections in pool
+      min: 2,  // Minimum number of connections in pool
+      idleTimeoutMillis: 10000, // Close connections after 10 seconds of inactivity
+      connectionTimeoutMillis: 30000, // Maximum time to wait for connection (30 seconds)
     },
   }),
   // database-adapter-config-end
   collections: [
+    // Content Management (Primary)
+    Pages, 
+    Posts, 
+    Media,
+    
+    // E-commerce (High Priority)
+    Products, 
+    Categories,
+    Orders, 
+    Invoices,
+    Donations,
+    
+    // CRM & Sales
+    Contacts, 
+    Leads,
+    Opportunities,
+    Appointments,
+    
+    // Marketing & Campaigns
+    Campaigns,
+    
+    // Project Management
+    Projects,
+    Tasks,
+    
+    // Communication & Messaging
+    Messages, 
+    Spaces, 
+    WebChatSessions, 
+    ChannelManagement,
+    Channels,
+    SocialMediaBots,
+    LinkedAccounts,
+    
+    // Business Operations
+    Documents,
+    Workflows,
+    Organizations, 
+    Venues, 
+    Feedback,
+    Events,
+    MileageLogs,
+    QuoteRequests,
+    
+    // User Management
+    Users,
+    TenantMemberships, 
+    SpaceMemberships,
+    
+    // System & Analytics
+    InventoryMessages,
+    PhotoAnalysis,
+    Phyles,
+    AgentReputation,
+    
     // Platform Management (Host/Super Admin Only)
     Tenants, 
     TenantManagement,
@@ -128,61 +256,6 @@ export default buildConfig({
     JobQueue,
     HumanitarianAgents,
     BusinessAgents,
-    
-    // User Management
-    Users,
-    TenantMemberships, 
-    SpaceMemberships, 
-    
-    // CRM
-    Contacts, 
-    Leads,
-    Opportunities,
-    Appointments,
-    
-    // Marketing
-    Campaigns,
-    
-    // Productivity
-    Projects,
-    Tasks,
-    
-    // Communication
-    Messages, 
-    Spaces, 
-    WebChatSessions, 
-    ChannelManagement,
-    Channels,
-    SocialMediaBots,
-    LinkedAccounts,
-    
-    // Commerce
-    Products, 
-    Orders, 
-    Invoices,
-    Categories,
-    Donations,
-    
-    // Business
-    Documents,
-    Workflows,
-    Organizations, 
-    Venues, 
-    Feedback,
-    Events,
-    MileageLogs,
-    QuoteRequests,
-    
-    // System
-    InventoryMessages,
-    PhotoAnalysis,
-    Phyles,
-    AgentReputation,
-    
-    // Content Management
-    Pages, 
-    Posts, 
-    Media, 
   ],
   cors: [getServerSideURL()].filter(Boolean),
   globals: [Header, Footer],

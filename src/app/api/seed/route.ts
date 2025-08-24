@@ -2,7 +2,7 @@ import { createLocalReq, getPayload } from 'payload'
 import { seed } from '@/endpoints/seed'
 import config from '@payload-config'
 
-export const maxDuration = 60 // This function can run for a maximum of 60 seconds
+export const maxDuration = 300 // This function can run for a maximum of 300 seconds (5 minutes)
 
 export async function POST(): Promise<Response> {
   try {

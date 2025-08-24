@@ -11,7 +11,7 @@ export const Projects: CollectionConfig = {
   admin: {
     useAsTitle: 'name',
     defaultColumns: ['name', 'status', 'priority', 'startDate', 'endDate'],
-    group: 'Productivity',
+    group: 'Project Management',
     description: 'Project management with tasks and team collaboration',
   },
   access: createTenantAccess(),

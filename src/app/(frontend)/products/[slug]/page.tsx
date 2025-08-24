@@ -25,6 +25,9 @@ export async function generateStaticParams() {
     where: {
       // Temporarily removed status filter due to database enum mismatch
       // TODO: Fix database enum to include: draft, active, archived, out_of_stock
+      // status: {
+      //   equals: 'active',
+      // },
     },
     select: {
       slug: true,

@@ -246,27 +246,7 @@ export const Users: CollectionConfig = {
   timestamps: true,
   hooks: {
     beforeChange: [
-      async ({ data, operation, req }: { data: any, operation: string, req: any }) => {
-        // Debug tenant relationship issues
-        if (data.tenant) {
-          console.log(`User ${operation}: tenant field =`, typeof data.tenant, data.tenant)
-          
-          // Ensure tenant exists if provided
-          try {
-            if (data.tenant) {
-              const tenantId = typeof data.tenant === 'object' ? data.tenant.id : data.tenant
-              const tenant = await req.payload.findByID({
-                collection: 'tenants',
-                id: tenantId,
-              })
-              console.log(`Tenant validation successful: ${tenant.name} (${tenant.id})`)
-            }
-          } catch (error) {
-            console.error('Tenant validation failed:', error)
-            // Don't fail the operation, just log the error
-          }
-        }
-
+      async ({ data }: { data: any }) => {
         // Auto-assign Guardian Angel status based on karma score
         if (data.karma?.score >= 1000) {
           data.karma.guardianAngelStatus = true
@@ -275,11 +255,6 @@ export const Users: CollectionConfig = {
           }
         }
         return data
-      },
-    ],
-    afterChange: [
-      async ({ doc, operation }: { doc: any, operation: string }) => {
-        console.log(`User ${operation} completed: ${doc.email} with tenant: ${doc.tenant}`)
       },
     ],
   },

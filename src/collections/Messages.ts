@@ -15,7 +15,7 @@ export const Messages: CollectionConfig = {
   admin: {
     useAsTitle: 'id', // Changed from 'content' as content is now a JSON object
     defaultColumns: ['messageType', 'sender', 'space', 'channel', 'priority', 'createdAt'],
-    group: 'Collaboration',
+    group: 'Communication',
     description: 'Enhanced messaging system with rich JSON content, conversation context, and BI.',
   },
   access: {

@@ -18,7 +18,7 @@ interface State {
 }
 
 export class ErrorBoundary extends Component<Props, State> {
-  public state: State = {
+  public override state: State = {
     hasError: false,
     error: null,
     errorInfo: null
@@ -32,7 +32,7 @@ export class ErrorBoundary extends Component<Props, State> {
     }
   }
 
-  public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  public override componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo)
     
     this.setState({
@@ -56,7 +56,7 @@ export class ErrorBoundary extends Component<Props, State> {
     window.location.href = '/dashboard'
   }
 
-  public render() {
+  public override render() {
     if (this.state.hasError) {
       // Custom fallback UI
       if (this.props.fallback) {

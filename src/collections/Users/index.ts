@@ -154,6 +154,9 @@ export const Users: CollectionConfig = {
       admin: {
         description: 'Tenant this user belongs to - determines data access scope',
         condition: (data) => data.globalRole !== 'super_admin', // Super admins don't need tenants
+        components: {
+          Cell: '@/components/admin/TenantCell'
+        }
       },
       access: {
         update: ({ req }) => {

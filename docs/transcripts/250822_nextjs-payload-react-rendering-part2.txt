@@ -1501,3 +1501,1781 @@ for that customizing the admin panel but please keep us in the loop with what yo
 1:15:03
 docs optimized we're going to prioritize that over the coming weeks thank you
 
+Payload CMS: Fast Admin UI Custom Views
+
+Aaron Saunders
+8.05K subscribers
+
+Subscribe
+
+96
+
+
+Share
+
+Ask
+
+7,840 views  Jan 6, 2025  DISTRICT OF COLUMBIA
+Payload CMS: Fast Admin UI Custom Views - Add Create User View To Admin UI
+#payloadcms #reactjs #webdevelopment #payload 
+
+Learn how to create custom views in Payload CMS to customize your admin UI and enhance your user experience. With these tips, you can easily create accounts and manage your content with ease!
+
+⚡ Looking for help with your project - https://www.clearlyinnovative.com/val...
+
+Payload CMS 3 - Backend (server)
+🛠 Payload CMS with SQLite database
+👤 User authentication system
+🔑 Role-based access control (Admin/User roles)
+🌐 REST API endpoints
+🚀 Custom Create Account Screen / Endpoint
+
+⏱️ Chapters
+=================
+00:00 - introduction
+01:40 - Create the Payload Project
+02:24 - Explaining The Problem We Are Solving In App Demo
+03:15 - Modify Payload Config To Add New View
+04:21 - Creating the Custom Component For the New View ( use server )
+06:33 - Child Component for Actual Form ( use client )
+09:40 -  Add API Call to Create User
+11:15 - Testing Code
+13:50 - Wrap Up
+
+🔥 Recent Payload Content
+————————————————
+- Need Real-Time Data (websockets) in Payload CMS? Watch This NOW!
+   • Need Real-Time Data in Payload CMS? Watch ...  
+
+Quick Payload 3 Custom Component Example -    • Quick Payload 3 Custom Component Example  
+Real Time Chat -    • Building a Simple Real-Time Chat App with ...  
+Payload CMS And React Router 7 -    • Payload CMS Authentication with React Rout...  
+Custom Dynamic Select Component -    • Payload CMS - Build A Custom Dynamic Selec...  
+
+🔗 Helpful Links
+=================
+Payload CMS - https://payloadcms.com/
+Blog Post - https://dev.to/aaronksaunders/payload...
+
+Payload is the open-source, fullstack Next.js framework, giving you instant backend superpowers. Get a full TypeScript backend and admin panel instantly. Use Payload as a headless CMS or for building powerful applications.
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+Transcript
+
+
+Search in video
+introduction
+0:00
+hello and welcome to the channel as you
+0:02
+can see back again we are going to go
+0:04
+through another quick payload CMS
+0:08
+video I have a couple of that I've
+0:10
+created last couple of days but just a
+0:12
+quick refresher payloads open source NEX
+0:14
+a backend used basically what it is it's
+0:17
+a full stack backend built on nextjs
+0:21
+that is a
+0:22
+CMS but it also has ability to build
+0:26
+applications on top of it it packages up
+0:28
+your database it has or it has ways for
+0:31
+you to create um
+0:34
+authentication security against API
+0:36
+calls in a database all of this stuff is
+0:38
+integrated very little coding required
+0:41
+to kind of get it going clearly you do
+0:43
+need to understand react some next but I
+0:46
+think it's a pretty powerful platform
+0:48
+I'm kind of going through and learning
+0:50
+things along the way and and finding
+0:51
+some interesting things to do and so
+0:54
+this is going to be a video on another
+0:56
+interesting thing that I have stumbled
+0:59
+into so the idea here what we want to do
+1:01
+in this video is quickly show how you
+1:04
+can create a new screen or basically
+1:07
+extend the admin UI to have a screen to
+1:11
+create a new user right now the way the
+1:13
+system works is that when the system
+1:16
+starts up there's one admin that admin
+1:19
+creates an account and the admin is in
+1:21
+there's no other way to create a user
+1:24
+unless you are the admin and the admin
+1:27
+goes in and creates user for you I'm
+1:29
+going to create a UI that will allow you
+1:30
+to create a user inside the system and
+1:33
+then be allowed to log in all right
+1:36
+let's just start
+1:37
+quickly also please make sure to like
+1:39
+And subscribe share with your friends if
+Create the Payload Project
+1:42
+there's other things you'd like to see
+1:44
+being done with payload please drop a
+1:48
+comment and um I'll see what I can do
+1:52
+thanks okay we're going to call this
+1:56
+create user app
+2:00
+and we'll use a blank template we will
+2:03
+select
+2:04
+sqlite and we'll just use that as a
+2:06
+connection
+2:08
+string oh okay so our app finished
+2:12
+creating we switched directories and now
+2:15
+we've opened up our app and cursor so
+2:17
+let's go to
+2:18
+cursor um actually let's just run this
+2:20
+so that folks who aren't familiar can
+2:22
+kind of see what we get when we first
+Explaining The Problem We Are Solving In App Demo
+2:24
+get started
+2:33
+okay now let's go to Local Host
+2:37
+3000 okay so this is what you get if you
+2:40
+see up at the top it says create first
+2:41
+user I'll create my first
+2:45
+user and then now I'm in now the only
+2:48
+other way to create a user once you get
+2:49
+here is to click that and then click
+2:52
+create user what we want is we want the
+2:55
+user to be able to come to a URL up here
+2:58
+and get to create user so what we're
+3:00
+going to do is we're going to follow
+3:02
+this root views what do we we got this
+3:05
+customizing views create individual
+3:07
+pages on the admin panel we're going to
+3:09
+focus specifically on our root View and
+3:11
+this is the approach we're going to
+3:12
+take so let's open up our
+Modify Payload Config To Add New View
+3:15
+code and go to payload config because
+3:18
+that's kind of where all the magic
+3:19
+starts and
+3:21
+then we'll we'll just follow the pattern
+3:24
+that they have here you can see that
+3:26
+what they've done is they've added this
+3:27
+component views underneath the admin so
+3:30
+we're going to come to admin and
+3:32
+underneath
+3:35
+here components and then
+3:39
+views and then here we will add our view
+3:42
+for those who like to read I have
+3:45
+created a companion blog post that kind
+3:48
+of walks through this whole thing so
+3:50
+this will get posted along with the
+3:52
+video for you to kind of be able to
+3:53
+check it out and this is kind of what
+3:55
+I'm also going to use as my reference
+3:56
+since I've already did it once I don't
+3:58
+you know I can quickly just pull some
+4:00
+code here paste it and kind of document
+4:01
+it so we're here on The View
+4:04
+configuration and what we need to do is
+4:06
+we need to add this additional
+4:08
+information underneath our
+4:09
+views so what we want is we're going to
+4:12
+create a path called create account that
+4:15
+you're going to go to to create the
+4:16
+account and what we're going to do is
+4:18
+we're going to do it with this component
+4:20
+called create account view
+Creating the Custom Component For the New View ( use server )
+4:23
+component you need to specify the path
+4:26
+of where the actual component is
+4:28
+normally what I do is I usually either
+4:31
+create a separate components directory
+4:32
+or put it in with the uh collection that
+4:35
+I'm working on for now just to keep
+4:38
+things simple actually no I I'll follow
+4:40
+my same pattern uh so source source and
+4:44
+we'll create a file here components M
+4:49
+components all right so we have our file
+4:52
+we're following along with the pattern
+4:54
+this pattern here and so you can see
+4:56
+here custom reviews option can use one
+4:58
+of the templates provides the most
+5:00
+common is the default template provides
+5:02
+a basic layout of navigation so we're
+5:04
+just going to use this because we're
+5:05
+just trying to get the basic
+5:08
+understanding of how it works so I'll
+5:09
+just drop this in as my
+5:10
+component and let's see what do we
+5:14
+got
+5:15
+xport so remember if we go back to our
+5:19
+config that this is the name of my
+5:21
+component so I'm just going to just to
+5:22
+stay consistent I'm just going to copy
+5:24
+this over say export cons we'll just do
+5:28
+this
+5:29
+and then we'll go down here export
+5:33
+default all right oh my bad I have to
+5:37
+name this
+5:42
+TSX okay so we have our basic component
+5:45
+in create account component it's just
+5:48
+going to say custom default view and
+5:50
+then we're exporting it here and we go
+5:51
+back to our payload config and you see I
+5:53
+have the full path here um let's see if
+5:57
+if this is working so the path is create
+6:01
+account so I'll go up here go to
+6:07
+admin
+6:10
+okay and we get some errors oh let's
+6:14
+see let's just try a
+6:25
+rebuild okay so now we have our custom
+6:27
+view showing right so the next thing is
+6:30
+that because this is a server component
+Child Component for Actual Form ( use client )
+6:33
+we and I'm going to do some UI stuff I'm
+6:37
+going to move I'm going to put another
+6:39
+component in
+6:41
+here that'll handle all the UI stuff so
+6:44
+first let's put a header here create
+6:46
+account so what we're going to do next
+6:48
+is we're going to create our form here
+6:51
+so create account
+6:53
+form and
+6:55
+then just to keep our lives easy we'll
+6:58
+put it in the exact same
+7:03
+directory and in here it since it's it's
+7:06
+just a regular client component so we're
+7:08
+going to say use client let's just use a
+7:11
+regular form now to show that it's
+7:13
+working so
+7:15
+div create account
+7:18
+form and go back to Local
+7:21
+Host oh did I not import it let's import
+7:25
+it
+7:29
+and so we have our form all right the
+7:32
+next thing that we want to do is we want
+7:33
+to try and leverage payloads UI so we're
+7:37
+going to say
+7:38
+const so we're going to get the text
+7:41
+input and the button from payload and
+7:45
+this needs to be changed to path
+7:48
+value and then on change this value will
+7:53
+be email and we're going to set our use
+7:56
+State up here so we want email and cons
+8:00
+password we won't do a confirm password
+8:03
+we'll just leave that text input
+8:06
+password our
+8:09
+event and then we're going to do our set
+8:11
+email and then we're going to do the
+8:13
+same thing down here we'll get our event
+8:15
+and we're going to do set
+8:19
+password let's get our Imports so let's
+8:21
+update these Imports appropriately to
+8:23
+get our errors to go away let's add our
+8:26
+import for use State and now let's see
+8:29
+what our UI looks like all right so we
+8:31
+have our email field and our password
+8:36
+field that's looking good so far except
+8:38
+the problem is our password is showing
+8:39
+our password so this is one of the
+8:41
+things that caused me great pain and I
+8:43
+had the hunt and P like I would assume
+8:45
+that on here there would be a password
+8:49
+input but there is not the password
+8:52
+input was hidden and I had the search to
+8:54
+the doc to find it so hold on while I
+8:56
+dig that up so this is where I found it
+9:01
+and for someone who might know payload
+9:03
+better than me and can explain why and
+9:07
+explain why I have to go through this to
+9:09
+get access to the password input I'm
+9:11
+very happy to to learn because for me
+9:15
+this is all just about learning stuff
+9:16
+and I want to know like is there another
+9:19
+way that I should be doing this a lot of
+9:21
+this for me is I'm putting this content
+9:23
+out there hopefully someone who knows
+9:24
+better than me can respond and say hey
+9:26
+Aaron this is the way to do it so I can
+9:28
+learn and and move on from it
+9:30
+okay so now let's take a look at our app
+9:33
+again and we have our
+9:36
+Fields got some data our password is
+9:39
+hidden and I got my button all right so
+Add API Call to Create User
+9:42
+what we're going to do is we're just
+9:44
+going to handle do an on click
+9:47
+event create account Handler and so what
+9:51
+we need to do here is we can just call
+9:55
+the API endpoint to create the user
+9:59
+and that'll just be a simple fetch let's
+10:01
+just console log email and password to
+10:03
+make sure we got them we're going to do
+10:05
+a fetch obviously it's not create
+10:08
+account cursor is trying to be helpful
+10:10
+but it's not being that helpful because
+10:13
+it's not API create account it's API
+10:16
+users and it's a post and then we're
+10:18
+going to stringify the body send our
+10:21
+response we want to Jon our jsonify Json
+10:25
+our response to return it um but what we
+10:27
+really want to do here is we want to say
+10:29
+if respond is okay then we'll do it
+10:31
+otherwise fail to create an account
+10:33
+actually let's just thr an
+10:35
+alert fail to create an
+10:38
+account if my account was successfully
+10:41
+created not only do I want to console
+10:43
+log
+10:45
+data I want to navigate to the admin
+10:50
+page because now I'm logged in so to do
+10:53
+that I believe I need my use router yes
+10:56
+from next
+10:57
+navigation and we will use our router up
+11:00
+here at the top and then down here I'm
+11:03
+going to push to the default page and
+11:05
+that
+11:07
+should take me to the main console for
+11:09
+the admin actually let's just say admin
+11:13
+admin users just take us to the admin
+Testing Code
+11:16
+users page okay let's see if this was
+11:19
+all it took and I actually have an
+11:21
+account created so let's close this out
+11:24
+let's well my this Aaron account is
+11:26
+already created let's add a new one
+11:28
+Aaron 100
+11:34
+failed to create an account let's see
+11:36
+what it
+11:42
+said um not read properties updated at
+11:46
+that's a new one let's take a look at
+11:48
+our users console and see what's going
+11:50
+on the first thing I'm I'm realizing I
+11:53
+forgot to do I forgot to allow us to
+11:56
+create
+11:57
+accounts because
+12:00
+because you need to set the access on
+12:02
+here so
+12:04
+access you just set access to create
+12:07
+true so that I actually can create an
+12:09
+account this is not the most secure
+12:12
+approach there's definitely a much
+12:13
+better way to do it I'm just doing this
+12:15
+application for demonstration purposes
+12:17
+to show you how to integrate new um
+12:21
+views inside your application so let's
+12:23
+go
+12:27
+back I'm still logged in as clearly
+12:31
+inative okay so everything's
+12:36
+good this bug I have no idea what it's
+12:40
+talking
+12:41
+about I'm
+12:43
+missing dummy mistake I didn't put my
+12:46
+headers appc Json there we go let see if
+12:50
+that resolves everything
+12:52
+it's
+12:55
+okay sorry there's nothing to respond to
+12:58
+your request that's
+13:01
+interesting so it looks like it did
+13:03
+create a
+13:04
+user but back to dashboard admin uh I
+13:09
+see so it added my user here's my new
+13:12
+user I had the wrong path it should be
+13:16
+admin collection users so let's fix this
+13:20
+admin collection
+13:22
+users also see now I'm logged
+13:28
+in I'm still logged in as the other user
+13:31
+which is interesting let's try that so
+13:33
+let me log
+13:36
+out all right so I'm logged out and I'm
+13:40
+going to go to
+13:42
+admin create
+13:45
+account and we're going to say
+Wrap Up
+13:50
+eron
+13:52
+new and create
+13:56
+account all right so it created my
+14:00
+account but it didn't log me in I could
+14:03
+probably add that code to log in the
+14:04
+user if successful but if I put Aon
+14:08
+new NOP I think it was Aaron plus
+14:13
+new and I've logged in so eron plus new
+14:17
+that's new kind of created like I said
+14:19
+this is meant to be a short one so it is
+14:21
+short I will include all the source code
+14:23
+for you to kind of take a look and poke
+14:25
+around and try this yourself as I said
+14:28
+the there is a where is it here's a blog
+14:32
+post that I created now that I've gone
+14:34
+through the process I'll review what I
+14:35
+wrote to make sure it matches but this
+14:37
+will be available too blog post video
+14:40
+source code hopefully you found this
+14:41
+enjoyable we will see you next time and
+14:44
+drop a link if there's anything
+14:45
+interesting that you'd like to see with
+14:46
+payload CMS thanks bye now
+
+
+
+
+
+Advanced Admin Options in Payload CMS You Should Know
+
+NLV Codes
+1.86K subscribers
+
+Join
+
+Subscribe
+
+74
+
+
+Share
+
+Ask
+
+1,833 views  Apr 15, 2025  #webdevelopment #nextjs #payloadcms
+Resources and links: 
+Repo: https://nlvcodes.com/tutorials/advanc...
+Support These Tutorials:   / nlvcodes  
+Find me on Twitch:   / nlv_codes  
+Basic admin configurations:    • Step-by-Step Guide to Configuring PayloadC...  
+
+In this comprehensive tutorial, I dive into the powerful admin configuration options available in Payload CMS. Whether you're just getting started or want to fine-tune your admin dashboard for development or production, this video has you covered.
+
+What You'll Learn:
+Custom Admin UI Configurations, including custom avatars
+How to use auto login for development
+Meta and OpenGraph configurations
+Customizing routes
+How to gain granular control over field visibility, styling, layout, and behavior
+
+This video is packed with practical examples and real project use cases, perfect for developers building with Payload CMS and Next.js.
+
+Subscribe for more tutorials and live coding on Payload CMS & modern web development!
+
+Chapters: 
+00:00 - Introducing more admin configurations
+00:37 - Introducing Root Admin Configurations
+00:54 - Updating the Payload CMS Avatar
+01:35 - Using a React Component for the Payload CMS Avatar
+05:17 - Using the autoLogin option
+07:27 - Payload CMS’s Root Meta Prop
+08:58 - Including Favicons in Payload CMS
+10:35 - Setting OpenGraph Tags in Payload CMS
+11:37 - Editing Root Routes (Admin and API routes)
+13:21 - Editing Admin-level Routes
+15:15 - PayloadCMS’s Timezone Option
+16:56 - About Collection and Global Admin Options
+17:22 - Configuring Your Default Columns in the Collection List View
+18:32 - Conditionally Hiding your API Button in Collections and Globals
+19:39 - Changing GraphQL Options in Globals and Collections
+20:54 - Meta Options for Collections and Globals
+21:44 - Using Conditional Rendering for Payload CMS Fields
+22:50 - Adding Fields to the Edit View Sidebar
+23:32 - Adjusting a Field’s Width in a Row Field
+24:39 - Adding Inline Styles to Any Admin Field in Payload CMS
+25:07 - Using Classes to Style Payload CMS Admin Fields
+25:50 - Using the hidden Option
+26:44 - Closing thoughts and next steps
+
+#payloadcms #nextjs #webdevelopment #codingtutorials
+
+Transcript
+
+
+Search in video
+Introducing more admin configurations
+0:00
+What's up everyone?
+0:01
+In this video we're going to cover a few useful admin configurations
+0:05
+in Payload CMS’s admin UI, collections, globals, and fields.
+0:09
+Before we get started though,
+0:10
+make sure you're subscribed to my channel and getting notifications
+0:13
+so you never miss when I release a video about Payload CMS, Next.js, and more.
+0:19
+If you'd like to see the code that I use in this video,
+0:21
+there's a link to the repo in the description.
+0:23
+Now let's dive in.
+0:24
+We've covered a few admin customization options in the past,
+0:27
+but now I wanted to take some time to dive deep into what you're able
+0:32
+to do with these options.
+0:33
+Starting with additional admin config options in the admin panel.
+Introducing Root Admin Configurations
+0:37
+Any admin configurations you want to add to your admin
+0:40
+panel will need to be defined in your Payload config.
+0:43
+This is where we've already set things like components and date format.
+0:47
+Anything you configure here will apply to your entire Payload
+0:50
+admin UI, with a few exceptions that we'll go over shortly.
+Updating the Payload CMS Avatar
+0:54
+first option we'll cover in this video is the avatar.
+0:57
+You can use this to set an account profile picture.
+1:00
+You have the option to set this to default.
+1:02
+So we'll do that here at the top of our admin prop.
+1:06
+We can just add avatar and set it to be default.
+1:10
+Now when we save this and refresh we can see that we just get
+1:13
+this default icon in our admin UI.
+1:16
+You can also set this to be Gravatar, which will change the image
+1:20
+to be a blue background with a sideways G on it.
+1:23
+You're also able
+1:24
+to return a react component here, which is what I'm going to opt to do.
+1:28
+This allows a user to upload their own image to be used
+1:31
+as their avatar across the Payload admin UI.
+Using a React Component for the Payload CMS Avatar
+1:35
+We can do this just like we would with any other react component.
+1:38
+First we'll need to add the ability for users to upload an image.
+1:41
+can go to our collections directory and open our users.ts file.
+1:47
+And at the top of our fields here We're going to add
+1:50
+a new upload field called avatar.
+1:53
+With the relation to media.
+1:56
+Now when we save this we can go to our users collection.
+1:58
+And we'll open our primary account here that we're currently logged into.
+2:04
+And we can see that we have an avatar upload field right here.
+2:09
+Let's go ahead now and choose from our existing images
+2:12
+and use a picture of myself as our avatar.
+2:16
+Now we need to render this on the front end.
+2:18
+So we'll go to our components directory admin UI.
+2:23
+And in here we're going to add a new TypeScript
+2:25
+file called avatar TSX.
+2:29
+And we're going to import our types of media
+2:33
+from Payload types as well as our user.
+2:37
+We're also going to import the image component from Next image.
+2:42
+We'll then export a new const called avatar and open an arrow function.
+2:48
+And for our props we're going to pass in the user
+2:51
+which has the type of user.
+2:55
+Next we'll create a const called avatar and set this equal to the image field
+3:01
+we created earlier in our user config, which we called avatar.
+3:05
+So we can use user avatar.
+3:07
+We'll cast the type as Media so we can process this better in our component.
+3:12
+We'll then need to check if the avatar exists.
+3:15
+If it does, we can return an image component
+3:18
+which takes a source, an alt, a height, and a width.
+3:21
+So for our source, we'll add in our environment
+3:25
+variable for our S3 bucket.
+3:29
+And then also our avatar file
+3:32
+name for the alt, we can use avatar alt With a height of 25
+3:38
+and a width also of 25.
+3:41
+And then we can close that.
+3:42
+If there is no avatar defined, we'll want a fallback.
+3:46
+I copied the SVG that Payload uses for the default option,
+3:49
+and we can use that if a user selected avatar doesn't exist.
+3:53
+So we'll create an else statement by adding else at the bottom of our if
+3:58
+and then I can return this SVG that I copied here in the else statement.
+4:05
+As always, whenever you copy and paste an SVG from anywhere on the internet,
+4:09
+be sure that the attributes match JSX rules, or you might get errors.
+4:14
+Finally, we're going to include our export
+4:18
+default avatar at the end of our file here.
+4:22
+Now let's use the component in our admin configuration.
+4:25
+on the avatar prop.
+4:26
+Open up a new object instead of this gravatar here,
+4:29
+and we can add our component option with the path prop included.
+4:35
+So our path is going to be components admin UI avatar.tsx
+4:41
+And since
+4:42
+I used a default export, we should see this work.
+4:46
+No problem.
+4:47
+I can see that this is just a square image right now, so let's make it round
+4:51
+by adding a style attribute to our image of border radius of 50%.
+4:58
+So when I save this now, I can see that we have a nice
+5:01
+avatar profile picture here in the top right of our admin UI.
+5:04
+Now if we click on this and remove our image
+5:08
+and hit save, can see that nothing will break and it will just return
+5:12
+back to the default SVG that we included in our component.
+Using the autoLogin option
+5:17
+The next option I want to cover is auto login.
+5:20
+This allows you to set a default user to use to log into your admin dashboard,
+5:25
+without having to enter a password whenever your session expires.
+5:28
+This comes in handy when you're in development, testing or demo mode,
+5:32
+but is definitely not recommended for production as it will
+5:35
+allow anyone to access your admin UI.
+5:38
+I'll start by creating an environment variable called
+5:41
+NEXT_PUBLIC_ ENABLE_AUTO_LOGIN and set it to true.
+5:44
+Now I'm going to create a new user that'll be used just for our auto log in,
+5:50
+which will be our nick+test@midlowebdesign.com.
+5:57
+And we're going to set a simple password of test.
+6:00
+I'm going to save that and definitely not save the password.
+6:03
+Now that we've created our test user let's log out Now underneath our avatar
+6:07
+we're going to add our auto login option which is first going to check
+6:12
+if our environment variable of next public enable
+6:18
+auto login is set to true.
+6:22
+And if it is, we'll return a set of credentials.
+6:25
+But if not, we'll return false.
+6:28
+And for those credentials we'll pass in the email and password
+6:31
+that we just created.
+6:32
+So nick+testmidlowebdesign.com.
+6:36
+And our password which is just test.
+6:40
+Now when I save this and come over to the admin panel,
+6:43
+I'll be logged in immediately.
+6:45
+this in itself will simply check in environment
+6:47
+variable you set to determine if you're in production or not.
+6:50
+I would encourage you to either delete your auto login user
+6:53
+before going to production, or using a development database like I am
+6:57
+when you're still in development.
+6:59
+Otherwise, if this user exists in your database
+7:02
+and is published to a public repo, anyone will still be able to find it
+7:06
+and log in with those credentials.
+7:08
+Now, at any time, if I want to disable this, I can set my environment
+7:11
+variable to false instead of true and I'll be logged out.
+7:14
+Now that I have this user though, I'm going to stay logged in with it.
+7:17
+We have our project configured to accept email only, but this also does
+7:21
+work with usernames, which I'll cover how to handle in a future video.
+7:25
+Next up is the meta prop.
+Payload CMS’s Root Meta Prop
+7:27
+This is the root metadata that will apply to your whole Admin UI
+7:30
+It includes things like favicons, title, description and open graph data.
+7:35
+There are several options you can use in this property.
+7:37
+So let's get started by opening up our meta option.
+7:41
+So under our auto login we can add meta.
+7:44
+And we'll create a new object here.
+7:47
+first option is title suffix, which will add
+7:50
+just a little bit of text to the end of our generated titles.
+7:55
+Then we can also change the title, which we will just change to our Blank
+7:59
+Payload Example, then add a description
+8:02
+which we can say is, “This is an example to be used
+8:07
+for educational purposes only.”
+8:11
+Now when I save this and come to inspect our elements here
+8:15
+and look in the head tag, we can see, we have our meta description which says.
+8:19
+This is an example to be used for educational purposes only.
+8:23
+Then we have our title with the title suffix in there as well.
+8:27
+As the version 3.28, you can include any other property
+8:31
+that Next.js supports within the generate metadata function.
+8:34
+This includes title and description like we just did, which accept string values,
+8:39
+but it also includes props like generator, application name, referrer,
+8:43
+keywords, authors, creator, publisher, and format detection.
+8:48
+None of these are frequently used, but know that they are available.
+8:52
+You can include an alternates object that accepts canonical
+8:55
+and alternate languages, among other things.
+Including Favicons in Payload CMS
+8:58
+You can also include the icons option to set your fave icon.
+9:01
+We'll set ours using icons we've already added.
+9:04
+Let's first add the icons prop to our meta tags here.
+9:08
+We can add icons and that takes an array
+9:12
+and we're going to
+9:12
+pass in first our light mode option, which is going to have
+9:17
+our environment variable for our S3 bucket.
+9:21
+And I happen to know the file name is square 1 2.png.
+9:26
+And it's going to have a relationship of icon.
+9:30
+And the icons type is image png.
+9:34
+We'll include a few sizes for good measure, like 16 by 16, 32
+9:40
+by 32, and 64 by 64,
+9:43
+and set the fetch priority to be high.
+9:46
+We can also add a dark mode version of this by first copying
+9:51
+everything that we just did there, changing the title to be just square one,
+9:55
+which is our dark mode icon, and adding the media prop
+10:00
+which we can add prefers color scheme, dark.
+10:05
+Now I'm using PNG because Safari and some other browsers don't accept WebP
+10:09
+or any other kind of files for their favicons
+10:13
+that means PNG is supported by the most amount of browsers.
+10:17
+So that's what I'm going to use here.
+10:18
+Now once we save and refresh, we can see that
+10:22
+nothing really changes here in Safari for our favicon.
+10:26
+if I open up Chrome, I can see that the favicon has been updated here.
+10:30
+Safari takes a while to update the favicon,
+10:32
+but since we see it in Chrome, we can trust that it will work
+Setting OpenGraph Tags in Payload CMS
+10:35
+To set specific open graph tags, you can use the open graph option.
+10:39
+So we'll open a new object.
+10:41
+And we can put in a title which we'll
+10:44
+just use Blank Payload Example.
+10:47
+A description which is the same as what we did above.
+10:51
+We can add site name which is going to be blank Payload example.
+10:56
+And we can also include images if we'd like by including
+11:00
+an array of objects with at least the URL defined.
+11:04
+open graph is used for things like social media sharing.
+11:06
+So if you don't plan on sharing links to your dashboard on social media
+11:10
+or any other kind of channel like that, feel free to skip open graph options
+11:14
+altogether.
+11:14
+As of version 3.28, you can also set your Payload CMS robots
+11:19
+using the meta option, which controls how search engines crawl your site.
+11:23
+Typically, your admin UI shouldn't be public, so
+11:26
+by default Payload has this to be no index nofollow.
+11:29
+But if you want to change this behavior, you can do that by replacing these options
+11:33
+with any robots options that Next.js accepts.
+11:36
+The next option we'll cover is the routes prop.
+Editing Root Routes (Admin and API routes)
+11:39
+And here you have two areas you can change.
+11:41
+So the first is root level routes.
+11:44
+Your root level routes are the routes that include either the base
+11:47
+path of the admin UI or anything else that doesn't include the admin path.
+11:53
+To set this, you'll need to include the routes prop outside of your admin
+11:56
+option, So we'll go above our admin option in our build config and include routes.
+12:02
+And here it's going to accept an object.
+12:05
+You can change the admin, API, GraphQL, and GraphQL playground routes here.
+12:10
+So for example I can change my admin route to be
+12:14
+something like NLV Codes instead.
+12:17
+And we can change my API to be NLV API Now that we've changed this, I'm
+12:24
+getting an error saying that it can't find the Payload import map folder.
+12:28
+This is because changing the admin route also changes the project structure.
+12:32
+So you'll need to change your admin directory
+12:34
+in the Payload folder to match what you just changed your admin to be.
+12:38
+So we will refactor and rename this to be NLV Codes and hit refactor.
+12:45
+Now we get a 404 because we're still trying to go to the admin route.
+12:48
+But if I change this to nlv codes.
+12:51
+Our admin UI pops back up and we can see down here
+12:54
+that Nova API is our new API route.
+12:58
+There are plenty of times when you might want to
+13:00
+change these routes in order to be less predictable to bad actors,
+13:04
+so just be mindful when you make these changes to also update the project.
+13:08
+Since I'm not too worried about bad actors on this sample project, I'm
+13:11
+going to switch things back to the default admin and API routes,
+13:15
+but to leave the example up, I'm going to state them explicitly.
+Editing Admin-level Routes
+13:21
+The second set of routes you can change is admin level routes.
+13:24
+This is everything that follows the admin path like account, forgot,
+13:28
+login, logout, and more.
+13:30
+You can set these routes by adding a routes prop to your admin options.
+13:34
+So I'll do that at the top here where we can include routes
+13:38
+and open a new object.
+13:41
+So in this object we'll change our log out route,
+13:45
+which we'll set as log me out
+13:48
+and our account route,
+13:52
+which we'll set to be my account.
+13:56
+We can now see by going to our profile icon
+13:59
+that our route is now admin slash my account.
+14:03
+However, since we made a custom logout component, we'll need to update that
+14:07
+to our new route by going to the component and changing where the link is pointing.
+14:11
+Let's futureproof this while we're at it, Let's go to our logout
+14:15
+TSX file in our UI folder here.
+14:18
+And at the top of our file we're going to import type config
+14:22
+from our Payload package as well as Payload.
+14:27
+then pass our Payload object with the type of Payload
+14:32
+assigned to it as our props.
+14:36
+We’ll then destructure our Payload config
+14:39
+cast as type of config.
+14:42
+destructure it to admin and routes.
+14:45
+To get everything we need to futureproof this.
+14:47
+Now we just need to update our h ref to be routes
+14:52
+dot admin and then followed
+14:54
+by admin dot routes
+14:59
+dot log out.
+15:00
+Now no matter what our base admin or logout routes are,
+15:04
+it will always update our logout button.
+15:06
+We can see this in action after we restart our server.
+15:09
+see it switched from log out and then when I refresh.
+15:12
+can see at the bottom that it now says log me out.
+PayloadCMS’s Timezone Option
+15:15
+the last root admin option I'll cover in this
+15:17
+video is Time Zones, which was introduced in version 3.23.
+15:21
+This option lets you configure your time zone settings by providing
+15:24
+which time zones you want to support, and which time zone is selected
+15:27
+by default, which must be included in the supported time zones array.
+15:32
+Underneath our routes here we'll add our time zones
+15:36
+option and open up an object.
+15:39
+And we'll create a supported time zones array, which is going to take
+15:45
+an array of objects with labels and values.
+15:49
+So we'll set West Coast to be the first label.
+15:53
+And the value is going to be America
+15:58
+Los Angeles.
+16:00
+And below it we’ll include an East Coast time using New York.
+16:05
+We can then set our default time
+16:08
+zone to be Los Angeles, for example.
+16:11
+So now when I save this and go to our blog posts,
+16:15
+I can open up blog test one And if we refresh our post here,
+16:20
+we see that date doesn't have a time zone attached to it yet.
+16:24
+That's because anytime we use time
+16:26
+zone, we have to enable it on the date field in the config.
+16:30
+We'd like it to show up.
+16:32
+So for our date field, we'll set time zone to be true.
+16:36
+And now that we have time zone set to true, we can look here in our blog
+16:39
+post and see West Coast as the default time zone.
+16:43
+And we can publish those changes.
+16:44
+And we can see it also in our schedule.
+16:46
+Publish where the time zone is set to West Coast.
+16:49
+Even with West Coast as the default, we can always change it
+16:52
+using the Time Zone dropdown that now exists under our date field.
+About Collection and Global Admin Options
+16:56
+Now, before we move on to
+16:57
+Collections and globals, if you're finding this content helpful,
+17:00
+don't forget to check and make sure you're subscribed to my channel.
+17:03
+These are the types of videos I make
+17:05
+and will continue to make for Payload CMS, Next.js, and more.
+17:09
+Now let's talk about the admin options
+17:10
+that are available for configuration within collections and globals.
+17:14
+Three of the four options I'll cover
+17:16
+here are shared between globals and collections,
+17:19
+so I'll call out the differences between them when we get there.
+Configuring Your Default Columns in the Collection List View
+17:22
+Let's start with the one option that's unique to collections.
+17:25
+You can include the default columns you want to show up in the list view
+17:28
+by including an array of string values that matches the name of top level fields
+17:33
+in your collection.
+17:34
+This means that while you can include groups, arrays, and more as a column,
+17:39
+you can't include any field that's nested within those groups or arrays
+17:42
+as a default column.
+17:44
+In the case of our post config,
+17:46
+it looks like we'll want to include authors title, date and slug.
+17:50
+looking at our blog post list view, we only see title,
+17:53
+email and authors as well as one other additional field.
+17:56
+That doesn't make a whole lot of sense to keep as our default columns.
+18:00
+So at the top here in our admin, we can add our default columns.
+18:05
+As an array.
+18:06
+and we're going to include our title our slug
+18:10
+our date and our authors.
+18:14
+Now I want to save this.
+18:16
+We can see that our list view has updated.
+18:18
+While it's not listed in my config.
+18:20
+You can also include ID as a default column if you'd like to.
+18:24
+All I need to do is simply add the ID string to this array,
+18:28
+and as soon as it refreshes, we can see that the id has been added.
+Conditionally Hiding your API Button in Collections and Globals
+18:32
+If you don't want your editors to see the button
+18:34
+that shows the API response of your collection or global,
+18:37
+you can disable that by setting a hide API url to true.
+18:41
+So I'm going to do that now with hide api url.
+18:45
+And that is set to true.
+18:47
+And now when I let this refresh the API button goes away.
+18:52
+and if I commented out, we can see it reappear there.
+18:55
+This will completely remove the API option from the edit view
+18:59
+in both collections and globals where you include this option.
+19:02
+I always find the API link helpful though, so I don't want to disable it
+19:05
+while I'm in development mode.
+19:07
+luckily we created an environment variable that enables auto login
+19:10
+when set to true.
+19:11
+Since this variable returns true, we need to flip the logic to make sure
+19:15
+hide API url is false, which we can do by using our environment variable
+19:21
+which is next public enable
+19:25
+auto log in and set it to not equal true.
+19:30
+this will return false when the variable is set to true in development mode,
+19:33
+which keeps the API in my edit view, but will remove it
+19:37
+when I push this to production.
+Changing GraphQL Options in Globals and Collections
+19:39
+The next option that applies to both collections and globals is GraphQL.
+19:43
+I don't like using GraphQL personally, so I can just disable this
+19:46
+at the global level by going to my Payload config
+19:49
+and at the top of my build config include
+19:52
+GraphQL and set disable to true.
+19:57
+However, if I want more control here, I can go to the collection
+20:00
+or global I want to exclude from GraphQL.
+20:03
+And then underneath the slug here I can include GraphQL and set this to false.
+20:09
+If you do use GraphQL, you can change the name that GraphQL
+20:13
+generates for globals by going to any of your globals
+20:17
+and using the GraphQL option,
+20:21
+and then setting our name
+20:24
+be something like header GraphQL.
+20:27
+You also have the ability to disable queries as well as mutations
+20:33
+in your global.
+20:33
+For collections, you have the same disable options
+20:36
+that I mentioned for globals, but you can also include a singular name
+20:42
+and a plural name.
+20:44
+Instead of just a name option for globals.
+20:47
+But since I have GraphQL disabled at the root level,
+20:50
+I can just remove this because I won't be using GraphQL anyway.
+Meta Options for Collections and Globals
+20:54
+The last option I'll cover for globals and collections is the meta option.
+20:58
+This is similar to the admin level metadata we discussed earlier.
+21:01
+You can use this collection or global option to override what metadata
+21:05
+Payload CMS returns at the collection or global level.
+21:08
+Just as an example, we'll add a meta object
+21:12
+that just includes our title suffix,
+21:16
+and we'll set it to be NLV codes.
+21:19
+And I can save this.
+21:21
+Now when I add a tab we can see the suffix changes to just NLV codes.
+21:25
+And that'll be true for anywhere that we have our blog posts.
+21:29
+But if I go back to the homepage, we have the hyphen added back in
+21:32
+because that is our global metadata right there.
+21:35
+Now let's discuss the admin options that are available to you in your fields.
+21:39
+These are the most granular controls you have, so there are plenty to use here.
+Using Conditional Rendering for Payload CMS Fields
+21:44
+We’ll start with condition.
+21:45
+You can use condition to programmatically hide or show a field
+21:49
+based on the value or state of another field.
+21:51
+For example, let's create a checkbox field
+21:55
+with the name of show blocks.
+21:59
+And while we're at it we're going to take our blocks array
+22:01
+out of our content tab and add it below our checkbox here.
+22:05
+We'll go into our blocks field
+22:07
+and in the admin prop include a condition as an option.
+22:11
+This takes a function which takes data and sibling data as props.
+22:15
+We don't need data,
+22:16
+but we do need the sibling data, which we can actually destructure
+22:19
+into the field name of checkbox, which is going to be show blocks.
+22:24
+We can then have this return show blocks, and since checkboxes
+22:29
+return either true or false, this returns a boolean value for me.
+22:33
+Now we can load up our edit view
+22:37
+of any blog post, and I can click show blocks here.
+22:40
+And we can see our blocks array show up.
+22:42
+And if I uncheck it it goes away.
+22:45
+This can be useful in making your dashboard
+22:47
+more manageable by hiding fields you don't always need access to.
+Adding Fields to the Edit View Sidebar
+22:50
+There may be fields that you don't want in the normal flow of your dashboard.
+22:54
+If that's the case, you can send them to the sidebar by including position
+22:57
+sidebar to the admin config of any field.
+23:01
+You're not able to do this with any nested fields like fields within our tabbed UI.
+23:05
+So why don't we pull out our date field and put that in the sidebar?
+23:09
+So we find our date field right here.
+23:12
+We'll cut that out and put it below our blocks field and include in here
+23:19
+our admin position sidebar.
+23:24
+Now when I save that.
+23:25
+And zoom out, we can see our date field has been moved
+23:28
+over to the sidebar, just like our author's field here.
+23:31
+Next up is width,
+Adjusting a Field’s Width in a Row Field
+23:33
+which can be used within row fields to get multiple fields on one line.
+23:37
+We don't have any row fields, but it makes sense to have title and slug in one.
+23:41
+let's find our title text field.
+23:44
+And above it we're going to create a new field of type row.
+23:50
+Row fields need fields arrays.
+23:53
+And we can just include our text as the first field in that array.
+23:59
+And then our slug as the next field in that array.
+24:04
+can then go into our admin options here.
+24:07
+And we're going to type in width.
+24:09
+And we'll put 50% for both.
+24:11
+But that is the default value.
+24:13
+So why don't we put 40% there and 60% here.
+24:18
+And now when I save this we can see now that our title and slug are put together.
+24:23
+And while we're at it, why don't I remove this custom component here
+24:28
+for our field so we can see that slug is taking up
+24:32
+60% of our row field
+24:36
+and title is taking up 40%.
+Adding Inline Styles to Any Admin Field in Payload CMS
+24:39
+You have the ability to add inline styles to any field as well by using
+24:42
+admin style and passing in an object
+24:45
+just like you would with react on the front end.
+24:48
+We'll use our title field as an example, where we'll pass in the style object
+24:54
+and will include a background color.
+24:57
+of red.
+24:59
+Now this is not something we would normally do,
+25:00
+but I just wanted to show this as a clear example.
+25:04
+So I'll go ahead and delete style there.
+Using Classes to Style Payload CMS Admin Fields
+25:07
+You can also use the class name prop to add a class name to whatever field
+25:11
+you'd like.
+25:11
+Let's replace the background color that I just removed
+25:15
+with the class name prop, which is going to take a string.
+25:18
+We'll set our class name string to be a title label.
+25:22
+And then we'll go over to our Payload
+25:25
+directory and go into custom.scss.
+25:29
+And we're going to add our title label and set the label itself
+25:34
+to be font weight of bold Now I can save this.
+25:37
+And we see that nothing happens.
+25:39
+And that's because we have a custom label here.
+25:41
+So let's go ahead and delete that custom label.
+25:45
+And when this refreshes.
+25:46
+We'll see that our title is there.
+25:48
+And it is bolded.
+Using the hidden Option
+25:50
+The last option we'll go over is the hidden option.
+25:53
+This takes a boolean value
+25:54
+to either apply the hidden input type or leave a value shown.
+25:59
+Regardless, any information included in the field
+26:01
+will be saved to the database, but it won't be visible to editors.
+26:05
+As an example, let's hide our text area field
+26:09
+by adding admin hidden set to true.
+26:12
+can then see that our plain text field disappears.
+26:16
+However, we do still see it saved in our API as our plain text field.
+26:21
+Now, if we go to our front end directory,
+26:24
+then we go to our post slug page.
+26:28
+We can add this to our content by adding our post dot plain text.
+26:34
+when we refresh and go to our post page.
+26:37
+At the bottom here we can see this is an example
+26:40
+of a meta description, which is what the plain text reads.
+Closing thoughts and next steps
+26:44
+And that's it for admin options
+26:46
+across your admin UI collections, globals and fields.
+26:50
+In this video I included options I use often, but there are still more
+26:54
+options to choose from.
+26:55
+Be sure to check out the documentation to see if there's anything I didn't cover
+26:59
+that might be useful to you.
+27:01
+If you found this video helpful,
+27:02
+please like it and share it with others who might also find it useful.
+27:06
+Check to make sure you're subscribed to my channel and receiving notifications
+27:09
+so you never miss
+27:10
+when I release more content around Payload CMS, Next.js, and more.
+27:15
+If you have suggestions or questions, please leave those in the comments.
+27:18
+I'd love to hear from you.
+27:20
+Until then, I'll see you on the next one.

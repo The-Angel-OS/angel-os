@@ -28,6 +28,7 @@ interface ChatPanelProps {
 }
 
 export function ChatPanel({ className = "" }: ChatPanelProps) {
+  console.log('🎛️ ChatPanel component mounted/rendered')
   const [isExpanded, setIsExpanded] = useState(false)
   const { theme } = useTheme() // Subscribe to theme changes
   const [members, setMembers] = useState<ChatMember[]>([])
@@ -40,7 +41,9 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
 
   // Initialize with default data when panel is expanded
   useEffect(() => {
+    console.log('🎛️ ChatPanel useEffect triggered, isExpanded:', isExpanded, 'channels.length:', channels.length)
     if (isExpanded && channels.length === 0) {
+      console.log('🚀 Initializing side panel chat...')
       initializeChat()
     }
   }, [isExpanded])
@@ -48,26 +51,65 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
   // Welcome message is now added directly in initializeChat
 
   const initializeChat = async () => {
-    // Set current user and members first
-    const user: ChatMember = {
-      id: "current-user",
-      name: "Kenneth Courtney", // Use real user name
-      avatar: "/placeholder.svg?height=32&width=32",
-      status: "online",
-      role: "member"
-    }
-    setCurrentUser(user)
+    console.log('🔧 initializeChat() called - Starting side panel initialization')
+    try {
+      // Set current user and members first
+      const user: ChatMember = {
+        id: "1", // Use real user ID
+        name: "Kenneth Courtney",
+        avatar: "/placeholder.svg?height=32&width=32",
+        status: "online",
+        role: "member"
+      }
+      setCurrentUser(user)
 
-    // LEO assistant member
-    const leo: ChatMember = {
-      id: "leo",
-      name: "LEO",
-      avatar: "/leo-avatar.svg",
-      status: "online",
-      role: "admin"
-    }
-    setMembers([user, leo])
+      // LEO assistant member
+      const leo: ChatMember = {
+        id: "leo",
+        name: "LEO",
+        avatar: "/leo-avatar.svg",
+        status: "online",
+        role: "admin"
+      }
+      setMembers([user, leo])
 
+      // Load real channels from the spaces API
+      const channelsResponse = await fetch('/api/spaces/1/channels')
+      if (channelsResponse.ok) {
+        const channelsData = await channelsResponse.json()
+        const realChannels: ChatChannel[] = channelsData.docs.map((channel: any) => ({
+          id: channel.id.toString(),
+          name: `# ${channel.name}`,
+          type: "chat" as const,
+          members: ["1", "leo"]
+        }))
+        
+        setChannels(realChannels)
+        
+        // Set system channel as default if available
+        const systemChannel = realChannels.find(c => c.name.includes('system'))
+        const defaultChannel = systemChannel || realChannels[0] || null
+        
+        console.log(`🎯 Setting default channel:`, defaultChannel)
+        setActiveChannel(defaultChannel)
+        
+        // Load messages for the default channel
+        if (defaultChannel) {
+          console.log(`📂 Loading messages for default channel: ${defaultChannel.id} (${defaultChannel.name})`)
+          await loadChannelMessages(defaultChannel.id)
+        }
+      } else {
+        // Fallback to mock channels if API fails
+        console.warn('Failed to load real channels, using fallback')
+        await initializeFallbackChannels()
+      }
+    } catch (error) {
+      console.error('Error initializing chat:', error)
+      await initializeFallbackChannels()
+    }
+  }
+
+  const initializeFallbackChannels = async () => {
     // Add welcome message immediately
     const welcomeMessage: ChatMessage = {
       id: "welcome",
@@ -79,89 +121,116 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
     }
     setMessages([welcomeMessage])
 
-         // Create default channels (skip API call for now to avoid 500 errors)
-     const defaultChannels: ChatChannel[] = [
-       {
-         id: "system",
-         name: "# system",
-         type: "chat" as const,
-         members: ["current-user", "leo"]
-       },
-       {
-         id: "general",
-         name: "# general", 
-         type: "chat" as const,
-         members: ["current-user", "leo"]
-       },
-       {
-         id: "support",
-         name: "# support",
-         type: "chat" as const, 
-         members: ["current-user", "leo"]
-       },
-       {
-         id: "business",
-         name: "# business",
-         type: "chat" as const,
-         members: ["current-user", "leo"] 
-       }
-     ]
-     
-     setChannels(defaultChannels)
-     setActiveChannel(defaultChannels[0] || null)
+    // Create default channels as fallback
+    const defaultChannels: ChatChannel[] = [
+      {
+        id: "system",
+        name: "# system",
+        type: "chat" as const,
+        members: ["1", "leo"]
+      }
+    ]
+    
+    setChannels(defaultChannels)
+    setActiveChannel(defaultChannels[0] || null)
+  }
+
+  const loadChannelMessages = async (channelId: string) => {
+    try {
+      console.log(`🔄 Loading messages for channel: ${channelId}`)
+      
+      // Try both channel ID and channel name resolution
+      const messagesResponse = await fetch(`/api/messages?channel=${channelId}&limit=50&sort=createdAt`)
+      if (messagesResponse.ok) {
+        const messagesData = await messagesResponse.json()
+        console.log(`📨 Loaded ${messagesData.docs?.length || 0} messages for channel ${channelId}`)
+        
+        const realMessages: ChatMessage[] = messagesData.docs.map((msg: any) => ({
+          id: msg.id.toString(),
+          content: msg.content?.text || '',
+          sender: msg.messageType === 'user' ? 'user' : 'ai',
+          senderName: msg.messageType === 'user' ? 'Kenneth Courtney' : 'LEO',
+          timestamp: msg.createdAt,
+          type: 'text'
+        }))
+        
+        // Sort by timestamp to ensure proper order
+        realMessages.sort((a, b) => new Date(a.timestamp).getTime() - new Date(b.timestamp).getTime())
+        
+        setMessages(realMessages)
+        console.log(`✅ Set ${realMessages.length} messages in UI`)
+      } else {
+        console.error('Failed to load messages:', messagesResponse.status, messagesResponse.statusText)
+      }
+    } catch (error) {
+      console.error('Error loading messages:', error)
+    }
   }
 
   const handleSendMessage = async (content: string, channelId: string) => {
     if (!content.trim() || isLoading) return
 
-    // Add user message immediately
-    const userMessage: ChatMessage = {
-      id: Date.now().toString(),
-      content,
-      sender: "user",
-      senderName: currentUser?.name || "You",
-      timestamp: new Date().toISOString(),
-      type: "text"
-    }
-    setMessages(prev => [...prev, userMessage])
     setIsLoading(true)
 
-                  try {
-      // Use the real LEO API
-      console.log('Calling LEO API for:', content)
-      
-      const response = await fetch('/api/leo-chat', {
+    try {
+      // Create message using the same API as spaces chat
+      const messageResponse = await fetch('/api/messages', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          message: content,
-          context: {
-            variant: 'friendly',
-            conversationHistory: messages.slice(-5), // Last 5 messages for context
+          content: {
+            type: 'text',
+            text: content,
+            metadata: {
+              source: 'side-panel-chat',
+              timestamp: new Date().toISOString(),
+              channel: channelId
+            }
           },
-          spaceId: 1,
-          tenantId: 1,
-        }),
+          messageType: 'user',
+          space: 1,
+          channel: parseInt(channelId),
+          priority: 'normal',
+          sender: 1
+        })
       })
 
-      if (!response.ok) {
-        throw new Error(`LEO API error: ${response.statusText}`)
-      }
+      if (messageResponse.ok) {
+        const messageData = await messageResponse.json()
+        
+        // Trigger LEO response using web-chat API with the created message ID
+        const leoResponse = await fetch('/api/web-chat', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            message: content,
+            sessionId: `side-panel-${channelId}-${Date.now()}`,
+            spaceId: 1,
+            tenantId: 1,
+            context: {
+              variant: 'dashboard',
+              isAuthenticated: true,
+              channel: channelId,
+              messageId: messageData.id
+            }
+          })
+        })
 
-      const data = await response.json()
-      
-      // Add LEO's response
-      const leoMessage: ChatMessage = {
-        id: (Date.now() + 1).toString(),
-        content: data.response || "I apologize, but I'm having trouble processing your request right now.",
-        sender: "ai",
-        senderName: "LEO",
-        timestamp: new Date().toISOString(),
-        type: "text"
+        if (leoResponse.ok) {
+          // Reload messages to show both user message and LEO response
+          await loadChannelMessages(channelId)
+        } else {
+          console.error('Failed to get LEO response:', leoResponse.statusText)
+          // Still reload to show user message
+          await loadChannelMessages(channelId)
+        }
+      } else {
+        console.error('Failed to create message:', messageResponse.statusText)
       }
-       setMessages(prev => [...prev, leoMessage])
      } catch (error) {
        console.error('Failed to send message:', error)
        // Add error message
@@ -216,7 +285,7 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
         variant="ghost"
         size="sm"
         onClick={() => setIsExpanded(!isExpanded)}
-        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full bg-background border border-r-0 rounded-r-none rounded-l-md shadow-md hover:bg-accent"
+        className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-full bg-background border border-r-0 rounded-r-none rounded-l-md shadow-md hover:bg-accent z-50"
       >
         {isExpanded ? <ChevronRight className="w-4 h-4" /> : <ChevronLeft className="w-4 h-4" />}
       </Button>
@@ -237,17 +306,20 @@ export function ChatPanel({ className = "" }: ChatPanelProps) {
               color: 'hsl(var(--foreground))'
             }}
           >
-                         <ChatEngine
-               channels={channels}
-               activeChannel={activeChannel}
-               messages={messages}
-               currentUser={currentUser}
-               onSendMessage={handleSendMessage}
-               onChannelChange={setActiveChannel}
-               onRegenerateMessage={handleRegenerateMessage}
-               isLoading={isLoading}
-               className="h-full"
-             />
+                                     <ChatEngine
+              channels={channels}
+              activeChannel={activeChannel}
+              messages={messages}
+              currentUser={currentUser}
+              onSendMessage={handleSendMessage}
+              onChannelChange={async (channel) => {
+                setActiveChannel(channel)
+                await loadChannelMessages(channel.id)
+              }}
+              onRegenerateMessage={handleRegenerateMessage}
+              isLoading={isLoading}
+              className="h-full"
+            />
           </motion.div>
         )}
       </AnimatePresence>

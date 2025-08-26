@@ -7,6 +7,9 @@ export interface ChannelResolutionOptions {
   reportType: 'mileage_log' | 'collection_inventory' | 'business_inventory' | 'equipment_status' | 'asset_tracking' | 'quality_control' | 'maintenance_log' | 'customer_interaction' | 'general'
   tenantId: string | number
   guardianAngelId?: string | number
+  members?: string[]
+  isPrivate?: boolean
+  metadata?: any
 }
 
 /**
@@ -22,7 +25,10 @@ export async function findOrCreateChannel(options: ChannelResolutionOptions) {
       channelType,
       reportType,
       tenantId,
-      guardianAngelId = '1'
+      guardianAngelId = '1',
+      members = [],
+      isPrivate = false,
+      metadata = {}
     } = options
 
     // First, try to find existing channel
@@ -53,8 +59,20 @@ export async function findOrCreateChannel(options: ChannelResolutionOptions) {
         description: `AI chat channel for ${name}`,
         channelType,
         reportType,
-        tenantId: tenantId.toString(),
-        guardianAngelId: guardianAngelId.toString(),
+        tenantId: tenantId.toString(), // Keep as string - field is type 'text'
+        guardianAngelId: guardianAngelId.toString(), // Keep as string - field is type 'text'
+        members: members.map(memberId => ({
+          user: parseInt(memberId), // Convert string ID to number
+          role: 'member' as const,
+          joinedAt: new Date().toISOString(),
+          permissions: {
+            canRead: true,
+            canWrite: true,
+            canManage: false
+          }
+        })),
+        isPrivate,
+        metadata,
         feedConfiguration: {
           feedSource: 'api_webhook',
           feedSettings: { source: 'leo_chat' },

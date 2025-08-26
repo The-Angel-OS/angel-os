@@ -2,11 +2,13 @@
 
 import type React from "react"
 import { useState, useEffect } from "react"
+import { useRouter } from "next/navigation"
 import { motion } from "framer-motion"
 import { Analytics } from '@vercel/analytics/react'
 import { Sidebar } from "./_components/sidebar"
 import { Header } from "./_components/header"
 import { ChatPanel } from "./_components/ChatPanel"
+
 import ServerConsole from '@/components/ServerConsole'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { Providers } from '@/providers'
@@ -29,10 +31,48 @@ export default function DashboardLayout({
 }) {
   const [isSidebarCollapsed, setIsSidebarCollapsed] = useState(false)
   const [layoutKey, setLayoutKey] = useState(0)
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null)
+  const router = useRouter()
 
   const toggleSidebar = () => {
     setIsSidebarCollapsed(!isSidebarCollapsed)
   }
+
+  // Check authentication on mount
+  useEffect(() => {
+    const checkAuth = async () => {
+      try {
+        console.log('🔍 Checking authentication...')
+        // Check Payload CMS authentication
+        const response = await fetch('/api/users/me', {
+          credentials: 'include' // Include cookies for Payload auth
+        })
+        
+        console.log('🔍 Auth response status:', response.status)
+        
+        if (response.ok) {
+          const data = await response.json()
+          console.log('🔍 Auth response data:', data)
+          
+          // The API returns { user: {...} } format
+          if (data && data.user && data.user.id) {
+            console.log('✅ User authenticated:', data.user.email)
+            setIsAuthenticated(true)
+            return
+          }
+        }
+        
+        console.log('❌ Not authenticated, redirecting to admin login')
+        // If not authenticated, redirect to Payload admin login
+        router.replace('/admin/login')
+      } catch (error) {
+        console.error('❌ Auth check failed:', error)
+        router.replace('/admin/login')
+      }
+    }
+
+    checkAuth()
+  }, [router])
 
   // Listen for theme changes and force layout re-render
   useEffect(() => {
@@ -44,6 +84,29 @@ export default function DashboardLayout({
     window.addEventListener('themeChanged', handleThemeChange)
     return () => window.removeEventListener('themeChanged', handleThemeChange)
   }, [])
+
+  // Show loading or nothing while checking auth
+  if (isAuthenticated === null) {
+    return (
+      <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
+        <head>
+          <InitTheme />
+          <link href="/favicon.ico" rel="icon" sizes="32x32" />
+          <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+        </head>
+        <body className="dark:bg-[hsl(222.2_84%_4.9%)] bg-[hsl(0_0%_100%)]">
+          <div className="flex items-center justify-center h-screen">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+          </div>
+        </body>
+      </html>
+    )
+  }
+
+  // Don't render dashboard if not authenticated (redirect is happening)
+  if (!isAuthenticated) {
+    return null
+  }
 
   return (
     <html className={cn(GeistSans.variable, GeistMono.variable)} lang="en" suppressHydrationWarning>
@@ -95,8 +158,8 @@ export default function DashboardLayout({
                 </div>
               </motion.div>
 
-              {/* Right-side Chat Panel */}
-              <ErrorBoundary fallback={<div />}>
+              {/* LEO Chat Panel - Right Side */}
+              <ErrorBoundary fallback={<div className="w-80 bg-muted border-l" />}>
                 <ChatPanel />
               </ErrorBoundary>
             </div>

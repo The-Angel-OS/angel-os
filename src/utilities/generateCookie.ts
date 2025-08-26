@@ -104,3 +104,7 @@ export const generateCookie = <ReturnCookieAsObject = boolean>(
   return returnCookieAsObject ? (cookieObject as any) : (cookieString as any)
 }
 
+
+
+
+

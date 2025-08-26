@@ -300,6 +300,119 @@ const Channels: CollectionConfig = {
       ],
     },
     {
+      name: 'members',
+      type: 'array',
+      label: 'Channel Members',
+      admin: {
+        description: 'Users who have access to this channel',
+      },
+      fields: [
+        {
+          name: 'user',
+          type: 'relationship',
+          relationTo: 'users',
+          required: true,
+          admin: {
+            description: 'User who is a member of this channel',
+          },
+        },
+        {
+          name: 'role',
+          type: 'select',
+          required: true,
+          defaultValue: 'member',
+          options: [
+            { label: 'Owner', value: 'owner' },
+            { label: 'Admin', value: 'admin' },
+            { label: 'Member', value: 'member' },
+            { label: 'Guest', value: 'guest' },
+          ],
+          admin: {
+            description: 'Role of the user in this channel',
+          },
+        },
+        {
+          name: 'joinedAt',
+          type: 'date',
+          required: true,
+          defaultValue: () => new Date().toISOString(),
+          admin: {
+            description: 'When the user joined this channel',
+          },
+        },
+        {
+          name: 'permissions',
+          type: 'group',
+          label: 'Member Permissions',
+          fields: [
+            {
+              name: 'canRead',
+              type: 'checkbox',
+              defaultValue: true,
+              admin: {
+                description: 'Can read messages in this channel',
+              },
+            },
+            {
+              name: 'canWrite',
+              type: 'checkbox',
+              defaultValue: true,
+              admin: {
+                description: 'Can send messages to this channel',
+              },
+            },
+            {
+              name: 'canInvite',
+              type: 'checkbox',
+              defaultValue: false,
+              admin: {
+                description: 'Can invite other users to this channel',
+              },
+            },
+            {
+              name: 'canManage',
+              type: 'checkbox',
+              defaultValue: false,
+              admin: {
+                description: 'Can manage channel settings and members',
+              },
+            },
+          ],
+        },
+      ],
+    },
+    {
+      name: 'isPrivate',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Private channels are only visible to members',
+      },
+    },
+    {
+      name: 'isSystem',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'System channels are created automatically and have special behavior',
+      },
+    },
+    {
+      name: 'isVirtual',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: {
+        description: 'Virtual channels are created on-demand (e.g., PM channels)',
+      },
+    },
+    {
+      name: 'metadata',
+      type: 'json',
+      admin: {
+        description: 'Additional metadata for the channel (JSON format)',
+      },
+    },
+    {
       name: 'status',
       type: 'select',
       defaultValue: 'active',

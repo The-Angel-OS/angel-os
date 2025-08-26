@@ -19,9 +19,16 @@ export const Messages: CollectionConfig = {
     description: 'Enhanced messaging system with rich JSON content, conversation context, and BI.',
   },
   access: {
-    create: ({ req }) => {
+    create: ({ req, data }) => {
       // Authenticated users can create messages
-      return Boolean(req.user);
+      if (req.user) return true;
+      
+      // Allow guest users to create messages if they have a valid webChatSessionId
+      if (data?.webChatSessionId && typeof data.webChatSessionId === 'string') {
+        return true;
+      }
+      
+      return false;
     },
     read: ({ req }) => {
       // Authenticated users can read messages
@@ -116,6 +123,15 @@ export const Messages: CollectionConfig = {
             return data?.sender;
           },
         ],
+      },
+    },
+    {
+      name: 'webChatSessionId',
+      type: 'text',
+      index: true,
+      admin: {
+        description: 'Web chat session ID for unauthenticated users (optional)',
+        condition: (data) => !data.sender, // Only show for messages without a sender
       },
     },
     {

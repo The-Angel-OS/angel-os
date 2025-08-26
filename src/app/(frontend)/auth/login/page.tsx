@@ -182,14 +182,22 @@ function LoginForm() {
                 )}
               </motion.button>
 
-              <div className="text-center text-sm text-gray-400">
+              <div className="text-center text-sm text-gray-400 space-y-2">
                 <p>First time commander?</p>
-                <Link
-                  href="/onboarding"
-                  className="text-cyan-400 hover:text-cyan-300 font-bold"
-                >
-                  Initialize Command Profile
-                </Link>
+                <div className="flex flex-col gap-1">
+                  <Link
+                    href="/auth/signup"
+                    className="text-cyan-400 hover:text-cyan-300 font-bold"
+                  >
+                    Create New Account
+                  </Link>
+                  <Link
+                    href="/onboarding"
+                    className="text-blue-400 hover:text-blue-300 text-xs"
+                  >
+                    Skip to Onboarding
+                  </Link>
+                </div>
               </div>
             </form>
 

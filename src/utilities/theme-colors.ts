@@ -105,5 +105,6 @@ export const getProgressColor = (percentage: number): string => {
 
 // Helper function to get status color
 export const getStatusColor = (status: string): string => {
-  return statusColors[status as keyof typeof statusColors] || statusColors.inactive
+  const color = statusColors[status as keyof typeof statusColors] || statusColors.inactive
+  return typeof color === 'string' ? color : color.bg
 }

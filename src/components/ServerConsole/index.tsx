@@ -31,34 +31,44 @@ export function ServerConsole() {
       info: console.info
     }
 
+    let isProcessing = false // Prevent recursive calls
+
     const addLog = (level: 'info' | 'warn' | 'error', args: any[]) => {
-      const message = args.map(arg => 
-        typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
-      ).join(' ')
+      if (isProcessing) return // Prevent infinite loops
+      
+      try {
+        isProcessing = true
+        
+        const message = args.map(arg => 
+          typeof arg === 'object' ? JSON.stringify(arg, null, 2) : String(arg)
+        ).join(' ')
 
-      const log: ServerLog = {
-        id: `${Date.now()}-${Math.random()}`,
-        timestamp: new Date(),
-        level,
-        message,
-        details: args.length > 1 ? args.slice(1) : undefined,
-        source: 'client'
-      }
+        const log: ServerLog = {
+          id: `${Date.now()}-${Math.random()}`,
+          timestamp: new Date(),
+          level,
+          message,
+          details: args.length > 1 ? args.slice(1) : undefined,
+          source: 'client'
+        }
 
-      setLogs(prev => {
-        const newLogs = [log, ...prev].slice(0, 100) // Keep last 100 logs
-        return newLogs
-      })
+        setLogs(prev => {
+          const newLogs = [log, ...prev].slice(0, 100) // Keep last 100 logs
+          return newLogs
+        })
 
-      if (level === 'error') {
-        setErrorCount(prev => prev + 1)
+        if (level === 'error') {
+          setErrorCount(prev => prev + 1)
+        }
+      } finally {
+        isProcessing = false
       }
     }
 
-    // Override console methods
+    // Override console methods with safeguards
     console.log = (...args) => {
       originalConsole.log(...args)
-      if (args[0]?.includes?.('🔍') || args[0]?.includes?.('✅') || args[0]?.includes?.('⚠️')) {
+      if (!isProcessing && (args[0]?.includes?.('🔍') || args[0]?.includes?.('✅') || args[0]?.includes?.('⚠️'))) {
         // Use setTimeout to avoid setState during render
         setTimeout(() => addLog('info', args), 0)
       }
@@ -66,20 +76,26 @@ export function ServerConsole() {
 
     console.warn = (...args) => {
       originalConsole.warn(...args)
-      // Use setTimeout to avoid setState during render
-      setTimeout(() => addLog('warn', args), 0)
+      if (!isProcessing) {
+        // Use setTimeout to avoid setState during render
+        setTimeout(() => addLog('warn', args), 0)
+      }
     }
 
     console.error = (...args) => {
       originalConsole.error(...args)
-      // Use setTimeout to avoid setState during render
-      setTimeout(() => addLog('error', args), 0)
+      if (!isProcessing) {
+        // Use setTimeout to avoid setState during render
+        setTimeout(() => addLog('error', args), 0)
+      }
     }
 
     console.info = (...args) => {
       originalConsole.info(...args)
-      // Use setTimeout to avoid setState during render
-      setTimeout(() => addLog('info', args), 0)
+      if (!isProcessing) {
+        // Use setTimeout to avoid setState during render
+        setTimeout(() => addLog('info', args), 0)
+      }
     }
 
     // Cleanup

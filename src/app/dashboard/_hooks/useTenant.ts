@@ -31,6 +31,7 @@ interface Tenant {
     vapi?: boolean
     n8n?: boolean
     memberPortal?: boolean
+    safeschool?: boolean
   }
   limits: {
     maxUsers?: number

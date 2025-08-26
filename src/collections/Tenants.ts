@@ -446,6 +446,14 @@ export const Tenants: CollectionConfig = {
             description: 'Enable member engagement portal',
           },
         },
+        {
+          name: 'safeschool',
+          type: 'checkbox',
+          defaultValue: false,
+          admin: {
+            description: 'Enable SafeSchool|MAP℠ school safety platform',
+          },
+        },
       ],
     },
     {

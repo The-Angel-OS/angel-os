@@ -39,6 +39,7 @@ import { Documents } from './collections/Documents'
 import { Donations } from './collections/Donations'
 import { Feedback } from './collections/Feedback'
 import { Events } from './collections/Events'
+import { Schools } from './collections/Schools'
 // New collections for MVP Dashboard Sprint
 import { Projects } from './collections/Projects'
 import { Tasks } from './collections/Tasks'
@@ -62,6 +63,7 @@ import QuoteRequests from './collections/QuoteRequests'
 // import { SocialChannels } from './collections/SocialChannels'  // Temporarily disabled due to export issue
 import { Footer } from './Footer/config'
 import { Header } from './Header/config'
+import Invitations from './collections/Invitations'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -134,6 +136,8 @@ export default buildConfig({
           },
         },
       ],
+      // Add navigation links to Home and Dashboard
+      afterNavLinks: ['@/components/AdminNav/AdminNavLinks'],
       // Add tenant selection provider
       providers: [
         {
@@ -230,6 +234,8 @@ export default buildConfig({
     Venues, 
     Feedback,
     Events,
+    Schools, // SafeSchool|MAP℠ school profiles
+    Invitations,
     MileageLogs,
     QuoteRequests,
     

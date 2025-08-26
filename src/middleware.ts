@@ -3,6 +3,7 @@ import { NextRequest, NextResponse } from 'next/server'
 export async function middleware(request: NextRequest) {
   const hostname = request.nextUrl.hostname
   const pathname = request.nextUrl.pathname
+  const port = request.nextUrl.port
   
   // Skip middleware for static files and API routes that don't need tenant context
   if (
@@ -19,7 +20,9 @@ export async function middleware(request: NextRequest) {
     const response = NextResponse.next()
     
     // Add hostname to headers for tenant-aware URL resolution
-    response.headers.set('x-forwarded-host', hostname)
+    // Include port for Server Actions compatibility
+    const hostWithPort = port ? `${hostname}:${port}` : hostname
+    response.headers.set('x-forwarded-host', hostWithPort)
     response.headers.set('x-original-host', hostname)
     
     // Multi-tenant domain resolution

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useMemo } from "react"
 import { ErrorBoundary } from "@/components/ErrorBoundary"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
@@ -68,8 +68,8 @@ export function UniversalModal({
   const [errors, setErrors] = useState<Record<string, string>>({})
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Initialize form data with default values and initial data
-  useEffect(() => {
+  // Memoize the form data to prevent unnecessary recalculations
+  const memoizedFormData = useMemo(() => {
     const defaultData: Record<string, any> = {}
     fields.forEach(field => {
       if (field.defaultValue !== undefined) {
@@ -77,8 +77,16 @@ export function UniversalModal({
       }
     })
     // Merge default values with initial data (initial data takes precedence)
-    setFormData({ ...defaultData, ...initialData })
+    return { ...defaultData, ...initialData }
   }, [fields, initialData])
+
+  // Initialize form data with memoized values
+  useEffect(() => {
+    setFormData(prevData => {
+      const hasChanged = JSON.stringify(prevData) !== JSON.stringify(memoizedFormData)
+      return hasChanged ? memoizedFormData : prevData
+    })
+  }, [memoizedFormData])
 
   const validateField = (field: FormField, value: any): string | null => {
     if (field.required && (!value || (Array.isArray(value) && value.length === 0))) {

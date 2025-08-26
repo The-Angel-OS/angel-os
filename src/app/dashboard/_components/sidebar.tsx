@@ -73,7 +73,7 @@ const navigation: NavigationSection[] = [
   {
     title: "Overview",
     items: [
-      { name: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
+      { name: "Spaces", href: "/dashboard/spaces", icon: Building, badge: "Core" },
       { name: "Home", href: "/", icon: Building2 },
       { name: "Payload Admin", href: "/admin", icon: Settings },
       { name: "Angel OS", href: "/dashboard/angel-os", icon: Sparkles, badge: "Core" },
@@ -105,14 +105,7 @@ const navigation: NavigationSection[] = [
       { name: "Website Analytics", href: "/dashboard/website-analytics", icon: BarChart3 },
     ],
   },
-  {
-    title: "Communication",
-    items: [
-      { name: "Chat", href: "/dashboard/chat", icon: MessageSquare },
-      { name: "Spaces", href: "/dashboard/spaces", icon: Building },
-      { name: "Messages", href: "/dashboard/chats", icon: Mail },
-    ],
-  },
+
   {
     title: "Productivity",
     items: [
@@ -128,6 +121,12 @@ const navigation: NavigationSection[] = [
     items: [
       { name: "File Manager", href: "/dashboard/file-manager", icon: FolderOpen },
       { name: "Files", href: "/dashboard/files", icon: File },
+    ],
+  },
+  {
+    title: "SafeSchool|MAP℠",
+    items: [
+      { name: "SafeSchool Dashboard", href: "/dashboard/safeschool", icon: Building, badge: "Beta" },
     ],
   },
   {
@@ -215,6 +214,11 @@ export function Sidebar({ isCollapsed = false, onToggle }: SidebarProps) {
         if ((item.name === "Chat" || item.name === "Spaces") && !features.spaces) return false
       }
       
+      // Filter SafeSchool based on safeschool features
+      if (section.title === "SafeSchool|MAP℠") {
+        if (!features.safeschool) return false
+      }
+      
       // Show all other sections by default
       return true
     })
@@ -258,7 +262,7 @@ export function Sidebar({ isCollapsed = false, onToggle }: SidebarProps) {
           justifyContent: isCollapsed ? "center" : "flex-start",
         }}
       >
-        <TenantChooser userId={user.id} />
+        <TenantChooser userId={user.id} isCollapsed={isCollapsed} />
       </motion.div>
 
       <div className="flex-1 overflow-y-auto p-4 space-y-6">

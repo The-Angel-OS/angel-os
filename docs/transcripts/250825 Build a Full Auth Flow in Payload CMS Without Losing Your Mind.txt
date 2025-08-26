@@ -1,0 +1,1619 @@
+Build a Full Auth Flow in Payload CMS Without Losing Your Mind
+
+NLV Codes
+1.87K subscribers
+
+Join
+
+Subscribe
+
+75
+
+
+Share
+
+Ask
+
+2,273 views  Apr 29, 2025  #webdevelopment #coding #tailwindcss
+Do THIS for better authentication in Payload CMS
+
+Repo - https://nlvcodes.com/tutorials/build-...
+Get early access to videos and more exclusive perks —    / @nlv_codes  
+Find me on Twitch —   / nlv_codes  
+Want to stay up to date with recent web dev news? Subscribe to my newsletter — https://news.nlvcodes.com/subscribe
+Support the channel —   / nlvcodes  
+
+Are you struggling to build a login flow for users who shouldn't access the admin dashboard in Payload CMS? You're not alone.
+
+Whether you're new to Payload CMS or still figuring out how authentication works in modern web apps, this video is meant to help you.
+
+Most tutorials jump ahead or assume too much. Not this one. I guide you every step of the way, making complex coding approachable, no matter your skill level.
+
+You want to offer gated content, subscriptions, or digital products to your users, but you don’t want to give them admin access.
+
+You need a way to:
+Create a separate user collection.
+Handle login, account creation, password resets, and logging out.
+Protect sensitive routes and manage user sessions.
+
+In this tutorial, I walk you through a complete solution using Payload CMS, Next.js with Server Actions, and styling with TailwindCSS.
+
+You’ll not only learn what to do, but also why it works and what to avoid.
+
+You’ll learn:
+How to build a custom “Customers” collection in Payload CMS.
+Set up authentication with email verification.
+Create polished forms for registration, login, and password reset.
+Use Tailwind CSS to style everything simply and responsively.
+Protect dashboard routes for authenticated users only.
+Handle login states using templates for dynamic session checks.
+
+I cover common errors when adding username fields, misconfiguring auth cookies, or breaking type definitions.
+
+You’ll understand how to debug and fix these issues confidently.
+
+By the end of this video, you’ll have a:
+Fully functional customer auth system, completely separated from your admin users.
+Clean and professional UI styled with Tailwind.
+Reusable components and server actions that scale with your app
+
+Watch next:
+Role-Based Access Control in Payload CMS:    • Stop Giving EVERYONE Admin: RBAC in Payloa...  
+Handling Redirects in Payload CMS:    • Payload CMS Redirects Plugin: The Complete...  
+
+Support the channel:
+Like this video if you found it helpful
+Subscribe for weekly deep dives on Payload CMS, Next.js, & Tailwind
+Leave suggestions and questions in the comments! I'd love to hear from you!
+
+Chapters: 
+00:00 - Introducing How to Create a New Auth Collection
+01:22 - Configuring the Customers Collection
+05:43 - Setting up the project structure
+06:37 - Allowing customers to create an account
+09:50 - Creating the Container for the Form
+11:21 - Creating the Create Account Form
+15:29 - Creating the rest of our form components
+20:08 - Finishing the Create Account Form
+24:15 - Setting up account verification
+27:22 - Sending verification tokens to new accounts
+28:50 - Setting up a login process
+31:57 - Creating a login form
+37:06 - Creating a login page
+39:16 - Starting the user’s dashboard
+40:21 - Getting the current user
+44:38 - Setting up a forgot-password action
+46:20 - Creating a forgot password form
+50:09 - Putting together a forgot password page
+51:21 - Using the forgotPassword option in the customers collection
+52:37 - Using the generated token to reset a password
+54:37 - Setting up a password reset form
+59:07 - Creating a password reset page
+01:01:48 - Enabling users to logout
+01:03:04 - Creating a logout button
+01:06:17 - Adding the logout button the the user dashboard
+01:07:00 - Allowing users to update their password
+01:08:59 - Creating a password reset button
+01:12:58 - Creating the flow that allows users to update their information
+01:15:07 - Creating a user information form
+01:18:56 - Allowing our fields to show a default value but still update the data on change
+01:19:54 - Wrapping up the update user form
+01:23:34 - Testing the whole flow
+01:27:30 - Closing thoughts and next steps
+
+#payloadcms #nextjstutorial #codingtutorial  #webdevelopment #coding #nextjs #tailwindcss
+Chapters
+
+Transcript
+
+
+Search in video
+Introducing How to Create a New Auth Collection
+0:00
+What's up everyone? In this video we're going to cover how to create another user collection in Payload CMS.
+0:06
+This collection will allow us to create customer users who don't need access to the admin dashboard,
+0:12
+but we want to give the ability to authenticate and authorize for things like purchases, subscriptions, or gated access.
+0:19
+Before we get started though, make sure you're subscribed to my channel and getting notifications so you never miss when I release a video about Payload CMS, Next.js, and more.
+0:28
+If you'd like to see the code that I use in this video, there's a link to the repo in the description. Now let's dive in.
+0:34
+In the last video, we talked about how to get set up with a simple role based access control for your admin users.
+0:41
+This works great for your content management system, but if you want to start gating content or offering subscriptions,
+0:47
+you may not want all your customer users to be included with your admins and editors. Fortunately, Payload CMS allows multiple user
+0:54
+collections that can be used for authentication. This video will be building on the last one,
+1:00
+so if you haven't watched that video or have no idea what I'm talking about at all, I encourage you to pause here
+1:06
+and check out my last video before moving forward. We'll be building out a login flow that allows someone to create a new account,
+1:13
+verify that account, and access a dashboard with the user's information where they can update their information
+1:19
+and reset their password, all using server actions. Let's get started by creating a new user collection called customers.
+Configuring the Customers Collection
+1:26
+By creating a customers directory in our collections. In this directory we'll create a new TypeScript file called config.
+1:35
+Now we can import our type of collection config from payload.
+1:41
+And we'll export a new constant called customers with that type assigned to it and set it equal to an empty object.
+1:50
+We'll set our required fields which are slug, which we'll set to customers, and fields which we'll just set as an empty array
+1:57
+for now Under our slug. Let's set up our auth options by opening up an auth object here.
+2:03
+And we're going to add in token expiration, verify,
+2:09
+and cookies. So we'll set our token expiration to be 12 hours which is going to be 12 times 60 times 60.
+2:18
+We'll set verify for now just to be true. And then we'll open up an empty object for our cookies.
+2:24
+A quick warning here: If you want to enable usernames you can do that here. As soon as that column or type is added to your database,
+2:32
+though, you may run into errors. For example, when I was writing this video's script, I had username enabled,
+2:38
+but when I tried to disable it, I was no longer able to create any accounts without including the username.
+2:43
+If you're in development, you can fix this issue simply by dropping the customer table and re-adding it later.
+2:49
+If you're adding this in production, however, you may need to be more creative in how you solve this issue. The cookies prop takes an object which we’ll pass in secure, same site,
+2:59
+and domain. We'll set secure to be true to allow only secure connections.
+3:05
+Same site, which will be none, which indicates that we want a cookie to be sent in all contexts.
+3:10
+Which is helpful if you provide a service for other sites to consume. Since this is the most lax option for cookies, we must set secure to true
+3:18
+in order to stay secure. Lastly we can set up an environment variable called cookie domain.
+3:23
+This determines what root domain can receive a cookie. We're setting this as an environment variable so we can change it after we deploy.
+3:29
+For now this environment variable is set to local host. Before creating, our fields we’ll now set up an admin option
+3:36
+that allows us to use first name as our title. So use as title and we set to first name which does not exist yet,
+3:43
+but it will soon. And then also an access object which we can pass in create
+3:50
+set to true so people can create their own accounts and then admin to false
+3:58
+so no one can access the admin dashboard from this collection. Now for our fields, we'll start with a row field that contains two text
+4:07
+fields, which will be our first name and our last name. So type row which will take fields
+4:13
+which will have the first field of type text. And then name is first name.
+4:19
+Then we can duplicate this and add last name we’ll then add another field that we'll call tier,
+4:27
+which is going to act as a way to store a user's subscription tier. And we'll do this as a radio field.
+4:34
+We'll give it an interface name so we can access the props more easily on the front end. And we'll have some options, which will be an array
+4:43
+of free basic Pro. And enterprise.
+4:50
+We'll set a default value of free. Now we need to add this collection to our payload config.
+4:56
+Go over to your payload config and find your collections array. And once you find it you can add customers to that array.
+5:05
+Now we can run payload generate types to generate our types. And when we do this it's going to break something in our protect roles.
+5:13
+dot TS because whenever we add a new auth enabled collection, that collection will be added to the user object.
+5:20
+So our types won't quite match up. We can address this by adding a simple if statement, so we'll check if Rec user
+5:27
+collection equals users. Then all of this can run.
+5:33
+So that'll fix all of our types here in protect roles. Again if you don't know what this file does or what this file is, you'll want to go back
+5:40
+and watch my initial video on role based access control. Next, we'll start working on the front end.
+Setting up the project structure
+5:45
+We're going to need a lot of new directories to account for all the routes we're going to make. But for now, we'll create two new root groups, one called Account
+5:52
+and one called auth account. And auth
+5:58
+The account root group will handle all of our public facing routes in our customer login flow. The first route we'll make is the create account route.
+6:06
+So we can add a new directory called create account. And in that we'll create a new page.tsx
+6:13
+And two more directories one called actions and another called components.
+6:21
+We'll just copy this route and paste it four times. change the names of each of these directories to forgot password.
+6:28
+Login. Password reset. And lastly verify we don't need actions and components in our verify route.
+6:36
+So we're going to delete those now. In our create account actions route we'll create a new TypeScript file
+Allowing customers to create an account
+6:41
+called create all of our login flow, as I mentioned, will use server actions to accomplish what we're trying to do.
+6:47
+So we'll add use server to the top of our file. And we'll import get payload from payload
+6:56
+as well as our config from our payload config.
+7:02
+Let's make some types. The first one we'll create is a new interface that we’ll call create params.
+7:09
+And in it will have an email, a password, first name and last name.
+7:15
+This one will be optional and they'll all be strings. Now we're going to export a new interface that we're going to use
+7:22
+pretty often throughout the rest of this project. So we'll just call this one response, which is going to give us a success.
+7:28
+Whether it's true or false. And an optional error string. Now let's make our function to create a new account.
+7:35
+We'll export an async function called create, which will take an email, a password,
+7:45
+first name, and a last name. And the type for all of this is going to be our create params.
+7:53
+And all of that function will have the type of promise response. Now we can initialize payload by creating a new const called payload
+8:02
+and await get payload config. Now first we want to try and find if this account exists, that way
+8:12
+we don't create any duplicate accounts or run into any errors there. So we'll check payload find in the collection.
+8:19
+Customers. Where email equals email. Now what this does is it'll take the email that the user is using to create,
+8:27
+and it'll go through our payload collection of customers to see if that email already exists.
+8:32
+So now we can determine if find total docs is equal to zero.
+8:39
+So nothing is found. We can then try to create a new account by doing await
+8:47
+Payload create and we'll have our collection of customers with a data object which will take our email,
+8:55
+our password, our first name and our last name. If we have one. if that works, we can then return success equals true.
+9:04
+Otherwise we'll want to catch our error e and then log it. And then return success false with an error string.
+9:12
+There was a problem creating the account. So that is if find total docs equals zero.
+9:20
+Else we'll return success false and say that account already exists.
+9:28
+Now we're back in our try up here where we're going to catch our error E
+9:34
+and then console log the error as a sign up error
+9:40
+and the error itself again E and then return success false. And this one is going to be generic.
+9:47
+An error occurred. Now we can create a form. But first we should create a form container
+Creating the Container for the Form
+9:52
+that's going to hold most of the styling we're going to use for each form. In our main components folder, we'll add
+9:58
+a new directory called customer form. In here we'll add a new TypeScript file called form container.
+10:07
+And we'll then import react from react We'll then export a new constant called form container
+10:15
+which is going to take props. And then we'll open up an arrow function here.
+10:20
+The props are going to be children in our heading. And those are going to have types.
+10:27
+Children will be a react react node and heading will be a type string.
+10:32
+Both will be required. We can then return a div with another div inside of it,
+10:38
+and that div will have an h1 which will take our heading. And then beneath that div will have another div
+10:45
+that will take the children prop. This first div is the outer container. So let's add some styles which will be flex gap of two rem.
+10:55
+Minimum height should be full screen, it should be in columns
+11:00
+and we'll justify center and align our items center as well.
+11:06
+Our h1 div will be unstyled. And then our final div down here for the children will take a width
+11:14
+of full margin left and right of auto. And then at the small screen size a max width of small.
+Creating the Create Account Form
+11:21
+Now for the form let's create in our create account components a new TypeScript file called create Form.
+11:30
+And this will be a TSX. And we know this is going to be a client component. So we'll use client at the top here.
+11:38
+We can then import react react element from react as well as use state which we know we'll need.
+11:46
+We can import use router from next navigation. We can then import create and our response
+11:55
+from Actions create. And we'll import link from next link
+12:02
+as well as our form container from our customer form directory.
+12:10
+We can then export our default function called create form,
+12:16
+which will be a react element, and then open up that function. at the top of this function will include a few use state functions.
+12:24
+The first will be for is loading and the second will be for our
+12:31
+error is loading should have a default value of false Error should have type of string or null, and a default value of null.
+12:42
+The router we'll define as const router and just use router here We’ll then need a way to handle a submission
+12:49
+by defining an async function called handle submit.
+12:54
+This handle submit will take an event which will be a react form event HTML form element with a promise and the type of void.
+13:04
+Now we can take our event and preventDefault set is loading to true and set error
+13:11
+to null we’ll then get our form data in a constant called form data by setting it equal to new form data.
+13:21
+Event current target. Then we can break out the form data by using const
+13:26
+email form data.get email. And we're going to cast this as string.
+13:31
+We'll do this four more times. And this one will be password. Then we'll have confirm password.
+13:39
+First name. And then lastly last name. Under last name we need to check if our password equals our confirm password.
+13:50
+If it doesn't. So password does not equal confirm password. We can set error to be passwords do not match.
+13:57
+And then set is loading to false and then hit return.
+14:04
+And now we can get our result by storing it in a constant called result, where we're going to set that to the type of response.
+14:13
+And then we can await, create email password first name and last name.
+14:21
+We can then set is loading to false. And we can check if result is a success.
+14:29
+We can do router push. And then we're going to use our login route which does not exist yet.
+14:37
+And in our parameters we're going to add a message param and set that equal.
+14:42
+To encode URI component. And we'll say check your email to verify your account.
+14:51
+If not we can say else because it'll be an error. We can set error to be result dot error
+14:58
+or a more generic error message. An error occurred. Now we can create our form.
+15:04
+And I'll style using tailwind as we go, just as I have been. we'll return that form container we created
+15:11
+that will have a heading of create an account. In it we’ll have our form which will have a class name
+15:18
+set equal to flex flex-col gap of one REM and on submit as handle submit.
+15:26
+We'll have some more code in here in just a second. But first let's create a component for our inputs and labels
+Creating the rest of our form components
+15:33
+In our customer form directory we'll add a new TypeScript file called input.
+15:39
+In input we'll create a type of props and set that equal to be label name
+15:46
+type, which will have us text, password or email an optional placeholder.
+15:54
+And then optional required label and name and placeholder will all be strings and required will be
+16:00
+a boolean type must be either text, password or email. We’ll then export a new constant called input,
+16:10
+which will take our props, which will have the type of props, and we can open up an arrow function.
+16:18
+We can then return a div, and in that div we’ll have label And below label will have our input.
+16:25
+Our input will take the required attribute And we'll check for props required.
+16:32
+And we'll give our input a class name of width full BG white text Emerald 950 border for border.
+16:42
+Emerald 950. Round the corners with rounded medium
+16:47
+and add a padding of two. We can even add leading tight so it feels a little bit more compact.
+16:55
+We'll then add an ID which will take the props name
+17:01
+and the name, which will of course be set to props name,
+17:07
+and then it'll also have our props placeholder for our placeholder.
+17:12
+but we want to set a default placeholder. So if there is a placeholder defined we can include that.
+17:18
+Otherwise we can just say something like enter your and then props the label to lowercase so it fits in to the rest of the text.
+17:30
+Our label is going to have the HTML for attribute which will be for props name.
+17:37
+And then we can include our props label in here. And then our div will have a class name of flex.
+17:46
+Flex-col gap of two. One last thing I need to add to our input is the type which is going to take props dot type.
+17:55
+While we're creating this input, why don't we create our submit button as well. So we'll create in our customer form a new file called a submit button.tsx
+18:06
+And we'll import react from react. And then we're going to import a loading icon from Lucide React.
+18:16
+We'll export a default function called submit button which will take a loading and text prop.
+18:25
+And our loading will be of type boolean and our text will be type string.
+18:32
+All of this will be react react element. And we can open up this function.
+18:38
+We can then return a button which will have type of submit.
+18:44
+And then we'll give it a class name which we'll come back to here in a second. We'll include the disabled attribute to check if it's loading.
+18:53
+And then inside the button we can add our text and then a space and then our loader
+19:01
+icon, which we'll come back in style here in a second as well. So in our buttons class name we're going to first check loading.
+19:11
+If it is loading we'll say cursor is not allowed, otherwise cursor will be pointer.
+19:18
+Outside of that check we'll add a BG emerald of 950, a text Emerald of 50
+19:25
+padding of half a rem, a full width rounded corners of medium
+19:32
+display flex which will align items center. With a gap of one REM and then we'll justify center.
+19:42
+Our loader will have a class name of animate spin.
+19:47
+It'll also check if it is in a loading state. It'll return inline block, otherwise it'll come back as hidden.
+19:56
+So what we're doing here is creating a button that, when clicked, will check if the state is loading.
+20:01
+If it is, it'll have a little loader icon that'll spin. while the button is in that loading state.
+Finishing the Create Account Form
+20:08
+While it's loading. It will also not allow you to click again, and it'll disable the button completely.
+20:14
+With those done we can add them to our create form. So we'll go back to create form.
+20:19
+We'll close this. And then in our form we're going to add a div which we're going to have our first and last name on the same row.
+20:26
+So we'll come back to those in a second. So first we're going to put in our input here to make sure it imports correctly from our customer form.
+20:34
+And now we can add a label which will be email a name which will also be email.
+20:41
+And the type which will be email as well. We can duplicate this and we'll do a new label of password.
+20:49
+A name of password and a type of password.
+20:54
+Again we'll duplicate this and we'll set the label to confirm password.
+21:00
+Name will be confirm password and type will remain password.
+21:06
+can then add a placeholder for our confirm password which will say confirm your password.
+21:13
+We’ll then within the form check if there is an error and if there is return a div that has a class
+21:21
+name of text red 400. So we're returning an error.
+21:27
+With red text within this div. We'll then lastly add our submit button
+21:32
+which will check is loading and have text of create account. We'll need to make sure that these both imported correctly.
+21:39
+We see input and we see submit button there. So we're in good shape. And now we need to add our first and last name.
+21:45
+So in this div we'll create class name which will be flex
+21:51
+flex row flex one half and then gap two.
+21:56
+So this will set our flex attribute such that first and last name will both take 50% of the space.
+22:02
+And we'll create two new inputs. One will be our first name.
+22:07
+Which will be called first name. And the type will be text. And we can duplicate that and add last name and change our name also to last
+22:18
+name. While we're here, we're going to create another section below the form where we can point people in the direction of our login page.
+22:25
+So this div that we just added is going to have a class name of margin top four.
+22:33
+And we'll add a paragraph tag which will have class name of text small text
+22:41
+Emerald 950 over 50. So a 50 opacity.
+22:46
+And we'll say “Already have an account?” And after the question mark we'll add our link which will link to our login route
+22:55
+which again does not exist yet, but it will soon. And for our link text we'll have log in here.
+23:01
+last thing we need to do for our create form is to go to our page.tsx file.
+23:07
+And now we can import react from react
+23:14
+then we need to import our create form from our create form dot TSX
+23:21
+We'll export a default function called page. And then this will be assigned our react react element type.
+23:31
+And within the function we can return a div with the create form in it.
+23:37
+Let's center it on our page by adding to our div a class name of height of 100 of the view height.
+23:47
+And now we can run pnpm dev. And go over to create account.
+23:52
+And now we can see our form where we should be able to put in our name and email address.
+23:57
+Password and confirm that password. And we can hit create account. And we should see no errors except that our login page does not exist.
+24:07
+We'll come back to that in a second, but we won't be able to do anything until we can verify the account.
+24:13
+So let's handle that next. we need a route where we can send people to verify their account using a token that's emailed to them as a parameter.
+Setting up account verification
+24:20
+We'll use our verify route to do this. So in our account we have our verify route that we already created.
+24:28
+And we can import get payload from payload. Our config from payload config.
+24:37
+And we need our redirect from next navigation. we'll create a new interface that we’ll call search params
+24:46
+which is going to take a computed value of key which will be type string.
+24:51
+And also the value needs to be string. Now we need to export our page so it will be export default async
+25:00
+function called page which will take our search params which will have the type of search params required
+25:10
+and our interface search params. So we can then open our function. Now we can pull out our token
+25:17
+from our search params by setting a destructured constant
+25:22
+to await our search params and we can initialize payload by storing await.
+25:28
+Get payload config in the payload constant we’ll then check
+25:33
+if there is no token, we can redirect our user to log in
+25:41
+with a message of the encode URI component of no verification token found.
+25:50
+Else we can try to verify by storing a verification in our result.
+25:58
+By awaiting payload.verifyEmail in the collection of customers and we can set our token.
+26:13
+We can then check if there is a result. We can redirect to our login page,
+26:22
+which will then have params of a message so equal to encode Uri component
+26:29
+and then successfully verified. Please log in as our message.
+26:36
+If that doesn't work, we can catch our error and return a div
+26:41
+which will have an H1 of “There was a problem” and then a paragraph tag of “please
+26:49
+contact an administrator.” This div will have a class name so we can give it some styles of flex flex column, align items center
+26:58
+justify center min height full And then an arbitrary height of 100
+27:05
+a view height units width full margin left and right auto.
+27:11
+And then at the small screen size we'll set our max width to be small. Now we'll need a way to get
+27:17
+the verification token to the user and Payload CMS provides a way to do that. Back in our customers config we'll change verify true
+Sending verification tokens to new accounts
+27:25
+to be verify generate email HTML and another generate email subject.
+27:32
+And just to keep things clear we'll switch the order of these. Both of these take a function which have args as a prop.
+27:42
+And we can open each of those up. So in our email subject line we can return something like “hey.”
+27:48
+We can then use our args user first name. And if that exists we'll return that.
+27:55
+Otherwise we'll return their email. And then we can say verify your email address.
+28:04
+And then in generate email HTML we can return string with a div.
+28:11
+And in this div we'll have an h1 that says “hey.” And then again args dot user first name.
+28:19
+If that exists that's what we'll return. If not it'll again be our email address.
+28:24
+In that with an exclamation point. And then we'll do a line break here.
+28:30
+And we can say in a paragraph tag verify your email address
+28:35
+by going to our get server side URL, which we set up in a previous video, then
+28:44
+verify which is the route we just created, and we'll pass in the token from our arguments here.
+Setting up a login process
+28:50
+Now when we save this, our verification process should be ready to go. But let's set up our login route before testing this verification flow.
+28:57
+The first thing we need to do is go to our new login route, go to our actions and create a TypeScript file called login.
+29:05
+at the top of our file we'll use server and we're going to import
+29:10
+get payload from payload. Our config from payload config.
+29:16
+Cookies from next headers. And our type customer from payload types.
+29:23
+We'll also import our response from our create account actions create.
+29:30
+Now we'll create a new interface called login params which will take an email and a password both strings.
+29:38
+This is what we need to log in. And then we're going to export a new type that we haven't created yet called result
+29:46
+which will take an expiration number a token which will be a string, and then a user which will be a customer.
+29:55
+And all of those will be optional props. We'll export an async function
+30:01
+called log in, which will take the email and the password as props and set those types to be login params.
+30:09
+And we'll use a promise of response here. We can then set our payload to be constant payload await
+30:18
+get payload config and then we can try to log in.
+30:24
+So we're going to store our login information in our result which will have the type of result.
+30:30
+And we can await payload dot log in. We can check the collection of customers
+30:38
+for our data object which will have email and password. If the result has a token, we can set our cookie store
+30:48
+to await our cookies, We can then set our cookie store by using the set method to add a payload token.
+30:59
+Then our result token and an options object which will say Http only as true
+31:08
+secure, which will take an environment variable of process env node env equals production.
+31:17
+And then path as our home path here. If that happens we can return success
+31:24
+equals true else we can return
+31:29
+success false and say error invalid email or password.
+31:35
+And if not, we can catch our error e with a console log. Of login error and log that error of E
+31:46
+and then return success false with error. An error occurred.
+31:53
+Our action to log in is now set up, so we need somewhere to call it. That will be our login form.tsx file.
+Creating a login form
+32:00
+So I'll create a new TypeScript file called login form.tsx.
+32:05
+And we know this is going to be use client. So I'll use the use client directive at the top of my file.
+32:11
+We then need to import react react element from react
+32:17
+as well as use state. We'll import
+32:23
+use router from next navigation. We'll import our submit button
+32:29
+As well as our input from our customer form directory
+32:36
+we'll import login from login actions login.ts.
+32:44
+And we need to get our response as well from our create account
+32:53
+actions create. our link from next link
+32:59
+and of course our form container from our customer form directory.
+33:04
+We'll export a default function called login form, which will take no props, but we'll have the react element type assigned to it
+33:15
+and we'll use our use state functions again which will be is loading and
+33:22
+error again error will have the type of string or null with a default value of null and use state for our is.
+33:31
+Loading will have the default value of false, and we can get our router by setting Use router to our constant router.
+33:39
+And then we need our handle submit. So we'll set an async function of handle
+33:44
+submit to take an event of form event HTML form element type and a promise of void.
+33:53
+We need to make sure that our form event here is preceded by react. So we don't have to import that.
+33:58
+We can then do event preventDefault set is loading to true
+34:04
+and set error to null. And then get our form data by using constant form data
+34:11
+equal to new form data event dot current target.
+34:16
+And we just need our email which will be form data dot get email as string
+34:23
+and our password which will do the same thing but for the password input instead we can then get our result by storing it
+34:31
+in a constant called result with a response type assigned to it. And we can await our login, which will have email and password as props.
+34:41
+We can set is loading to false and then we can check if result was a success.
+34:47
+We can do router push to our dashboard root which does not exist yet. Else we can set our error to be result
+34:56
+dot error or more generically, an error occurred. Now we can return our form.
+35:02
+So below our handle submit function we can return our form container which will have a heading of log in.
+35:10
+And then we can use our form element here. And we're going to use input.
+35:17
+We'll need two of them. First one will be email and then a name and type of email.
+35:24
+And then the second one will be our password. With a name and type of password we’ll then in our form check
+35:33
+if there is an error. If there is We can add a new div that just has our error text
+35:40
+and a class name of text red 400. Below that we can add our submit button
+35:49
+which will have loading set to is loading and text which will say log in.
+35:55
+And now we can style this form up a little bit. So in the form we’ll have a class name of flex flex columns.
+36:03
+Gap of one REM.
+36:11
+And that's it for the form below the form we're going to add another section, just like we did in our create account, where we can add a div
+36:19
+with class name of margin, top of four And then we can create a new paragraph tag that will say don't have an account.
+36:28
+And then link to create one here by pointing to our create account route.
+36:37
+Below that we'll set another div with the same class name of margin top four
+36:44
+and we’ll link then to our forgot
+36:50
+password, that doesn't exist yet, but we want to be set up for the future here.
+36:55
+Now we can see that our linter is throwing an error here. And if we just replace this with the escaped version of the apostrophe,
+37:02
+the error should go away with no effect to my front end. Our form is done now, so we can go to our login page and export
+Creating a login page
+37:11
+a new default function, which should be called page. It takes no props and we can open up the function there.
+37:19
+And we're going to at the top of our file import react from react
+37:26
+and our login form From our login form.tsx We'll also need to use the same interface we used
+37:34
+for our create form, which will just be search params which will take a computed value of key string with the value of string itself.
+37:44
+The difference here though is that this can be undefined because this is going to be our message.
+37:49
+So now we can go into our page where we can pass in our search params which will have a type of search params.
+37:56
+But this will be required. we'll assign all of this to be promise of react react element.
+38:05
+And we can open this up and destructure a constant called message
+38:10
+from our search params. And then we'll return a new div
+38:17
+with the class name of height of 100 view height width
+38:24
+full mx auto, which is margin left and right auto and the small screen size.
+38:29
+The max width of small In it will need another div with the class name of flex justify center
+38:39
+margin top eight And will only return this if there is a message.
+38:44
+If there is, we'll create a paragraph tag that will return the message, and this paragraph tag will have a class name of width auto, inline block
+38:54
+margin left and right auto padding of 4 BG Emerald 100 text Emerald 950.
+39:03
+Border Emerald 950 and rounded medium. And of course, our regular border style.
+39:11
+Under this div we’ll include our login form. And our login page is done. If this video has been helpful so far, please like the video and check
+Starting the user’s dashboard
+39:19
+to make sure you're subscribed to my channel. This is the kind of content that I put out. And you doing that
+39:24
+supports my growth and ability to keep putting out content like this. Thank you for your support. Now back to it.
+39:31
+What I'd really like to do is redirect the user to their profile. If they're logged in and go to the login route,
+39:38
+we can also use the dashboard route as a way to test our login functionality so that it only works for authenticated users.
+39:44
+So let's move on to the second route group we created which we called auth. In this we need to create directories
+39:52
+for our actions. And then also a new directory for our dashboard route.
+39:59
+We also need to create a new TypeScript file called template dot TSX.
+40:06
+our actions directory. We'll need a get user.ts file. Get user, and the dashboard route is going to need
+40:14
+a new TypeScript file called page.TSX. And we'll do much more here in a few moments.
+Getting the current user
+40:21
+The first thing we need to do is get our current user. We'll go into our get user dot TypeScript file.
+40:27
+And of course we're going to use server, so we'll set that directive at the top. And we'll import our headers as get headers
+40:36
+from next headers. And then we'll import our type of customer from payload types
+40:44
+we’ll import get payload from payload. Our config promise from payload config.
+40:52
+And then our payload type from payload. We'll export an async function called
+40:59
+get user which will take no props, but we'll have the type of promise
+41:06
+a customer or a null value. We can then get our headers in a constant
+41:13
+called headers by awaiting get headers, and then initialize payload with the payload type by awaiting
+41:22
+get payload, with our config being our await config promise.
+41:29
+And then out of that we can pull out our user by awaiting our payload dot auth passing in the headers.
+41:40
+We can then set if user collection is equal
+41:45
+to customers, because we don't want our general users to be able to log in like this, we can then return the user or a null value.
+41:54
+And finally we can return a null value. We'll be using our template.tsx to check our user on each request.
+42:02
+A next JS template file is similar to a layout, in that it wraps the whole route group in itself to apply global configurations.
+42:10
+The main difference, though, is that a layout will not update child components on each visit, and a template will.
+42:16
+So if we had our get user check in a layout, we may end up with a logged out user still having access to the dashboard
+42:24
+because the layout is holding on to the user's previous state. We don't have that problem with templates, so in our template file we can import
+42:33
+redirect from next navigation, then react and react node from react.
+42:41
+And then our get user function from our actions get user.
+42:48
+We can set a constant of template to be react FC and children react node.
+42:57
+Set that equal to an async children's prop. Open up an arrow function and get our constant user by awaiting
+43:06
+get user and we can check if there is no user we can redirect
+43:13
+to our login route, but if there is, we can return our children
+43:19
+and a fragment we’ll then need to export our default template.
+43:24
+Now that we have a way to check, the user session will want a way to apply the reverse of that logic to the account route group.
+43:30
+We don't want logged in users to be able to create an account or see the login route again. So in our create account page
+43:39
+we're going to import Get user from our Get user action
+43:45
+as well as our redirect from Next Navigation.
+43:50
+And we'll get our const user by awaiting our get user.
+43:57
+And then check if there is a user and redirect them to the dashboard.
+44:03
+If there is before we move to the next one we do need to make this into an async function.
+44:08
+So we'll do that here. So the await takes effect. And that means that we need to wrap this in a promise.
+44:14
+We can then go down to our login form which is already async and is wrapped in a promise.
+44:22
+And we can First import get user from our action
+44:28
+and then import redirect from next navigation. And then just paste in what we put in there in our create account.
+44:37
+On our login form we added a link to the forgot password route. So we should set that up now. We'll start with an action called forgot password
+Setting up a forgot-password action
+44:45
+dot pts in our forgot password route. And then in our action. So we'll create a new file called forgot password dot.
+44:55
+In this we know we're going to use the use server directive at the top of our file.
+45:00
+And then we're going to import get payload from payload. We'll import our config from
+45:08
+our payload config. And then we'll import our response
+45:14
+from our create account actions. Create. We can now export an async function called forgot password
+45:24
+which will take the email prop. And that prop will have the type of string
+45:31
+will then use promise of a response and then open up our function.
+45:37
+We'll initialize payload by using constant payload await get payload config.
+45:43
+And then we're going to try to await our payload dot forgot password.
+45:50
+In the collection of customers with the data of email. We can catch our error e in a console log
+46:00
+where we'll do a message of forgot password error and then the error itself.
+46:07
+And we can return success false with a generic message of an error occurred.
+46:16
+If all of that works though, we can return success of true. We then need to create our forgot password form
+Creating a forgot password form
+46:22
+by creating a new file called forgot password form.tsx.
+46:28
+Forgot password form, at the top of our file here we'll use the client directive here.
+46:35
+And we'll import react React element and use state from react.
+46:43
+We'll import our use router from next navigation.
+46:48
+We'll also import our submit button. Our input. And our form container from our customer form directory.
+46:58
+And we're going to import our forgot password action from our actions
+47:04
+directory. Our response from Our create account actions directory.
+47:12
+And then we can export a default function called forgot form which will take no props.
+47:19
+But it will have the type of react element. And we can just like before use state is loading
+47:25
+which will be false to start with. And then another use state function called error, which will take
+47:32
+either a string or a null value starting with a null value. And then we can set our const router
+47:39
+equal to use router. We then of course need our handle submit function,
+47:46
+which will take an event with the react form, event type with HTML form element and a promise of void.
+47:56
+And then we can prevent default on the event set is loading to true. Set error to null.
+48:02
+Then we'll add our const form data set equal to new form data for the event current target,
+48:10
+and then pull out our email from there, cast it as a string. From there we can set is loading to false and then get our result.
+48:22
+So our result will be stored in a constant called result which will have the response type assigned to it.
+48:29
+And we can await our forgot password action which will take an email.
+48:34
+If that result is a success, we can then do a router push to our login page
+48:42
+with a message set equal to encode URI
+48:47
+component instructions to reset your password have been emailed to you.
+48:57
+Else. We can set error of results dot error. Otherwise we can just give a generic message of an error occurred.
+49:06
+Now we need to return our form so we can do a return form container with the heading of forgot password. With a question mark.
+49:13
+And our form container we’ll have a div that will have the class name of width
+49:19
+full, margin left and right of auto and at the small screen size we’ll set max width to be small.
+49:26
+And then we can pass in our form which will have on submit of handle submit
+49:33
+and then a set of class names of flex, flex column and then gap of one REM.
+49:41
+And within our form we'll add an input that has a label of email and then a name of email.
+49:50
+And finally a type of email Below our input will include an error.
+49:55
+If that error exists, we'll have a div with the class name of text red 400 and pass in the error text, and then we can use a submit button
+50:05
+that checks is loading and has text of reset password. In the page dot tsx file in our forgot password,
+Putting together a forgot password page
+50:12
+we can then import react from react import forgot form from our components.
+50:22
+Forgot password form. And then we can export a const page equal
+50:27
+to no props, and open up an arrow function to return a div with a class name of an arbitrary height
+50:35
+of 100 view height, width full margin left and right auto small screen
+50:42
+size max width of small And inside this div we’ll include another div that will have class name of flex,
+50:50
+justify center margin-top eight and inside we will have our forgot form.
+50:57
+We can then export our default page and close our forgot form component.
+51:03
+Creating our forgot password form action and page only gets us about halfway to where we need to be.
+51:08
+In order for users to actually change their password, we need to provide them with a token that can be used to verify their account ownership status,
+51:16
+and then a form that triggers an action to change their password in the database. Let's start in our customer config file.
+Using the forgotPassword option in the customers collection
+51:24
+And in it we're going to include below our verify a forgot password object.
+51:31
+And here we can actually just copy and paste what we have in verify because it's going to be similar to what we're using.
+51:37
+So we'll paste that in there. and we're greeted with a few errors. and all we need to do is just do a conditional chain here
+51:45
+by adding a question mark to our args. And then that is it because forgot password
+51:53
+both generate email subject and generate email HTML take args which all have a request, a user, and a token, all of these values are the same.
+52:01
+So now we just need to change our language here. So instead of verify your email address
+52:06
+we'll say change your password. And instead of verify your email address we can say
+52:14
+you or someone requested to reset your password.
+52:20
+If this wasn't you, you can safely ignore this email.
+52:26
+Otherwise, reset your password by going to get server side URL.
+52:31
+And then we'll do password reset which we need to create. And then provide the token there in the email.
+52:36
+Now we need to set up the actual functionality of our password reset by using another server action by going to our password reset.
+Using the generated token to reset a password
+52:44
+Creating a new action called Reset password dot ts
+52:50
+And just like always, we'll use the use server directive at the top of the file.
+52:55
+Here we're also going to import our get payload from payload config from our payload config.
+53:03
+And then we're going to export an interface called reset password params which will have a token
+53:11
+which will be a string, and a password which will also be a string. And both of these are required.
+53:16
+We'll then also import our response from our create account actions.
+53:24
+Create file. And lastly we can export an async function called reset
+53:31
+password Which will take our token and our password. And that'll be assigned our reset password params.
+53:39
+and all of this will be assigned to a promise of response. We can then open our function set our constant payload equal to await
+53:49
+git payload config, and then we'll try to reset our password by try await payload reset password
+53:59
+collection customers and then check our data which will include a token and a password.
+54:05
+And then one last thing we need to do here is set override access to true, so that any user can override the access and reset their password.
+54:14
+We then need to pass in our error e and then log it with console log,
+54:19
+which we’ll just say password reset error, and then with the error logged.
+54:25
+And then we'll return success false with an error string that just says an error occurred.
+54:33
+We can then at the very end of all of this return success: true. Now we can use this action and a reset password form.
+Setting up a password reset form
+54:40
+We'll create a reset password form in our components here by doing a new file Reset password form.tsx
+54:49
+And at the top of the file use our Use client directive. And we'll import react react
+54:57
+element and use state from react. Again our use router.
+55:03
+From next navigation we'll import our submit button. Our input.
+55:09
+And our form container from our customer form directory we'll import reset password.
+55:16
+From our actions directory. And then our response. From our create account actions directory.
+55:26
+And then we'll export a default function called reset form
+55:31
+which will take token as props. The token will need to be a string and is required.
+55:37
+The function itself will be a react element. And now we can add a couple of use state functions
+55:44
+which is loading is the first one which is a default value of false.
+55:49
+And then we'll do another one where we can pass in error, which will have a default value of null,
+55:56
+and can take either a string or null value, and then get our router from use router.
+56:02
+We can then get our handle submit by setting async function handle submit and pass an event as a prop,
+56:10
+which will be a react form event HTML form element, and that will be a promise of void
+56:18
+we’ll prevent default on the event set is loading to true and set error to null.
+56:28
+We can then get our form data by setting that equal to new form data, and get the current target from the event, and then get our password form
+56:37
+data, get password, and then of course we'll need to confirm our password. And cast these both as strings.
+56:45
+Now that we have those we can then check if password does not equal confirm password.
+56:51
+And then we can set an error to be passwords do not match. And then set is loading to false.
+56:59
+At the end of that we can return to break our function We’ll then check our result by storing results
+57:04
+in a constant called result that takes the response type and await our reset password with token and password
+57:13
+set is loading to false, and then check if result is a success.
+57:22
+We can do router dot push with our login, which will take a message
+57:28
+param which will be our encode URI component which will have the message of password reset successful.
+57:37
+Log in with your new password else we can set error
+57:43
+to be our result dot error or an error occurred.
+57:50
+We can then return a form container with a heading of, “Reset your password.” And inside our form container
+57:59
+we can pass in another div, which will have a class name of width full
+58:06
+margin left and right of auto, and a small screen size of max width small.
+58:12
+Then we can pass in our form element which will have a class name.
+58:18
+And an on submit which will be our handle submit. In our class name we’ll have flex
+58:24
+flex column and gap of four. and then in our form will have two inputs.
+58:30
+The first one will be password with the name of password
+58:35
+and of course the type of password as well. And then we'll need another input with the label of confirm
+58:42
+password, the name of confirm password. And the type will remain password we’ll then need our error.
+58:51
+And if that error exists we'll pass in a div with text red of 400
+58:56
+and the error message included in it. To close this out, we need to add our submit button,
+59:02
+which will check is loading and the text of reset password. Now we can set up the page that we
+Creating a password reset page
+59:08
+point people to when they go through the password reset flow. We'll go to our page dot tsx file and our password reset.
+59:16
+And we'll import react from react. We'll import our get
+59:22
+user from our Get User actions. We'll import redirect from Next navigation.
+59:30
+And we'll import our reset form from our components.
+59:35
+Reset password form.tsx We’ll then need our search params,
+59:41
+which will be an interface of search params. Which will have a computed value of key string
+59:47
+with the value of the type string or undefined. We can then export our default async function called page,
+59:55
+which takes our search params And we’ll assign our search params to that type and make it required.
+1:00:02
+and this function will have the type of promise react, react element.
+1:00:08
+We can then open this function and get our user by awaiting get user.
+1:00:13
+If there is a user, we can redirect them to their dashboard
+1:00:19
+because they don't need to reset their password. We can break out our search params for our message and our token,
+1:00:26
+and we can set that equal to await search params and then check if there is a token
+1:00:32
+and return a div with a class name of height of 100, view height width full
+1:00:41
+margin left and right auto At the small screen size, we'll set our max width to be small, Then in here we'll have another div
+1:00:48
+which will have the class name of flex justify center
+1:00:53
+margin-top eight, which will then have our message.
+1:00:59
+And if there is a message we can pass in a paragraph tag with a class name of width
+1:01:06
+auto inline block margin left and right auto background of Emerald 100.
+1:01:14
+Padding 4 text-emerald 950. Border.
+1:01:19
+Border Emerald 950 and round the corners with rounded medium.
+1:01:25
+And we'll include the message text inside that paragraph tag Below that div, we can pass in our reset form and pass in the token.
+1:01:34
+Else we can then redirect the user to the login page
+1:01:40
+with the message of encode URI components.
+1:01:45
+No reset token found. Now what if an authenticated user does want to reset their password.
+Enabling users to logout
+1:01:52
+We'll get to that flow in a moment, but we know we'll need the user to log out. So let's add a logout dot ts file
+1:02:00
+to our auth actions directory. So here we can add logout.ts.
+1:02:07
+We then know of course we're going to be using Use server at the top of our file here.
+1:02:12
+And we'll import our cookies from next headers. We then also need our response
+1:02:21
+from our Create Account Actions directory. We'll export an async function called Log out
+1:02:29
+which will have a promise of response as the type. We'll try to store our cookie store by awaiting cookies
+1:02:37
+Then using the delete method on our cookie store with the payload token.
+1:02:43
+If that is a success, we can return. Success equals true. Otherwise we can catch the error e and log
+1:02:51
+our logout error with the actual error message. And we can return success false with the error
+1:02:59
+message of an error occurred during logout. Now we need a way to let the user logout.
+Creating a logout button
+1:03:06
+A button is the best way to do that. We'll create a new directory called components in our auth route group here.
+1:03:14
+We’ll then create a new TypeScript file called logout button dot TSX.
+1:03:22
+And we know that we're going to use the client directive at the top of our file here.
+1:03:28
+And we're going to import a log out button from our Lucide React package.
+1:03:35
+We'll import our logout action from our actions log out.
+1:03:40
+We'll import use router from next navigation as well as use state from react.
+1:03:49
+Then we can export our logout button constants and open up an arrow function. And now we can use state
+1:03:57
+to check is loading which again will have our default value of false.
+1:04:02
+Again, to get our error and set error, which will have the type of string or null with null being the default value.
+1:04:12
+And then our router set equal to use router. Then we can get our handle logout function which we'll do is loading set to true.
+1:04:23
+Set error to null. Get our result by awaiting log out.
+1:04:29
+Set is loading to false. If our result is a success,
+1:04:34
+we can do a router push to our log in page. Else we'll set error
+1:04:42
+to be our result error or just log out. Failed. Now we can return a fragment
+1:04:50
+that will have an error check. If there is an error, we'll return a paragraph with the class name of text
+1:04:58
+red 400 with error text returned in the paragraph tag with a button
+1:05:03
+that onclick will handle our logout and will be disabled when is loading.
+1:05:10
+And we'll have a class name for this, which we'll come back to in just a second. Now within the button.
+1:05:16
+We will check is loading and if it is we'll say logging out.
+1:05:21
+Otherwise we'll return a div that will have our log out lucide icon in here.
+1:05:28
+And that icon will be size of 24. And we’ll have a paragraph tag after that that just says log out.
+1:05:38
+div. Holding the log out and paragraph will have a class name of flex align items, center, justify, start, and a gap of one REM.
+1:05:49
+And our button itself will have a class name of padding left and right of two
+1:05:55
+padding top and bottom of one cursor pointer flex items center text
+1:06:02
+Emerald 50 fill Emerald 50. Rounded medium border.
+1:06:10
+Border Emerald 50. And then we can clear out our errors here by just adding the curly brace that
+1:06:16
+got dropped off here. now we need to add this button somewhere an authenticated user can click on it. It shouldn't be available for users
+Adding the logout button the the user dashboard
+1:06:22
+that aren't authenticated, so we can add it to our template.tsx file. So we can find our template.tsx.
+1:06:30
+And if we put it in here that means it'll show up on every single page in our authenticated flow.
+1:06:37
+So in our auth template here we We can now import our logout button
+1:06:44
+from our component logout button. And in our return we'll add a div
+1:06:50
+which will have a class name of BG Emerald 500
+1:06:55
+and a padding of four, and in it we can pass in our logout button.
+Allowing users to update their password
+1:07:00
+Of course, it would be a hassle to explain to users that they need to logout in order to reset their password.
+1:07:06
+So let's think through a better way to handle this. Another button would work, but we don't want it to be on every page for an authenticated user,
+1:07:13
+so it would make sense to include it in the user's dashboard. Up to this point, we haven't done much with this route, so now it's time to finally build it out.
+1:07:21
+Let's go to our page file in our dashboard, Where we'll import our get user action, which we'll be using to get
+1:07:29
+some information from the user that we need to reset their password and more. We'll also import our type customer
+1:07:36
+from our payload types. And now we'll export a default async function
+1:07:43
+called page, which will take no props. And we can open this up and set a constant of user equal to await get user.
+1:07:54
+And we'll cast this as a customer. Now we can return some basic styles as we build out our dashboard.
+1:08:02
+Let's return a main element that will have a classname of width
+1:08:08
+full margin left and right of auto small, max width small
+1:08:15
+and margin top and bottom of two rem. And then we can add another div that will have just the class
+1:08:22
+name of margin y eight and finally an h1 that just says hello.
+1:08:29
+And then we'll check if the user has a first name.
+1:08:35
+If they do, we'll return that first name. Otherwise we'll get their email.
+1:08:41
+Below this, we'll create another div that will have the classes of flex justify
+1:08:49
+start items center, and a gap of one REM.
+1:08:54
+And this is where we'll house our reset password button, which we'll create now In our auth component directory we're going to add a new file
+Creating a password reset button
+1:09:03
+called reset password button. And we'll need interactivity.
+1:09:09
+So we'll use the use client directive at the top of the file. Then we'll need to import our forgot password from our actions forgot password
+1:09:18
+in our account route group will import react and use state from react.
+1:09:26
+We'll import the loader icon from Lucide React. We'll import our log
+1:09:33
+out from our actions log out. And then lastly we'll import our redirect from next navigation.
+1:09:43
+We can then export a constant called reset password button which will take the props of email.
+1:09:50
+And that email will have the type of string. And then we can use state
+1:09:56
+is clicked with the default being false. Then use state again is loading, with the default again being false,
+1:10:05
+and then we want to handle the click, which will be an async arrow function.
+1:10:11
+We'll set is loading to true. Then we'll await our forgot password which will take that email prop.
+1:10:18
+And then we'll set is loading to false. Set is clicked to true.
+1:10:25
+And then we can await our logout. And then finally Redirect to our login page.
+1:10:33
+That'll have a message set equal to encode URI component, “Password reset request
+1:10:42
+sent to your email.” Then we can return a div.
+1:10:47
+that will have a button inside of it. And for the attributes in this button we will have disabled
+1:10:54
+which will be set equal to the value of is clicked. Then we'll have a string of class names which will first check
+1:11:01
+that it is not clicked. If it isn't clicked, we can set our cursor pointer.
+1:11:06
+Otherwise our cursor is not allowed. Outside of this check we can do our margin- top of eight margin-bottom
+1:11:14
+of four width auto padding left and right, for padding top and bottom of two.
+1:11:21
+Then we'll do rounded medium BG Emerald
+1:11:27
+50 text Emerald 950. Our border with the border Emerald of 950 shadow.
+1:11:36
+Small flex items center justify center and then a gap of four.
+1:11:42
+Then the button will be type of button onClick. We'll have our handle click and then inside the button we'll check that it is not clicked.
+1:11:52
+If it's not clicked, We'll set the text to be reset password. And then otherwise it'll be password reset requested.
+1:12:00
+This way they can't continually request a password reset; they have to refresh the page to do it. Then we need to include our loader
+1:12:07
+which will have a class name of animate spin. Then we'll check is loading which will return inline block.
+1:12:15
+If it is loading. Otherwise this will be hidden. Now at the bottom here we'll do one last check of is clicked.
+1:12:23
+If it is, we'll create a new div. That will have a paragraph tag inside it
+1:12:28
+that says check your email for more instructions. This is just in case we have a slow connection and our email doesn't
+1:12:37
+send right away, and our page doesn't refresh and log us out right away. In this div we’ll create a new class name that will have text
+1:12:44
+Emerald 950 with an opacity of 50. We can go back to our dashboard page dot TSX
+1:12:51
+and in this div include the reset password button with the email of user email.
+Creating the flow that allows users to update their information
+1:12:58
+Now we can finish building out the dashboard with the user's account data and allow them to update certain data while leaving some unavailable.
+1:13:05
+First, let's create the action and form that will allow them to update their information. In our actions directory in our auth we'll create
+1:13:13
+a new file called update.ts. Now we know of course we're going to need to use server as our directive at the top of the file.
+1:13:22
+And now we can import our get payload from payload import config from payload config Import
+1:13:32
+get user from our actions get user.
+1:13:37
+And then lastly import our type customer from our payload types
+1:13:43
+will then also import our response. From our account.
+1:13:51
+Create account actions. Create. we then need a new interface called update params
+1:13:57
+which will take an email of string first name. And last name both with strings and last name being optional.
+1:14:05
+And then we can export an async. Function called update which will need our email,
+1:14:12
+first name and last name and take the update params as its type. And the whole thing is the type of promise response.
+1:14:19
+Now we can get our initial payload with constant payload await get payload config and our user
+1:14:27
+by awaiting our Get user as customer, we can try to await our payload dot
+1:14:36
+update from our collection customers with the ID of user ID
+1:14:43
+and then pass in the data of email. First name, last name. that doesn't work, we'll catch our error E and then log that error
+1:14:52
+as an update error and log the error itself, and then return success
+1:14:58
+false with the error string of an error occurred.
+1:15:03
+then finally we'll return success true. We can now create the form that users will use to update their information.
+Creating a user information form
+1:15:11
+We'll create a new component called Update Form TSX.
+1:15:16
+And now in this we're going to use client at the top of our file. And then we'll import react react
+1:15:24
+element and use state from react. We'll import our use router from Next navigation, import
+1:15:32
+our submit button from our customer form as well as our input
+1:15:38
+and our form container from that same directory. Then we're going to import update.
+1:15:45
+From our actions update. And lastly our response. From our account create account actions create.
+1:15:54
+And then our type. Customer from our payload types.
+1:15:59
+We're then going to export a default function called update form.
+1:16:04
+Which will take the props of user and tiers and user will have the type of customer And tiers will have the type of customer tier.
+1:16:14
+As an array. And this allows us to stay type safe when working with our tier options we set up at the beginning of this video.
+1:16:20
+Now we need our normal use state functions, which we can do as our use state which is going to be is loading
+1:16:28
+and error use state will have the default of false. Error can take a string value or a null value, and will default to null.
+1:16:38
+And then of course we need our use router. We can then create a new async function called handle submit,
+1:16:45
+which will take an event of type react form event and that function will have promise void attached to it.
+1:16:55
+We’ll prevent default on the event. We'll set is loading to true.
+1:17:01
+Set error to null and we'll get our form data by setting our const form data to new form data of event current target.
+1:17:10
+then we're going to break out our email from form data target email as string.
+1:17:18
+And then we'll duplicate this because we're going to need our first and last name so we can get our first name.
+1:17:26
+And then lastly our last name. And now we can get our result which will be stored
+1:17:32
+in our constant result of response. And we can await update email last name and first name.
+1:17:41
+Once that's done we can set is loading to false and we can check if result is a success.
+1:17:49
+We can do router push to the dashboard. Otherwise or else we'll set error
+1:17:58
+to be our result error or a generic an error occurred. now we can return our form container.
+1:18:05
+And the heading of your account. And in this form container we can pass in the form
+1:18:11
+which will have our on submit of handle submit. And now we'll include our inputs which will have a div surrounding them
+1:18:18
+with our class name of flex flex row flex one over two
+1:18:27
+gap two to get our inputs onto one row. And then we'll have an input of first name.
+1:18:34
+And name of first name and type of text. Then we'll duplicate this and have last name and last name there as well.
+1:18:43
+And then we'll have one more input outside of this shared div for our email field,
+1:18:50
+which will have a name of email as well as a type of email. And we can close this input.
+1:18:55
+But now we have a problem. We want to be able to include the user's information here by default, but we don't have a prop that allows for that.
+Allowing our fields to show a default value but still update the data on change
+1:19:02
+We can't use value because that would prevent us from typing in the field and making updates. Luckily, there's default value
+1:19:08
+that we can use as an attribute to handle this for us. So let's go into our input and we'll add a default value here,
+1:19:17
+which will be our props default value, which we'll add here in a second. And if that does exist we'll pass in our props default value.
+1:19:27
+Otherwise it'll be an empty string. And so now we need to add our default value as an optional string here.
+1:19:33
+Now we can go back to our update form and then add a default value here to each of these which will be our user.
+1:19:43
+And then for our first name we'll include first name or an empty string.
+1:19:49
+Our last name. Or an empty string or our email address. Let's include our user’s current subscription tier to their dashboard.
+Wrapping up the update user form
+1:19:57
+We'll use a radio field to do this. To do that we're going to include a field set
+1:20:02
+element here in our form. So we can add a field set which will have a legend as well,
+1:20:10
+which is going to be your tier. The field set is going to have a class name of flex flex wrap
+1:20:18
+gap 4 justify around and items center.
+1:20:24
+Now we're going to map through our tiers with the tier and the index pulled out of our map.
+1:20:30
+And we'll for each tier pass in a div that will have an input and a label.
+1:20:37
+With the label being the tier’s name, the input will have a class
+1:20:43
+name of inert opacity 60. Then we'll give it the inert attribute
+1:20:49
+with an ID of tier, which we need to have as a non-null value.
+1:20:54
+It'll be read only, and the type of radio We’ll then
+1:21:00
+include the checked attribute and check if it is supposed to be checked by comparing our tier with our user’s
+1:21:09
+tier, the label should have the class name of margin start two
+1:21:15
+and the HTML for value of tier, which again cannot be null.
+1:21:20
+Then in our div we need our key of index. And then a class name that's going to be text Emerald 950.
+1:21:29
+With the opacity of 30 below our field set. We can then get our error.
+1:21:35
+If there is an error, we can pass in a div that will have a class name of text red 400 and then the error text included there.
+1:21:46
+Below that and above our closing form element here we can pass in our submit button.
+1:21:52
+That will check is loading and then text of update account. We set up a way for our dashboard to receive
+1:21:58
+what tiers are available to our user. So now we need a way to pass those tiers down.
+1:22:04
+And we can do that by importing our customers config into our dashboard. So we will below our reset password here, import
+1:22:13
+our customers config from customers config in our collections.
+1:22:19
+We’ll then in our import type customer add our tier props there to pull them out of payload types as well.
+1:22:26
+And then we also need the update form we just created a moment ago.
+1:22:31
+Now below our constant of users we're going to get our tiers. And we're going to get that
+1:22:37
+from our customers config where we're going to check fields. And we're going to filter out the fields
+1:22:43
+that don't have the field type of radio. We then again need to filter our field
+1:22:52
+for our field name of tier. this returns an array.
+1:22:58
+And we know we can only have one field by this name. So we're going to take the first index and pull out the options.
+1:23:05
+Now below our H1 we'll add a paragraph tag that says you are currently on the user
+1:23:14
+tier to lowercase otherwise just return free tier. And then below this div we'll add our update form,
+1:23:23
+which will take our user and our tiers. As tier props. As an array.
+1:23:28
+And all of this should be done. So now let's try all of this out.
+Testing the whole flow
+1:23:34
+We'll start with creating an account so we can see. Don't have an account? Create one here. So when I click on that we can add my first name.
+1:23:42
+And then we'll do just my midlowebdesign.com
+1:23:48
+email address with a simple password to check. And we'll hit create account.
+1:23:53
+Now when we do this we can see check your email to verify your account. I'll be sent an email that says hey Nick verify your email address by going here.
+1:24:01
+And if I click on this we'll see that there was a problem and that we should contact an administrator.
+1:24:06
+Now what the problem is here is I did want to see this error pop up.
+1:24:11
+But if we go to our verify page we can see that we have a redirect in our try catch statement.
+1:24:20
+And that can't happen with next. So we'll get rid of our try and our catch
+1:24:26
+and we'll change this to be else return our error message.
+1:24:32
+And then we just need to clean up our curly braces until all of our errors go away.
+1:24:37
+Now, the reason I know that this still worked. If I go to my customers and refresh,
+1:24:42
+we can see that this customer is verified. This is the one that we created. That's the name.
+1:24:49
+So all of this worked. The verification worked. The error must have been from our redirect.
+1:24:54
+So why don't we try this all again? We'll close this out. We'll create a new account and we'll type in my name.
+1:25:03
+And we'll do just my nick at midlowebdesign.com email address and a simple password create account.
+1:25:11
+Check your email. And we can click hit verify. And now we can see successfully verified. Please log in.
+1:25:17
+Now we can do our. Nick made the web design.com with our simple password.
+1:25:23
+And we can see that we're logged in. There are a couple of design things that I'd like to fix here. So first we're going to go to our dashboard page.
+1:25:31
+And we just need to add a little bit more space between our tier and our update account.
+1:25:37
+So that's in the update form. And we can just come down here to our field set.
+1:25:44
+And we'll just do a margin y of eight. So now there's a little bit more breathing room but maybe a little too much.
+1:25:50
+Let's go back to 4 we can also try our logout flow here. And when we log out we can see that this create one here and forgot password are links.
+1:25:59
+But they don't come across as links. So why don't we just go to our login form and in our links here
+1:26:07
+I can add a class name of underline and then underline offset four.
+1:26:13
+And we should also in our div make this match our text Emerald.
+1:26:19
+And then in our forgot password we can add a class name of underline
+1:26:26
+underline offset four and then text Emerald 950 with a 60 opacity.
+1:26:33
+And so now this looks better. So we did our log in and log off.
+1:26:38
+Now we can do our forgot password flow where we'll have our forgot password. And we can type in our email address here and reset password.
+1:26:46
+Instructions to reset your password have been emailed. And we can see hey Nick, change your password. And then this is the message we sent.
+1:26:53
+Here's a password reset with the token. And now we can reset our password. And now we're able to log in again with our new password.
+1:26:59
+the last thing to check is within our dashboard this reset password. But first let's do an update here where we can update our account.
+1:27:07
+Great. Now we can reset the password. And we see that a password reset request has been sent to your email.
+1:27:13
+And I can now do our password reset here and do the same thing. And then finally when we log back in one more time.
+1:27:21
+We see that we have our updated information in here. I'm not able to change our tier, but I can update my account,
+1:27:28
+reset the password and log out again. Hopefully this video showed you everything that's possible using user collections in Payload CMS.
+Closing thoughts and next steps
+1:27:36
+You're not tied to just using the default user collection, but you can create your own and use the local API with server actions
+1:27:43
+to create a custom flow for users that doesn't even touch your admin UI. You can do more than just gate the dashboard.
+1:27:50
+You could use this to check if blog posts or other parts of the site require a certain subscription tier, or creating a way for users to save posts
+1:27:58
+or other content on your site to their favorites. This collection and flow will set us up nicely for when we go
+1:28:04
+over the stripe plugin to handle subscription updates. If you found this video helpful, please
+1:28:09
+like it and share it with others who might also find it useful. Check to make sure you're subscribed to my channel and receiving notifications
+1:28:15
+so you never miss when I release more content around Payload CMS, Next.js, and more.
+1:28:21
+If you have suggestions or questions, please leave those in the comments. I'd love to hear from you. Until then, I'll see you on the next one.

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { AIConversation } from "@/components/ui/ai-conversation"
 import { AIMessage } from "@/components/ui/ai-message"
 import { AIInput } from "@/components/ui/ai-input"
@@ -66,6 +66,29 @@ export function ChatEngine({
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [likedMessages, setLikedMessages] = useState<Set<string>>(new Set())
   const [dislikedMessages, setDislikedMessages] = useState<Set<string>>(new Set())
+  const messagesContainerRef = useRef<HTMLDivElement>(null)
+  const [previousChannelId, setPreviousChannelId] = useState<string | null>(null)
+
+  // Scroll to bottom function
+  const scrollToBottom = () => {
+    if (messagesContainerRef.current) {
+      messagesContainerRef.current.scrollTop = messagesContainerRef.current.scrollHeight
+    }
+  }
+
+  // Scroll to bottom when messages change or channel changes
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
+
+  // Detect channel changes
+  useEffect(() => {
+    if (activeChannel?.id && activeChannel.id !== previousChannelId) {
+      setPreviousChannelId(activeChannel.id)
+      // Scroll to bottom when channel changes
+      setTimeout(scrollToBottom, 100) // Small delay to ensure messages are rendered
+    }
+  }, [activeChannel?.id, previousChannelId])
 
   const handleSubmit = async (content: string) => {
     if (!content.trim() || isSubmitting || !activeChannel) return
@@ -181,8 +204,21 @@ export function ChatEngine({
 
       {/* Messages - Fixed Scroll Container */}
       <div className="flex-1 min-h-0 relative">
-        <div className="absolute inset-0 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]">
+        <div 
+          ref={messagesContainerRef}
+          className="absolute inset-0 overflow-y-auto overscroll-contain [scrollbar-gutter:stable]"
+        >
           <div className="p-4 space-y-4">
+            {/* Channel Change Notification */}
+            {activeChannel && (
+              <div className="flex items-center justify-center py-2">
+                <div className="bg-muted/50 px-3 py-1 rounded text-xs text-muted-foreground border">
+                  <Hash className="inline w-3 h-3 mr-1" />
+                  Welcome to #{activeChannel.name}!
+                </div>
+              </div>
+            )}
+            
             {messages.length === 0 ? (
               <div className="flex items-center justify-center h-32 text-muted-foreground">
                 <p>Start a conversation with LEO!</p>

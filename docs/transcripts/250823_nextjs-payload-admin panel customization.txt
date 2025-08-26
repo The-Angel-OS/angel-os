@@ -1,0 +1,2060 @@
+Payload 3.0 custom components in the admin panel + Tailwind 4
+
+AllAboutPayload
+4.58K subscribers
+
+Subscribe
+
+88
+
+
+Share
+
+Ask
+
+3,134 views  Mar 4, 2025
+In this video, we take customization further by adding custom components into the Payload Admin Panel. We cover custom fields, cells, and UI extensions, demonstrating how to integrate server and client components effectively.
+
+📌 Chapters:
+00:00 Introduction
+00:21 Understanding Component Types in Payload Admin Panel
+01:39 Server vs. Client Components in Payload v3 (Next.js)
+03:06 How to Import Custom Components Correctly
+05:07 Creating a Custom Welcome Text Component
+07:00 Adding a Custom Cell to Display Nested Address Data
+10:58 Implementing a Custom Field for Real-Time Label Generation
+15:24 Adding a Company Collection and Structuring Fields
+19:32 Linking Companies to Users with Dynamic Titles
+22:15 Enhancing User Experience with Clickable Google Maps Links
+25:09 Using useField for Dynamic Form Updates
+31:58 Finalizing the Custom Label Field Implementation
+33:39 Closing Remarks and Next Steps
+
+📧 Stay Updated:
+Subscribe to our newsletter for more tutorials and insights: https://allaboutpayload.com
+
+🔗 Useful Links:
+ • GitHub Repository: https://github.com/10x-media/payload-...
+ • Snippet Library: https://snippets.10xmedia.de
+ • Payload Theme Generator: https://10xmedia.de/theme
+ • Payload Documentation: https://payloadcms.com/docs
+
+💬 We Want to Hear From You!
+Have a specific use case or custom component idea? Let us know in the comments, and we might cover it in a future video! ❤️
+
+👍 Don’t forget to LIKE, SUBSCRIBE, and SHARE for more Payload CMS tutorials!
+
+🌟 Next Video Preview:
+In the next episode, we’ll explore more advanced customizations, including middleware enhancements and deeper admin panel integrations.
+
+
+
+Payload 3.0 custom components in the admin panel + Tailwind 4
+
+AllAboutPayload
+4.58K subscribers
+
+Subscribe
+
+88
+
+
+Share
+
+Ask
+
+3,134 views  Mar 4, 2025
+In this video, we take customization further by adding custom components into the Payload Admin Panel. We cover custom fields, cells, and UI extensions, demonstrating how to integrate server and client components effectively.
+
+📌 Chapters:
+00:00 Introduction
+00:21 Understanding Component Types in Payload Admin Panel
+01:39 Server vs. Client Components in Payload v3 (Next.js)
+03:06 How to Import Custom Components Correctly
+05:07 Creating a Custom Welcome Text Component
+07:00 Adding a Custom Cell to Display Nested Address Data
+10:58 Implementing a Custom Field for Real-Time Label Generation
+15:24 Adding a Company Collection and Structuring Fields
+19:32 Linking Companies to Users with Dynamic Titles
+22:15 Enhancing User Experience with Clickable Google Maps Links
+25:09 Using useField for Dynamic Form Updates
+31:58 Finalizing the Custom Label Field Implementation
+33:39 Closing Remarks and Next Steps
+
+📧 Stay Updated:
+Subscribe to our newsletter for more tutorials and insights: https://allaboutpayload.com
+
+🔗 Useful Links:
+ • GitHub Repository: https://github.com/10x-media/payload-...
+ • Snippet Library: https://snippets.10xmedia.de
+ • Payload Theme Generator: https://10xmedia.de/theme
+ • Payload Documentation: https://payloadcms.com/docs
+
+💬 We Want to Hear From You!
+Have a specific use case or custom component idea? Let us know in the comments, and we might cover it in a future video! ❤️
+
+👍 Don’t forget to LIKE, SUBSCRIBE, and SHARE for more Payload CMS tutorials!
+
+🌟 Next Video Preview:
+In the next episode, we’ll explore more advanced customizations, including middleware enhancements and deeper admin panel integrations.
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+Ask questions
+Chapters
+
+View all
+Transcript
+Follow along using the transcript.
+
+
+Show transcript
+
+AllAboutPayload
+4.58K subscribers
+Videos
+About
+Ask & learn
+Learn by asking questions, practicing and getting guidance
+
+Ask questions
+15 Comments
+Clearwater Cruisin' Ministries
+Add a comment...
+
+@MurzNN
+3 weeks ago
+Great example, really a very simple way to customize the Payload admin panel, even too simple! ;) By the way, what way can you recommend to bring in the list of countries and cities into the Payload, to add dropdowns and autocomplete to the country and city fields? I believe it's a very popular task to have vocabularies for countries and cities, and would be great to get some best practices for it from the Payload side.
+
+
+
+Reply
+
+
+@Showmatic
+5 months ago (edited)
+18:16 When you update your types and vscode is still giving you a type error, you can just restart vscode, but the easier option is to open the command palette and search for Typescript: Restart TS Server. That will refresh your types without having to restart
+
+2
+
+
+
+Reply
+
+
+@luizfurtado1075
+5 months ago
+Great content! The github repository in the description is pointing to other project.
+
+
+
+Reply
+
+
+@liliestechzone7672
+5 months ago
+Great video
+
+
+
+
+Reply
+
+
+@AqibRime
+5 months ago
+Need auth related videos
+Can u make a video where we can integrate Better-Auth with payload CMS
+
+1
+
+
+Reply
+
+
+@monirnassan7503
+4 months ago
+how to add a custom block to the Lexical editor in PayloadCMS, where users can:
+
+1- Enter query parameters inside the block.
+
+2- Fetch data (e.g., Pokémon cards) from an external database (not PayloadDB).
+
+3- Display the fetched cards in a grid layout.
+
+4- Allow users to select which cards to include in the block view.
+
+My questions:
+
+What is the best approach to achieving this functionality?
+
+Would I need a custom Lexical feature, or a custom block to handle this?
+
+Are there any examples or directions on how to structure this?
+
+Any insights or references would be appreciated!
+
+
+
+Reply
+
+
+@marcos232000
+5 months ago
+please do the color pick custom component
+
+
+
+Reply
+
+
+1 reply
+
+@CodeAlchemy00
+5 months ago
+My question is that I can't seem to initialize tailwind css on my frontend, how to do that?
+
+
+
+Reply
+
+
+@datawhale-dev
+3 weeks ago
+This no longer works in Payload 3, thankfully there's a much simpler solution. defaultValue accepts a callback function which has access to the request object and URL params:
+
+(in this case appliesTo is an select type field with hasMany: true)
+
+defaultValue: ({ req }) => {
+        const appliesToParam = req.query?.appliesTo
+        if (appliesToParam) {
+          return typeof appliesToParam === 'string' ? [appliesToParam] : appliesToParam
+        }
+        return undefined
+      },
+
+
+
+Reply
+
+
+@vladimirdegtyarev157
+5 months ago
+Hi!
+Could you tell me how I replace the buttons "Save Draft" and "Publish changes" in the admin panel on my custom?
+I tried:
+export default buildConfig({
+    admin: {
+        user: UsersCollection.slug,
+        importMap: {
+            baseDir: path.resolve(dirname)
+        },
+        components: {
+            beforeDashboard: ['@/admin/components/Welcome/Welcome'],
+            views: {
+                Edit: {
+                    SaveDraftButton:
+                        '@/admin/components/CustomSaveDraftButton/CustomSaveDraftButton'
+                }
+            }
+        }
+    },
+})
+That didn't work
+
+
+
+Reply
+
+
+@kmaximoff
+3 months ago
+Do you know why this does not work:
+
+payload generate:importMap
+zsh: command not found: payload
+
+
+
+
+Reply
+
+
+1 reply
+Ask & learn
+Experiment
+
+Hello! I'm here to help you learn more about what you are watching, practice, and get guidance along the way.
+
+Not sure what to ask? Choose something:
+
+Summarize the video
+Quiz me
+Can you explain the difference between server and client components again?
+How can I simply memorize the three component types mentioned?
+What are the three component types?
+Ask a question...
+
+AI can make mistakes, so double-check it. Learn more
+Transcript
+
+
+Search in video
+Introduction
+0:00
+hey there and welcome back this is our second part of the customizing the
+0:05
+payload admin panel series and today um we're going above just adding our own
+0:11
+logo and colors and we're actually going to add our own custom components into
+0:17
+the admin panel which is not as hard as you might think now before we start just
+Understanding Component Types in Payload Admin Panel
+0:22
+a little bit of theory we can say that in general we have kind of three component types the
+0:30
+first one would be a custom field which pretty much replaces a specific
+0:36
+field inside of our document editor so if we create a new page for example we
+0:44
+click on edit that page and we have our um input fields in there we can either
+0:49
+add a custom field or just replace one of the input Fields with our custom react logic we also have something
+0:57
+called a custom cell and that is the same same thing but the cell is
+1:02
+displayed in our table so in our list of documents inside of a
+1:08
+collection the third part that we have is default UI extensions or Replacements
+1:17
+and that means that inside of the admin panel we can customize and replace
+1:22
+pretty much every single part we can customize our sidebar we can customize
+1:28
+our dashboard or replace it completely we can add custom components above the dashboard or below the dashboard above
+1:35
+our table list below our table list pretty much everywhere now there's something new in
+Server vs. Client Components in Payload v3 (Next.js)
+1:44
+version 3 since version three is now nextjs based we have the benefit that we
+1:50
+can use either a server component or a client component or we can combine them
+1:57
+both now if you might be wondering what is the difference here so a server component is rendered on the server and
+2:04
+therefore it can use the payload local API to fetch Data before it even renders
+2:12
+so we don't have to use any state we don't have to do any fetch calls we don't have to add any loading State
+2:18
+because before the component is rendered and displayed on the on the client side it already has that
+2:25
+data now client components are the classic way of doing react components
+2:32
+and they are still required for anything that needs reactiveness so for example
+2:37
+if you want to store specific States or you want to have buttons with certain
+2:42
+actions um you will likely need a client component the cool part is you can
+2:49
+combine them both which means you can embed into the payload admin panel you can embed a server component that
+2:57
+fetches a little bit of data and then passes that data down to the client component where you can then have your
+3:03
+custom buttons select Fields pretty much anything that you want now the question
+How to Import Custom Components Correctly
+3:08
+is how do we import those custom components and this is something where you have to watch out because we do not
+3:15
+import components directly into the payload config anymore this used to be
+3:21
+the case in version two but since then um we've switched to just specifying the
+3:28
+path to the compon component as a string because payload now optimizes and
+3:33
+removes unnecessary Imports so if we want to import a component we have two options the first
+3:40
+option is very straightforward and simple we can just pass it the path to
+3:46
+the component as a string and if we have a default export in that file we don't
+3:52
+need the second part here but if we don't have a default export if we have a so-called named export we need to put it
+3:59
+um after a hash and then put in our component name now the second option is
+4:06
+a little bit more sophisticated we can again specify a
+4:12
+path and we can also specify the export name so instead of the uh hash we can
+4:17
+just um add the property export name but
+4:23
+payload also allows us to either give the component custom server props if
+4:29
+it's a server component or client props if you directly import the component
+4:36
+which is a client component so if we wrap our client component inside a server component and import that server
+4:43
+component into the payload config we still want to use server props but payload also supports directly importing
+4:50
+those used client files that are client components now what are we going to do
+4:58
+today in practice first we're going to create a custom welcome text component
+5:04
+that just shows us some very simple stats and I'm just going to walk you through all the uh
+Creating a Custom Welcome Text Component
+5:10
+props and attributes that you can access inside of a server component now in
+5:17
+addition to that we're also going to create a custom cell that will display nested address data I'm going to explain
+5:25
+what that is exactly later and the third thing that we're going to do is we're going to create a custom field which is
+5:33
+client site that generates a label in real time so let's dive straight into it
+5:40
+I'm currently in our code base from the last video If you haven't watched that I will link it somewhere either at the top
+5:47
+or in the description below and if we check out our admin panel here we can
+5:52
+see we have our own custom logo and custom colors now before we add our
+5:57
+first custom component what we're going to do is create an additional collection
+6:03
+so I'm going into collections and I'm naming them uh
+6:08
+companies so we are planning to store companies inside of payload going to say
+6:14
+export const companies and type it as a collection
+6:21
+config I have to give it a slug which will be companies and we'll just give it the
+6:29
+minimal required attributes every company should have
+6:36
+a we can probably leave it like that a name a logo we can upload that will be
+6:42
+uploaded to our media collection um a short
+6:47
+description we can put this as R text just for
+6:53
+later and also a website another thing that I want to add is an address
+Adding a Custom Cell to Display Nested Address Data
+7:00
+now I'm going to call this address and this will be a
+7:08
+group and in this group I'm going to store the street so name Street which is
+7:15
+text and required the rest got autofilled we have our city we have
+7:21
+state we have zip code and we have country I'm going to make it a little bit simpler just going to remove the
+7:27
+country and the state and I will move the ZIP code above
+7:34
+the city because that's how we do it in Germany at least um I'm going to put zip
+7:40
+code and city into one row so I'm going to say type row and specify fields and this
+7:49
+will just put the zip code and the city inside of the same line now let's go back to our
+7:57
+payload config add companies here and if we check back into our admin
+8:04
+panel it now shows us the companies collection we can create a new company
+8:10
+give it a name test uh what test
+8:16
+company logo is required right now I don't want that so I'm just going
+8:21
+back and I'm going to make the logo optional same as for description and
+8:27
+website we don't really need that we can leave the address as
+8:32
+required so here Test Company I'm just going to put in an
+8:38
+address test Street 27 zip code is 1 2 3 4 5 test
+8:49
+City going to click on Save and we successfully created our first company
+8:54
+so let's start adding our custom components for that I'm going back into my dashboard and at the top here we want
+9:02
+to display not just the collections but at the top we want to add a custom welcoming message to the user that just
+9:10
+says Hey welcome back username and it should display us how
+9:16
+many companies we have stored to have that custom welcome
+9:21
+message I need the user to store a name so I'm going back into my users config
+9:28
+and I'm just going to store a name attribute which will just be type text
+9:34
+we can make it required so that every user has a name so I'm going to call
+9:40
+this Sandro from autot payload I'm going to
+9:46
+click on Save now whenever you want to add something custom into the admin
+9:52
+panel I really recommend going to the official payload documentation and just
+9:58
+reading through it because it will give you all possible options that you have to customize the payload admin panel
+10:04
+like I said if we check back here we can pretty much do anything we can replace the sidebar we can completely replace
+10:11
+the dashboard have something above the dashboard below the dashboard we can place something in the header we can
+10:18
+also so those are custom cells here um we can also have custom Fields
+10:25
+here we can have something above the list we can have something something between the search bar and the table we
+10:31
+can have something below the table pretty much Endless Options so if you reach through this you will get a better
+10:38
+understanding anyway so here we can see after dashboard after login after Naf links before dashboard before login the
+10:44
+list goes on and on what we are going to focus on for now is the before dashboard
+10:53
+option so the only thing we need to do is in our payload config in the admin
+Implementing a Custom Field for Real-Time Label Generation
+10:59
+property we have to specify components before dashboard and then provide our
+11:05
+custom component so let's go back into our codebase I'm going to in our
+11:11
+components file we have our payload components um we can pretty much just
+11:17
+leave that as it is I'm going to create a new file going to call it a welcome
+11:24
+message. TSX I'm just going to specify a default
+11:30
+server component and I'm going to leave it as it is and import it into payload
+11:35
+so I'm going back in payload config under admin components if we check back
+11:42
+in the documentation components before dashboard and this is and you have to watch out this is actually an array
+11:48
+because you can specify multiple components that are rendered below each other so I'm going back here before
+11:57
+dashboard typescript does help there and now I'm just specifying the path to my
+12:03
+component so I'm saying slash components so here slash payload which
+12:09
+is actually not correct SL welcome message I have to remove the payload
+12:16
+one all right if we go back and into our dashboard we now see
+12:24
+our welcome message here before we adjust this component further let's quickly go through what props you
+12:30
+actually receive in such a server component if you want to get an overview of those you can go back here in vs code
+12:38
+I'm just going to specify the props here I'm going to console
+12:43
+log object. keys and then props this will just give me an array of all the
+12:50
+keys that are available in the props object so as you can see here those are the attributes that we get the first one
+12:58
+is I8 next that is related to the current local um and internationalization in the admin
+13:04
+dashboard we're going to ignore this for now we also have params and search pams
+13:11
+which is basically just the default um nextjs props that a component receives
+13:19
+we also have permissions which we haven't you know covered yet so the two
+13:25
+things that we're going to focus on here is the payload object and the user object object now the payload object is
+13:31
+pretty cool because we can just pretty much do anything with it we can read
+13:36
+from the config we can fetch data using the local API anything we're going to
+13:42
+use that in a second more importantly what we can also um use is the user
+13:47
+object so in addition to that I'm just going to say console log props do user
+13:52
+and let's check what data we have available here and as you can see we get
+13:59
+a full object of the user data uh from the user that is currently logged in so we can see my name here we
+14:05
+can even see my login attempts we can see my authentication strategy and my
+14:10
+email if we would have more Fields there we would be able to display more Fields
+14:16
+now this is pretty cool because we can use this straight away so I'm going to um destructure it here in my
+14:26
+custom component and instead of returning welcome message
+14:32
+I'm going to return we can take that um I will say
+14:38
+welcome back username and we can get rid of that now
+14:44
+obviously what I have to add is types so interface user no I'm going to call it
+14:52
+interface um welcome message props going to specify user in there I'm
+14:59
+I'm going to use the payload user type I'm going to type the
+15:05
+welcome message props and that's it so I'm going to say welcome back username all right so let's check
+15:14
+back and now we get a nice welcome back message what is missing here is I want
+15:21
+to see how many companies I have stored so in order to add this what we're going to do is we're going to turn this into
+Adding a Company Collection and Structuring Fields
+15:29
+an async function first because otherwise we can't fetch data and now we can say cons
+15:37
+payload sorry we don't even need to do that we can just destructure it here
+15:42
+payload so I'm going to say const
+15:48
+companies equals await payload Dot and we can do either find what we can also
+15:56
+actually do is we if we just need the amount of companies we can do payload do count we can specify the
+16:04
+collection companies and set the limit to zero I
+16:09
+don't know if that is even required for the account part so companies and we can now add a
+16:18
+paragraph you have stored I can access those
+16:25
+companies. total Docs
+16:31
+[Music] companies so let's check back if that works you have stored one companies
+16:40
+obviously that doesn't really make any sense grammatically so we can
+16:46
+do companies. total docs larger than one and then
+16:54
+return IES and if not return a y
+16:59
+so youve stored one company let's quickly test this by creating a new one so Test Company
+17:07
+2 test uh Street 22 zip code
+17:17
+0112 Mumbai I don't know so let's go
+17:23
+back and as you can see the server component even though it's on the server
+17:28
+it get regenerated every time we open this page up so it's always up to date before continue let's quickly fix our
+17:36
+type issue that we that we have here so to our interface I need to add payload I
+17:42
+can type it as payload from payload and right now we're getting the
+17:50
+type companies is not assignable to collection slug that probably occurs because we haven't regenerated the types
+17:57
+here so in order to do this we just have to run pmm payload generate
+18:04
+types and this will regenerate all new types so for example if you add a new
+18:11
+collection the types need to be regenerated because otherwise they won't be in that payload object now VSS code
+18:18
+is still showing us some error here and that is likely because VSS code is
+18:23
+sometimes a bit weird and delays this and still shows an error even if there's
+18:29
+no error left so we're going to ignore this for now and continue with our custom cell so first why do we even want
+18:36
+to use a custom cell let me show you the issue I'm going into our company's list
+18:42
+and under columns I'm activating the address column I'm also going to move it over here and we can remove the
+18:50
+logo this doesn't look good and that's because our address data is actually
+18:56
+nested under our address object or group
+19:01
+field and therefore it's just shown as this ugly Json type
+19:08
+thing now let's fix this in order to do this I'm going back into my code base
+19:15
+and we can we can create cells for example here and I'm going to call it
+19:22
+address cell. TSX in here again I'm just creating a boiler plate react functional
+19:29
+component here and let's just log the props again and see what we've
+Linking Companies to Users with Dynamic Titles
+19:41
+got in order for this to be shown we have to go into our
+19:46
+companies and we have to specify or go to the the address field and below that I'm going to say
+19:54
+admin components and I'm going to say sell and
+20:00
+now do components sells address cell so let's wait until this refreshes
+20:10
+maybe show this once as you can see now the address is empty which means our
+20:15
+custom cell is loading and it doesn't log it here it
+20:24
+might just log it in our actual browser
+20:35
+okay so what it currently says is it doesn't find it in the import map and that is what I was talking about
+20:41
+previously pay kind of kicks out everything that is unnecessary so if we add a new custom component what might
+20:47
+happen is we need to run pnpm payload generate import map this will generate
+20:55
+all necessary import although it says it already regenerated those so let's mpm
+21:01
+run Dev go and refresh this
+21:13
+one yeah so now join address cell and here we get our logs they should also be
+21:18
+in our console so what do we get here we get cell data we get collection slug
+21:24
+field row data link collection config IAT NEX and payload some of them we
+21:29
+already know the important two here are cell data and row data cell data is the
+21:37
+exact data that the cell has so everything inside the address field basically and row data is the data of
+21:45
+the entire row in this case so the entire document now to keep things simple what
+21:51
+we just have to do here is we have to do cell data D structure it
+21:57
+here and instead of returning the address cell we just need
+22:02
+to can put them below each other um can just do sell data. Street sell
+22:10
+data.zip and Sell data. City so let's check back and voila here
+Enhancing User Experience with Clickable Google Maps Links
+22:17
+we have our address data displayed correctly now this is by far not the
+22:24
+only thing that you can do with those custom cells it's pretty much as simple as it can get so what I'm going to show
+22:32
+you in addition to that is I want to be able to click on this address and open
+22:37
+it up in Google Maps so let's go back here first of all I have to type my
+22:42
+props here what payload luckily provides us with is something called default um server cell component props
+22:52
+that will type all props that we get here so what I want to do is I'm going
+22:58
+to to say const address I'm just going to create a template literal going to say Street zip
+23:06
+and City and I'm going to generate a Google Maps URL link from that which is
+23:11
+pretty much just a search with the query which is the
+23:17
+address but encode it so that it can fit in the URL and what we can do now is we can
+23:25
+turn this div into a link actually give it the H here we can also
+23:32
+say Target blank this will open it up in a new
+23:39
+tab so let's go back here and check if that works we can just click on it
+23:46
+and yeah it probably won't find anything here but let's just look for an address
+23:53
+that actually exists so let's maybe go to New York
+23:59
+and find something in Manhattan let's just take this cute
+24:05
+looking Museum and just copy it and add a
+24:11
+company here so dant
+24:18
+Museum and I just have to find out the address so we left out the
+24:23
+United States but we have the ZIP code here City
+24:29
+New York and we have to remove that here click on
+24:34
+Save if we check our custom cell here we land
+24:42
+in this address here and this should be the museum doesn't display as the museum
+24:48
+here because we didn't so we didn't look for the place specifically but just the address but as you can see it works so
+24:56
+like I said this is just a very simple example of how you can Implement such
+25:02
+custom cells since it's just a custom react component in the end you can pretty much do anything you want last
+25:08
+but not least we're going to implement a custom field component on the client
+Using useField for Dynamic Form Updates
+25:15
+side that generates something that I like to call a label now why do we need
+25:20
+such a label to demonstrate this what I'm going to do first is add a new field so in our users I'm going to create a
+25:28
+company field company which is type relationship
+25:34
+relation to companies it's still showing me the type error but like I said we did
+25:40
+everything we can I just probably have to restart vs code for that so let's
+25:45
+link or let's try to link a company in our user to do this I'm going into my user and I want to select a
+25:52
+company okay now which company do I have to select I have no idea because the ID
+25:57
+is the primary label by default to change this I can go back into my code
+26:03
+base and in companies I can specify the admin prop use as
+26:10
+title and I can say sorry I just want to say
+26:16
+name now instead of the ID it should now show me when it reloads it should Now
+26:23
+show me the name perfect now for this simple example the name is enough but what happens if we don't just want to
+26:31
+show a single field here so not just a name field but we also want to we want
+26:37
+the name and the city for example because in some cases the name or one
+26:44
+single field might not be a unique identifier for what you are trying to link so in our case what we are trying
+26:51
+to do is we want to use the name field as the label and we want to use the
+26:58
+address do City the issue is we can't just use a an
+27:04
+array here and that will generate the label automatically we have to do this ourselves the first option that you can
+27:11
+do is you can have an an after change hook that automatically or sorry before change hook that is even better that
+27:18
+takes in both of those uh both name and the city and he fills just a label field
+27:28
+automatically and stores it in the database the problem with that
+27:34
+is it's not real time so as you can see if I use the name as a
+27:41
+label or sorry let me go back here and quickly change the us as title to label
+27:46
+because that's what we want to use as the title so if I go back here in my
+27:53
+companies and I added my name
+27:58
+I want this to show up here in the title but it doesn't so that's why we're going to use
+28:04
+a custom client component to do this I'm going back I'm
+28:10
+creating a new component and I'm calling it
+28:16
+generate company label this component has to be a client
+28:23
+component because we need to do some things on the client side so um using
+28:28
+use client I'm going to show you one very cool hook that we can use so we can do
+28:36
+const value set value equals use
+28:45
+field this is a function that payload provides us with and we need to import
+28:51
+this use field I don't know why it doesn't Auto Import to be honest from
+28:58
+at payload CMS UI that's probably the case we get type issues if we don't
+29:04
+install this Library separately so I have to install payload CMS do
+29:11
+/ui it will still work without importing the library but we won't get rid of the
+29:18
+type errors and we need it for Auto Import so what can I do with this I
+29:23
+can't just specify use field I have to give it a path and the path will be
+29:29
+label now what I can do with this is I can now set the value label whenever I
+29:37
+want so I can return this generate company
+29:43
+label thing here in our case we don't actually need to return anything because it should be a hidden field so the way
+29:50
+that we use this to be honest this doesn't do anything right now but I wanted to import it straight away the
+29:56
+way that we use is in comp companies I will um add a new field so name we can
+30:03
+give it generate label and the type will be a UI
+30:09
+component that means it doesn't really it doesn't create any new field in the
+30:14
+company schema it's just there to be able to import those custom components
+30:20
+so I'm going to say components components and field and there I'm going
+30:27
+to import my components SL generate company label
+30:32
+field so back in here what I have to do is I
+30:38
+also have to grab the values of our name field and our City Field there are
+30:47
+multiple ways to do this to stick with this used field just because it's simple
+30:53
+I'm just going to have two other ones and I actually don't need the value of the labels I just need to be able to set
+30:59
+the value so I'm going to have two other ones
+31:05
+value and I'm labeling IT company name and that equals use field
+31:12
+with path name and I also have value
+31:18
+company City and this will that will use the path address. City now the missing piece
+31:25
+is a use effect and again we can only use this because it is a client
+31:31
+component so I can say set value and I'm just going to set
+31:40
+it to the company name and then there's a dash I like to do it this way and a
+31:46
+company City now if that is not defined um I will just put it as an
+31:51
+empty string I will also put trim at the end so that we don't have any
+31:57
+unnecessary wi space for the company name I'm just going to do the
+Finalizing the Custom Label Field Implementation
+32:02
+same so this should be it and if we go back into our admin panel oops we might
+32:10
+have to refresh this one so here we go now let me just update our name here and
+32:18
+it magically automatically generates this label as you can see the label field is still visible we can keep it visible or
+32:26
+if we want to hide it and just you know see it at the top we can go back
+32:31
+here and under companies label we can say
+32:37
+admin hidden true that should hide the FI completely
+32:43
+okay now we can just see it here now like I said the cool part about that is as soon as we change something here so
+32:50
+we can say loss Ang Angeles it will update it in real time
+32:58
+at the top here just going to change it back click on Save
+33:05
+and yeah that is pretty much how we can use a custom field component here obviously the same thing is true for
+33:13
+custom field components if we just want to show something here instead of just
+33:19
+returning nothing we can return a Dave say hello
+33:25
+world and again this is here we can pretty much display
+33:31
+and do anything that we want so this will be it for our overview about custom
+33:36
+components in the payload admin panel if you need more context or want to know where exactly you can add those custom
+Closing Remarks and Next Steps
+33:44
+components again I will link the payload documentation down below also if you
+33:49
+have any specific use cases or specific custom components that you would like us
+33:55
+to talk about or that we should build in a video please write us a comment down below and
+34:01
+apart from that take care and see you in the next video
+
+Customize the payload navbar
+
+AllAboutPayload
+4.58K subscribers
+
+Subscribe
+
+60
+
+
+Share
+
+Ask
+
+4,409 views  May 18, 2024
+Hey everyone! 🌍🎉 Welcome to our Custom Navbar Guide! 📺👨‍💻
+
+In this special episode, we're diving into the exciting process of creating a custom navbar using Payload CMS and Tailwind CSS. 🌐💻 Building on our previous tutorials, I'll show you how to enhance your navbar with custom styling, icons, and dynamic links, offering a tailored experience for your users. 🗺️✨ Join me, Joshua, as I guide you through the process, from configuring Payload CMS to injecting your own links and nav groups. Expect comprehensive code walkthroughs and insightful tips to ensure your navbar looks great and functions seamlessly. 📝💡
+
+🔗 Useful Links:
+
+Last tutorial on Payload CMS and Next.js:    • Payload CMS - Google Auth in the Admin Panel  
+
+Code Snippets: https://10x-media-gmbh.notion.site/Dy...
+
+For the latest updates, follow us on Twitter:
+  / wrngphilosophr  
+  / 10xmediagmbh  
+
+⏰ Timestamps:
+
+00:00 Introduction 🎬
+00:22 Custom Navbar Overview 📱✨
+00:41 Injecting Links and Groups 🔄🛠️
+01:14 Starting with a Simple Payload Project 🌍🔧
+01:31 Using Tailwind CSS for Styling 💡
+03:35 Creating the Navbar Component 📝🔑
+06:13 Importing and Adjusting Navbar Elements 📲🔧
+07:55 Adding Custom Icons to Nav Groups 📊👤
+12:42 Implementing a Link List in a Nav Group 📑🔗
+16:20 Customizing Nav Group Headers 🎨✨
+24:05 Injecting Links into Existing Nav Groups 📂🔧
+28:01 Conclusion & Invitation for Feedback 🏁💬
+
+If you find this tutorial valuable, hit that LIKE button 👍💥 and remember to SUBSCRIBE 🔔📢 for more in-depth tech tutorials.
+
+💬 Your Feedback:
+We're eager to hear from you! Drop your questions or feedback in the comments below. Your insights are incredibly important to us. 💬💜
+
+🚀 Catch You Next Time!
+Stay tuned for our upcoming videos, where we'll continue to explore the latest in tech and development! 🚀💫
+
+Transcript
+
+
+Search in video
+Introduction
+0:00
+hi my name is Joshua and in this video
+0:02
+we're going to talk about how to create
+0:04
+a custom site a custom nfar in payload
+0:11
+so what you're seeing here is actually a
+0:13
+completely custom nfar that has all the
+0:16
+functionality that the normal navb from
+0:19
+payad also brings with added benefits
+Custom Navbar Overview
+0:22
+first we can now style this Naf bar with
+0:24
+Tailwind CSS then we have
+0:28
+icons and also so it looks ordinary but
+0:31
+we can inject our own links now right
+0:34
+into NV groups and we can inject whole
+0:38
+nav groups that we can change so this is
+Injecting Links and Groups 🔄🛠️
+0:41
+a nav group where I want to save useful
+0:43
+links for user or for whatever reason so
+0:46
+I created a link list in uh Global and I
+0:51
+can edit this and it will automatically
+0:54
+edit um
+0:56
+useful link it will automatically edit
+0:59
+it here as well
+1:00
+well let's reload the
+1:05
+page okay useful link now how are we
+1:08
+going to do
+1:09
+this we are going to start with a very
+1:12
+simple payload project this is based on
+Starting with a Simple Payload Project
+1:14
+the previous payload projects that we
+1:16
+implemented and you can easy follow
+1:19
+sandor's tutorial in this payload
+1:22
+project we also implemented Tailwind CSS
+1:25
+so I would highly recommend you
+1:27
+implementing it because we're going to
+1:28
+style the sidebar with it
+1:30
+and we added some collections it doesn't
+Using Tailwind CSS for Styling
+1:33
+really matter what collections you use
+1:35
+here as long as they have some groups in
+1:37
+this case we have a Blog group we have
+1:39
+articles categories comments we have a
+1:42
+CRM group of customers we have media
+1:44
+also for uh for the blog group users for
+1:49
+an admin group then we have some custom
+1:52
+views we have an exper
+1:54
+view overview
+1:57
+view a config global
+2:00
+here we save the link list and a
+2:03
+dashboard this is also from a previous
+2:07
+tutorial we add this all to our payload
+2:09
+config and then the base project should
+2:12
+look something like
+2:16
+this now how are we going to
+2:19
+start first we need to copy the actual
+2:23
+code from the payload repository for the
+2:28
+Navar and then we're going to modify
+2:30
+this you're going to find the code for
+2:33
+the for the nfar bar in the payload
+2:35
+repository so you go on GitHub payload
+2:38
+then you go to
+2:42
+packages in packages you're going to
+2:46
+find oh I'm in the
+2:48
+way you are going to find
+2:53
+payload in payload we're going to find a
+2:55
+source folder in Source folder we have
+2:58
+an admin folder in admin we have
+3:01
+components in components we have
+3:03
+elements and in elements we finally have
+3:07
+the elements that we actually need first
+3:09
+of all here we have the nav we are going
+3:12
+to copy this the index
+3:16
+TSX just copy it and back in our project
+3:21
+we are going to create I created a
+3:24
+components folder we're going to create
+3:26
+a new folder a nav
+3:30
+and we're going to start by creating a
+3:32
+new file nav
+3:34
+j6 I personally prefer JavaScript over
+Creating the Navbar Component
+3:37
+typescript um so I'm going to use to to
+3:41
+remove the typescript references but you
+3:43
+can of course keep them and keep on
+3:45
+working with typescript that is no
+3:47
+problem at
+3:48
+all now let me remove the
+3:55
+typescript
+3:57
+here here
+4:01
+and do we have something missing ah yes
+4:03
+also this complete thing here we don't
+4:06
+need because it extends the payload
+4:08
+config by default but we don't need that
+4:12
+we also we have these
+4:19
+strings then we need to export this I'm
+4:24
+going to export this Con no export
+4:28
+default
+4:30
+function nav because this is a nav bar
+4:34
+ah here still we have the
+4:37
+group now this should work for now and
+4:41
+we need to import it into our payload
+4:43
+config for that we need to go into admin
+4:50
+components and in our components we can
+4:53
+directly in before views inject our own
+4:57
+nav panel by
+5:00
+stating nav
+5:02
+colon Nav Now we need to import it here
+5:06
+yes perfect and don't forget the
+5:09
+comma Now we injected our own nav panel
+5:12
+but you see we're going to get a lot of
+5:14
+error me
+5:15
+messages because we need to adjust a lot
+5:18
+of this code first we have the Imports
+5:22
+we can remove the Imports that we don't
+5:23
+need anymore we don't need the render
+5:25
+custom
+5:27
+function but these Imports we all need
+5:29
+to rework can also remove the import
+5:33
+CSS then we need to implement also later
+5:38
+the nav group and we also need to imp
+5:41
+implement the hamburger so we're going
+5:43
+to put them
+5:46
+separate now we're left with use config
+5:49
+use of Chevron entity type group nav
+5:52
+items can translations and we need to
+5:55
+import them we're going to get them
+6:01
+from the payload npm package and I
+6:05
+prepared this I'm simply going going to
+6:08
+copy paste it in
+6:11
+here so here we
+Importing and Adjusting Navbar Elements
+6:14
+have use NF which is imported from
+6:17
+payload components elements can remove
+6:20
+this then we have the logout which is
+6:22
+imported from payload disc admin
+6:24
+components elements log
+6:26
+out then we have the use off and the use
+6:29
+use config which is also imported from
+6:31
+payload component SL utilities now we
+6:34
+can delete these
+6:37
+two then we have the Chevron which is
+6:40
+imported from payload components SL
+6:43
+icons um by the
+6:45
+way this is probably not going to work
+6:49
+with payload
+6:50
+3.0 when there is a stable version of
+6:52
+payload 3.0 we have to rework this
+6:55
+tutorial at least the
+6:57
+Imports then
+7:00
+we have entity type and group nav items
+7:04
+oh did I get translations ah we also
+7:07
+need to remove this because we get the
+7:10
+translations from payload disutility
+7:12
+slet
+7:14
+translations now we're left with the
+7:15
+entity type and group nav items the best
+7:18
+way to import these I found is to
+7:23
+manually import The Entity
+7:26
+type I also prepared this so let me
+7:31
+paste it here really quick with the
+7:32
+entity type of collection in global so
+7:36
+we don't need that the group nav items
+7:40
+function I also found the easiest to
+7:42
+Simply copy paste it into our own
+7:46
+project from payload for that you need
+7:49
+to go to payload packages payload SRC
+7:53
+admin utils group nav items and here you
+Adding Custom Icons to Nav Groups
+7:56
+have this function going to copy it as a
+7:59
+whole
+8:03
+I let's copy
+8:07
+it and we're going to paste it
+8:11
+here I'm going to remove the types
+8:15
+again
+8:24
+grp oops
+8:37
+now we can remove this import as well
+8:40
+and with that ah we should have managed
+8:44
+to get most of the all of the import
+8:49
+Imports next point we need to implement
+8:54
+hamburger and nav
+8:56
+group we could also import the hamburger
+8:59
+but we want full control so we going to
+9:03
+get the hamburger uh implemented ourself
+9:06
+or copy it and then we have control so
+9:10
+next we're going to add the hamburger
+9:13
+it's very easy
+9:15
+Hamburg g. jsx we're going to go back on
+9:19
+GitHub within the same directory where
+9:22
+the nav folder is there's also the
+9:26
+hamburger a few folders up
+9:29
+so we simply copy paste this
+9:33
+copy
+9:35
+paste and now here we need to adjust
+9:38
+some of the Imports as well oh let's me
+9:41
+let me change
+9:45
+this we can remove the index. CSS and
+9:49
+the Chevron we also need to get from the
+9:52
+same place as here so we're going to
+9:53
+copy paste this as well
+9:56
+Chevron remove it
+10:00
+and now we have the
+10:02
+hamburger does this export con yes that
+10:05
+does work now we need the nav group
+10:08
+we're going to create a file new file
+10:11
+nav
+10:14
+group
+10:16
+JX and we're going to copy it as well
+10:20
+here we have one folder down the nav
+10:24
+group simply go into it going to copy
+10:27
+the whole thing now have Pro
+10:31
+paste here we
+10:34
+have similar
+10:41
+problems let me remove the types
+10:47
+again okay here we have similar problems
+10:50
+with the Imports let's get Ri of rid of
+10:52
+index CSS we have Usef which we can
+10:57
+which is the same as here here so we can
+11:00
+copy it use
+11:03
+NV then we have
+11:05
+preferences preferences we're going to
+11:08
+get
+11:09
+from payload component SL
+11:13
+preferences and then we have again the
+11:15
+Chevron that we can copy from the same
+11:23
+place okay for you it's probably going
+11:26
+to give an error message but you also
+11:28
+need to uh install animate height from
+11:32
+react with npm install react minus
+11:35
+animate minus
+11:37
+height and then we have done this so far
+11:42
+now let's see what error messages we
+11:44
+still get cannot find module nav group
+11:47
+yes of course we have not imported it
+11:49
+yet
+11:50
+correctly let's see if we still get any
+11:53
+error
+11:56
+message okay now it seems to work that
+11:59
+means if we go into our payLo
+12:05
+project we have a normal Nar but it is
+12:08
+now our Nar it's our own Nar by the way
+12:11
+please don't be irritated by the blue
+12:14
+Chevron I missed a CSS statement while I
+12:19
+was removing the already done
+12:24
+code the CSS statement is simply in the
+12:27
+tailwood uh in the the Tailwind CSS it
+12:30
+is this one with which we're going to
+12:32
+define the color of the Chevron icon
+12:36
+because it's defined by the stroke and
+12:38
+it is currently as far as I know not
+12:40
+possible with
+12:41
+Tailwind but if you know something else
+Implementing a Link List in a Nav Group
+12:43
+please post it in the comments
+12:46
+now we have imported successfully our
+12:49
+own nav
+12:52
+bar the first thing we now want to do is
+12:56
+to add icons to it how how do we do
+13:00
+that if you Haven not installed it
+13:02
+already please install react icons but
+13:05
+you could use any icon library for that
+13:08
+as far as this goes it doesn't really
+13:10
+matter the important thing is
+13:14
+that we have these nef groups and the
+13:18
+nef groups have a label this is you can
+13:22
+see
+13:24
+it
+13:25
+here if you go through the code you have
+13:27
+the groups which are grouped by the
+13:30
+labels or
+13:31
+by Collections and globals by
+13:35
+default and they are going to create
+13:37
+these nef groups and the nef group
+13:40
+itself takes a key and the label and the
+13:42
+label is the name we set for group in
+13:45
+our collection config and we can
+13:47
+intercept this and say oh hey if we see
+13:49
+this label then I want to inject my own
+13:52
+icon we can do this in the nef group
+13:55
+class itself this is maybe not the best
+13:58
+method but I found it to work reliably
+14:01
+and yeah why not use
+14:03
+it
+14:05
+now to inject our own labels we need to
+14:09
+create our uh a dictionary for this we
+14:11
+use const icon icon
+14:16
+dictionary equals and then we use as the
+14:19
+keys our group names for example
+14:23
+CRM and then we Appo an icon in this
+14:25
+case I want to use high User Group
+14:33
+for the
+14:35
+link um ah yes we're also going to add a
+14:38
+links group later
+14:40
+on but we can Define its icon right here
+14:44
+as well going to use Link for that then
+14:47
+we have the block
+14:49
+group
+14:52
+block which is H pencil yes let's lose
+14:57
+use that
+14:59
+then we have the admin Group which uh
+15:02
+uses the hi item
+15:08
+icon okay what I also would like to add
+15:11
+is we need to define the size
+15:14
+here so let's add a class name class
+15:19
+name and I'm going to use TN CSS so
+15:23
+width is going to be six and height is
+15:25
+going to be six but you can change this
+15:28
+to whatever you want
+15:29
+and of course we need to import all the
+15:32
+icons I'm not entirely sure if they're
+15:34
+all imported from hereo icons one or
+15:37
+here icons two I
+15:40
+prepared something let's simply try it
+15:43
+we import it from react
+15:45
+icons hi link
+15:50
+pencil let's see if this works or if it
+15:53
+needs to be a part of on somewhere else
+15:59
+okay does not seem to give an error
+16:00
+right now now the next thing is and this
+16:03
+is actually very very simple here we
+16:06
+have the elements that going to be
+16:09
+displayed in at the top of the
+16:12
+group here we have the content of the
+16:14
+group with the animate height and here's
+16:16
+the Chevron and here's the label of the
+16:18
+group and in front of the label we want
+Customizing Nav Group Headers
+16:20
+to add our icon we're going to add a
+16:23
+custom
+16:25
+div with icon dictionary
+16:29
+and this is going to take in the label
+16:32
+and it's then going to return the icon
+16:35
+so if we save this
+16:38
+now and we go back
+16:42
+to our back end then we have the icons
+16:46
+here now this does not really look like
+16:50
+intended and I would like to modify the
+16:54
+look of the group header a little bit so
+16:56
+it's larger and easier to different
+16:58
+frade between two between the links and
+17:02
+the
+17:03
+headers for that ah and also we want to
+17:06
+get off get rid of this
+17:08
+space first what we're going to do is
+17:10
+we're going to add the following classes
+17:12
+in the button it's going to be Flex Flex
+17:16
+row items Center Gap
+17:21
+two and then here in the label we're
+17:24
+going to set it on text X text XL and
+17:28
+Lex one also I want it to be text San
+17:33
+text San
+17:35
+500 and also the icon class
+17:41
+name text San
+17:48
+500 now let's see what
+17:52
+happened perfect and we have our custom
+17:56
+styled group nav groups with
+18:00
+headers now the next problem I want to
+18:03
+solve is that payload by itself gives
+18:05
+you the option to insert something in
+18:08
+front of the nav links or after the nav
+18:12
+links but they are itself not part of
+18:14
+groups so if you want to add links that
+18:17
+are part of the group you need to inject
+18:19
+your own nav
+18:21
+group and for this we have
+18:26
+defined the config here with the link
+18:29
+list but you could you could inject any
+18:31
+kind of Link we're going to go through
+18:32
+this also in more detail but yeah let's
+18:36
+for now we want to show these links as a
+18:39
+separate nav group below the other nav
+18:42
+groups this is also fairly easy we need
+18:45
+to go into the
+18:47
+nav and here you see you have all the
+18:51
+individual elements that make up the nav
+18:54
+power you have the before links you have
+18:56
+the groups
+18:58
+you have the after nav links and lck out
+19:01
+button and between the after nav links
+19:04
+and the groups we want to inject our own
+19:06
+Navar first of all we need to get
+19:10
+our config or our config
+19:15
+Global for that we Define a
+19:19
+State
+19:21
+const Global config comma
+19:25
+set set Global config
+19:29
+fig it is an I want to set it as null
+19:33
+for
+19:34
+now then we have
+19:37
+use which is going
+19:40
+to fetch Global config yes which is
+19:44
+correct and then we simply going to
+19:47
+fetch it this is not completely correct
+19:49
+API globals config set it to the global
+19:55
+config close this and
+19:59
+add uh
+20:02
+wait yes this should work now let's
+20:05
+format this nicely and adjust the
+20:12
+spaces okay ah and of course we need to
+20:14
+fetch Global config fetch Global config
+20:17
+me would be nicer with error handling
+20:19
+but for now I I trust you that you know
+20:21
+how to do
+20:22
+that now we have the global configs
+20:26
+and we have this group let's minimize
+20:30
+that and we're going to add another one
+20:34
+if we have Global con
+20:39
+fix then we're going to create a new
+20:41
+group H for that we need to open this
+20:45
+again we're basically going to copy this
+20:48
+nav
+20:50
+group in
+20:51
+here we can remove the
+20:55
+content actually we can remove most of
+20:57
+the stuff the only thing we need
+21:02
+is the
+21:05
+label ah we also copied a nav
+21:09
+link let's write it our have nav group
+21:13
+we have the label which is going to be
+21:15
+links as you remember we already
+21:19
+configured an icon for this and then in
+21:22
+this nav group you can inject whatever
+21:25
+so if I would I have this link nav group
+21:28
+I say blah blah blah I save
+21:33
+it and we go back
+21:37
+here we have
+21:40
+the there's something
+21:44
+wrong ah
+21:46
+label no how was label spelled
+21:50
+label okay does this is how it's
+21:53
+supposed to be
+21:58
+yes we have links and blah blah blah but
+22:01
+there's still the icon
+22:02
+missing where is the icon NV
+22:07
+group uh I spelled it with a capital
+22:12
+l let's go back to
+22:15
+nav then
+22:25
+links okay now this is how it's supposed
+22:27
+to be you have links you have you have
+22:28
+blah blah blah you can put in here
+22:30
+whatever it does not matter but we won't
+22:33
+put our links in
+22:35
+here for that we're going to define a
+22:39
+div class name equals Flex Flex
+22:46
+call and within this we're going to
+22:49
+iterate our array Global config
+22:55
+dot dot Link Link list.
+23:00
+map
+23:02
+this looks all
+23:05
+right
+23:08
+yeah and this
+23:12
+returns an a tag because it's going to
+23:15
+direct people outside of our
+23:18
+page class name um let's simply add
+23:26
+hre link. hre
+23:33
+and key equal we put equal to link.
+23:40
+ID Target is going to be
+23:45
+blank
+23:47
+and yeah that's enough then the label is
+23:51
+going to be link.
+23:52
+Lael now we go back to our
+23:56
+page let's see what happens
+24:01
+useful link Google
+24:03
+perfect now the last point we're going
+Injecting Links into Existing Nav Groups
+24:06
+to do is we now injected our own nav
+24:10
+group but we also want to inject our own
+24:13
+links in existing nav groups because we
+24:16
+have customers for example and we want a
+24:19
+separate view that exports the customers
+24:22
+and it really makes sense to have this
+24:24
+link right here in the CRM group because
+24:26
+otherwise you would have to Ed it before
+24:28
+nav or after nav or link to it on the
+24:31
+dashboard which would also not really
+24:33
+make sense we want it here how do we do
+24:35
+that
+24:37
+now to do that let me find my
+24:42
+mouse we need to go into
+24:46
+nav and now we want Within These groups
+24:51
+want to inject our links for that we're
+24:55
+also going to define a dictionary
+25:01
+and let's put it also at the top const
+25:07
+inject nav links
+25:10
+equals and here we need to specify the
+25:15
+name of the group again and then we're
+25:17
+going to put an
+25:21
+array and here we're going to put all
+25:23
+the links that we want to inject into
+25:26
+this group each link is going to need a
+25:29
+label label for example
+25:33
+export and a two which is admin
+25:40
+customers
+25:42
+customers.
+25:44
+export we also want you saw that we have
+25:47
+this overview view want to add this to
+25:52
+admin so we're going to specify this
+25:55
+here admin
+25:58
+label
+26:01
+overview
+26:03
+to and this is simply going to redirect
+26:06
+to label
+26:08
+overview now with these injected links
+26:11
+we're going to go
+26:13
+into the group because everything that
+26:17
+is within nav group is part of this
+26:20
+toggle up and down and simply after or
+26:24
+before you have to make a decision if
+26:26
+you want to the injected links before
+26:28
+the other links are after we are going
+26:30
+to inject them after we look if that
+26:33
+label that we have here because that's a
+26:35
+group name is in our dictionary and if
+26:38
+it is we're going to iterate through the
+26:40
+array in the dictionary and add the
+26:42
+links now inject nav links label perfect
+26:48
+that's
+26:49
+already and then we have
+26:53
+inject
+26:55
+NV links
+27:00
+label. map can take
+27:04
+this and we're going to return here
+27:09
+return basically a normal link we can
+27:13
+copy uh yes here we can copy the link
+27:15
+component that's going to be
+27:18
+faster
+27:20
+remove uh no not remove this the only
+27:22
+thing we need to do here is put link.
+27:26
+label HRA is going to be link
+27:30
+do2 key is going to
+27:34
+be no it should not be
+27:37
+I okay uh it's fine for now ID we don't
+27:41
+have if we click on Save and reload our
+27:47
+page then what we're going to see is yes
+27:50
+we have new links we have here this
+27:53
+export view that we created and we have
+27:55
+here it's the wrong link but does not
+27:57
+really matter the overview view in the
+Conclusion & Invitation for Feedback
+28:01
+admin okay so that was it for this video
+28:05
+I hope this was useful useful for you
+28:08
+and see you the next time
+
+

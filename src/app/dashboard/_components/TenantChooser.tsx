@@ -21,9 +21,10 @@ interface Tenant {
 interface TenantChooserProps {
   className?: string
   userId?: string | number
+  isCollapsed?: boolean
 }
 
-export function TenantChooser({ className = "", userId }: TenantChooserProps) {
+export function TenantChooser({ className = "", userId, isCollapsed = false }: TenantChooserProps) {
   const [tenants, setTenants] = useState<Tenant[]>([])
   const [currentTenant, setCurrentTenant] = useState<Tenant | null>(null)
   const [isOpen, setIsOpen] = useState(false)
@@ -219,10 +220,24 @@ export function TenantChooser({ className = "", userId }: TenantChooserProps) {
 
   if (tenants.length === 1) {
     // Single tenant - improved spacing and layout
+    if (isCollapsed) {
+      return (
+        <div className={`flex items-center justify-center p-2 ${className}`}>
+          <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-sm">
+            <span className="text-white font-semibold text-sm">
+              {currentTenant?.name?.charAt(0) || 'T'}
+            </span>
+          </div>
+        </div>
+      )
+    }
+    
     return (
       <div className={`flex items-center gap-3 p-2 ${className}`}>
         <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center shadow-sm">
-          <Building className="w-5 h-5 text-white" />
+          <span className="text-white font-semibold text-sm">
+            {currentTenant?.name?.charAt(0) || 'T'}
+          </span>
         </div>
         <div className="flex-1 min-w-0">
           <div className="font-medium text-sm text-sidebar-foreground truncate">
@@ -241,6 +256,25 @@ export function TenantChooser({ className = "", userId }: TenantChooserProps) {
     )
   }
 
+  if (isCollapsed) {
+    return (
+      <div className={`flex items-center justify-center p-2 ${className}`}>
+        <Button
+          variant="ghost"
+          onClick={() => setIsOpen(!isOpen)}
+          className="w-10 h-10 p-0 rounded-lg hover:bg-sidebar-accent/50"
+          title={currentTenant?.name || 'Select Tenant'}
+        >
+          <div className="w-10 h-10 bg-gradient-to-r from-primary/80 to-primary rounded-lg flex items-center justify-center shadow-sm">
+            <span className="text-primary-foreground font-semibold text-sm">
+              {currentTenant?.name?.charAt(0) || 'T'}
+            </span>
+          </div>
+        </Button>
+      </div>
+    )
+  }
+
   return (
     <div className={`relative ${className}`}>
       <Button
@@ -249,7 +283,9 @@ export function TenantChooser({ className = "", userId }: TenantChooserProps) {
         className="flex items-center gap-3 h-auto p-3 hover:bg-sidebar-accent/50 rounded-lg w-full"
       >
         <div className="w-10 h-10 bg-gradient-to-r from-primary/80 to-primary rounded-lg flex items-center justify-center shadow-sm">
-          <Building className="w-5 h-5 text-primary-foreground" />
+          <span className="text-primary-foreground font-semibold text-sm">
+            {currentTenant?.name?.charAt(0) || 'T'}
+          </span>
         </div>
         <div className="flex-1 text-left min-w-0">
           <div className="font-medium text-sm text-sidebar-foreground truncate">

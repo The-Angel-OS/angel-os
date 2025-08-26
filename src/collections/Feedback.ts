@@ -62,6 +62,10 @@ export const Feedback: CollectionConfig = {
         { label: 'Customer Support', value: 'support' },
         { label: 'LEO AI Interaction', value: 'leo_interaction' },
         { label: 'Platform/System', value: 'platform' },
+        // SafeSchool|MAP℠ specific entity types
+        { label: 'School Safety Review', value: 'school' },
+        { label: 'School District', value: 'school_district' },
+        { label: 'School Safety Program', value: 'safety_program' },
       ],
       admin: {
         description: 'What type of entity is being reviewed',

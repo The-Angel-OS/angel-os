@@ -95,6 +95,8 @@ export interface Config {
     venues: Venue;
     feedback: Feedback;
     events: Event;
+    schools: School;
+    invitations: Invitation;
     'mileage-logs': MileageLog;
     'quote-requests': QuoteRequest;
     users: User;
@@ -159,6 +161,8 @@ export interface Config {
     venues: VenuesSelect<false> | VenuesSelect<true>;
     feedback: FeedbackSelect<false> | FeedbackSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
+    schools: SchoolsSelect<false> | SchoolsSelect<true>;
+    invitations: InvitationsSelect<false> | InvitationsSelect<true>;
     'mileage-logs': MileageLogsSelect<false> | MileageLogsSelect<true>;
     'quote-requests': QuoteRequestsSelect<false> | QuoteRequestsSelect<true>;
     users: UsersSelect<false> | UsersSelect<true>;
@@ -740,6 +744,10 @@ export interface Tenant {
      * Enable member engagement portal
      */
     memberPortal?: boolean | null;
+    /**
+     * Enable SafeSchool|MAP℠ school safety platform
+     */
+    safeschool?: boolean | null;
   };
   limits?: {
     /**
@@ -4159,6 +4167,10 @@ export interface Message {
     | boolean
     | null;
   sender: number | User;
+  /**
+   * Web chat session ID for unauthenticated users (optional)
+   */
+  webChatSessionId?: string | null;
   space: number | Space;
   channel?: (number | null) | Channel;
   messageType: 'user' | 'leo' | 'system' | 'action' | 'intelligence';
@@ -4311,6 +4323,68 @@ export interface Channel {
       | null;
     outputFormat?: ('json' | 'csv' | 'pdf' | 'excel') | null;
   };
+  /**
+   * Users who have access to this channel
+   */
+  members?:
+    | {
+        /**
+         * User who is a member of this channel
+         */
+        user: number | User;
+        /**
+         * Role of the user in this channel
+         */
+        role: 'owner' | 'admin' | 'member' | 'guest';
+        /**
+         * When the user joined this channel
+         */
+        joinedAt: string;
+        permissions?: {
+          /**
+           * Can read messages in this channel
+           */
+          canRead?: boolean | null;
+          /**
+           * Can send messages to this channel
+           */
+          canWrite?: boolean | null;
+          /**
+           * Can invite other users to this channel
+           */
+          canInvite?: boolean | null;
+          /**
+           * Can manage channel settings and members
+           */
+          canManage?: boolean | null;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  /**
+   * Private channels are only visible to members
+   */
+  isPrivate?: boolean | null;
+  /**
+   * System channels are created automatically and have special behavior
+   */
+  isSystem?: boolean | null;
+  /**
+   * Virtual channels are created on-demand (e.g., PM channels)
+   */
+  isVirtual?: boolean | null;
+  /**
+   * Additional metadata for the channel (JSON format)
+   */
+  metadata?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
   status?: ('active' | 'paused' | 'maintenance' | 'deprecated') | null;
   lastProcessed?: string | null;
   createdAt: string;
@@ -4908,7 +4982,10 @@ export interface Feedback {
     | 'page'
     | 'support'
     | 'leo_interaction'
-    | 'platform';
+    | 'platform'
+    | 'school'
+    | 'school_district'
+    | 'safety_program';
   /**
    * ID of the product, post, event, etc. being reviewed
    */
@@ -5295,6 +5372,196 @@ export interface Event {
    * Tenant this event belongs to
    */
   tenant: number | Tenant;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * School profiles with safety ratings and verification status
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "schools".
+ */
+export interface School {
+  id: number;
+  name: string;
+  hero: {
+    type: 'none' | 'highImpact' | 'mediumImpact' | 'lowImpact';
+    richText?: {
+      root: {
+        type: string;
+        children: {
+          type: string;
+          version: number;
+          [k: string]: unknown;
+        }[];
+        direction: ('ltr' | 'rtl') | null;
+        format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+        indent: number;
+        version: number;
+      };
+      [k: string]: unknown;
+    } | null;
+    links?:
+      | {
+          link: {
+            type?: ('reference' | 'custom') | null;
+            newTab?: boolean | null;
+            reference?:
+              | ({
+                  relationTo: 'pages';
+                  value: number | Page;
+                } | null)
+              | ({
+                  relationTo: 'posts';
+                  value: number | Post;
+                } | null)
+              | ({
+                  relationTo: 'products';
+                  value: number | Product;
+                } | null);
+            url?: string | null;
+            label: string;
+            /**
+             * Choose how the link should be rendered.
+             */
+            appearance?: ('default' | 'outline') | null;
+          };
+          id?: string | null;
+        }[]
+      | null;
+    media?: (number | null) | Media;
+  };
+  address: {
+    street?: string | null;
+    city: string;
+    state: string;
+    zipCode?: string | null;
+    coordinates?: {
+      latitude?: number | null;
+      longitude?: number | null;
+    };
+  };
+  demographics: {
+    schoolType: 'elementary' | 'middle' | 'high' | 'charter' | 'private' | 'magnet' | 'alternative';
+    grades?: string | null;
+    enrollment?: number | null;
+    studentTeacherRatio?: number | null;
+    district?: string | null;
+  };
+  contact?: {
+    website?: string | null;
+    phone?: string | null;
+  };
+  externalData?: {
+    /**
+     * National Center for Education Statistics ID
+     */
+    ncesId?: string | null;
+    stateId?: string | null;
+    website?: string | null;
+    phone?: string | null;
+  };
+  media?: {
+    profileImage?: (number | null) | Media;
+    gallery?:
+      | {
+          image?: (number | null) | Media;
+          caption?: string | null;
+          id?: string | null;
+        }[]
+      | null;
+  };
+  /**
+   * Current operational status of the school
+   */
+  schoolStatus: 'active' | 'pending' | 'suspended' | 'closed';
+  featured?: boolean | null;
+  safetyScores: {
+    communityScore: {
+      overall: number;
+      crimeData?: number | null;
+      demographicSafety?: number | null;
+      lastUpdated?: string | null;
+      dataSource?: string | null;
+    };
+    verifiedScore?: {
+      isVerified?: boolean | null;
+      overall?: number | null;
+      verificationDate?: string | null;
+      siteAssessment?: {
+        physicalSecurity?: number | null;
+        emergencyPreparedness?: number | null;
+        staffTraining?: number | null;
+        studentWellbeing?: number | null;
+      };
+    };
+  };
+  /**
+   * Add custom content blocks to enhance the school profile page
+   */
+  layout?: (CallToActionBlock | ContentBlock | MediaBlock | ArchiveBlock | FormBlock)[] | null;
+  meta?: {
+    title?: string | null;
+    /**
+     * Maximum upload file size: 12MB. Recommended file size for images is <500KB.
+     */
+    image?: (number | null) | Media;
+    description?: string | null;
+  };
+  publishedAt?: string | null;
+  slug?: string | null;
+  slugLock?: boolean | null;
+  updatedAt: string;
+  createdAt: string;
+  _status?: ('draft' | 'published') | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations".
+ */
+export interface Invitation {
+  id: number;
+  /**
+   * Email address of the person being invited
+   */
+  email: string;
+  /**
+   * Type of invitation - account creation for new users, space invitation for existing users
+   */
+  type: 'account_creation' | 'space_invitation';
+  status: 'pending' | 'accepted' | 'expired' | 'cancelled';
+  /**
+   * Unique token for the invitation link
+   */
+  token: string;
+  /**
+   * Space the user is being invited to
+   */
+  spaceId: number | Tenant;
+  /**
+   * Role the user will have in the space
+   */
+  role: 'member' | 'admin' | 'owner';
+  /**
+   * User who sent the invitation
+   */
+  invitedBy: number | User;
+  /**
+   * User ID if the invited person already has an account
+   */
+  userId?: (number | null) | User;
+  /**
+   * When the invitation expires
+   */
+  expiresAt: string;
+  /**
+   * When the invitation was accepted
+   */
+  acceptedAt?: string | null;
+  /**
+   * Optional personal message to include with the invitation
+   */
+  message?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -7591,6 +7858,14 @@ export interface PayloadLockedDocument {
         value: number | Event;
       } | null)
     | ({
+        relationTo: 'schools';
+        value: number | School;
+      } | null)
+    | ({
+        relationTo: 'invitations';
+        value: number | Invitation;
+      } | null)
+    | ({
         relationTo: 'mileage-logs';
         value: number | MileageLog;
       } | null)
@@ -8828,6 +9103,7 @@ export interface MessagesSelect<T extends boolean = true> {
   conversationContext?: T;
   businessIntelligence?: T;
   sender?: T;
+  webChatSessionId?: T;
   space?: T;
   channel?: T;
   messageType?: T;
@@ -9136,6 +9412,26 @@ export interface ChannelsSelect<T extends boolean = true> {
             };
         outputFormat?: T;
       };
+  members?:
+    | T
+    | {
+        user?: T;
+        role?: T;
+        joinedAt?: T;
+        permissions?:
+          | T
+          | {
+              canRead?: T;
+              canWrite?: T;
+              canInvite?: T;
+              canManage?: T;
+            };
+        id?: T;
+      };
+  isPrivate?: T;
+  isSystem?: T;
+  isVirtual?: T;
+  metadata?: T;
   status?: T;
   lastProcessed?: T;
   createdAt?: T;
@@ -9825,6 +10121,155 @@ export interface EventsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "schools_select".
+ */
+export interface SchoolsSelect<T extends boolean = true> {
+  name?: T;
+  hero?:
+    | T
+    | {
+        type?: T;
+        richText?: T;
+        links?:
+          | T
+          | {
+              link?:
+                | T
+                | {
+                    type?: T;
+                    newTab?: T;
+                    reference?: T;
+                    url?: T;
+                    label?: T;
+                    appearance?: T;
+                  };
+              id?: T;
+            };
+        media?: T;
+      };
+  address?:
+    | T
+    | {
+        street?: T;
+        city?: T;
+        state?: T;
+        zipCode?: T;
+        coordinates?:
+          | T
+          | {
+              latitude?: T;
+              longitude?: T;
+            };
+      };
+  demographics?:
+    | T
+    | {
+        schoolType?: T;
+        grades?: T;
+        enrollment?: T;
+        studentTeacherRatio?: T;
+        district?: T;
+      };
+  contact?:
+    | T
+    | {
+        website?: T;
+        phone?: T;
+      };
+  externalData?:
+    | T
+    | {
+        ncesId?: T;
+        stateId?: T;
+        website?: T;
+        phone?: T;
+      };
+  media?:
+    | T
+    | {
+        profileImage?: T;
+        gallery?:
+          | T
+          | {
+              image?: T;
+              caption?: T;
+              id?: T;
+            };
+      };
+  schoolStatus?: T;
+  featured?: T;
+  safetyScores?:
+    | T
+    | {
+        communityScore?:
+          | T
+          | {
+              overall?: T;
+              crimeData?: T;
+              demographicSafety?: T;
+              lastUpdated?: T;
+              dataSource?: T;
+            };
+        verifiedScore?:
+          | T
+          | {
+              isVerified?: T;
+              overall?: T;
+              verificationDate?: T;
+              siteAssessment?:
+                | T
+                | {
+                    physicalSecurity?: T;
+                    emergencyPreparedness?: T;
+                    staffTraining?: T;
+                    studentWellbeing?: T;
+                  };
+            };
+      };
+  layout?:
+    | T
+    | {
+        cta?: T | CallToActionBlockSelect<T>;
+        content?: T | ContentBlockSelect<T>;
+        mediaBlock?: T | MediaBlockSelect<T>;
+        archive?: T | ArchiveBlockSelect<T>;
+        formBlock?: T | FormBlockSelect<T>;
+      };
+  meta?:
+    | T
+    | {
+        title?: T;
+        image?: T;
+        description?: T;
+      };
+  publishedAt?: T;
+  slug?: T;
+  slugLock?: T;
+  updatedAt?: T;
+  createdAt?: T;
+  _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "invitations_select".
+ */
+export interface InvitationsSelect<T extends boolean = true> {
+  email?: T;
+  type?: T;
+  status?: T;
+  token?: T;
+  spaceId?: T;
+  role?: T;
+  invitedBy?: T;
+  userId?: T;
+  expiresAt?: T;
+  acceptedAt?: T;
+  message?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "mileage-logs_select".
  */
 export interface MileageLogsSelect<T extends boolean = true> {
@@ -10407,6 +10852,7 @@ export interface TenantsSelect<T extends boolean = true> {
         vapi?: T;
         n8n?: T;
         memberPortal?: T;
+        safeschool?: T;
       };
   limits?:
     | T
@@ -11487,6 +11933,10 @@ export interface TaskSchedulePublish {
       | ({
           relationTo: 'products';
           value: number | Product;
+        } | null)
+      | ({
+          relationTo: 'schools';
+          value: number | School;
         } | null);
     global?: string | null;
     user?: (number | null) | User;
